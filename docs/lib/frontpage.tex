@@ -1,0 +1,144 @@
+% ============================================================================
+% CAPA PERSONALIZADA - TECH CHALLENGE FASE 3
+% Assistente Virtual Médico com Fine-Tuning, LangChain e LangGraph
+% ============================================================================
+
+\begin{titlepage}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Faixa superior vermelha
+        \fill[fiap-red] (current page.north west) rectangle ([yshift=-4cm]current page.north east);
+
+        % Faixa diagonal decorativa
+        \fill[fiap-gray!30] ([yshift=-4cm]current page.north east) --
+                             ([yshift=-6cm]current page.north east) --
+                             ([yshift=-5cm, xshift=-3cm]current page.north east) -- cycle;
+    \end{tikzpicture}
+
+    \vspace*{-3.25cm}
+
+    % Logo FIAP
+    \begin{center}
+        \raisebox{-8pt}{\includegraphics[height=25pt]{./assets/logo_fiap.png}}
+        \hspace{5pt}
+        \raisebox{-8pt}{\includegraphics[height=15pt]{./assets/logo_pos-tech.png}}
+    \end{center}
+
+    \begin{center}
+        {\color{white}\Large\bfseries\sffamily\instituicao}\\[0.3cm]
+        {\color{white}\large\sffamily\cursotitulo}
+    \end{center}
+
+    \vspace{2cm}
+
+    \begin{center}
+        % Título principal
+        {\Huge\bfseries\color{fiap-dark}\sffamily
+        ASSISTENTE VIRTUAL\\[0.3cm]
+        MÉDICO COM\\[0.3cm]
+        IA GENERATIVA}
+
+        \vspace{1cm}
+
+        % Subtítulo
+        {\Large\color{fiap-gray}\sffamily
+        Fine-Tuning de LLM, RAG com Protocolos Clínicos\\[0.2cm]
+        e Grafo Multi-Agente com LangGraph}
+
+        \vspace{1.5cm}
+
+        % Box Tech Challenge
+        \begin{tcolorbox}[
+            enhanced,
+            colback=fiap-light,
+            colframe=fiap-red,
+            boxrule=2pt,
+            arc=3pt,
+            width=0.7\textwidth,
+            halign=center,
+            fontupper=\Large\bfseries\sffamily
+        ]
+            \color{fiap-red}TECH CHALLENGE - FASE 3
+        \end{tcolorbox}
+    \end{center}
+
+    \vspace{2cm}
+
+    % Informações do grupo
+    \begin{center}
+        {\large\bfseries\sffamily\color{fiap-dark}\gruponome}
+
+        \vspace{0.8cm}
+
+        \begin{tcolorbox}[
+            enhanced,
+            colback=white,
+            colframe=fiap-gray,
+            boxrule=1pt,
+            arc=2pt,
+            width=0.7\textwidth,
+            halign=center,
+            left=2pt,
+            right=2pt,
+            top=8pt,
+            bottom=8pt
+        ]
+            {\normalsize\sffamily\grupointegrantes}
+        \end{tcolorbox}
+    \end{center}
+
+    \vfill
+
+    % Rodapé
+    \begin{center}
+        {\large\bfseries\sffamily\color{fiap-dark}São Paulo}\\[0.2cm]
+        {\large\sffamily\color{fiap-gray}\dataconclusao}
+    \end{center}
+
+    \vspace{1cm}
+
+\end{titlepage}
+
+% ============================================================================
+% FOLHA DE ROSTO
+% ============================================================================
+\begin{titlepage}
+    \vspace*{2cm}
+
+    \begin{center}
+        {\Large\bfseries\sffamily\gruponome}
+    \end{center}
+
+    \vspace{4cm}
+
+    \begin{center}
+        {\LARGE\bfseries\sffamily
+        ASSISTENTE VIRTUAL MÉDICO\\[0.3cm]
+        COM IA GENERATIVA}
+
+        \vspace{0.5cm}
+
+        {\large\sffamily
+        Fine-Tuning de LLM com MedQuAD, RAG com Protocolos Clínicos\\[0.2cm]
+        e Orquestração Multi-Agente com LangGraph}
+    \end{center}
+
+    \vspace{3cm}
+
+    \begin{flushright}
+        \begin{minipage}{0.5\textwidth}
+            \setlength{\parindent}{0pt}
+            \setlength{\parskip}{0.3cm}
+
+            Relatório técnico apresentado como parte dos requisitos para aprovação no Tech Challenge da Fase 3 do curso de Pós-Graduação em Inteligência Artificial para Devs da FIAP.
+
+        \end{minipage}
+    \end{flushright}
+
+    \vfill
+
+    \begin{center}
+        {\large\bfseries São Paulo}\\[0.2cm]
+        {\large\dataconclusao}
+    \end{center}
+
+\end{titlepage}

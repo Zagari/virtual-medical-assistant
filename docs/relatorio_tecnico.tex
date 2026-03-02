@@ -1,0 +1,331 @@
+% ============================================================================
+% RELATÓRIO TÉCNICO - TECH CHALLENGE FASE 3
+% Pós-Graduação FIAP - Inteligência Artificial para Devs
+% Assistente Virtual Médico com Fine-Tuning, LangChain e LangGraph
+% ============================================================================
+
+\documentclass[12pt, a4paper]{report}
+
+% ============================================================================
+% PACOTES E CONFIGURAÇÕES BÁSICAS
+% ============================================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{setspace}
+\onehalfspacing
+
+% Geometria da página
+\usepackage[top=3cm, bottom=2cm, left=3cm, right=2cm]{geometry}
+\setlength{\headheight}{25pt}
+
+% Fontes modernas
+\usepackage{lmodern}
+\usepackage[default]{sourcesanspro}
+\usepackage{microtype}
+
+% Cores
+\usepackage[table]{xcolor}
+\definecolor{fiap-red}{RGB}{237,28,36}
+\definecolor{fiap-dark}{RGB}{35,31,32}
+\definecolor{fiap-gray}{RGB}{128,130,133}
+\definecolor{fiap-light}{RGB}{242,242,242}
+\definecolor{code-bg}{RGB}{248,248,248}
+\definecolor{link-blue}{RGB}{0,102,204}
+
+% Gráficos e figuras
+\usepackage{graphicx}
+\graphicspath{{./assets/}{./figures/}{./images/}}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+% Tabelas
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{array}
+
+% Matemática
+\usepackage{amsmath, amssymb}
+
+% Código
+\usepackage{listings}
+
+% Configuração do listings para Python
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{code-bg},
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{gray}\itshape,
+    stringstyle=\color{red},
+    numberstyle=\tiny\color{gray},
+    numbers=left,
+    stepnumber=1,
+    frame=single,
+    rulecolor=\color{fiap-gray},
+    breaklines=true,
+    breakatwhitespace=true,
+    postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space},
+    showstringspaces=false,
+    tabsize=4,
+    captionpos=b,
+    xleftmargin=2em,
+    framexleftmargin=1.5em,
+    literate=
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+        {à}{{\`a}}1 {ã}{{\~a}}1 {õ}{{\~o}}1 {Ã}{{\~A}}1 {Õ}{{\~O}}1
+        {â}{{\^a}}1 {ê}{{\^e}}1 {ô}{{\^o}}1
+        {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1
+}
+
+% Configuração para Bash
+\lstdefinestyle{bash}{
+    language=bash,
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{fiap-dark!5},
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{gray}\itshape,
+    stringstyle=\color{red},
+    frame=single,
+    rulecolor=\color{fiap-gray},
+    breaklines=true,
+    numbers=none,
+    xleftmargin=1em,
+    framexleftmargin=0.5em,
+}
+
+% Configuração para SQL
+\lstdefinestyle{sql}{
+    language=SQL,
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{code-bg},
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{gray}\itshape,
+    stringstyle=\color{red},
+    frame=single,
+    rulecolor=\color{fiap-gray},
+    breaklines=true,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    xleftmargin=2em,
+    framexleftmargin=1.5em,
+}
+
+% Boxes modernos
+\usepackage{tcolorbox}
+\tcbuselibrary{most}
+
+\newtcolorbox{infobox}[1][Informação]{
+    enhanced, colback=blue!5, colframe=blue!75!black,
+    coltitle=white, colbacktitle=blue!75!black,
+    fonttitle=\sffamily\bfseries, title=#1,
+    left=8pt, right=8pt, top=8pt, bottom=8pt,
+    arc=2pt, boxrule=1pt, drop shadow
+}
+
+\newtcolorbox{warningbox}[1][Atenção]{
+    enhanced, colback=orange!5, colframe=orange!80!black,
+    coltitle=white, colbacktitle=orange!80!black,
+    fonttitle=\sffamily\bfseries, title=#1,
+    left=8pt, right=8pt, top=8pt, bottom=8pt,
+    arc=2pt, boxrule=1pt, drop shadow
+}
+
+\newtcolorbox{importantbox}[1][Importante]{
+    enhanced, colback=fiap-red!5, colframe=fiap-red,
+    coltitle=white, colbacktitle=fiap-red,
+    fonttitle=\sffamily\bfseries, title=#1,
+    left=8pt, right=8pt, top=8pt, bottom=8pt,
+    arc=2pt, boxrule=1pt, drop shadow
+}
+
+% Tikz para diagramas
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, positioning, calc, fit}
+
+% Formatação de títulos
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]
+    {\normalfont\huge\bfseries\color{fiap-dark}}
+    {\filleft\Huge\color{fiap-red}\thechapter}
+    {20pt}
+    {\Huge\filleft}
+    [\vspace{-10pt}{\color{fiap-red}\titlerule[2pt]}]
+
+\titleformat{\section}
+    {\normalfont\Large\bfseries\color{fiap-dark}}
+    {\color{fiap-red}\thesection}
+    {1em}
+    {}
+    [\vspace{2pt}{\color{fiap-red}\titlerule[1pt]}]
+
+\titleformat{\subsection}
+    {\normalfont\large\bfseries\color{fiap-dark}}
+    {\color{fiap-red}\thesubsection}
+    {1em}
+    {}
+
+\titleformat{\subsubsection}
+    {\normalfont\normalsize\bfseries\color{fiap-dark}}
+    {\color{fiap-red}\thesubsubsection}
+    {1em}
+    {}
+
+% Cabeçalho e rodapé
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\slshape\nouppercase{\leftmark}}
+\fancyhead[R]{\small\thepage}
+\fancyfoot[C]{\small Tech Challenge - Fase 3 | FIAP}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{fiap-red}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{fiap-gray}\leaders\hrule height \footrulewidth\hfill}}
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[C]{\small\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0.5pt}
+}
+
+% Hyperlinks
+\usepackage[pdfusetitle, colorlinks=true, linkcolor=fiap-dark, citecolor=link-blue, urlcolor=link-blue]{hyperref}
+
+% Glossário e acrônimos
+\usepackage[acronym, toc]{glossaries}
+\makeglossaries
+
+% Lista de acrônimos
+\newacronym{ia}{IA}{Inteligência Artificial}
+\newacronym{llm}{LLM}{Large Language Model}
+\newacronym{rag}{RAG}{Retrieval-Augmented Generation}
+\newacronym{qlora}{QLoRA}{Quantized Low-Rank Adaptation}
+\newacronym{lora}{LoRA}{Low-Rank Adaptation}
+\newacronym{nlp}{NLP}{Natural Language Processing}
+\newacronym{api}{API}{Application Programming Interface}
+\newacronym{cid}{CID}{Classificação Internacional de Doenças}
+\newacronym{qa}{QA}{Question Answering}
+\newacronym{bd}{BD}{Banco de Dados}
+
+% ============================================================================
+% METADADOS DO DOCUMENTO
+% ============================================================================
+\title{Assistente Virtual Médico com IA Generativa}
+\author{Grupo "Sala 14" - Tech Challenge Fase 3}
+\date{\today}
+
+\newcommand{\gruponome}{Grupo "Sala 14"}
+\newcommand{\grupointegrantes}{%
+    Adriana Martins de Souza - RM 368050\\
+    Diego Oliveira da Silva - RM 367964\\
+    Eduardo Nicola F. Zagari - RM 368021\\
+    Renan de Assis Torres - RM 368513
+}
+\newcommand{\cursotitulo}{Pós-Graduação em Inteligência Artificial para Devs}
+\newcommand{\instituicao}{FIAP - Faculdade de Informática e Administração Paulista}
+\newcommand{\dataconclusao}{Março de 2026}
+
+% ============================================================================
+% INÍCIO DO DOCUMENTO
+% ============================================================================
+\begin{document}
+
+\pagenumbering{roman}
+
+% Capa e folha de rosto
+\include{lib/frontpage}
+
+% ============================================================================
+% DISPONIBILIZAÇÃO DO CÓDIGO E MATERIAIS
+% ============================================================================
+\chapter*{Disponibilização do Código e Materiais}
+\addcontentsline{toc}{chapter}{Disponibilização do Código e Materiais}
+
+Todo o código desenvolvido neste projeto, bem como esta documentação e o link para o vídeo demonstrativo estão disponíveis publicamente em:
+\vspace{1em}
+
+\textbf{GitHub:} \url{https://github.com/Zagari/virtual-medical-assistant}
+\vspace{0.8em}
+
+\textbf{Conteúdo Disponível:}
+\begin{itemize}
+    \item Pipeline completo de reprodução com 7 scripts numerados (\texttt{scripts/01} a \texttt{scripts/07})
+    \item Código-fonte do fine-tuning (QLoRA) e notebook para Google Colab
+    \item 14 Linhas de Cuidado (protocolos clínicos) pré-processados para RAG
+    \item Dados sintéticos de 80 pacientes com exames, prontuários e receitas
+    \item Grafo multi-agente LangGraph com 6 agentes especializados
+    \item Este relatório técnico em PDF
+\end{itemize}
+\vspace{0.8em}
+
+\textbf{Vídeo demonstrativo:} \url{https://youtube.com/TODO}
+\vspace{0.8em}
+
+\textbf{Licença:} MIT License (código aberto para fins educacionais e de pesquisa)
+
+% ============================================================================
+% RESUMO
+% ============================================================================
+\chapter*{Resumo}
+\addcontentsline{toc}{chapter}{Resumo}
+\vspace*{-0.3cm}
+
+Este documento apresenta a documentação técnica completa do Assistente Virtual Médico desenvolvido como parte do Tech Challenge da Fase 3 do curso de Pós-Graduação em Inteligência Artificial para Devs da FIAP. O sistema integra cinco pilares de \acrfull{ia} generativa: (1)~\textbf{fine-tuning} do modelo Mistral 7B Instruct v0.3 com o dataset MedQuAD traduzido para português, utilizando \acrfull{qlora} 4-bit no Google Colab; (2)~\textbf{RAG} (\textit{Retrieval-Augmented Generation}) com 14 Linhas de Cuidado reais indexadas no ChromaDB; (3)~\textbf{grafo multi-agente} em LangGraph com 6 agentes especializados (triagem, protocolo, paciente, raciocínio, guardrails e explicabilidade); (4)~\textbf{segurança} com guardrails que impedem prescrições diretas e exigem validação humana; e (5)~\textbf{interface} Gradio para demonstração interativa.
+
+O projeto foi concebido para ser integralmente reprodutível: um pipeline de 7 scripts numerados permite ao avaliador reconstruir todo o sistema do zero, desde a geração de dados sintéticos até a execução do assistente completo. Os dados de pacientes são inteiramente fictícios, gerados com coerência clínica para simular cenários reais de atendimento hospitalar.
+
+\vspace{1em}
+\noindent\textbf{Palavras-chave:} Fine-Tuning; QLoRA; Mistral 7B; LangChain; LangGraph; RAG; ChromaDB; Multi-Agente; Guardrails; Assistente Médico.
+
+% ============================================================================
+% ABSTRACT
+% ============================================================================
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\vspace*{-0.3cm}
+
+This document presents the complete technical documentation of the Virtual Medical Assistant developed as part of the Phase 3 Tech Challenge of the Postgraduate course in Artificial Intelligence for Developers at FIAP. The system integrates five pillars of generative AI: (1)~\textbf{fine-tuning} of Mistral 7B Instruct v0.3 with the MedQuAD dataset translated to Portuguese, using QLoRA 4-bit on Google Colab; (2)~\textbf{RAG} (Retrieval-Augmented Generation) with 14 real clinical care pathways indexed in ChromaDB; (3)~\textbf{multi-agent graph} in LangGraph with 6 specialized agents (triage, protocol, patient data, reasoning, guardrails, and explainability); (4)~\textbf{safety} guardrails preventing direct prescriptions and requiring human validation; and (5)~\textbf{Gradio interface} for interactive demonstration.
+
+The project was designed to be fully reproducible: a pipeline of 7 numbered scripts allows the evaluator to rebuild the entire system from scratch, from synthetic data generation to running the complete assistant.
+
+\vspace{1em}
+\noindent\textbf{Keywords:} Fine-Tuning; QLoRA; Mistral 7B; LangChain; LangGraph; RAG; ChromaDB; Multi-Agent; Guardrails; Medical Assistant.
+
+% ============================================================================
+% LISTAS
+% ============================================================================
+\tableofcontents
+
+\printglossary[type=\acronymtype, title=Lista de Abreviaturas e Siglas]
+
+% ============================================================================
+% CORPO DO TEXTO
+% ============================================================================
+\cleardoublepage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\include{chapters/cap01_introducao}
+\include{chapters/cap02_dados}
+% \include{chapters/cap03_fine_tuning}
+% \include{chapters/cap04_rag}
+% \include{chapters/cap05_multi_agente}
+% \include{chapters/cap06_seguranca}
+% \include{chapters/cap07_avaliacao}
+% \include{chapters/cap08_conclusoes}
+
+% ============================================================================
+% ELEMENTOS PÓS-TEXTUAIS
+% ============================================================================
+
+% \appendix
+% \include{chapters/apendice_scripts}
+
+\end{document}

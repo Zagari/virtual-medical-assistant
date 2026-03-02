@@ -1,0 +1,272 @@
+% ============================================================================
+% CAPÍTULO 2 - DADOS E PREPARAÇÃO
+% ============================================================================
+
+\chapter{Dados e Preparação}\label{cap:dados}
+
+Este capítulo descreve as quatro fontes de dados do projeto: os protocolos clínicos reais (Linhas de Cuidado), os dados sintéticos de pacientes, o banco de dados PostgreSQL e o dataset MedQuAD para fine-tuning.
+
+\section{Linhas de Cuidado (Protocolos Clínicos)}
+
+A base de conhecimento clínico do sistema é composta por \textbf{14 Linhas de Cuidado} --- protocolos clínicos profissionais em português brasileiro, cobrindo condições que vão de hipertensão e diabetes até demência e polifarmácia. Estes protocolos são documentos reais de prática clínica, com estrutura padronizada que inclui seções como Considerações Iniciais, Diagnóstico, Monitoramento, Encaminhamento e Indicadores.
+
+\subsection{Protocolos Disponíveis}
+
+A Tabela~\ref{tab:linhas_cuidado} lista os 14 protocolos utilizados como base de conhecimento para o sistema RAG.
+
+\begin{table}[H]
+\centering
+\caption{14 Linhas de Cuidado indexadas no sistema.}
+\label{tab:linhas_cuidado}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabularx}{\textwidth}{c l l X}
+\toprule
+\textbf{\#} & \textbf{Pathway} & \textbf{Domínio} & \textbf{Exemplos de Conteúdo} \\
+\midrule
+1  & Hipertensão          & Cardiovascular    & Classificação PA, MAPA, anti-hipertensivos \\
+2  & Diabetes             & Endócrino         & DM1/DM2, HbA1C, insulinização \\
+3  & Asma                 & Respiratório      & Classificação gravidade, step therapy \\
+4  & Depressão            & Psiquiátrico      & PHQ-9, ISRS, psicoterapia \\
+5  & Ansiedade            & Psiquiátrico      & GAD-7, benzodiazepínicos, TCC \\
+6  & DPOC                 & Respiratório      & GOLD, espirometria, oxigenoterapia \\
+7  & Demência             & Neurológico       & Mini-Mental, anticolinesterásicos \\
+8  & Dispepsia            & Gastroenterologia & H. pylori, IBP, endoscopia \\
+9  & Hipotireoidismo      & Endócrino         & TSH, levotiroxina, seguimento \\
+10 & Insuf.\ Cardíaca     & Cardiovascular    & NYHA, IECA, betabloqueadores \\
+11 & Obesidade            & Metabólico        & IMC, dietoterapia, cirurgia bariátrica \\
+12 & Pac.\ Cirúrgico      & Cirúrgico         & Pré-operatório, risco cirúrgico \\
+13 & Polifarmácia         & Geriatria         & Reconciliação medicamentosa, Beers \\
+14 & Tabagismo            & Preventivo        & Fagerström, TRN, bupropiona \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Extração e Limpeza dos Protocolos}
+
+Os 14 protocolos foram disponibilizados originalmente em formato PDF. Para viabilizar a indexação no sistema RAG, foi realizado um processo de extração e limpeza:
+
+\begin{enumerate}
+    \item \textbf{Extração de texto:} Uso da biblioteca PyMuPDF (fitz) para extrair o conteúdo textual de cada página dos PDFs;
+    \item \textbf{Identificação de seções:} Detecção automática de seções principais por meio de heurística baseada em texto em caixa alta (\textit{ALL CAPS}), seguindo o padrão estrutural dos documentos;
+    \item \textbf{Limpeza:} Remoção de referências ao sistema de origem e caracteres indesejados;
+    \item \textbf{Saída em Markdown:} Geração de arquivos \texttt{.md} com hierarquia de seções preservada (\texttt{\#\#} para seções, \texttt{\#\#\#} para subseções), facilitando o chunking posterior.
+\end{enumerate}
+
+O resultado são 14 arquivos Markdown limpos, totalizando aproximadamente 448~KB de conteúdo clínico estruturado, armazenados em \texttt{data/linhas\_de\_cuidado/extracted/}. Estes arquivos são versionados no repositório e servem como entrada direta para o pipeline de RAG (Capítulo~4).
+
+\begin{infobox}[Nota sobre a Extração]
+O script de extração de PDFs é um utilitário auxiliar executado uma única vez fora do pipeline principal. Os arquivos Markdown resultantes já estão incluídos no repositório, portanto o avaliador \textbf{não precisa reexecutar} a extração --- basta utilizar os arquivos \texttt{.md} já disponíveis.
+\end{infobox}
+
+\section{Dados Sintéticos de Pacientes}
+
+Para simular um ambiente hospitalar realista, o sistema utiliza dados de pacientes inteiramente fictícios, gerados com coerência clínica. A geração é realizada pelo \texttt{scripts/01\_gerar\_dados\_sinteticos.py}, que invoca o módulo \texttt{src/data/synthetic\_generator.py}.
+
+\subsection{Geração de Pacientes}
+
+Foram gerados \textbf{80 pacientes fictícios} utilizando a biblioteca Faker (localização \texttt{pt\_BR}), com sementes fixas (\texttt{seed=42}) para garantir a reprodutibilidade. Os dados pessoais incluem:
+
+\begin{table}[H]
+\centering
+\caption{Campos do cadastro de pacientes sintéticos.}
+\label{tab:campos_pacientes}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Campo} & \textbf{Exemplo} & \textbf{Geração} \\
+\midrule
+nome              & ``Maria Santos de Oliveira'' & \texttt{Faker.name()} \\
+cpf               & ``123.456.789-00''           & \texttt{Faker.cpf()} \\
+data\_nascimento  & 1958-03-15                   & \texttt{Faker.date\_of\_birth()} \\
+sexo              & ``F''                        & Distribuição 55\%F / 45\%M \\
+telefone          & ``(11) 98765-4321''          & \texttt{Faker.phone\_number()} \\
+endereço          & ``Rua das Flores, 123''      & \texttt{Faker.address()} \\
+comorbidades      & [``hipertensão'', ``DM2'']   & Distribuição probabilística \\
+alergias          & [``dipirona'']               & Lista aleatória \\
+medicamentos\_uso & [``losartana 50mg'']         & Coerente com comorbidades \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Coerência Clínica}
+
+Um diferencial importante da geração de dados é a \textbf{coerência clínica} entre comorbidades, medicamentos, exames e consultas. O gerador implementa uma base de conhecimento médico com 9 condições alinhadas às Linhas de Cuidado:
+
+\begin{table}[H]
+\centering
+\caption{Distribuição de condições nos dados sintéticos.}
+\label{tab:distribuicao_condicoes}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabularx}{\textwidth}{l c X}
+\toprule
+\textbf{Condição} & \textbf{Prevalência} & \textbf{Exemplos de Medicamentos Associados} \\
+\midrule
+Hipertensão         & 45\% & Losartana 50mg, enalapril 10mg, anlodipino 5mg \\
+Diabetes tipo 2     & 30\% & Metformina 850mg, glibenclamida 5mg, insulina NPH \\
+Obesidade           & 25\% & Sibutramina 10mg, orlistate 120mg \\
+Depressão           & 20\% & Sertralina 50mg, fluoxetina 20mg, escitalopram 10mg \\
+Ansiedade           & 15\% & Escitalopram 10mg, alprazolam 0,5mg \\
+Asma                & 12\% & Salbutamol spray, budesonida 200mcg \\
+Hipotireoidismo     & 10\% & Levotiroxina 50mcg, levotiroxina 75mcg \\
+DPOC                & 8\%  & Tiotrópio 18mcg, formoterol + budesonida \\
+Insuf.\ Cardíaca    & 5\%  & Enalapril 10mg, furosemida 40mg, carvedilol 12,5mg \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Muitos pacientes possuem \textbf{múltiplas comorbidades} (por exemplo, hipertensão + diabetes + obesidade), o que é clinicamente realista e cria cenários ricos para o assistente consultar múltiplos protocolos simultaneamente.
+
+\subsection{Dados Clínicos Gerados}
+
+Para cada paciente, o gerador cria dados clínicos coerentes com suas comorbidades:
+
+\begin{table}[H]
+\centering
+\caption{Volume de dados clínicos gerados.}
+\label{tab:volume_dados}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabular}{l r l}
+\toprule
+\textbf{Tipo} & \textbf{Total Gerado} & \textbf{Arquivo de Saída} \\
+\midrule
+Pacientes     & 80   & \texttt{pacientes.json} \\
+Exames        & 199  & \texttt{exames.json} \\
+Prontuários   & 297  & \texttt{consultas.json} \\
+Receitas      & 163  & \texttt{receitas.json} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Exemplos de coerência clínica implementada:
+\begin{itemize}
+    \item Paciente \textbf{diabético} $\rightarrow$ exames de HbA1C (valores entre 5,5--12\%), glicemia de jejum (80--250 mg/dL), creatinina;
+    \item Paciente \textbf{hipertenso} $\rightarrow$ MAPA 24h com valores sistólico/diastólico realistas, ecocardiograma;
+    \item Paciente \textbf{asmático} $\rightarrow$ espirometria com VEF1/CVF e classificação de gravidade;
+    \item Paciente com \textbf{depressão} $\rightarrow$ avaliação PHQ-9 com escore de gravidade e notas clínicas compatíveis.
+\end{itemize}
+
+\section{Banco de Dados PostgreSQL}
+
+Os dados sintéticos são armazenados em um banco PostgreSQL 16, executado em container Docker. O setup é automatizado pelo \texttt{scripts/02\_setup\_postgres.py}.
+
+\subsection{Schema do Banco}
+
+O banco possui 4 tabelas, modeladas com SQLAlchemy ORM:
+
+\begin{lstlisting}[style=sql, caption={Schema do banco de dados.}]
+-- Pacientes
+CREATE TABLE pacientes (
+    id UUID PRIMARY KEY,
+    nome VARCHAR(200) NOT NULL,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
+    data_nascimento DATE NOT NULL,
+    sexo VARCHAR(1) NOT NULL,
+    telefone VARCHAR(20),
+    endereco TEXT,
+    comorbidades TEXT[],
+    alergias TEXT[],
+    medicamentos_uso TEXT[]
+);
+
+-- Exames clinicos
+CREATE TABLE exames (
+    id UUID PRIMARY KEY,
+    paciente_id UUID REFERENCES pacientes(id),
+    tipo VARCHAR(100) NOT NULL,
+    data DATE NOT NULL,
+    resultados JSONB,       -- Resultados estruturados
+    interpretacao TEXT,
+    status VARCHAR(20)      -- pendente, realizado, cancelado
+);
+
+-- Prontuarios (consultas medicas)
+CREATE TABLE prontuarios (
+    id UUID PRIMARY KEY,
+    paciente_id UUID REFERENCES pacientes(id),
+    data DATE NOT NULL,
+    diagnostico_cid VARCHAR(10),  -- Codigo CID-10
+    diagnostico_texto TEXT,
+    observacoes TEXT
+);
+
+-- Receitas medicas
+CREATE TABLE receitas (
+    id UUID PRIMARY KEY,
+    paciente_id UUID REFERENCES pacientes(id),
+    data DATE NOT NULL,
+    condicao TEXT,
+    medicamentos TEXT[],
+    validade_dias INTEGER,
+    observacoes TEXT
+);
+\end{lstlisting}
+
+\subsection{Características Técnicas}
+
+\begin{itemize}
+    \item \textbf{UUIDs como chaves primárias:} Evita colisões e permite geração distribuída;
+    \item \textbf{JSONB para resultados de exames:} Permite armazenar resultados com estrutura variável (diferentes tipos de exames geram diferentes campos), mantendo a capacidade de consulta;
+    \item \textbf{ARRAY para listas:} Comorbidades, alergias e medicamentos são armazenados como arrays nativos do PostgreSQL, facilitando consultas com operador \texttt{ANY};
+    \item \textbf{CID-10:} Diagnósticos são codificados no padrão \acrfull{cid}, permitindo consultas padronizadas;
+    \item \textbf{Consultas parametrizadas:} O módulo \texttt{src/database/queries.py} utiliza \texttt{SQLAlchemy text()} com parâmetros nomeados para prevenir injeção SQL.
+\end{itemize}
+
+\subsection{Infraestrutura Docker}
+
+O script \texttt{02\_setup\_postgres.py} automatiza todo o processo:
+
+\begin{enumerate}
+    \item Verifica se o Docker Desktop está em execução;
+    \item Cria ou inicia o container \texttt{medical\_assistant\_db} (PostgreSQL 16 Alpine);
+    \item Cria as 4 tabelas via \texttt{SQLAlchemy Base.metadata.create\_all()};
+    \item Carrega os 4 arquivos JSON gerados pelo script~01;
+    \item Popula o banco de dados com os dados sintéticos;
+    \item Executa validação final (contagem de registros por tabela).
+\end{enumerate}
+
+\section{Dataset MedQuAD}
+
+O \textbf{MedQuAD} (\textit{Medical Question Answering Dataset}) é o dataset utilizado para o fine-tuning do modelo Mistral 7B. Criado pelo National Institutes of Health (NIH) dos Estados Unidos, o MedQuAD reúne pares de perguntas e respostas médicas extraídas de fontes confiáveis do governo americano.
+
+\subsection{Características do Dataset}
+
+\begin{table}[H]
+\centering
+\caption{Resumo do dataset MedQuAD.}
+\label{tab:medquad}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Característica} & \textbf{Descrição} \\
+\midrule
+Tamanho           & $\sim$16.400 pares pergunta-resposta \\
+Idioma original   & Inglês \\
+Fontes            & NIH (NCI, NIDDK, NINDS, GARD, MedlinePlus, entre outros) \\
+Domínios          & Doenças, tratamentos, medicamentos, prevenção, diagnósticos \\
+Qualidade         & Alta --- respostas baseadas em fontes governamentais revisadas \\
+Disponibilidade   & HuggingFace: \texttt{keivalya/MedQuad-MedicalQnADataset} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Pipeline de Preparação}
+
+O \texttt{scripts/03\_preparar\_dataset.py} executa o seguinte pipeline:
+
+\begin{enumerate}
+    \item \textbf{Download:} Baixa o dataset do HuggingFace via biblioteca \texttt{datasets};
+    \item \textbf{Tradução:} Traduz perguntas e respostas para português brasileiro;
+    \item \textbf{Formatação Alpaca:} Converte para o formato esperado pelo fine-tuning:
+\end{enumerate}
+
+\begin{lstlisting}[caption={Formato Alpaca para fine-tuning.}]
+{
+    "instruction": "Quais sao os sintomas do diabetes tipo 2?",
+    "input": "",
+    "output": "Os sintomas comuns do diabetes tipo 2 incluem..."
+}
+\end{lstlisting}
+
+\begin{infobox}[Por que MedQuAD?]
+O MedQuAD foi escolhido por três razões: (1)~é um dataset de alta qualidade curado pelo NIH, com respostas clinicamente precisas; (2)~cobre um espectro amplo de condições médicas, alinhado às Linhas de Cuidado do projeto; (3)~seu tamanho ($\sim$16K pares) é adequado para fine-tuning com QLoRA em hardware limitado (Google Colab T4). A comparação detalhada com PubMedQA está documentada nas pesquisas do projeto.
+\end{infobox}

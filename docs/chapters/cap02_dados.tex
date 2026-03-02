@@ -55,12 +55,40 @@ Os 14 protocolos foram disponibilizados originalmente em formato PDF. Para viabi
 O resultado são 14 arquivos Markdown limpos, totalizando aproximadamente 448~KB de conteúdo clínico estruturado, armazenados em \texttt{data/linhas\_de\_cuidado/extracted/}. Estes arquivos são versionados no repositório e servem como entrada direta para o pipeline de RAG (Capítulo~4).
 
 \begin{infobox}[Nota sobre a Extração]
-O script de extração de PDFs é um utilitário auxiliar executado uma única vez fora do pipeline principal. Os arquivos Markdown resultantes já estão incluídos no repositório, portanto o avaliador \textbf{não precisa reexecutar} a extração --- basta utilizar os arquivos \texttt{.md} já disponíveis.
+O script de extração de PDFs é um utilitário auxiliar executado uma única vez fora do pipeline principal. Os arquivos Markdown resultantes já estão incluídos no repositório, portanto \textbf{não é necessário reexecutar} a extração --- basta utilizar os arquivos \texttt{.md} já disponíveis.
 \end{infobox}
+
+\subsection{Protocolos Complementares de Emergência}
+
+Para cobrir cenários de \textbf{emergência} não presentes nas 14 Linhas de Cuidado (que focam em condições crônicas), o sistema inclui 5 protocolos sintéticos adicionais. Estes protocolos foram elaborados com base em diretrizes reconhecidas (AHA, Surviving Sepsis Campaign, SBPT, IDSA) e seguem a mesma estrutura dos protocolos extraídos.
+
+\begin{table}[H]
+\centering
+\caption{Protocolos de emergência sintéticos complementares.}
+\label{tab:protocolos_emergencia}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabularx}{\textwidth}{c l l X}
+\toprule
+\textbf{\#} & \textbf{Protocolo} & \textbf{CID} & \textbf{Conteúdo Principal} \\
+\midrule
+1 & IAM (Infarto Agudo do Miocárdio) & I21 & MONABCH, reperfusão, tempo porta-balão \\
+2 & AVC (Acidente Vascular Cerebral) & I64 & NIHSS, trombólise rtPA, janela terapêutica \\
+3 & Sepse e Choque Séptico & A41 & Hour-1 Bundle, qSOFA, ressuscitação \\
+4 & Pneumonia (PAC) & J18 & CURB-65, antibioticoterapia empírica \\
+5 & ITU (Infecção do Trato Urinário) & N39 & Cistite vs pielonefrite, bacteriúria \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Cada protocolo sintético inclui as seções: Considerações Iniciais, Diagnóstico, Manejo Inicial, Monitoramento e Indicadores de Qualidade. Os arquivos são gerados automaticamente pelo script \texttt{01\_gerar\_dados\_sinteticos} e salvos em formato Markdown no diretório \texttt{data/synthetic/protocolos\_complementares/}, prontos para indexação no ChromaDB junto com as Linhas de Cuidado.
+
+\begin{warningbox}[Protocolos Sintéticos]
+Os protocolos de emergência são \textbf{sintéticos}, criados para fins educacionais e de demonstração. Em ambiente de produção, devem ser substituídos por protocolos institucionais validados pela equipe médica.
+\end{warningbox}
 
 \section{Dados Sintéticos de Pacientes}
 
-Para simular um ambiente hospitalar realista, o sistema utiliza dados de pacientes inteiramente fictícios, gerados com coerência clínica. A geração é realizada pelo \texttt{scripts/01\_gerar\_dados\_sinteticos.py}, que invoca o módulo \texttt{src/data/synthetic\_generator.py}.
+Para simular um ambiente hospitalar realista, o sistema utiliza dados de pacientes inteiramente fictícios, gerados com coerência clínica. A geração é realizada pelo primeiro script do pipeline (\texttt{01\_gerar\_dados\_sinteticos}), que invoca o módulo \texttt{synthetic\_generator} localizado em \texttt{src/data/}.
 
 \subsection{Geração de Pacientes}
 
@@ -228,23 +256,45 @@ O script \texttt{02\_setup\_postgres.py} automatiza todo o processo:
 
 O \textbf{MedQuAD} (\textit{Medical Question Answering Dataset}) é o dataset utilizado para o fine-tuning do modelo Mistral 7B. Criado pelo National Institutes of Health (NIH) dos Estados Unidos, o MedQuAD reúne pares de perguntas e respostas médicas extraídas de fontes confiáveis do governo americano.
 
+\subsection{Escolha da Versão}
+
+Existem múltiplas versões do MedQuAD disponíveis no HuggingFace. Após análise comparativa, optou-se pela versão \texttt{lavita/MedQuAD}, a mais completa:
+
+\begin{table}[H]
+\centering
+\caption{Comparação de versões do MedQuAD disponíveis no HuggingFace.}
+\label{tab:versoes-medquad}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabularx}{\textwidth}{l c c X}
+\toprule
+\textbf{Dataset} & \textbf{Pares QA} & \textbf{Metadados} & \textbf{Observações} \\
+\midrule
+\texttt{lavita/MedQuAD} & \textbf{47.400} & UMLS, fontes, sinônimos & Versão mais completa \\
+\texttt{keivalya/MedQuad-...} & 16.400 & Apenas tipo de questão & Versão simplificada \\
+\texttt{Tonic/medquad} & 15.549 & Nenhum & Pré-formatado Alpaca \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
 \subsection{Características do Dataset}
 
 \begin{table}[H]
 \centering
-\caption{Resumo do dataset MedQuAD.}
+\caption{Resumo do dataset MedQuAD (versão lavita).}
 \label{tab:medquad}
 \rowcolors{2}{fiap-light}{white}
 \begin{tabularx}{\textwidth}{l X}
 \toprule
 \textbf{Característica} & \textbf{Descrição} \\
 \midrule
-Tamanho           & $\sim$16.400 pares pergunta-resposta \\
+Tamanho           & \textbf{47.400} pares pergunta-resposta \\
 Idioma original   & Inglês \\
-Fontes            & NIH (NCI, NIDDK, NINDS, GARD, MedlinePlus, entre outros) \\
+Fontes            & 8 institutos NIH: NCI, GHR, MedlinePlus, NIDDK, NINDS, NIHSeniorHealth, NHLBI, CDC \\
+Metadados         & Códigos UMLS, tipos semânticos, sinônimos, URLs das fontes \\
 Domínios          & Doenças, tratamentos, medicamentos, prevenção, diagnósticos \\
 Qualidade         & Alta --- respostas baseadas em fontes governamentais revisadas \\
-Disponibilidade   & HuggingFace: \texttt{keivalya/MedQuad-MedicalQnADataset} \\
+Licença           & Creative Commons BY 4.0 \\
+Disponibilidade   & HuggingFace: \texttt{lavita/MedQuAD} \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -254,19 +304,25 @@ Disponibilidade   & HuggingFace: \texttt{keivalya/MedQuad-MedicalQnADataset} \\
 O \texttt{scripts/03\_preparar\_dataset.py} executa o seguinte pipeline:
 
 \begin{enumerate}
-    \item \textbf{Download:} Baixa o dataset do HuggingFace via biblioteca \texttt{datasets};
-    \item \textbf{Tradução:} Traduz perguntas e respostas para português brasileiro;
-    \item \textbf{Formatação Alpaca:} Converte para o formato esperado pelo fine-tuning:
+    \item \textbf{Download:} Baixa o dataset \texttt{lavita/MedQuAD} do HuggingFace via biblioteca \texttt{datasets};
+    \item \textbf{Tradução:} Traduz perguntas e respostas para português brasileiro utilizando a biblioteca \texttt{deep-translator} (Google Translate gratuito);
+    \item \textbf{Checkpoints:} Salva o progresso a cada 1.000 registros traduzidos, permitindo retomar em caso de interrupção;
+    \item \textbf{Formatação Alpaca:} Converte para o formato JSONL esperado pelo fine-tuning.
 \end{enumerate}
+
+O formato Alpaca utilizado segue a estrutura padrão para instruction tuning:
 
 \begin{lstlisting}[caption={Formato Alpaca para fine-tuning.}]
 {
-    "instruction": "Quais sao os sintomas do diabetes tipo 2?",
-    "input": "",
+    "instruction": "Responda a seguinte pergunta medica de forma
+                    clara e detalhada.",
+    "input": "Quais sao os sintomas do diabetes tipo 2?",
     "output": "Os sintomas comuns do diabetes tipo 2 incluem..."
 }
 \end{lstlisting}
 
-\begin{infobox}[Por que MedQuAD?]
-O MedQuAD foi escolhido por três razões: (1)~é um dataset de alta qualidade curado pelo NIH, com respostas clinicamente precisas; (2)~cobre um espectro amplo de condições médicas, alinhado às Linhas de Cuidado do projeto; (3)~seu tamanho ($\sim$16K pares) é adequado para fine-tuning com QLoRA em hardware limitado (Google Colab T4). A comparação detalhada com PubMedQA está documentada nas pesquisas do projeto.
+O arquivo de saída (\texttt{data/processed/training\_data.jsonl}) contém aproximadamente 47.400 registros traduzidos, totalizando cerca de 100--200~MB.
+
+\begin{infobox}[Por que a versão lavita/MedQuAD?]
+A versão \texttt{lavita/MedQuAD} foi escolhida por oferecer: (1)~\textbf{maior volume} --- 47.400 pares, quase 3x mais que alternativas; (2)~\textbf{metadados ricos} --- códigos UMLS, tipos semânticos e sinônimos úteis para RAG; (3)~\textbf{fontes documentadas} --- 8 institutos do NIH com cobertura ampla de especialidades médicas; (4)~\textbf{licença clara} --- CC BY 4.0, permitindo uso acadêmico e comercial.
 \end{infobox}

@@ -18,7 +18,7 @@ O objetivo principal deste trabalho é desenvolver um \textbf{Assistente Virtual
 
 \begin{enumerate}
     \item \textbf{Fine-tuning} do modelo Mistral 7B Instruct v0.3 com o dataset MedQuAD traduzido para português, utilizando \acrfull{qlora} 4-bit no Google Colab;
-    \item \textbf{\acrfull{rag}} com 14 Linhas de Cuidado reais (protocolos clínicos profissionais) indexadas no ChromaDB;
+    \item \textbf{\acrfull{rag}} com 14 Linhas de Cuidado reais e 5 protocolos de emergência sintéticos (IAM, AVC, Sepse, Pneumonia, ITU) indexados no ChromaDB;
     \item \textbf{Grafo multi-agente} implementado em LangGraph com 6 agentes especializados;
     \item \textbf{Segurança} com guardrails que impedem prescrições diretas e exigem validação humana;
     \item \textbf{Interface} Gradio para demonstração interativa do assistente.
@@ -46,7 +46,7 @@ A Figura~\ref{fig:arquitetura_geral} apresenta a visão de alto nível da arquit
 
 % Camada de Dados
 \node[data] (medquad) {MedQuAD\\(16.400 pares QA)};
-\node[data, right=of medquad] (linhas) {14 Linhas de\\Cuidado (PDF)};
+\node[data, right=of medquad] (linhas) {14 Linhas de Cuidado\\+ 5 Protocolos Emerg.};
 \node[data, right=of linhas] (sinteticos) {Dados Sintéticos\\(80 pacientes)};
 
 % Camada de Processamento
@@ -85,7 +85,7 @@ A Figura~\ref{fig:arquitetura_geral} apresenta a visão de alto nível da arquit
 
 \section{Guia de Reprodução Passo a Passo}\label{sec:reproducao}
 
-O projeto foi concebido para ser \textbf{integralmente reprodutível}. Um pipeline de 7 scripts numerados, localizado no diretório \texttt{scripts/}, permite ao avaliador reconstruir todo o sistema do zero, desde a geração de dados sintéticos até a execução do assistente completo.
+O projeto foi concebido para ser \textbf{integralmente reprodutível}. Um pipeline de 7 scripts numerados, localizado no diretório \texttt{scripts/}, permite que se reconstrua todo o sistema do zero, desde a geração de dados sintéticos até a execução do assistente completo.
 
 \subsection{Pipeline de Scripts}
 
@@ -96,18 +96,19 @@ A Tabela~\ref{tab:pipeline_scripts} descreve cada script, suas pré-condições 
 \caption{Pipeline de reprodução: scripts numerados.}
 \label{tab:pipeline_scripts}
 \rowcolors{2}{fiap-light}{white}
-\begin{tabularx}{\textwidth}{c l X X}
+\small
+\begin{tabularx}{\textwidth}{c l X l}
 \toprule
 \textbf{\#} & \textbf{Script} & \textbf{O que faz} & \textbf{Saída} \\
 \midrule
-01 & \texttt{gerar\_dados\_sinteticos} & Gera pacientes fictícios com comorbidades, exames, prontuários e receitas clinicamente coerentes & \texttt{data/synthetic/*.json} (4 arquivos) \\
-02 & \texttt{setup\_postgres} & Cria container Docker com PostgreSQL, tabelas e popula com dados do script 01 & Banco \texttt{medical\_assistant\_db} operacional \\
-03 & \texttt{preparar\_dataset} & Baixa MedQuAD do HuggingFace, traduz para PT-BR e formata em Alpaca & \texttt{data/processed/training\_data.jsonl} \\
+01 & \texttt{gerar\_dados\_sinteticos} & Gera pacientes, exames, prontuários, receitas e 5 protocolos de emergência & \texttt{synthetic/} \\
+02 & \texttt{setup\_postgres} & Cria container Docker PostgreSQL e popula com dados sintéticos & Banco operacional \\
+03 & \texttt{preparar\_dataset} & Baixa MedQuAD, traduz para PT-BR e formata em Alpaca & \texttt{training\_data.jsonl} \\
 \rowcolor{orange!10}
--- & \textit{Pausa: Google Colab} & \textit{Fine-tuning QLoRA no notebook} \texttt{03\_fine\_tuning.ipynb} & \textit{Modelo em} \texttt{models/} \\
-04 & \texttt{indexar\_protocolos} & Chunking dos protocolos Markdown e indexação no ChromaDB & Banco vetorial \texttt{chroma\_db/} \\
-05 & \texttt{avaliar\_baseline} & Roda 50 perguntas médicas no Mistral 7B base & \texttt{data/evaluation/baseline.json} \\
-06 & \texttt{avaliar\_finetuned} & Mesmas 50 perguntas no modelo fine-tuned, com comparação e métricas & Relatório comparativo \\
+-- & \textit{Pausa: Colab} & \textit{Fine-tuning QLoRA no notebook} \texttt{03\_fine\_tuning.ipynb} & \texttt{models/} \\
+04 & \texttt{indexar\_protocolos} & Chunking dos protocolos Markdown e indexação no ChromaDB & \texttt{chroma\_db/} \\
+05 & \texttt{avaliar\_baseline} & Executa 50 perguntas médicas no Mistral 7B base & \texttt{baseline.json} \\
+06 & \texttt{avaliar\_finetuned} & Mesmas perguntas no modelo fine-tuned + comparação & Relatório comparativo \\
 07 & \texttt{iniciar\_app} & Inicia o assistente completo com interface Gradio & Servidor web local \\
 \bottomrule
 \end{tabularx}
@@ -118,20 +119,26 @@ A Tabela~\ref{tab:pipeline_scripts} descreve cada script, suas pré-condições 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
-    node distance=0.4cm,
+    node distance=0.5cm and 0.6cm,
     pstep/.style={rectangle, draw=fiap-dark, rounded corners=3pt, fill=fiap-light, minimum width=2.2cm, minimum height=0.8cm, align=center, font=\small\sffamily\bfseries},
     colab/.style={pstep, fill=orange!20, draw=orange!70},
     arrow/.style={->, thick, >=stealth, color=fiap-red}
 ]
+    % Linha 1: 01, 02, 03 (esquerda para direita)
     \node[pstep] (s01) {01};
     \node[pstep, right=of s01] (s02) {02};
     \node[pstep, right=of s02] (s03) {03};
-    \node[colab, right=of s03] (colab) {Colab};
-    \node[pstep, right=of colab] (s04) {04};
-    \node[pstep, right=of s04] (s05) {05};
-    \node[pstep, right=of s05] (s06) {06};
-    \node[pstep, right=of s06] (s07) {07};
 
+    % Linha 2: Colab (alinhado à direita)
+    \node[colab, below=1.2cm of s03] (colab) {Colab};
+
+    % Linha 3: 04, 05, 06, 07 (direita para esquerda)
+    \node[pstep, below=1.2cm of colab] (s04) {04};
+    \node[pstep, left=of s04] (s05) {05};
+    \node[pstep, left=of s05] (s06) {06};
+    \node[pstep, left=of s06] (s07) {07};
+
+    % Setas
     \draw[arrow] (s01) -- (s02);
     \draw[arrow] (s02) -- (s03);
     \draw[arrow] (s03) -- (colab);
@@ -140,15 +147,19 @@ A Tabela~\ref{tab:pipeline_scripts} descreve cada script, suas pré-condições 
     \draw[arrow] (s05) -- (s06);
     \draw[arrow] (s06) -- (s07);
 
-    % Labels abaixo
-    \node[below=0.3cm of s01, font=\tiny\sffamily, text width=2cm, align=center] {Dados\\Sintéticos};
-    \node[below=0.3cm of s02, font=\tiny\sffamily, text width=2cm, align=center] {PostgreSQL};
-    \node[below=0.3cm of s03, font=\tiny\sffamily, text width=2cm, align=center] {Dataset\\MedQuAD};
-    \node[below=0.3cm of colab, font=\tiny\sffamily, text width=2cm, align=center] {Fine-Tuning\\QLoRA};
-    \node[below=0.3cm of s04, font=\tiny\sffamily, text width=2cm, align=center] {RAG\\ChromaDB};
-    \node[below=0.3cm of s05, font=\tiny\sffamily, text width=2cm, align=center] {Baseline};
-    \node[below=0.3cm of s06, font=\tiny\sffamily, text width=2cm, align=center] {Avaliação\\Fine-Tuned};
-    \node[below=0.3cm of s07, font=\tiny\sffamily, text width=2cm, align=center] {Assistente\\Gradio};
+    % Labels abaixo (linha 1)
+    \node[below=0.2cm of s01, font=\tiny\sffamily, text width=2cm, align=center] {Dados\\Sintéticos};
+    \node[below=0.2cm of s02, font=\tiny\sffamily, text width=2cm, align=center] {PostgreSQL};
+    \node[below=0.2cm of s03, font=\tiny\sffamily, text width=2cm, align=center] {Dataset\\MedQuAD};
+
+    % Label Colab (à esquerda)
+    \node[left=0.3cm of colab, font=\tiny\sffamily, text width=2cm, align=right] {Fine-Tuning\\QLoRA};
+
+    % Labels acima (linha 3, invertidos)
+    \node[above=0.2cm of s04, font=\tiny\sffamily, text width=2cm, align=center] {RAG\\ChromaDB};
+    \node[above=0.2cm of s05, font=\tiny\sffamily, text width=2cm, align=center] {Baseline};
+    \node[above=0.2cm of s06, font=\tiny\sffamily, text width=2cm, align=center] {Avaliação\\Fine-Tuned};
+    \node[above=0.2cm of s07, font=\tiny\sffamily, text width=2cm, align=center] {Assistente\\Gradio};
 \end{tikzpicture}
 \caption{Fluxo de execução do pipeline de reprodução.}
 \label{fig:fluxo_pipeline}

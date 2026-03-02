@@ -213,6 +213,11 @@
 \newacronym{cid}{CID}{Classificação Internacional de Doenças}
 \newacronym{qa}{QA}{Question Answering}
 \newacronym{bd}{BD}{Banco de Dados}
+\newacronym{nih}{NIH}{National Institutes of Health}
+\newacronym{gqa}{GQA}{Grouped-Query Attention}
+\newacronym{sft}{SFT}{Supervised Fine-Tuning}
+\newacronym{vram}{VRAM}{Video Random Access Memory}
+\newacronym{gpu}{GPU}{Graphics Processing Unit}
 
 % ============================================================================
 % METADADOS DO DOCUMENTO
@@ -258,7 +263,7 @@ Todo o código desenvolvido neste projeto, bem como esta documentação e o link
 \begin{itemize}
     \item Pipeline completo de reprodução com 7 scripts numerados (\texttt{scripts/01} a \texttt{scripts/07})
     \item Código-fonte do fine-tuning (QLoRA) e notebook para Google Colab
-    \item 14 Linhas de Cuidado (protocolos clínicos) pré-processados para RAG
+    \item 14 Linhas de Cuidado + 5 protocolos de emergência (IAM, AVC, Sepse, Pneumonia, ITU) para RAG
     \item Dados sintéticos de 80 pacientes com exames, prontuários e receitas
     \item Grafo multi-agente LangGraph com 6 agentes especializados
     \item Este relatório técnico em PDF
@@ -277,9 +282,9 @@ Todo o código desenvolvido neste projeto, bem como esta documentação e o link
 \addcontentsline{toc}{chapter}{Resumo}
 \vspace*{-0.3cm}
 
-Este documento apresenta a documentação técnica completa do Assistente Virtual Médico desenvolvido como parte do Tech Challenge da Fase 3 do curso de Pós-Graduação em Inteligência Artificial para Devs da FIAP. O sistema integra cinco pilares de \acrfull{ia} generativa: (1)~\textbf{fine-tuning} do modelo Mistral 7B Instruct v0.3 com o dataset MedQuAD traduzido para português, utilizando \acrfull{qlora} 4-bit no Google Colab; (2)~\textbf{RAG} (\textit{Retrieval-Augmented Generation}) com 14 Linhas de Cuidado reais indexadas no ChromaDB; (3)~\textbf{grafo multi-agente} em LangGraph com 6 agentes especializados (triagem, protocolo, paciente, raciocínio, guardrails e explicabilidade); (4)~\textbf{segurança} com guardrails que impedem prescrições diretas e exigem validação humana; e (5)~\textbf{interface} Gradio para demonstração interativa.
+Este documento apresenta a documentação técnica completa do Assistente Virtual Médico desenvolvido como parte do Tech Challenge da Fase 3 do curso de Pós-Graduação em Inteligência Artificial para Devs da FIAP. O sistema integra cinco pilares de \acrfull{ia} generativa: (1)~\textbf{fine-tuning} do modelo Mistral 7B Instruct v0.3 com o dataset MedQuAD traduzido para português, utilizando \acrfull{qlora} 4-bit no Google Colab; (2)~\textbf{RAG} (\textit{Retrieval-Augmented Generation}) com 14 Linhas de Cuidado reais e 5 protocolos de emergência sintéticos indexados no ChromaDB; (3)~\textbf{grafo multi-agente} em LangGraph com 6 agentes especializados (triagem, protocolo, paciente, raciocínio, guardrails e explicabilidade); (4)~\textbf{segurança} com guardrails que impedem prescrições diretas e exigem validação humana; e (5)~\textbf{interface} Gradio para demonstração interativa.
 
-O projeto foi concebido para ser integralmente reprodutível: um pipeline de 7 scripts numerados permite ao avaliador reconstruir todo o sistema do zero, desde a geração de dados sintéticos até a execução do assistente completo. Os dados de pacientes são inteiramente fictícios, gerados com coerência clínica para simular cenários reais de atendimento hospitalar.
+O projeto foi concebido para ser integralmente reprodutível: um pipeline de 7 scripts numerados permite que se reconstrua todo o sistema do zero, desde a geração de dados sintéticos até a execução do assistente completo. Os dados de pacientes são inteiramente fictícios, gerados com coerência clínica para simular cenários reais de atendimento hospitalar.
 
 \vspace{1em}
 \noindent\textbf{Palavras-chave:} Fine-Tuning; QLoRA; Mistral 7B; LangChain; LangGraph; RAG; ChromaDB; Multi-Agente; Guardrails; Assistente Médico.
@@ -291,9 +296,9 @@ O projeto foi concebido para ser integralmente reprodutível: um pipeline de 7 s
 \addcontentsline{toc}{chapter}{Abstract}
 \vspace*{-0.3cm}
 
-This document presents the complete technical documentation of the Virtual Medical Assistant developed as part of the Phase 3 Tech Challenge of the Postgraduate course in Artificial Intelligence for Developers at FIAP. The system integrates five pillars of generative AI: (1)~\textbf{fine-tuning} of Mistral 7B Instruct v0.3 with the MedQuAD dataset translated to Portuguese, using QLoRA 4-bit on Google Colab; (2)~\textbf{RAG} (Retrieval-Augmented Generation) with 14 real clinical care pathways indexed in ChromaDB; (3)~\textbf{multi-agent graph} in LangGraph with 6 specialized agents (triage, protocol, patient data, reasoning, guardrails, and explainability); (4)~\textbf{safety} guardrails preventing direct prescriptions and requiring human validation; and (5)~\textbf{Gradio interface} for interactive demonstration.
+This document presents the complete technical documentation of the Virtual Medical Assistant developed as part of the Phase 3 Tech Challenge of the Postgraduate course in Artificial Intelligence for Developers at FIAP. The system integrates five pillars of generative AI: (1)~\textbf{fine-tuning} of Mistral 7B Instruct v0.3 with the MedQuAD dataset translated to Portuguese, using QLoRA 4-bit on Google Colab; (2)~\textbf{RAG} (Retrieval-Augmented Generation) with 14 real clinical care pathways and 5 synthetic emergency protocols indexed in ChromaDB; (3)~\textbf{multi-agent graph} in LangGraph with 6 specialized agents (triage, protocol, patient data, reasoning, guardrails, and explainability); (4)~\textbf{safety} guardrails preventing direct prescriptions and requiring human validation; and (5)~\textbf{Gradio interface} for interactive demonstration.
 
-The project was designed to be fully reproducible: a pipeline of 7 numbered scripts allows the evaluator to rebuild the entire system from scratch, from synthetic data generation to running the complete assistant.
+The project was designed to be fully reproducible: a pipeline of 7 numbered scripts allows the entire system to be rebuilt from scratch, from synthetic data generation to running the complete assistant. Patient data is entirely fictitious, generated with clinical coherence to simulate real hospital care scenarios.
 
 \vspace{1em}
 \noindent\textbf{Keywords:} Fine-Tuning; QLoRA; Mistral 7B; LangChain; LangGraph; RAG; ChromaDB; Multi-Agent; Guardrails; Medical Assistant.
@@ -314,7 +319,7 @@ The project was designed to be fully reproducible: a pipeline of 7 numbered scri
 
 \include{chapters/cap01_introducao}
 \include{chapters/cap02_dados}
-% \include{chapters/cap03_fine_tuning}
+\include{chapters/cap03_fine_tuning}
 % \include{chapters/cap04_rag}
 % \include{chapters/cap05_multi_agente}
 % \include{chapters/cap06_seguranca}

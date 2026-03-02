@@ -1,0 +1,600 @@
+% ============================================================================
+% CAPÍTULO 3 - FINE-TUNING DO MODELO
+% ============================================================================
+
+\chapter{Fine-Tuning do Modelo}
+\label{cap:fine-tuning}
+
+Este capítulo descreve o processo de fine-tuning do modelo de linguagem para o domínio médico. O objetivo é adaptar um modelo generalista (Mistral 7B) para responder perguntas médicas em português com maior precisão e relevância clínica.
+
+% ============================================================================
+\section{Modelo Base: Mistral 7B Instruct}
+\label{sec:modelo-base}
+
+\subsection{Justificativa da Escolha}
+
+Para o fine-tuning, escolhemos o \textbf{Mistral 7B Instruct v0.3} como modelo base. Esta decisão foi tomada após análise comparativa de alternativas, considerando os seguintes critérios:
+
+\begin{table}[H]
+\centering
+\caption{Comparação de modelos candidatos para fine-tuning}
+\label{tab:comparacao-modelos}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Modelo} & \textbf{Parâmetros} & \textbf{Contexto} & \textbf{Licença} & \textbf{VRAM (4-bit)} \\
+\midrule
+Mistral 7B Instruct & 7.3B & 32K tokens & Apache 2.0 & ~5GB \\
+LLaMA 2 7B & 7B & 4K tokens & Meta License & ~5GB \\
+BioMistral 7B & 7.3B & 32K tokens & Apache 2.0 & ~5GB \\
+Falcon 7B & 7B & 2K tokens & Apache 2.0 & ~5GB \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{importantbox}[Por que não usar BioMistral?]
+O BioMistral já possui conhecimento médico pré-treinado, o que dificultaria demonstrar o \textbf{delta} (melhoria) obtido com o fine-tuning. Ao usar o Mistral 7B generalista, conseguimos evidenciar claramente a diferença entre as respostas antes e depois do treinamento especializado.
+\end{importantbox}
+
+\subsection{Características do Mistral 7B}
+
+O Mistral 7B apresenta características técnicas que o tornam ideal para este projeto:
+
+\begin{itemize}
+    \item \textbf{Arquitetura}: Transformer decoder-only com 32 camadas
+    \item \textbf{Sliding Window Attention}: Janela de 4096 tokens com contexto efetivo de 32K
+    \item \textbf{Grouped-Query Attention (GQA)}: Reduz uso de memória mantendo qualidade
+    \item \textbf{Instruct-tuned}: Versão já otimizada para seguir instruções
+    \item \textbf{Multilíngue}: Bom desempenho em português, mesmo sem treinamento específico
+\end{itemize}
+
+% ============================================================================
+\section{Dataset: MedQuAD}
+\label{sec:dataset-medquad}
+
+\subsection{Escolha do Dataset}
+
+Para o fine-tuning, utilizamos o \textbf{MedQuAD} (Medical Question Answering Dataset), um dataset de perguntas e respostas médicas criado pelo National Institutes of Health (NIH) dos Estados Unidos.
+
+\begin{table}[H]
+\centering
+\caption{Comparação de versões do MedQuAD disponíveis}
+\label{tab:versoes-medquad}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Dataset (HuggingFace)} & \textbf{Pares QA} & \textbf{Metadados} & \textbf{Escolhido} \\
+\midrule
+\texttt{lavita/MedQuAD} & 47.400 & UMLS, fontes, sinônimos & \checkmark \\
+\texttt{keivalya/MedQuad-MedicalQnADataset} & 16.400 & Apenas tipo de questão & \\
+\texttt{Tonic/medquad} & 15.549 & Nenhum & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Optamos pela versão \texttt{lavita/MedQuAD} por oferecer:
+
+\begin{itemize}
+    \item \textbf{Maior volume}: 47.400 pares QA (quase 3x mais que alternativas)
+    \item \textbf{Metadados ricos}: códigos UMLS, tipos semânticos, sinônimos
+    \item \textbf{Fontes documentadas}: NCI, GHR, MedlinePlus, NIDDK, NINDS, NIHSeniorHealth, NHLBI, CDC
+    \item \textbf{Licença clara}: Creative Commons BY 4.0
+\end{itemize}
+
+\subsection{Fontes do MedQuAD}
+
+O dataset original do MedQuAD compila informações de 12 fontes do NIH, cobrindo diversas especialidades médicas:
+
+\begin{table}[H]
+\centering
+\caption{Fontes do dataset MedQuAD e cobertura temática}
+\label{tab:fontes-medquad}
+\begin{tabular}{llc}
+\toprule
+\textbf{Fonte} & \textbf{Cobertura} & \textbf{Pares QA} \\
+\midrule
+National Cancer Institute (NCI) & Oncologia & 729 \\
+Genetics Home Reference (GHR) & Genética & 5.430 \\
+MedlinePlus Health Topics & Saúde geral & 981 \\
+NIDDK & Diabetes, digestivo, renal & 1.192 \\
+NINDS & Neurologia & 1.104 \\
+NIHSeniorHealth & Geriatria & 769 \\
+NHLBI & Cardiologia, pneumologia & 559 \\
+CDC & Doenças infecciosas & 270 \\
+\midrule
+\textbf{Total (versão filtrada)} & & \textbf{47.400} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Tradução para Português}
+\label{subsec:traducao}
+
+O dataset MedQuAD original está em inglês. Para treinar o modelo a responder em português brasileiro, implementamos um pipeline de tradução automatizada.
+
+\subsubsection{Estratégia de Tradução}
+
+Utilizamos a biblioteca \texttt{deep-translator} que oferece acesso gratuito à API do Google Translate:
+
+\begin{lstlisting}[caption={Função de tradução com tratamento de textos longos}, label={lst:traducao}]
+from deep_translator import GoogleTranslator
+
+def translate_to_portuguese(text: str) -> str:
+    """Traduz texto de ingles para portugues brasileiro."""
+    if not text or len(text.strip()) == 0:
+        return text
+
+    translator = GoogleTranslator(source='en', target='pt')
+
+    # Textos longos precisam ser divididos (limite de 5000 chars)
+    if len(text) > 4500:
+        chunks = [text[i:i+4500] for i in range(0, len(text), 4500)]
+        translated_chunks = [translator.translate(chunk) for chunk in chunks]
+        return ' '.join(translated_chunks)
+
+    return translator.translate(text)
+\end{lstlisting}
+
+\subsubsection{Sistema de Checkpoints}
+
+Dado o volume do dataset (47.400 registros), implementamos um sistema de checkpoints que salva o progresso a cada 1.000 traduções. Isso permite:
+
+\begin{itemize}
+    \item Retomar o processo em caso de interrupção
+    \item Monitorar o progresso da tradução
+    \item Evitar retrabalho em caso de erros de rede
+\end{itemize}
+
+\begin{lstlisting}[caption={Sistema de checkpoint para tradução}, label={lst:checkpoint}]
+CHECKPOINT_INTERVAL = 1000
+
+for i, row in enumerate(dataset):
+    # Traduzir pergunta e resposta
+    translated_question = translate_to_portuguese(row['question'])
+    translated_answer = translate_to_portuguese(row['answer'])
+
+    translated_data.append({
+        "instruction": "Responda a seguinte pergunta medica...",
+        "input": translated_question,
+        "output": translated_answer
+    })
+
+    # Salvar checkpoint a cada 1000 registros
+    if (i + 1) % CHECKPOINT_INTERVAL == 0:
+        save_checkpoint(translated_data, i + 1)
+\end{lstlisting}
+
+\subsection{Formato Alpaca}
+\label{subsec:formato-alpaca}
+
+O dataset traduzido é formatado no padrão \textbf{Alpaca}, amplamente utilizado para instruction tuning de \acrshort{llm}s:
+
+\begin{lstlisting}[caption={Estrutura do formato Alpaca}, label={lst:alpaca-format}]
+{
+    "instruction": "Responda a seguinte pergunta medica de forma
+                    clara e detalhada.",
+    "input": "Quais sao os sintomas do diabetes tipo 2?",
+    "output": "Os sintomas mais comuns do diabetes tipo 2 incluem:
+               aumento da sede (polidipsia), miccao frequente
+               (poliuria), fadiga, visao turva, cicatrizacao lenta
+               de feridas, formigamento nas maos e pes..."
+}
+\end{lstlisting}
+
+O template de prompt utilizado durante o treinamento é:
+
+\begin{tcolorbox}[colback=code-bg, colframe=fiap-gray, title=Template Alpaca em Português]
+\ttfamily\small
+Abaixo está uma instrução que descreve uma tarefa, junto com uma entrada que fornece contexto adicional. Escreva uma resposta que complete adequadamente a solicitação.\\[0.5em]
+\#\#\# Instrução:\\
+\{instruction\}\\[0.5em]
+\#\#\# Entrada:\\
+\{input\}\\[0.5em]
+\#\#\# Resposta:\\
+\{output\}
+\end{tcolorbox}
+
+O arquivo final é salvo no formato JSONL (JSON Lines), com um registro por linha:
+
+\begin{lstlisting}[style=bash, caption={Exemplo do arquivo training\_data.jsonl}]
+{"instruction": "Responda...", "input": "O que e hipertensao?", "output": "A hipertensao arterial..."}
+{"instruction": "Responda...", "input": "Quais as causas do diabetes?", "output": "O diabetes tipo 1..."}
+\end{lstlisting}
+
+% ============================================================================
+\section{Técnica: QLoRA}
+\label{sec:qlora}
+
+Para realizar o fine-tuning de forma eficiente em hardware limitado (Google Colab Free com GPU T4), utilizamos a técnica \textbf{QLoRA} (Quantized Low-Rank Adaptation).
+
+\subsection{Fundamentos do LoRA}
+
+O \acrfull{lora} é uma técnica de fine-tuning eficiente que, em vez de atualizar todos os parâmetros do modelo, treina apenas matrizes de baixo rank que são adicionadas às camadas existentes:
+
+\begin{equation}
+W' = W + \Delta W = W + BA
+\end{equation}
+
+Onde:
+\begin{itemize}
+    \item $W \in \mathbb{R}^{d \times k}$ é a matriz de pesos original (congelada)
+    \item $B \in \mathbb{R}^{d \times r}$ e $A \in \mathbb{R}^{r \times k}$ são as matrizes treináveis
+    \item $r \ll \min(d, k)$ é o \textit{rank} do LoRA
+\end{itemize}
+
+\subsection{Quantização 4-bit}
+
+O QLoRA combina LoRA com quantização de 4 bits, reduzindo drasticamente o uso de memória:
+
+\begin{table}[H]
+\centering
+\caption{Comparação de uso de memória por técnica de fine-tuning}
+\label{tab:memoria-tecnicas}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Técnica} & \textbf{VRAM (Mistral 7B)} & \textbf{Parâmetros Treináveis} \\
+\midrule
+Full Fine-Tuning (FP16) & ~28 GB & 7.3B (100\%) \\
+LoRA (FP16) & ~14 GB & ~42M (0.6\%) \\
+\textbf{QLoRA (4-bit)} & \textbf{~5 GB} & \textbf{~42M (0.6\%)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A configuração de quantização utilizada:
+
+\begin{lstlisting}[caption={Configuração de quantização 4-bit}, label={lst:bnb-config}]
+from transformers import BitsAndBytesConfig
+
+bnb_config = BitsAndBytesConfig(
+    load_in_4bit=True,              # Quantizacao 4-bit
+    bnb_4bit_quant_type="nf4",      # Normal Float 4-bit
+    bnb_4bit_compute_dtype=torch.float16,  # Computacao em FP16
+    bnb_4bit_use_double_quant=True  # Quantizacao dupla (economia extra)
+)
+\end{lstlisting}
+
+\subsection{Configuração do LoRA}
+
+Os hiperparâmetros do LoRA foram escolhidos para maximizar a capacidade de aprendizado dentro das limitações de hardware:
+
+\begin{lstlisting}[caption={Configuração LoRA para o fine-tuning}, label={lst:lora-config}]
+from peft import LoraConfig
+
+lora_config = LoraConfig(
+    r=64,                    # Rank (maior = mais capacidade)
+    lora_alpha=128,          # Scaling factor (2x o rank)
+    lora_dropout=0.05,       # Regularizacao
+    bias="none",             # Nao treinar bias
+    task_type="CAUSAL_LM",   # Modelagem de linguagem causal
+
+    # Camadas a serem treinadas
+    target_modules=[
+        "q_proj", "k_proj", "v_proj", "o_proj",  # Attention
+        "gate_proj", "up_proj", "down_proj"       # MLP
+    ]
+)
+\end{lstlisting}
+
+\begin{infobox}[Escolha do Rank]
+O rank $r=64$ foi escolhido como um equilíbrio entre capacidade de aprendizado e uso de memória. Ranks maiores (128, 256) podem capturar mais nuances, mas aumentam significativamente o tempo de treino e o risco de overfitting. Para domínios especializados como medicina, $r \in [32, 64]$ é geralmente suficiente.
+\end{infobox}
+
+% ============================================================================
+\section{Processo de Treino}
+\label{sec:processo-treino}
+
+\subsection{Ambiente de Execução}
+
+O fine-tuning é realizado no \textbf{Google Colab Free}, que oferece acesso gratuito a GPUs NVIDIA T4:
+
+\begin{table}[H]
+\centering
+\caption{Especificações do ambiente de treinamento}
+\label{tab:ambiente-treino}
+\begin{tabular}{ll}
+\toprule
+\textbf{Componente} & \textbf{Especificação} \\
+\midrule
+Plataforma & Google Colab Free \\
+GPU & NVIDIA Tesla T4 \\
+VRAM & 15 GB \\
+RAM & 12.7 GB \\
+Limite de sessão & ~12 horas \\
+Armazenamento & Google Drive (15 GB free) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Hiperparâmetros de Treinamento}
+
+Os hiperparâmetros foram configurados para otimizar a qualidade do modelo dentro das restrições de hardware e tempo:
+
+\begin{lstlisting}[caption={Configuração completa do treinamento}, label={lst:training-args}]
+from transformers import TrainingArguments
+
+training_args = TrainingArguments(
+    output_dir="./checkpoints",
+
+    # Epochs e batching
+    num_train_epochs=5,                    # 5 epochs para qualidade
+    per_device_train_batch_size=2,         # Batch size (limite T4)
+    gradient_accumulation_steps=8,         # Effective batch = 16
+
+    # Learning rate
+    learning_rate=2e-4,                    # Taxa padrao para LoRA
+    warmup_ratio=0.03,                     # 3% warmup
+    weight_decay=0.01,                     # Regularizacao L2
+    lr_scheduler_type="cosine",            # Decay suave
+
+    # Checkpoints (CRITICO para Colab Free!)
+    save_strategy="steps",
+    save_steps=500,                        # Salvar a cada ~30-40 min
+    save_total_limit=3,                    # Manter 3 checkpoints
+
+    # Avaliacao
+    evaluation_strategy="steps",
+    eval_steps=500,
+    load_best_model_at_end=True,
+
+    # Precisao
+    fp16=True,                             # Mixed precision
+)
+\end{lstlisting}
+
+\begin{table}[H]
+\centering
+\caption{Resumo dos hiperparâmetros de treinamento}
+\label{tab:hiperparametros}
+\begin{tabular}{lll}
+\toprule
+\textbf{Parâmetro} & \textbf{Valor} & \textbf{Justificativa} \\
+\midrule
+Epochs & 5 & Qualidade máxima, convergência completa \\
+Batch size efetivo & 16 & $2 \times 8$ (grad accumulation) \\
+Learning rate & $2 \times 10^{-4}$ & Padrão para LoRA \\
+Warmup & 3\% & Estabilidade inicial \\
+LR scheduler & Cosine & Decay suave até o final \\
+Checkpoints & 500 steps & Recuperação de sessão \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Sistema de Checkpoints para Colab Free}
+\label{subsec:checkpoints}
+
+Uma limitação crítica do Google Colab Free é o limite de sessão de aproximadamente 12 horas. Para um treino de 5 epochs com 47.400 registros, o tempo total estimado é de 20-30 horas, exigindo múltiplas sessões.
+
+\begin{warningbox}[Estratégia de Múltiplas Sessões]
+O treino completo requer 3-4 sessões do Colab. Checkpoints são salvos a cada 500 steps (~30-40 minutos) no Google Drive, permitindo retomar o treino de onde parou.
+\end{warningbox}
+
+O fluxo de múltiplas sessões é ilustrado abaixo:
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=0.8cm,
+    session/.style={rectangle, draw=fiap-red, fill=fiap-red!10, rounded corners, minimum width=6cm, minimum height=1.2cm, font=\small},
+    checkpoint/.style={rectangle, draw=fiap-gray, fill=fiap-light, rounded corners, minimum width=4cm, minimum height=0.8cm, font=\scriptsize},
+    arrow/.style={->, thick, color=fiap-dark}
+]
+    % Sessões
+    \node[session] (s1) {Sessão 1: Steps 0 $\rightarrow$ 3500 (Epochs 1-2)};
+    \node[checkpoint, below=of s1] (c1) {checkpoint-3500 salvo no Drive};
+
+    \node[session, below=of c1] (s2) {Sessão 2: Steps 3500 $\rightarrow$ 7000 (Epochs 2-4)};
+    \node[checkpoint, below=of s2] (c2) {checkpoint-7000 salvo no Drive};
+
+    \node[session, below=of c2] (s3) {Sessão 3: Steps 7000 $\rightarrow$ FIM (Epochs 4-5)};
+    \node[checkpoint, below=of s3] (c3) {Modelo final salvo};
+
+    % Setas
+    \draw[arrow] (s1) -- (c1);
+    \draw[arrow] (c1) -- node[right, font=\scriptsize] {resume} (s2);
+    \draw[arrow] (s2) -- (c2);
+    \draw[arrow] (c2) -- node[right, font=\scriptsize] {resume} (s3);
+    \draw[arrow] (s3) -- (c3);
+\end{tikzpicture}
+\caption{Fluxo de treinamento com múltiplas sessões no Colab Free}
+\label{fig:fluxo-sessoes}
+\end{figure}
+
+O código para retomar o treino de um checkpoint:
+
+\begin{lstlisting}[caption={Retomando treino de checkpoint existente}, label={lst:resume-checkpoint}]
+import os
+
+def find_latest_checkpoint(checkpoint_dir):
+    """Encontra o checkpoint mais recente."""
+    checkpoints = [d for d in os.listdir(checkpoint_dir)
+                   if d.startswith("checkpoint-")]
+    if not checkpoints:
+        return None
+    latest = sorted(checkpoints, key=lambda x: int(x.split("-")[1]))[-1]
+    return os.path.join(checkpoint_dir, latest)
+
+# Verificar e retomar
+latest_checkpoint = find_latest_checkpoint(CHECKPOINT_DIR)
+
+if latest_checkpoint:
+    print(f"Retomando de: {latest_checkpoint}")
+    trainer.train(resume_from_checkpoint=latest_checkpoint)
+else:
+    print("Iniciando treino do zero...")
+    trainer.train()
+\end{lstlisting}
+
+\subsection{Estimativa de Tempo}
+
+\begin{table}[H]
+\centering
+\caption{Estimativa de tempo de treinamento por configuração}
+\label{tab:tempo-treino}
+\begin{tabular}{cccc}
+\toprule
+\textbf{Dataset} & \textbf{Epochs} & \textbf{Tempo Estimado} & \textbf{Sessões Colab} \\
+\midrule
+47.400 pares & 1 & 4-6 horas & 1 \\
+47.400 pares & 3 & 12-18 horas & 2-3 \\
+\textbf{47.400 pares} & \textbf{5} & \textbf{20-30 horas} & \textbf{3-4} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ============================================================================
+\section{Persistência do Modelo}
+\label{sec:persistencia}
+
+\subsection{Salvando os Adapters LoRA}
+
+Após o treinamento, salvamos apenas os \textbf{adapters LoRA} (não o modelo completo). Isso resulta em arquivos muito menores:
+
+\begin{table}[H]
+\centering
+\caption{Comparação de tamanho de arquivos salvos}
+\label{tab:tamanho-modelo}
+\begin{tabular}{lc}
+\toprule
+\textbf{Tipo de Salvamento} & \textbf{Tamanho Aproximado} \\
+\midrule
+Modelo completo (merged) & 15-28 GB \\
+\textbf{Adapters LoRA apenas} & \textbf{~500 MB} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{lstlisting}[caption={Salvando o modelo fine-tuned}, label={lst:save-model}]
+# Salvar adapters LoRA
+SAVE_PATH = "/content/drive/MyDrive/medical-assistant-final"
+model.save_pretrained(SAVE_PATH)
+tokenizer.save_pretrained(SAVE_PATH)
+\end{lstlisting}
+
+\subsection{Carregando o Modelo para Uso}
+
+Para utilizar o modelo fine-tuned posteriormente:
+
+\begin{lstlisting}[caption={Carregando o modelo fine-tuned para inferência}, label={lst:load-model}]
+from unsloth import FastLanguageModel
+
+# Carregar modelo fine-tuned
+model, tokenizer = FastLanguageModel.from_pretrained(
+    model_name="/path/to/medical-assistant-final",
+    max_seq_length=2048,
+    dtype=None,
+    load_in_4bit=True,
+)
+
+# Preparar para inferencia
+FastLanguageModel.for_inference(model)
+\end{lstlisting}
+
+% ============================================================================
+\section{Avaliação do Fine-Tuning}
+\label{sec:avaliacao-ft}
+
+Para demonstrar o \textbf{delta} (melhoria) obtido com o fine-tuning, implementamos uma avaliação comparativa rigorosa.
+
+\subsection{Metodologia}
+
+A avaliação segue o protocolo:
+
+\begin{enumerate}
+    \item \textbf{Baseline}: Executar 50 perguntas médicas no Mistral 7B \textit{sem} fine-tuning
+    \item \textbf{Fine-tuned}: Executar as mesmas 50 perguntas no modelo \textit{após} fine-tuning
+    \item \textbf{Comparação}: Análise quantitativa (métricas) e qualitativa (lado a lado)
+\end{enumerate}
+
+\subsection{Conjunto de Perguntas de Avaliação}
+
+Criamos um conjunto de 50 perguntas médicas em português, distribuídas em 5 categorias:
+
+\begin{table}[H]
+\centering
+\caption{Distribuição das perguntas de avaliação por categoria}
+\label{tab:perguntas-avaliacao}
+\begin{tabular}{llc}
+\toprule
+\textbf{Categoria} & \textbf{Exemplo de Pergunta} & \textbf{Qtd} \\
+\midrule
+Sintomas & ``Quais são os sintomas do diabetes tipo 2?'' & 10 \\
+Tratamento & ``Como tratar uma crise aguda de asma?'' & 10 \\
+Medicamentos & ``Quais são os efeitos colaterais da metformina?'' & 10 \\
+Prevenção & ``Como prevenir doenças cardiovasculares?'' & 10 \\
+Emergências & ``O que fazer em caso de suspeita de AVC?'' & 10 \\
+\midrule
+\textbf{Total} & & \textbf{50} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Métricas de Avaliação}
+
+Utilizamos métricas automáticas complementares para avaliar a qualidade das respostas:
+
+\begin{table}[H]
+\centering
+\caption{Métricas utilizadas na avaliação}
+\label{tab:metricas}
+\begin{tabular}{lp{8cm}}
+\toprule
+\textbf{Métrica} & \textbf{Descrição} \\
+\midrule
+\textbf{BLEU} & Mede overlap de n-gramas entre resposta gerada e referência. Valores de 0 a 1, onde maior é melhor. \\
+\textbf{ROUGE-1} & Overlap de unigramas (palavras individuais). \\
+\textbf{ROUGE-2} & Overlap de bigramas (pares de palavras). \\
+\textbf{ROUGE-L} & Maior subsequência comum (captura estrutura). \\
+\textbf{Comprimento} & Tamanho médio das respostas (em caracteres). \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Scripts de Avaliação}
+
+O pipeline de avaliação é implementado em dois scripts:
+
+\begin{lstlisting}[style=bash, caption={Execução da avaliação}]
+# 1. Avaliar modelo BASE (Mistral 7B sem fine-tuning)
+python scripts/05_avaliar_baseline.py
+
+# 2. Avaliar modelo FINE-TUNED e gerar comparacao
+python scripts/06_avaliar_finetuned.py --model-path /path/to/model
+\end{lstlisting}
+
+Os resultados são salvos em:
+
+\begin{itemize}
+    \item \texttt{data/evaluation/baseline\_responses.json} --- Respostas do modelo base
+    \item \texttt{data/evaluation/finetuned\_responses.json} --- Respostas do modelo fine-tuned
+    \item \texttt{data/evaluation/comparacao\_resultados.json} --- Métricas comparativas
+    \item \texttt{data/evaluation/comparacao\_resultados.md} --- Relatório lado a lado
+\end{itemize}
+
+\subsection{Resultados Esperados}
+
+Com base em trabalhos similares na literatura, esperamos observar:
+
+\begin{itemize}
+    \item \textbf{Melhoria de 15-25\%} nas métricas BLEU e ROUGE
+    \item \textbf{Respostas mais específicas} ao domínio médico
+    \item \textbf{Terminologia técnica} mais precisa em português
+    \item \textbf{Estrutura de resposta} mais adequada para contexto clínico
+\end{itemize}
+
+\begin{infobox}[Limitações da Avaliação Automática]
+Métricas como BLEU e ROUGE capturam similaridade textual, mas não avaliam completamente a \textit{correção clínica} das respostas. Uma avaliação humana por profissionais de saúde seria necessária para validação completa em um cenário de produção.
+\end{infobox}
+
+% ============================================================================
+\section{Resumo do Capítulo}
+
+Este capítulo apresentou o processo completo de fine-tuning do modelo Mistral 7B para o domínio médico:
+
+\begin{enumerate}
+    \item \textbf{Modelo Base}: Mistral 7B Instruct v0.3, escolhido por ser generalista (permite demonstrar delta)
+    \item \textbf{Dataset}: MedQuAD com 47.400 pares QA, traduzido para português via \texttt{deep-translator}
+    \item \textbf{Técnica}: QLoRA 4-bit ($r=64$, $\alpha=128$), permitindo treino em GPU T4 (15GB)
+    \item \textbf{Treinamento}: 5 epochs, ~20-30h, dividido em 3-4 sessões do Colab Free
+    \item \textbf{Avaliação}: 50 perguntas médicas, comparação baseline vs fine-tuned
+\end{enumerate}
+
+O modelo resultante será utilizado como o ``cérebro'' do agente de raciocínio no grafo multi-agente descrito no Capítulo~\ref{cap:multi-agente}.

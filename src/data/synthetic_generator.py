@@ -644,9 +644,720 @@ def generate_prescriptions(patient: dict) -> list[dict]:
     return prescriptions
 
 
+# ============================================================================
+# PROTOCOLOS DE EMERGENCIA SINTETICOS
+# ============================================================================
+
+EMERGENCY_PROTOCOLS = {
+    "iam": {
+        "titulo": "Infarto Agudo do Miocárdio (IAM)",
+        "cid": "I21",
+        "conteudo": """# Protocolo de Emergência: Infarto Agudo do Miocárdio (IAM)
+
+## Considerações Iniciais
+
+O Infarto Agudo do Miocárdio (IAM) é uma emergência cardiovascular que requer reconhecimento e tratamento imediatos. O tempo é crítico: "tempo é músculo". O objetivo é restaurar o fluxo coronariano o mais rápido possível.
+
+**Definição:** Necrose miocárdica causada por isquemia prolongada, geralmente por oclusão trombótica de artéria coronária sobre placa aterosclerótica instável.
+
+## Reconhecimento e Diagnóstico
+
+### Quadro Clínico Típico
+- Dor torácica em aperto/opressão, retroesternal
+- Irradiação para membro superior esquerdo, mandíbula, epigástrio
+- Duração > 20 minutos, não alivia com repouso ou nitrato
+- Sintomas associados: dispneia, sudorese fria, náuseas, palidez
+
+### Apresentações Atípicas (atenção especial)
+- Idosos: confusão mental, dispneia isolada
+- Diabéticos: IAM silencioso
+- Mulheres: fadiga, dispneia, dor epigástrica
+
+### Exames Diagnósticos
+1. **ECG em até 10 minutos da chegada**
+   - IAMCSST: supradesnível de ST ≥1mm em 2 derivações contíguas
+   - IAMSSST: infradesnivelamento de ST, inversão de T, ou ECG normal
+2. **Marcadores de necrose miocárdica**
+   - Troponina I ou T (alta sensibilidade): colher na admissão e 3-6h
+   - CK-MB: menos sensível, útil para reinfarto
+3. **Radiografia de tórax:** avaliar congestão pulmonar
+
+## Manejo Inicial (Primeiros 10 minutos)
+
+### MONABCH (mnemônico)
+- **M**orfina: 2-4mg IV se dor refratária (cuidado com hipotensão)
+- **O**xigênio: apenas se SpO2 < 90%
+- **N**itrato: nitroglicerina SL 0,4mg (contraindicado se PAS < 90mmHg ou uso de sildenafil)
+- **A**AS: 200-300mg VO mastigado (dose de ataque)
+- **B**etabloqueador: metoprolol 5mg IV se FC > 60 e PAS > 100
+- **C**lopidogrel: 300-600mg VO (dose de ataque)
+- **H**eparina: enoxaparina 1mg/kg SC ou HNF conforme protocolo
+
+### Estratégia de Reperfusão (IAMCSST)
+- **Angioplastia primária (preferencial):** se disponível em < 120 minutos
+- **Trombólise:** se angioplastia não disponível em tempo hábil
+  - Tenecteplase (TNK) dose ajustada por peso
+  - Tempo porta-agulha < 30 minutos
+  - Contraindicações absolutas: AVC hemorrágico prévio, sangramento ativo
+
+## Monitoramento
+
+### Nas primeiras 24-48 horas
+- Monitorização cardíaca contínua (risco de arritmias)
+- PA e FC a cada 15-30 minutos inicialmente
+- Balanço hídrico rigoroso
+- Troponina seriada (pico em 12-24h)
+- ECG seriado
+
+### Complicações a monitorar
+- Arritmias (FV, TV, BAV)
+- Insuficiência cardíaca aguda
+- Choque cardiogênico
+- Complicações mecânicas (ruptura de parede livre, CIV, insuficiência mitral aguda)
+
+## Indicadores de Qualidade
+
+| Indicador | Meta |
+|-----------|------|
+| Tempo porta-ECG | < 10 minutos |
+| Tempo porta-balão (angioplastia) | < 90 minutos |
+| Tempo porta-agulha (trombólise) | < 30 minutos |
+| AAS nas primeiras 24h | > 95% |
+| Betabloqueador na alta | > 85% |
+| Estatina na alta | > 95% |
+
+## Critérios de Alta da Emergência
+
+- Estabilidade hemodinâmica por > 24h
+- Sem arritmias malignas
+- Revascularização realizada ou programada
+- Orientação sobre medicamentos e sinais de alarme
+- Encaminhamento para reabilitação cardíaca
+
+---
+*Protocolo complementar sintético para fins educacionais. Não substitui protocolos institucionais validados.*
+""",
+    },
+    "avc": {
+        "titulo": "Acidente Vascular Cerebral (AVC)",
+        "cid": "I64",
+        "conteudo": """# Protocolo de Emergência: Acidente Vascular Cerebral (AVC)
+
+## Considerações Iniciais
+
+O AVC é uma emergência neurológica onde "tempo é cérebro". A cada minuto de isquemia cerebral, aproximadamente 1,9 milhão de neurônios são perdidos. O reconhecimento precoce e tratamento em janela terapêutica são fundamentais.
+
+**Tipos principais:**
+- AVC Isquêmico (85%): oclusão arterial por trombo/êmbolo
+- AVC Hemorrágico (15%): ruptura vascular (hemorragia intraparenquimatosa ou subaracnoidea)
+
+## Reconhecimento e Diagnóstico
+
+### Escala de Cincinnati (pré-hospitalar)
+- **F**ace: assimetria facial (pedir para sorrir)
+- **A**rms: queda de um braço (pedir para elevar ambos)
+- **S**peech: fala arrastada ou incompreensível
+- **T**ime: hora do início dos sintomas (fundamental!)
+
+### Sintomas de Alerta
+- Déficit motor ou sensitivo súbito (face, braço, perna)
+- Alteração de fala ou linguagem
+- Alteração visual (perda de campo, diplopia)
+- Cefaleia súbita intensa ("a pior da vida" - subaracnoidea)
+- Alteração de equilíbrio ou coordenação
+- Rebaixamento de consciência
+
+### Exames Diagnósticos Imediatos
+1. **TC de crânio sem contraste (em até 25 min)**
+   - Exclui hemorragia
+   - Pode ser normal nas primeiras horas do AVC isquêmico
+2. **Glicemia capilar** (hipoglicemia pode mimetizar AVC)
+3. **ECG** (FA é causa comum de AVC cardioembólico)
+4. **Laboratório:** hemograma, coagulograma, função renal, eletrólitos
+
+### Escala NIHSS
+- Quantifica gravidade do déficit neurológico (0-42 pontos)
+- Deve ser aplicada por profissional treinado
+- Guia decisão terapêutica e prognóstico
+
+## Manejo Inicial
+
+### Medidas Gerais
+- Cabeceira a 0° (ou 30° se risco de aspiração ou PIC elevada)
+- Oxigênio apenas se SpO2 < 94%
+- Acesso venoso calibroso
+- Monitorização cardíaca e PA
+- Jejum até avaliação de deglutição
+
+### Controle Pressórico
+- **Candidato a trombólise:** PA < 185/110 mmHg antes e < 180/105 após
+- **Não candidato:** só tratar se PA > 220/120 mmHg (redução gradual, máx 15%)
+- **AVC hemorrágico:** manter PAS entre 140-180 mmHg
+
+### Trombólise Intravenosa (AVC Isquêmico)
+**Critérios de inclusão:**
+- Déficit neurológico mensurável
+- TC sem hemorragia
+- Tempo < 4,5 horas do início dos sintomas
+
+**Dose:** Alteplase (rtPA) 0,9 mg/kg (máx 90mg)
+- 10% em bolus, restante em 60 minutos
+
+**Contraindicações absolutas:**
+- Hemorragia intracraniana na TC
+- AVC ou TCE grave nos últimos 3 meses
+- Sangramento ativo
+- Plaquetas < 100.000
+- Uso de anticoagulantes com INR > 1,7
+
+### Trombectomia Mecânica
+- Oclusão de grande vaso (carótida interna, ACM proximal)
+- Janela estendida até 24h em casos selecionados (DAWN/DEFUSE 3)
+- Encaminhar para centro com neurointervenção
+
+## Monitoramento
+
+### Nas primeiras 24 horas
+- NIHSS seriado (a cada 1h nas primeiras 6h pós-trombólise)
+- PA a cada 15 minutos nas primeiras 2h pós-rtPA
+- Vigiar sinais de sangramento
+- Glicemia a cada 6h (evitar hipo e hiperglicemia)
+- TC de controle em 24h ou se piora neurológica
+
+### Complicações
+- Transformação hemorrágica
+- Edema cerebral maligno
+- Crises convulsivas
+- Pneumonia aspirativa
+- TVP/TEP
+
+## Indicadores de Qualidade
+
+| Indicador | Meta |
+|-----------|------|
+| Tempo porta-TC | < 25 minutos |
+| Tempo porta-agulha | < 60 minutos |
+| Trombólise em elegíveis | > 80% |
+| Disfagia avaliada antes de dieta | 100% |
+| Profilaxia de TVP em 48h | > 95% |
+| Alta com antitrombótico | > 95% |
+
+## Prevenção Secundária
+
+- Antiagregação (AAS ou clopidogrel) ou anticoagulação (se FA)
+- Estatina de alta potência
+- Controle de PA (meta < 130/80 mmHg)
+- Controle glicêmico
+- Cessação do tabagismo
+- Investigação etiológica completa
+
+---
+*Protocolo complementar sintético para fins educacionais. Não substitui protocolos institucionais validados.*
+""",
+    },
+    "sepse": {
+        "titulo": "Sepse e Choque Séptico",
+        "cid": "A41",
+        "conteudo": """# Protocolo de Emergência: Sepse e Choque Séptico
+
+## Considerações Iniciais
+
+Sepse é uma disfunção orgânica potencialmente fatal causada por resposta desregulada do hospedeiro à infecção. O reconhecimento precoce e tratamento nas primeiras horas ("golden hour") reduzem significativamente a mortalidade.
+
+**Definições (Sepsis-3, 2016):**
+- **Sepse:** infecção + disfunção orgânica (SOFA ≥ 2 pontos)
+- **Choque séptico:** sepse + necessidade de vasopressor para PAM ≥ 65 mmHg + lactato > 2 mmol/L após ressuscitação volêmica adequada
+
+## Reconhecimento e Diagnóstico
+
+### Triagem - qSOFA (quick SOFA)
+Dois ou mais critérios sugerem sepse:
+- Frequência respiratória ≥ 22 irpm
+- Alteração do nível de consciência (Glasgow < 15)
+- Pressão arterial sistólica ≤ 100 mmHg
+
+### Critérios de Disfunção Orgânica (SOFA)
+- **Respiratório:** PaO2/FiO2 < 400
+- **Cardiovascular:** PAM < 70 ou necessidade de vasopressor
+- **Neurológico:** Glasgow < 15
+- **Renal:** creatinina > 1,2 ou débito urinário < 0,5 mL/kg/h
+- **Hepático:** bilirrubina > 1,2 mg/dL
+- **Hematológico:** plaquetas < 150.000
+
+### Focos Infecciosos Comuns
+- Pulmonar (pneumonia) - mais comum
+- Urinário (pielonefrite, ITU complicada)
+- Abdominal (peritonite, colangite, abscessos)
+- Pele e partes moles (celulite, fasciite)
+- Cateter venoso central
+- Sistema nervoso central (meningite)
+
+### Exames Diagnósticos
+1. **Hemoculturas (2 pares)** - antes do antibiótico, se possível
+2. **Lactato arterial** - marcador de hipoperfusão
+3. **Hemograma, função renal e hepática, coagulograma**
+4. **Gasometria arterial**
+5. **Culturas específicas** conforme suspeita (urocultura, LCR, etc.)
+6. **Imagem** conforme foco suspeito
+
+## Pacote da Primeira Hora (Hour-1 Bundle)
+
+### 1. Medir Lactato
+- Repetir se lactato inicial > 2 mmol/L
+
+### 2. Hemoculturas Antes do Antibiótico
+- 2 pares de sítios diferentes
+- Não atrasar antibiótico se coleta demorar > 45 min
+
+### 3. Antibiótico de Amplo Espectro
+**Iniciar em até 1 hora do reconhecimento**
+
+Esquemas empíricos sugeridos:
+- **Foco pulmonar comunitário:** ceftriaxona + azitromicina
+- **Foco pulmonar hospitalar:** piperacilina-tazobactam ou meropenem
+- **Foco abdominal:** piperacilina-tazobactam ou meropenem + metronidazol
+- **Foco urinário:** ceftriaxona ou ciprofloxacino
+- **Sem foco definido:** piperacilina-tazobactam ou meropenem
+
+Considerar vancomicina se: MRSA, cateter, infecção de pele
+
+### 4. Ressuscitação Volêmica
+- Cristaloide 30 mL/kg nas primeiras 3 horas se hipotensão ou lactato ≥ 4
+- Ringer lactato ou SF 0,9%
+- Reavaliar responsividade a volume (elevação passiva de MMII, variação de PP)
+
+### 5. Vasopressores se Hipotensão Persistente
+- **Noradrenalina** (1ª escolha): iniciar 0,1 mcg/kg/min
+- Meta: PAM ≥ 65 mmHg
+- Acesso venoso central preferencial (pode iniciar em periférico)
+- Considerar **vasopressina** como segundo agente
+
+## Monitoramento
+
+### Metas nas Primeiras 6 Horas
+- PAM ≥ 65 mmHg
+- Débito urinário ≥ 0,5 mL/kg/h
+- Lactato em queda (clearance > 10%/2h)
+- SvcO2 ≥ 70% (se disponível)
+- Melhora da perfusão periférica (tempo de enchimento capilar)
+
+### Reavaliação Contínua
+- Resposta ao volume (evitar hiper-hidratação)
+- Necessidade de vasopressor
+- Adequação do antibiótico (resultados de cultura)
+- Controle de foco (drenagem de abscessos, remoção de cateter)
+
+## Medidas Adicionais
+
+### Controle de Foco
+- Drenagem de coleções/abscessos
+- Remoção de dispositivos infectados
+- Desbridamento cirúrgico se necessário
+- Realizar em até 6-12 horas se possível
+
+### Corticosteroides
+- **Indicação:** choque séptico refratário a volume e vasopressor
+- **Dose:** hidrocortisona 200 mg/dia (50 mg 6/6h ou infusão contínua)
+
+### Hemotransfusão
+- Transfundir se Hb < 7 g/dL (meta 7-9 g/dL)
+- Exceto: isquemia miocárdica, sangramento ativo
+
+## Indicadores de Qualidade
+
+| Indicador | Meta |
+|-----------|------|
+| Lactato coletado em 1h | > 95% |
+| Hemocultura antes do ATB | > 90% |
+| Antibiótico em 1h | > 95% |
+| Ressuscitação 30 mL/kg em 3h | > 90% |
+| Reavaliação de lactato | > 90% |
+| Mortalidade hospitalar | Monitorar tendência |
+
+---
+*Protocolo complementar sintético para fins educacionais. Baseado em Surviving Sepsis Campaign 2021.*
+""",
+    },
+    "pneumonia": {
+        "titulo": "Pneumonia Adquirida na Comunidade (PAC)",
+        "cid": "J18",
+        "conteudo": """# Protocolo de Emergência: Pneumonia Adquirida na Comunidade (PAC)
+
+## Considerações Iniciais
+
+A Pneumonia Adquirida na Comunidade (PAC) é uma infecção aguda do parênquima pulmonar adquirida fora do ambiente hospitalar. É causa importante de morbidade e mortalidade, especialmente em idosos e pacientes com comorbidades.
+
+**Agentes etiológicos mais comuns:**
+- *Streptococcus pneumoniae* (pneumococo) - principal
+- *Mycoplasma pneumoniae* e *Chlamydophila pneumoniae* (atípicos)
+- *Haemophilus influenzae*
+- Vírus respiratórios (Influenza, SARS-CoV-2, VSR)
+- *Legionella pneumophila* (casos graves)
+
+## Diagnóstico
+
+### Quadro Clínico
+- Febre (pode estar ausente em idosos)
+- Tosse (seca ou produtiva)
+- Dispneia
+- Dor torácica pleurítica
+- Crepitações ou sopro tubário à ausculta
+- Taquipneia, taquicardia
+- Confusão mental (especialmente em idosos)
+
+### Exames Diagnósticos
+1. **Radiografia de tórax**
+   - Confirma diagnóstico: infiltrado/consolidação
+   - Avalia extensão e complicações (derrame pleural)
+2. **Saturação de O2 / Gasometria**
+   - SpO2 < 92% indica gravidade
+3. **Laboratório**
+   - Hemograma, PCR, função renal, eletrólitos
+   - Ureia > 65 mg/dL = fator de gravidade
+4. **Culturas (casos graves ou internados)**
+   - Hemocultura (2 amostras)
+   - Cultura de escarro (se disponível e adequado)
+   - Antígeno urinário para pneumococo e Legionella
+
+### Diagnósticos Diferenciais
+- Tuberculose pulmonar
+- Embolia pulmonar
+- Edema pulmonar
+- Neoplasia pulmonar
+- Pneumonite química/aspirativa
+
+## Estratificação de Gravidade
+
+### Escore CURB-65
+| Critério | Pontos |
+|----------|--------|
+| **C**onfusão mental | 1 |
+| **U**reia > 50 mg/dL (ou > 7 mmol/L) | 1 |
+| **R**espiratória (FR ≥ 30) | 1 |
+| **B**lood pressure (PAS < 90 ou PAD ≤ 60) | 1 |
+| Idade ≥ **65** anos | 1 |
+
+**Interpretação:**
+- 0-1 ponto: tratamento ambulatorial
+- 2 pontos: considerar internação (enfermaria)
+- 3-5 pontos: PAC grave, considerar UTI
+
+### Critérios de Internação em UTI (ATS/IDSA)
+**Critérios maiores (1 = UTI):**
+- Choque séptico com necessidade de vasopressor
+- Insuficiência respiratória com necessidade de VMI
+
+**Critérios menores (≥ 3 = considerar UTI):**
+- FR ≥ 30 irpm
+- PaO2/FiO2 ≤ 250
+- Infiltrado multilobar
+- Confusão/desorientação
+- Ureia ≥ 65 mg/dL
+- Leucopenia (< 4.000)
+- Plaquetopenia (< 100.000)
+- Hipotermia (< 36°C)
+- Hipotensão requerendo volume agressivo
+
+## Tratamento
+
+### Paciente Ambulatorial (CURB-65 0-1, sem comorbidades)
+- **Amoxicilina** 500 mg 8/8h por 5-7 dias, OU
+- **Azitromicina** 500 mg 1x/dia por 3-5 dias, OU
+- **Claritromicina** 500 mg 12/12h por 7 dias
+
+### Paciente Ambulatorial com Comorbidades
+- **Amoxicilina-clavulanato** 875/125 mg 12/12h + macrolídeo, OU
+- **Quinolona respiratória** (levofloxacino 750 mg ou moxifloxacino 400 mg) 1x/dia por 5-7 dias
+
+### Paciente Internado em Enfermaria
+- **Ceftriaxona** 1-2g IV 1x/dia + **Azitromicina** 500 mg IV/VO 1x/dia, OU
+- **Ampicilina-sulbactam** 1,5-3g IV 6/6h + macrolídeo, OU
+- **Quinolona respiratória** IV/VO monoterapia
+
+### Paciente em UTI
+- **Ceftriaxona** 2g IV 1x/dia + **Azitromicina** 500 mg IV 1x/dia, OU
+- **Ceftriaxona** + **Quinolona respiratória**
+- Se suspeita de *Pseudomonas*: **Piperacilina-tazobactam** ou **Cefepime** + quinolona/aminoglicosídeo
+
+### Duração do Tratamento
+- PAC leve/moderada: 5-7 dias
+- PAC grave ou por *Legionella/Pseudomonas*: 7-14 dias
+- Critérios de estabilidade para transição IV→VO e alta
+
+## Suporte Clínico
+
+### Oxigenoterapia
+- Manter SpO2 92-96% (88-92% se DPOC com retenção crônica de CO2)
+- Cateter nasal, máscara, VNI ou IOT conforme necessidade
+
+### Hidratação
+- Reposição volêmica se desidratado
+- Evitar hiper-hidratação
+
+### Antipiréticos/Analgésicos
+- Dipirona ou paracetamol se febre alta ou desconforto
+
+### Profilaxia de TEV
+- Enoxaparina 40 mg SC 1x/dia em pacientes internados
+
+## Monitoramento e Reavaliação
+
+### Critérios de Melhora Clínica (48-72h)
+- Temperatura < 37,8°C
+- FC < 100 bpm
+- FR < 24 irpm
+- PAS ≥ 90 mmHg
+- SpO2 ≥ 90% em ar ambiente
+- Tolerância à via oral
+- Estado mental basal
+
+### Falha Terapêutica
+Se não houver melhora em 48-72h:
+- Reavaliar diagnóstico (TB, TEP, neoplasia)
+- Avaliar complicações (empiema, abscesso)
+- Considerar resistência ou patógeno não coberto
+- Ampliar espectro antimicrobiano
+
+## Indicadores de Qualidade
+
+| Indicador | Meta |
+|-----------|------|
+| Radiografia em até 4h da admissão | > 95% |
+| Antibiótico em até 4h | > 95% |
+| Avaliação de gravidade documentada | 100% |
+| Hemoculturas antes de ATB (graves) | > 90% |
+| Transição IV→VO quando estável | > 80% |
+| Orientação sobre vacinação na alta | > 90% |
+
+## Prevenção
+
+- **Vacinação antipneumocócica:** VPC13 e PPSV23 para grupos de risco
+- **Vacinação anti-influenza:** anual para grupos de risco
+- **Cessação do tabagismo**
+- **Higiene de mãos**
+
+---
+*Protocolo complementar sintético para fins educacionais. Baseado em diretrizes SBPT e IDSA/ATS.*
+""",
+    },
+    "itu": {
+        "titulo": "Infecção do Trato Urinário (ITU)",
+        "cid": "N39",
+        "conteudo": """# Protocolo de Emergência: Infecção do Trato Urinário (ITU)
+
+## Considerações Iniciais
+
+A Infecção do Trato Urinário (ITU) é uma das infecções bacterianas mais comuns na prática clínica. Abrange desde cistite não complicada até pielonefrite e urosepse, com abordagens terapêuticas distintas.
+
+**Classificação:**
+- **ITU baixa (cistite):** infecção limitada à bexiga
+- **ITU alta (pielonefrite):** infecção do parênquima renal
+- **ITU não complicada:** mulher não gestante, sem alterações anatômicas/funcionais
+- **ITU complicada:** homens, gestantes, alterações urológicas, cateter, imunossupressão
+
+**Agentes etiológicos:**
+- *Escherichia coli* (70-95% dos casos)
+- *Klebsiella pneumoniae*
+- *Proteus mirabilis*
+- *Enterococcus faecalis*
+- *Staphylococcus saprophyticus* (mulheres jovens)
+
+## Diagnóstico
+
+### Cistite - Quadro Clínico
+- Disúria (dor/ardência ao urinar)
+- Polaciúria (aumento da frequência)
+- Urgência miccional
+- Dor suprapúbica
+- Urina turva ou com odor fétido
+- Hematúria (pode ocorrer)
+- **Ausência de febre** (diferencia de pielonefrite)
+
+### Pielonefrite - Quadro Clínico
+- Febre (> 38°C), calafrios
+- Dor lombar (punho-percussão +)
+- Náuseas/vômitos
+- Sintomas de cistite podem estar presentes
+- Pode haver sepse associada
+
+### Exames Diagnósticos
+
+**Cistite não complicada:**
+- Pode ser diagnóstico clínico (mulher com sintomas típicos)
+- EAS (elementos anormais e sedimento): leucocitúria, bacteriúria, nitrito +
+- Urocultura: não obrigatória em cistite não complicada
+
+**Pielonefrite e ITU complicada:**
+- EAS + Urocultura com antibiograma (obrigatório)
+- Hemograma, PCR, função renal
+- Hemoculturas (2 amostras) se febre alta ou sepse
+- Exame de imagem (TC ou US) se: não melhora em 48-72h, suspeita de abscesso/obstrução, ITU de repetição
+
+### Critérios Diagnósticos Laboratoriais
+- **Bacteriúria significativa:** ≥ 10⁵ UFC/mL (jato médio)
+- **Em cateter:** ≥ 10³ UFC/mL
+- **Leucocitúria:** > 10 leucócitos/campo ou > 10.000/mL
+
+## Tratamento
+
+### Cistite Não Complicada (Mulheres)
+| Antibiótico | Dose | Duração |
+|-------------|------|---------|
+| Fosfomicina | 3g VO dose única | 1 dia |
+| Nitrofurantoína | 100 mg 6/6h | 5 dias |
+| Sulfametoxazol-Trimetoprim | 800/160 mg 12/12h | 3 dias |
+
+**Evitar quinolonas** para cistite não complicada (reservar para casos mais graves).
+
+### Cistite em Gestantes
+- **Nitrofurantoína** 100 mg 6/6h por 7 dias (evitar no 3º trimestre)
+- **Cefalexina** 500 mg 6/6h por 7 dias
+- **Amoxicilina-clavulanato** 500/125 mg 8/8h por 7 dias
+- Urocultura de controle obrigatória após tratamento
+
+### Cistite Complicada / ITU em Homens
+- Urocultura obrigatória
+- **Quinolona** (ciprofloxacino 500 mg 12/12h) por 7 dias, OU
+- **SMX-TMP** 800/160 mg 12/12h por 7 dias
+- Investigar causas: HPB, estenose, cálculos
+
+### Pielonefrite Não Complicada (Tratamento Ambulatorial)
+Critérios para tratamento ambulatorial: paciente estável, tolera VO, sem vômitos
+
+- **Ciprofloxacino** 500 mg 12/12h por 7 dias, OU
+- **Levofloxacino** 750 mg 1x/dia por 5 dias, OU
+- **Ceftriaxona** 1g IM dose única seguido de cefalosporina VO
+
+### Pielonefrite com Internação
+Indicações: sepse, vômitos, gestante, obstrução, não melhora ambulatorial
+
+- **Ceftriaxona** 1-2g IV 1x/dia, OU
+- **Ciprofloxacino** 400 mg IV 12/12h, OU
+- **Piperacilina-tazobactam** 4,5g IV 6/6h (se risco de resistência)
+- **Gentamicina** pode ser associada em casos graves
+
+Transição para VO quando: afebril > 24h, melhora clínica, tolerância oral.
+Duração total: 10-14 dias.
+
+### ITU Associada a Cateter (ITU-AC)
+- Trocar cateter antes de iniciar antibiótico (se possível)
+- Coletar urocultura do novo cateter
+- Tratar por 7 dias (14 dias se resposta lenta)
+- Remover cateter assim que possível
+
+## Manejo de Complicações
+
+### Abscesso Renal / Perinefrético
+- Drenagem percutânea ou cirúrgica
+- Antibioticoterapia prolongada (2-4 semanas)
+
+### Obstrução Urinária com Infecção
+- **Emergência urológica**: desobstrução urgente
+- Cateter duplo J ou nefrostomia
+- Antibiótico de amplo espectro
+
+### Urosepse
+- Seguir protocolo de sepse (Hour-1 Bundle)
+- Ressuscitação volêmica
+- Antibiótico de amplo espectro
+- Avaliação urológica para desobstrução se necessário
+
+## Situações Especiais
+
+### Bacteriúria Assintomática
+**Tratar apenas em:**
+- Gestantes (risco de pielonefrite e parto prematuro)
+- Antes de procedimentos urológicos invasivos
+
+**NÃO tratar em:**
+- Idosos
+- Diabéticos
+- Pacientes com cateter de demora
+- Mulheres na pós-menopausa
+
+### ITU de Repetição (≥ 2 em 6 meses ou ≥ 3 em 1 ano)
+- Investigar causas (imagem, avaliação urológica)
+- Profilaxia: nitrofurantoína 100 mg/noite ou pós-coito
+- Medidas comportamentais: hidratação, urinar pós-coito, cranberry (?)
+
+## Monitoramento
+
+### Seguimento
+- Cistite não complicada: controle clínico (urocultura se sintomas persistem)
+- Pielonefrite: urocultura de controle 48-72h se não melhora
+- Gestantes: urocultura mensal após tratamento
+
+### Critérios de Melhora (Pielonefrite)
+- Defervescência em 48-72h
+- Melhora da dor lombar
+- Estabilidade hemodinâmica
+- Normalização de leucocitose
+
+## Indicadores de Qualidade
+
+| Indicador | Meta |
+|-----------|------|
+| Urocultura antes de ATB (pielonefrite) | > 95% |
+| ATB adequado conforme cultura | > 90% |
+| Evitar quinolona em cistite simples | > 80% |
+| Investigação de ITU complicada | 100% |
+| Tratamento de bacteriúria em gestantes | 100% |
+
+---
+*Protocolo complementar sintético para fins educacionais. Baseado em diretrizes SBI e IDSA.*
+""",
+    },
+}
+
+
+def generate_emergency_protocols(output_dir: Optional[str] = None) -> list[dict]:
+    """Gera protocolos de emergencia sinteticos em formato Markdown."""
+    if output_dir is None:
+        output_dir = str(
+            Path(__file__).parent.parent.parent
+            / "data"
+            / "synthetic"
+            / "protocolos_complementares"
+        )
+    output_path = Path(output_dir)
+    output_path.mkdir(parents=True, exist_ok=True)
+
+    protocols_generated = []
+    print(f"Gerando {len(EMERGENCY_PROTOCOLS)} protocolos de emergência sintéticos...")
+
+    for key, protocol in EMERGENCY_PROTOCOLS.items():
+        filename = f"{key}.md"
+        filepath = output_path / filename
+
+        with open(filepath, "w", encoding="utf-8") as f:
+            f.write(protocol["conteudo"])
+
+        protocols_generated.append({
+            "key": key,
+            "titulo": protocol["titulo"],
+            "cid": protocol["cid"],
+            "arquivo": str(filepath),
+        })
+        print(f"  Salvo: {filename} - {protocol['titulo']}")
+
+    # Salvar indice dos protocolos
+    index_path = output_path / "index.json"
+    with open(index_path, "w", encoding="utf-8") as f:
+        json.dump(protocols_generated, f, ensure_ascii=False, indent=2)
+    print(f"  Salvo: index.json (índice dos protocolos)")
+
+    return protocols_generated
+
+
+# ============================================================================
+# FUNCAO PRINCIPAL DE GERACAO
+# ============================================================================
+
+
 def generate_all(
     n_patients: int = 80,
     output_dir: Optional[str] = None,
+    generate_protocols: bool = True,
 ) -> dict:
     """Gera todos os dados sinteticos e salva em JSON."""
     if output_dir is None:
@@ -695,12 +1406,19 @@ def generate_all(
             json.dump(data, f, ensure_ascii=False, indent=2)
         print(f"  Salvo: {filepath.name} ({len(data)} registros)")
 
+    # Gerar protocolos de emergencia sinteticos
+    protocols_generated = []
+    if generate_protocols:
+        protocols_output_dir = str(output_path / "protocolos_complementares")
+        protocols_generated = generate_emergency_protocols(protocols_output_dir)
+
     # Resumo
     summary = {
         "pacientes": len(patients_clean),
         "exames": len(all_exams),
         "prontuarios": len(all_consultations),
         "receitas": len(all_prescriptions),
+        "protocolos_emergencia": len(protocols_generated),
     }
     print(f"\nResumo: {summary}")
 
@@ -720,5 +1438,6 @@ def generate_all(
         "exams": all_exams,
         "consultations": all_consultations,
         "prescriptions": all_prescriptions,
+        "protocols": protocols_generated,
         "summary": summary,
     }

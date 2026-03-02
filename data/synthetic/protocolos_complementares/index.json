@@ -1,0 +1,32 @@
+[
+  {
+    "key": "iam",
+    "titulo": "Infarto Agudo do Miocárdio (IAM)",
+    "cid": "I21",
+    "arquivo": "/Users/zagari/Library/CloudStorage/Dropbox/Cursos/Pos FIAP/Fase 3/Desafio/virtual-medical-assistant/data/synthetic/protocolos_complementares/iam.md"
+  },
+  {
+    "key": "avc",
+    "titulo": "Acidente Vascular Cerebral (AVC)",
+    "cid": "I64",
+    "arquivo": "/Users/zagari/Library/CloudStorage/Dropbox/Cursos/Pos FIAP/Fase 3/Desafio/virtual-medical-assistant/data/synthetic/protocolos_complementares/avc.md"
+  },
+  {
+    "key": "sepse",
+    "titulo": "Sepse e Choque Séptico",
+    "cid": "A41",
+    "arquivo": "/Users/zagari/Library/CloudStorage/Dropbox/Cursos/Pos FIAP/Fase 3/Desafio/virtual-medical-assistant/data/synthetic/protocolos_complementares/sepse.md"
+  },
+  {
+    "key": "pneumonia",
+    "titulo": "Pneumonia Adquirida na Comunidade (PAC)",
+    "cid": "J18",
+    "arquivo": "/Users/zagari/Library/CloudStorage/Dropbox/Cursos/Pos FIAP/Fase 3/Desafio/virtual-medical-assistant/data/synthetic/protocolos_complementares/pneumonia.md"
+  },
+  {
+    "key": "itu",
+    "titulo": "Infecção do Trato Urinário (ITU)",
+    "cid": "N39",
+    "arquivo": "/Users/zagari/Library/CloudStorage/Dropbox/Cursos/Pos FIAP/Fase 3/Desafio/virtual-medical-assistant/data/synthetic/protocolos_complementares/itu.md"
+  }
+]

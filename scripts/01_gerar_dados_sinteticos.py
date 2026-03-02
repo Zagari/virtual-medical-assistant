@@ -2,8 +2,8 @@
 """
 Script 01 - Gerar Dados Sinteticos
 ===================================
-Gera pacientes ficticios, exames, prontuarios e receitas medicas.
-Os dados sao salvos em data/synthetic/ como arquivos JSON.
+Gera pacientes ficticios, exames, prontuarios, receitas medicas e
+protocolos de emergencia sinteticos para complementar as Linhas de Cuidado.
 
 Uso:
     python scripts/01_gerar_dados_sinteticos.py [--n_patients 80]
@@ -13,6 +13,13 @@ Saida:
     data/synthetic/exames.json         - ~240 exames (2-4 por paciente)
     data/synthetic/prontuarios.json    - ~280 prontuarios (2-5 por paciente)
     data/synthetic/receitas.json       - ~160 receitas (1-3 por paciente)
+    data/synthetic/protocolos_complementares/
+        iam.md                         - Protocolo IAM
+        avc.md                         - Protocolo AVC
+        sepse.md                       - Protocolo Sepse
+        pneumonia.md                   - Protocolo Pneumonia
+        itu.md                         - Protocolo ITU
+        index.json                     - Indice dos protocolos
 """
 
 import argparse

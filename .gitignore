@@ -252,6 +252,7 @@ docs/*.run.xml
 docs/*.bbl
 docs/*.blg
 docs/*.pdf
+!docs/relatorio_tecnico.pdf
 docs/chapters/*.aux
 docs/lib/*.aux
 

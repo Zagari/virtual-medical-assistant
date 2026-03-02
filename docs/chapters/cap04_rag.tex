@@ -1,0 +1,452 @@
+% ============================================================================
+% CAPÍTULO 4 - RAG (RETRIEVAL-AUGMENTED GENERATION)
+% ============================================================================
+
+\chapter{RAG: Retrieval-Augmented Generation}\label{cap:rag}
+
+Este capítulo descreve a implementação do sistema \acrfull{rag}, que permite ao assistente fundamentar suas respostas em protocolos clínicos reais, reduzindo o risco de alucinações e aumentando a confiabilidade das informações fornecidas.
+
+\section{Motivação e Arquitetura}
+
+Modelos de linguagem, mesmo após fine-tuning, podem gerar informações imprecisas ou desatualizadas --- um problema crítico no domínio médico. O RAG resolve essa limitação ao recuperar documentos relevantes de uma base de conhecimento antes de gerar a resposta, permitindo que o modelo fundamente suas respostas em fontes verificáveis.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=0.6cm and 1cm,
+    block/.style={rectangle, draw, rounded corners=3pt, minimum width=2.8cm, minimum height=0.9cm, align=center, font=\small\sffamily},
+    process/.style={block, fill=fiap-red!15, draw=fiap-red, thick},
+    data/.style={block, fill=blue!10, draw=blue!60, thick},
+    io/.style={block, fill=green!10, draw=green!60!black, thick},
+    arrow/.style={->, thick, >=stealth}
+]
+
+% Fluxo RAG
+\node[io] (query) {Pergunta\\do Usuário};
+\node[process, right=of query] (embed) {Gerar\\Embedding};
+\node[data, right=of embed] (chroma) {ChromaDB\\(544 docs)};
+\node[process, right=of chroma] (retrieve) {Recuperar\\Top-K};
+\node[process, below=1cm of retrieve] (prompt) {Construir\\Prompt};
+\node[process, left=of prompt] (llm) {LLM\\Fine-tuned};
+\node[io, left=of llm] (response) {Resposta\\Fundamentada};
+
+% Setas
+\draw[arrow] (query) -- (embed);
+\draw[arrow] (embed) -- (chroma);
+\draw[arrow] (chroma) -- (retrieve);
+\draw[arrow] (retrieve) -- (prompt);
+\draw[arrow] (query.south) -- ++(0,-0.5) -| (prompt.north);
+\draw[arrow] (prompt) -- (llm);
+\draw[arrow] (llm) -- (response);
+
+% Label do contexto
+\node[below=0.15cm of prompt, font=\tiny\sffamily\itshape] {Query + Contexto};
+
+\end{tikzpicture}
+\caption{Fluxo do sistema RAG: a pergunta é convertida em embedding, documentos relevantes são recuperados do ChromaDB, e o contexto é injetado no prompt do LLM.}
+\label{fig:fluxo_rag}
+\end{figure}
+
+\subsection{Componentes do Sistema}
+
+O sistema RAG implementado possui três componentes principais:
+
+\begin{enumerate}
+    \item \textbf{Chunker Semântico:} Divide os protocolos Markdown em chunks que respeitam a estrutura de seções do documento;
+    \item \textbf{Indexador:} Gera embeddings e persiste os chunks no ChromaDB;
+    \item \textbf{Retriever:} Busca os chunks mais relevantes para uma query e formata o contexto para o LLM.
+\end{enumerate}
+
+\section{Modelo de Embeddings}
+
+A escolha do modelo de embeddings é fundamental para a qualidade da recuperação. Como os protocolos estão em português brasileiro, é necessário um modelo multilíngue com bom desempenho em português.
+
+\subsection{Análise de Alternativas}
+
+A Tabela~\ref{tab:modelos_embedding} apresenta os modelos considerados:
+
+\begin{table}[H]
+\centering
+\caption{Modelos de embeddings avaliados para o sistema RAG.}
+\label{tab:modelos_embedding}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabularx}{\textwidth}{l c c X}
+\toprule
+\textbf{Modelo} & \textbf{Dim.} & \textbf{PT-BR} & \textbf{Observações} \\
+\midrule
+\texttt{all-MiniLM-L6-v2} & 384 & Ruim & Focado em inglês, rápido \\
+\texttt{all-mpnet-base-v2} & 768 & Ruim & Melhor qualidade, apenas inglês \\
+\texttt{paraphrase-multilingual-MiniLM-L12-v2} & 384 & Boa & Multilíngue, compacto \\
+\texttt{paraphrase-multilingual-mpnet-base-v2} & 768 & Boa & Multilíngue, mais robusto \\
+\rowcolor{green!10}
+\texttt{intfloat/multilingual-e5-base} & 768 & Excelente & Estado da arte para retrieval \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Modelo Selecionado: E5 Multilingual}
+
+O modelo \texttt{intfloat/multilingual-e5-base} foi selecionado por apresentar o melhor desempenho em tarefas de retrieval multilíngue, incluindo português. Este modelo pertence à família E5 (\textit{EmbEddings from bidirEctional Encoder rEpresentations}), desenvolvida pela Microsoft Research.
+
+\begin{table}[H]
+\centering
+\caption{Características do modelo E5 Multilingual Base.}
+\label{tab:e5_specs}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabular}{l l}
+\toprule
+\textbf{Característica} & \textbf{Valor} \\
+\midrule
+Arquitetura base & XLM-RoBERTa \\
+Dimensão do embedding & 768 \\
+Idiomas suportados & 100+ (incluindo português) \\
+Tamanho do modelo & ~1.1 GB \\
+Max sequence length & 512 tokens \\
+Treinamento & Contrastive learning em pares de retrieval \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{infobox}[Prefixos do Modelo E5]
+O modelo E5 utiliza prefixos específicos para distinguir entre documentos e queries:
+\begin{itemize}
+    \item \textbf{Documentos:} \texttt{"passage: <texto do documento>"}
+    \item \textbf{Queries:} \texttt{"query: <pergunta do usuário>"}
+\end{itemize}
+Esta distinção melhora significativamente a qualidade da recuperação, pois o modelo foi treinado com essa convenção.
+\end{infobox}
+
+\section{Estratégia de Chunking}
+
+O chunking é o processo de dividir documentos longos em fragmentos menores que possam ser indexados e recuperados individualmente. A estratégia de chunking impacta diretamente a qualidade do RAG.
+
+\subsection{Abordagens Consideradas}
+
+\begin{enumerate}
+    \item \textbf{Chunking por tamanho fixo:} Divide o texto em chunks de tamanho fixo (ex: 1000 caracteres). Simples, mas pode quebrar o texto no meio de uma frase ou conceito.
+
+    \item \textbf{Chunking por sentenças:} Agrupa sentenças até atingir um limite. Melhor que tamanho fixo, mas não respeita a estrutura do documento.
+
+    \item \textbf{Chunking semântico:} Utiliza a estrutura do documento (seções, parágrafos) para criar chunks com unidades de significado completas.
+\end{enumerate}
+
+\subsection{Implementação: Chunking Semântico}
+
+Optamos pelo \textbf{chunking semântico} baseado na estrutura Markdown dos protocolos, que possuem hierarquia clara de seções (\texttt{\#\#}) e subseções (\texttt{\#\#\#}).
+
+\begin{table}[H]
+\centering
+\caption{Parâmetros do chunking semântico implementado.}
+\label{tab:chunking_params}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabular}{l c l}
+\toprule
+\textbf{Parâmetro} & \textbf{Valor} & \textbf{Justificativa} \\
+\midrule
+Divisão primária & Headers MD & Respeita estrutura do protocolo \\
+Tamanho máximo & 1500 chars & ~300-400 tokens, contexto suficiente \\
+Overlap & 200 chars & Continuidade entre chunks adjacentes \\
+Fallback & Por parágrafos & Seções muito grandes são subdivididas \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+O algoritmo de chunking funciona da seguinte forma:
+
+\begin{lstlisting}[caption={Algoritmo de chunking semântico simplificado.}]
+def chunk_markdown(texto, max_size=1500, overlap=200):
+    # 1. Dividir por headers (## e ###)
+    secoes = dividir_por_headers(texto)
+
+    chunks = []
+    for secao in secoes:
+        if len(secao.conteudo) <= max_size:
+            # Secao cabe em um chunk
+            chunks.append(secao)
+        else:
+            # Subdividir secao grande
+            sub_chunks = dividir_com_overlap(
+                secao.conteudo, max_size, overlap
+            )
+            chunks.extend(sub_chunks)
+
+    return chunks
+\end{lstlisting}
+
+\subsection{Exemplo de Chunking}
+
+A Figura~\ref{fig:exemplo_chunking} ilustra como um protocolo é dividido em chunks:
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=0.3cm,
+    doc/.style={rectangle, draw=fiap-dark, fill=fiap-light, minimum width=10cm, minimum height=0.6cm, font=\small\ttfamily},
+    chunk/.style={rectangle, draw=blue!60, fill=blue!10, minimum width=4.5cm, minimum height=0.6cm, font=\small\ttfamily},
+    arrow/.style={->, thick, >=stealth, color=fiap-red}
+]
+
+% Documento original
+\node[doc] (d1) {\#\# Considerações Iniciais};
+\node[doc, below=of d1] (d2) {Texto da seção (800 chars)};
+\node[doc, below=of d2] (d3) {\#\# Diagnóstico};
+\node[doc, below=of d3] (d4) {Texto da seção (2200 chars)};
+\node[doc, below=of d4] (d5) {\#\# Tratamento};
+\node[doc, below=of d5] (d6) {Texto da seção (1100 chars)};
+
+% Seta
+\node[right=1.5cm of d3, font=\Large] (seta) {$\Rightarrow$};
+
+% Chunks
+\node[chunk, right=3cm of d1] (c1) {Chunk 1 (800 chars)};
+\node[chunk, below=of c1] (c2) {Chunk 2 (1500 chars)};
+\node[chunk, below=of c2] (c3) {Chunk 3 (900 chars)};
+\node[chunk, below=of c3] (c4) {Chunk 4 (1100 chars)};
+
+% Labels
+\node[above=0.2cm of d1, font=\small\sffamily\bfseries] {Protocolo Original};
+\node[above=0.2cm of c1, font=\small\sffamily\bfseries] {Chunks Gerados};
+
+% Conexoes
+\draw[arrow, dashed] (d2.east) -- (c1.west);
+\draw[arrow, dashed] (d4.east) -- (c2.west);
+\draw[arrow, dashed] (d4.east) -- (c3.west);
+\draw[arrow, dashed] (d6.east) -- (c4.west);
+
+\end{tikzpicture}
+\caption{Exemplo de chunking semântico: seções pequenas viram um chunk; seções grandes são subdivididas com overlap.}
+\label{fig:exemplo_chunking}
+\end{figure}
+
+\section{Indexação no ChromaDB}
+
+O ChromaDB é um banco de dados vetorial open-source, otimizado para armazenamento e busca de embeddings. Foi escolhido por sua simplicidade, persistência local e integração nativa com Python.
+
+\subsection{Processo de Indexação}
+
+O script \texttt{04\_indexar\_protocolos.py} executa a indexação em três etapas:
+
+\begin{enumerate}
+    \item \textbf{Carregamento:} Lê os arquivos Markdown das Linhas de Cuidado e protocolos de emergência;
+    \item \textbf{Chunking:} Aplica o chunking semântico a cada documento;
+    \item \textbf{Indexação:} Gera embeddings e insere no ChromaDB com metadados.
+\end{enumerate}
+
+\begin{lstlisting}[style=bash, caption={Executando a indexação de protocolos.}]
+# Indexar todos os protocolos (limpa collection existente)
+python scripts/04_indexar_protocolos.py --clear
+
+# Saida esperada:
+# Linhas de Cuidado: 14 arquivos, 462 chunks
+# Protocolos Emergencia: 5 arquivos, 82 chunks
+# Total: 544 documentos indexados
+\end{lstlisting}
+
+\subsection{Estrutura dos Metadados}
+
+Cada chunk é armazenado com metadados que facilitam a filtragem e rastreabilidade:
+
+\begin{lstlisting}[caption={Estrutura de metadados de um chunk indexado.}]
+{
+    "id": "Pathway-Hipertensao_3",
+    "content": "## Tratamento\n\nOs principios que norteiam...",
+    "metadata": {
+        "source": "Pathway-Hipertensao",
+        "section": "Tratamento",
+        "doc_type": "linha_cuidado",
+        "chunk_index": 3,
+        "total_chunks": 35
+    },
+    "embedding": [0.023, -0.041, 0.087, ...]  // 768 dimensoes
+}
+\end{lstlisting}
+
+\subsection{Estatísticas da Indexação}
+
+A Tabela~\ref{tab:stats_indexacao} apresenta as estatísticas finais da indexação:
+
+\begin{table}[H]
+\centering
+\caption{Estatísticas da indexação no ChromaDB.}
+\label{tab:stats_indexacao}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabular}{l r r r}
+\toprule
+\textbf{Fonte} & \textbf{Arquivos} & \textbf{Chunks} & \textbf{Média/Arquivo} \\
+\midrule
+Linhas de Cuidado & 14 & 462 & 33,0 \\
+Protocolos de Emergência & 5 & 82 & 16,4 \\
+\midrule
+\textbf{Total} & \textbf{19} & \textbf{544} & \textbf{28,6} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{infobox}[Persistência do ChromaDB]
+O ChromaDB persiste os dados em disco no diretório \texttt{chroma\_db/}. Após a indexação inicial, o banco pode ser carregado instantaneamente em execuções subsequentes, sem necessidade de reindexar.
+\end{infobox}
+
+\section{Recuperação de Contexto}
+
+O componente \texttt{ProtocolRetriever} é responsável por buscar os chunks mais relevantes para uma pergunta do usuário.
+
+\subsection{Processo de Busca}
+
+\begin{enumerate}
+    \item \textbf{Embedding da query:} A pergunta do usuário é convertida em embedding usando o prefixo \texttt{"query: "};
+    \item \textbf{Busca por similaridade:} O ChromaDB calcula a distância entre o embedding da query e os embeddings dos documentos;
+    \item \textbf{Ranking:} Os K documentos mais próximos são retornados, ordenados por relevância;
+    \item \textbf{Formatação:} O contexto é formatado com metadados de fonte para injeção no prompt.
+\end{enumerate}
+
+\begin{lstlisting}[caption={Exemplo de uso do ProtocolRetriever.}]
+from src.assistant.rag import ProtocolRetriever
+
+retriever = ProtocolRetriever(
+    persist_directory="chroma_db",
+    embedding_model="intfloat/multilingual-e5-base"
+)
+
+# Buscar protocolos relevantes
+results = retriever.search(
+    query="Como tratar hipertensao resistente?",
+    n_results=3
+)
+
+# Obter contexto formatado para prompt
+context = retriever.get_context_for_query(
+    query="Como tratar hipertensao resistente?",
+    n_results=3,
+    max_context_length=4000
+)
+\end{lstlisting}
+
+\subsection{Exemplo de Recuperação}
+
+A seguir, um exemplo real de recuperação para a query \textit{``Quais os sintomas de infarto agudo do miocárdio?''}:
+
+\begin{table}[H]
+\centering
+\caption{Resultados de busca para query sobre IAM.}
+\label{tab:exemplo_busca}
+\rowcolors{2}{fiap-light}{white}
+\small
+\begin{tabularx}{\textwidth}{c l l c X}
+\toprule
+\textbf{\#} & \textbf{Fonte} & \textbf{Seção} & \textbf{Dist.} & \textbf{Trecho} \\
+\midrule
+1 & iam & Considerações Iniciais & 0.212 & ``O IAM é uma emergência cardiovascular que requer reconhecimento e tratamento imediatos...'' \\
+2 & iam & Exames Diagnósticos & 0.298 & ``ECG em até 10 minutos da chegada. IAMCSST: supradesnível de ST...'' \\
+3 & Pathway-IC & Diagnóstico & 0.341 & ``Sinais e sintomas de insuficiência cardíaca incluem dispneia...'' \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Formatação do Contexto}
+
+O contexto recuperado é formatado para injeção no prompt do LLM:
+
+\begin{lstlisting}[caption={Exemplo de contexto formatado para o prompt.}]
+[Fonte: iam] [Secao: Consideracoes Iniciais]
+O Infarto Agudo do Miocardio (IAM) e uma emergencia
+cardiovascular que requer reconhecimento e tratamento
+imediatos. O tempo e critico: "tempo e musculo".
+
+---
+
+[Fonte: iam] [Secao: Exames Diagnosticos]
+1. ECG em ate 10 minutos da chegada
+   - IAMCSST: supradesnivel de ST >=1mm em 2 derivacoes
+   - IAMSSST: infradesnivel de ST, inversao de T
+
+---
+
+[Fonte: Pathway-IC] [Secao: Diagnostico]
+Sinais e sintomas de insuficiencia cardiaca incluem
+dispneia aos esforcos, ortopneia, edema de MMII...
+\end{lstlisting}
+
+\section{Integração com o LLM}
+
+O contexto recuperado é integrado ao prompt do LLM através de um template estruturado que instrui o modelo a basear suas respostas nos protocolos fornecidos.
+
+\begin{lstlisting}[caption={Template de prompt com contexto RAG.}]
+Voce e um assistente medico especializado. Use APENAS as
+informacoes dos protocolos abaixo para responder. Se a
+informacao nao estiver nos protocolos, diga que nao tem
+informacao suficiente.
+
+PROTOCOLOS RELEVANTES:
+{contexto_recuperado}
+
+PERGUNTA DO MEDICO:
+{pergunta_usuario}
+
+RESPOSTA (cite as fontes):
+\end{lstlisting}
+
+\begin{warningbox}[Limitação do Contexto]
+O contexto do LLM é limitado. O parâmetro \texttt{max\_context\_length} (padrão: 4000 caracteres) controla quanto contexto é injetado no prompt. Recuperar muitos documentos pode exceder o limite e degradar a qualidade da resposta.
+\end{warningbox}
+
+\section{Validação do Sistema RAG}
+
+Para validar o funcionamento do RAG, foram realizados testes com queries representativas de diferentes domínios clínicos.
+
+\subsection{Métricas de Qualidade}
+
+\begin{itemize}
+    \item \textbf{Relevância:} Os documentos recuperados são relevantes para a query?
+    \item \textbf{Cobertura:} O sistema recupera documentos de diferentes fontes quando apropriado?
+    \item \textbf{Precisão:} Os documentos mais relevantes aparecem no topo do ranking?
+\end{itemize}
+
+\subsection{Resultados dos Testes}
+
+\begin{table}[H]
+\centering
+\caption{Testes de validação do sistema RAG.}
+\label{tab:validacao_rag}
+\rowcolors{2}{fiap-light}{white}
+\small
+\begin{tabularx}{\textwidth}{X l c}
+\toprule
+\textbf{Query de Teste} & \textbf{Fonte Esperada} & \textbf{Top-1 Correto?} \\
+\midrule
+``Como tratar hipertensão arterial?'' & Pathway-Hipertensao & Sim \\
+``Quais medicamentos para diabetes tipo 2?'' & Pathway-Diabetes & Sim \\
+``Sintomas de infarto agudo?'' & iam (emergência) & Sim \\
+``Protocolo de sepse grave'' & sepse (emergência) & Sim \\
+``Tratamento de asma na crise'' & Pathway-Asma & Sim \\
+``Manejo de AVC isquêmico'' & avc (emergência) & Sim \\
+``Critérios diagnósticos de depressão'' & Pathway-Depressao & Sim \\
+``Antibióticos para pneumonia'' & pneumonia (emergência) & Sim \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Todos os testes retornaram o documento esperado como resultado principal (Top-1), validando a qualidade do sistema de recuperação.
+
+\section{Considerações de Desempenho}
+
+\subsection{Tempo de Indexação}
+
+\begin{itemize}
+    \item \textbf{Carregamento do modelo:} ~30 segundos (primeira execução, com cache ~5s)
+    \item \textbf{Geração de embeddings:} ~2-3 segundos por arquivo
+    \item \textbf{Tempo total (19 arquivos):} ~3 minutos
+\end{itemize}
+
+\subsection{Tempo de Busca}
+
+\begin{itemize}
+    \item \textbf{Embedding da query:} ~50ms
+    \item \textbf{Busca no ChromaDB:} ~10ms
+    \item \textbf{Tempo total por query:} ~60ms
+\end{itemize}
+
+O sistema é suficientemente rápido para uso interativo, com latência imperceptível para o usuário.
+
+\begin{infobox}[Escalabilidade]
+O ChromaDB utiliza índices HNSW (\textit{Hierarchical Navigable Small World}) para busca aproximada de vizinhos mais próximos, garantindo tempo de busca logarítmico mesmo com milhões de documentos. Para a escala atual (544 documentos), a busca é praticamente instantânea.
+\end{infobox}

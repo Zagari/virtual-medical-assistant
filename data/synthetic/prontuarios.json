@@ -1,0 +1,2378 @@
+[
+  {
+    "id": "2a946622-b0b7-45f2-8567-2b24c7121b0e",
+    "paciente_id": "4a4db681-8fb7-4fee-a00d-1ee59ce512b3",
+    "data": "2024-07-13",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 102.7 kg, IMC: 39.0. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "d632841d-e990-47df-81c2-41def17396f1",
+    "paciente_id": "4a4db681-8fb7-4fee-a00d-1ee59ce512b3",
+    "data": "2025-03-21",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 69.7 kg, IMC: 33.0. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "5ee58e5f-f6fd-4a26-bd58-2706a3841094",
+    "paciente_id": "4a4db681-8fb7-4fee-a00d-1ee59ce512b3",
+    "data": "2025-11-02",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 125.1 kg, IMC: 35.0. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "07ae8b1e-6135-4bfe-aa62-78547c8e405c",
+    "paciente_id": "4a4db681-8fb7-4fee-a00d-1ee59ce512b3",
+    "data": "2025-11-23",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 92.8 kg, IMC: 37.4. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "4b5d4c3e-be79-47f0-af91-aaf127c43cff",
+    "paciente_id": "e1db9429-2e24-4b75-95d6-0d7894fd4a1c",
+    "data": "2025-04-04",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 149/86 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "aa56a9e0-e0e7-4a45-91ab-ee9fe2f9167f",
+    "paciente_id": "e1db9429-2e24-4b75-95d6-0d7894fd4a1c",
+    "data": "2025-06-25",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 154/97 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "9f312c54-1a97-4034-8554-bf9c020baefd",
+    "paciente_id": "db94b889-164b-46b7-8683-4a7324dc7ec7",
+    "data": "2024-08-18",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 147/94 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "4d0e4e7b-6d1d-4d88-9c26-d8229057779b",
+    "paciente_id": "db94b889-164b-46b7-8683-4a7324dc7ec7",
+    "data": "2025-02-23",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 140/99 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 6 meses."
+  },
+  {
+    "id": "6e64e223-d0e8-46eb-a1a4-cc10004bd1f9",
+    "paciente_id": "db94b889-164b-46b7-8683-4a7324dc7ec7",
+    "data": "2025-05-29",
+    "diagnostico_cid": "J44",
+    "diagnostico_texto": "Doença pulmonar obstrutiva crônica",
+    "observacoes": "Acompanhamento de DPOC. Paciente refere dispneia aos médios esforços. SpO2 repouso: 97%. Ex-tabagista há 13 anos. Vacinação antigripal e pneumocócica em dia. Manter broncodilatador."
+  },
+  {
+    "id": "ea9f14e2-c64e-4bf5-afd2-86e44987de3b",
+    "paciente_id": "db94b889-164b-46b7-8683-4a7324dc7ec7",
+    "data": "2025-06-01",
+    "diagnostico_cid": "J44",
+    "diagnostico_texto": "Doença pulmonar obstrutiva crônica",
+    "observacoes": "Acompanhamento de DPOC. Paciente refere dispneia aos grandes esforços. SpO2 repouso: 98%. Ex-tabagista há 9 anos. Vacinação antigripal e pneumocócica em dia. Manter broncodilatador."
+  },
+  {
+    "id": "a276757e-c149-42b2-95af-7fe63d92341d",
+    "paciente_id": "db94b889-164b-46b7-8683-4a7324dc7ec7",
+    "data": "2026-02-05",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 137/100 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 3 meses."
+  },
+  {
+    "id": "ac43e2fe-234f-443e-880f-f9fb97c5a508",
+    "paciente_id": "5f0bd794-9232-49e3-bba4-9aa8c8338d4f",
+    "data": "2024-12-16",
+    "diagnostico_cid": "E03",
+    "diagnostico_texto": "Hipotireoidismo",
+    "observacoes": "Controle de hipotireoidismo. TSH recente: 5.44 mUI/L. Paciente em uso regular de levotiroxina. Sem sintomas de hipo ou hipertireoidismo. Manter dose e controle em 6 meses."
+  },
+  {
+    "id": "08532999-6e0e-49b6-9ab7-47d5d07c011b",
+    "paciente_id": "5f0bd794-9232-49e3-bba4-9aa8c8338d4f",
+    "data": "2025-02-18",
+    "diagnostico_cid": "E03",
+    "diagnostico_texto": "Hipotireoidismo",
+    "observacoes": "Controle de hipotireoidismo. TSH recente: 2.77 mUI/L. Paciente em uso regular de levotiroxina. Sem sintomas de hipo ou hipertireoidismo. Manter dose e controle em 6 meses."
+  },
+  {
+    "id": "1cf01ed8-53ae-4463-a08f-488f329385ac",
+    "paciente_id": "5f0bd794-9232-49e3-bba4-9aa8c8338d4f",
+    "data": "2025-08-14",
+    "diagnostico_cid": "E03",
+    "diagnostico_texto": "Hipotireoidismo",
+    "observacoes": "Controle de hipotireoidismo. TSH recente: 7.91 mUI/L. Paciente em uso regular de levotiroxina. Sem sintomas de hipo ou hipertireoidismo. Manter dose e controle em 3 meses."
+  },
+  {
+    "id": "f4840898-d6b8-4640-bac8-143fb8264096",
+    "paciente_id": "8bc5622c-ffb5-4672-96e9-45fe6b39e82a",
+    "data": "2024-03-09",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 148/99 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "d0794c92-ea3c-45d3-bbef-6251e7319ced",
+    "paciente_id": "8bc5622c-ffb5-4672-96e9-45fe6b39e82a",
+    "data": "2024-06-19",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 150/86 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 4 meses."
+  },
+  {
+    "id": "8132b6cd-269e-4d62-8477-f98b0bf01f7f",
+    "paciente_id": "8bc5622c-ffb5-4672-96e9-45fe6b39e82a",
+    "data": "2024-12-18",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 164/85 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "b7b0eac9-6d95-4608-a34c-844520c32da4",
+    "paciente_id": "8bc5622c-ffb5-4672-96e9-45fe6b39e82a",
+    "data": "2025-05-16",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 11. Paciente em uso de ISRS há 2 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "c05eb9d7-9dff-4823-b9e4-8706b1bdb709",
+    "paciente_id": "8bc5622c-ffb5-4672-96e9-45fe6b39e82a",
+    "data": "2025-09-01",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 126/89 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 4 meses."
+  },
+  {
+    "id": "b557935b-f422-42d1-9a25-2c6a06014f31",
+    "paciente_id": "f0bb033c-bfad-489a-b2fe-d911f4936148",
+    "data": "2024-09-23",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 63.7 kg, IMC: 35.0. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "ad8d3255-cc46-4eaa-bb51-8cfcedcabfbe",
+    "paciente_id": "f0bb033c-bfad-489a-b2fe-d911f4936148",
+    "data": "2024-10-06",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 166/90 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "64ba50f1-65c8-48bf-bdd6-7ca191c536ab",
+    "paciente_id": "f0bb033c-bfad-489a-b2fe-d911f4936148",
+    "data": "2025-07-04",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 91.8 kg, IMC: 37.7. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "90226677-70c1-460c-bd83-365500f4deb1",
+    "paciente_id": "f0bb033c-bfad-489a-b2fe-d911f4936148",
+    "data": "2025-09-03",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 135/98 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "fa96c25c-161b-42e6-97c8-e1aef67dc78f",
+    "paciente_id": "e7eea9ff-dfb1-4341-a819-7b7f233f6b4c",
+    "data": "2024-10-11",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 6 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "d1c4a08e-7df9-4fe3-a1d9-6ed53b621119",
+    "paciente_id": "e7eea9ff-dfb1-4341-a819-7b7f233f6b4c",
+    "data": "2024-10-13",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 16. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "56dca752-5a7d-4546-9801-13548da6720f",
+    "paciente_id": "e7eea9ff-dfb1-4341-a819-7b7f233f6b4c",
+    "data": "2025-03-12",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 20. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "f9c95e6c-7f7d-434e-8e0d-921b008bd667",
+    "paciente_id": "e7eea9ff-dfb1-4341-a819-7b7f233f6b4c",
+    "data": "2025-11-20",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 22. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "7fcf943c-75f5-4829-b90d-2d74ba99106d",
+    "paciente_id": "b2b6d2ce-05f2-4943-a9c3-cea3ed89bc35",
+    "data": "2024-10-26",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 107.5 kg, IMC: 36.7. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "6c6d535a-c512-42f3-8aba-583f8e2963a1",
+    "paciente_id": "b2b6d2ce-05f2-4943-a9c3-cea3ed89bc35",
+    "data": "2025-01-21",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 124.0 kg, IMC: 36.7. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "234cbf83-af91-4afd-9c9d-317189ae927a",
+    "paciente_id": "b2b6d2ce-05f2-4943-a9c3-cea3ed89bc35",
+    "data": "2025-10-11",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 107.2 kg, IMC: 37.2. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "674b1386-6b97-4ca8-93db-ffe2a6c7cb6b",
+    "paciente_id": "b2b6d2ce-05f2-4943-a9c3-cea3ed89bc35",
+    "data": "2025-10-13",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 138/85 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "185fda39-2be9-434f-859d-361082ca199b",
+    "paciente_id": "dd5b5c53-3bfc-4c1f-9a90-122eb950a3cd",
+    "data": "2024-10-22",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Retorno pós-crise. Paciente estável, sem dispneia em repouso. SpO2: 96%. Orientado sobre uso correto do dispositivo inalatório. Plano de ação revisado."
+  },
+  {
+    "id": "b5d6f116-af46-4b07-8944-6ced06b58f98",
+    "paciente_id": "dd5b5c53-3bfc-4c1f-9a90-122eb950a3cd",
+    "data": "2025-02-01",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 0x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "69bd53db-8713-488f-9f6b-bd52f1187b8a",
+    "paciente_id": "dd5b5c53-3bfc-4c1f-9a90-122eb950a3cd",
+    "data": "2025-03-24",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Retorno pós-crise. Paciente estável, sem dispneia em repouso. SpO2: 93%. Orientado sobre uso correto do dispositivo inalatório. Plano de ação revisado."
+  },
+  {
+    "id": "3ddc47df-aeb4-49d7-901b-8ec2f1f07f98",
+    "paciente_id": "a6e684e6-2a2e-4772-b80a-2ead59016a2a",
+    "data": "2024-10-03",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 127/77 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "a50d98a8-ccd5-45ba-97b6-472f53cd56e9",
+    "paciente_id": "a6e684e6-2a2e-4772-b80a-2ead59016a2a",
+    "data": "2024-10-22",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 149/96 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "70c98d82-73f8-4218-8235-f053616dd3ba",
+    "paciente_id": "f7be8e34-28d0-408e-9b04-88896eaf5aa6",
+    "data": "2024-12-08",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 4 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "e1a34010-c421-4365-aea3-a052ae3e777e",
+    "paciente_id": "f7be8e34-28d0-408e-9b04-88896eaf5aa6",
+    "data": "2025-05-06",
+    "diagnostico_cid": "E03",
+    "diagnostico_texto": "Hipotireoidismo",
+    "observacoes": "Controle de hipotireoidismo. TSH recente: 4.82 mUI/L. Paciente em uso regular de levotiroxina. Sem sintomas de hipo ou hipertireoidismo. Manter dose e controle em 6 meses."
+  },
+  {
+    "id": "5d8eab56-cc2d-4075-8607-be48321523d9",
+    "paciente_id": "f7be8e34-28d0-408e-9b04-88896eaf5aa6",
+    "data": "2025-05-20",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 19. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "f682df02-bc64-45ee-92db-29f9a45fd219",
+    "paciente_id": "25337483-80c0-48c6-9043-e73d7093317f",
+    "data": "2025-05-23",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 11. Paciente em uso de ISRS há 8 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "eb71a581-3e8c-438d-83d1-9ca06f300974",
+    "paciente_id": "25337483-80c0-48c6-9043-e73d7093317f",
+    "data": "2026-02-12",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 3x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "2d6609ac-c0ee-4190-9750-abbff5c07643",
+    "paciente_id": "7c760620-1cda-41da-a5a3-676247c6024c",
+    "data": "2024-08-18",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 10. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "647cd5f4-d4f1-4ae1-8b00-f27013d7b258",
+    "paciente_id": "7c760620-1cda-41da-a5a3-676247c6024c",
+    "data": "2025-07-15",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 2x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "a1504253-741e-4d39-898d-0ec1fdb386f2",
+    "paciente_id": "7c760620-1cda-41da-a5a3-676247c6024c",
+    "data": "2025-09-20",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Retorno pós-crise. Paciente estável, sem dispneia em repouso. SpO2: 96%. Orientado sobre uso correto do dispositivo inalatório. Plano de ação revisado."
+  },
+  {
+    "id": "e26fdc8b-43d4-4469-8e9a-2b00bea44f39",
+    "paciente_id": "de02e646-67e0-4fc2-b2c2-6a31feade28c",
+    "data": "2025-01-30",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 78.8 kg, IMC: 39.9. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "26e5d7ae-b964-46ec-831b-f27a1f7bb28f",
+    "paciente_id": "de02e646-67e0-4fc2-b2c2-6a31feade28c",
+    "data": "2025-06-09",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 81.1 kg, IMC: 40.5. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "07c191f2-a57f-4ea7-9213-5334e585d260",
+    "paciente_id": "de02e646-67e0-4fc2-b2c2-6a31feade28c",
+    "data": "2025-07-13",
+    "diagnostico_cid": "I50",
+    "diagnostico_texto": "Insuficiência cardíaca",
+    "observacoes": "Acompanhamento de IC. Classe funcional NYHA III. Peso: 93.4 kg. Sem edema MMII. Sem ortopneia. BNP recente: 1061 pg/mL. Manter otimização terapêutica. Dieta hipossódica."
+  },
+  {
+    "id": "75794d49-e449-4dba-8fe8-38f000c7b66e",
+    "paciente_id": "de02e646-67e0-4fc2-b2c2-6a31feade28c",
+    "data": "2025-10-17",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 121.7 kg, IMC: 31.6. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "79d725ae-4270-4a72-8179-a7d71e9fee45",
+    "paciente_id": "ad3c1d44-5e70-4606-830c-918bbb63f698",
+    "data": "2024-12-28",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 7.3%. Glicemia capilar hoje: 247 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "cc51a048-5ca7-4ba3-8ee8-e5d3ff383638",
+    "paciente_id": "ad3c1d44-5e70-4606-830c-918bbb63f698",
+    "data": "2025-04-06",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 4 meses."
+  },
+  {
+    "id": "ec1b4f13-263a-405d-82d8-565d602f6b01",
+    "paciente_id": "ad3c1d44-5e70-4606-830c-918bbb63f698",
+    "data": "2025-12-22",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 8.4%. Glicemia capilar hoje: 195 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "5928fb05-730d-4436-aa8b-d4c9f4fc1d6f",
+    "paciente_id": "901a39c1-ef9b-489b-b2f7-256a0b43703e",
+    "data": "2024-05-05",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "06d01f1c-d6b2-4a47-8918-ea9f196ddcd2",
+    "paciente_id": "901a39c1-ef9b-489b-b2f7-256a0b43703e",
+    "data": "2024-11-25",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "1af6522b-10be-4e7c-b1a3-5989763ecfca",
+    "paciente_id": "901a39c1-ef9b-489b-b2f7-256a0b43703e",
+    "data": "2024-12-04",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 9.9%. Glicemia capilar hoje: 197 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "f080fafb-e424-41eb-a152-51a7cc144055",
+    "paciente_id": "901a39c1-ef9b-489b-b2f7-256a0b43703e",
+    "data": "2025-08-19",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "3e6e98f8-4770-43d5-8c53-19d738841160",
+    "paciente_id": "901a39c1-ef9b-489b-b2f7-256a0b43703e",
+    "data": "2026-02-28",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 3 meses."
+  },
+  {
+    "id": "dac98ce8-d741-4c92-9c14-e285280e1df6",
+    "paciente_id": "71b3c329-222c-44f6-bb68-279f53dbfe4c",
+    "data": "2024-07-03",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 139/79 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 3 meses."
+  },
+  {
+    "id": "ab1888f8-16dd-48c3-9563-564de701ae69",
+    "paciente_id": "71b3c329-222c-44f6-bb68-279f53dbfe4c",
+    "data": "2024-07-22",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 128/80 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "1c634c2a-77d6-451f-9d4f-cd8a515a07bb",
+    "paciente_id": "fb6a4f45-1f26-40c2-81a2-615f44636679",
+    "data": "2024-03-27",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 77.3 kg, IMC: 32.9. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "5a2be5d1-1125-4b06-b9e0-0f8be5b48786",
+    "paciente_id": "fb6a4f45-1f26-40c2-81a2-615f44636679",
+    "data": "2024-09-01",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 69.9 kg, IMC: 41.4. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "6fc4d4d2-20e2-45b1-97b7-7d09b7f7b10e",
+    "paciente_id": "fb6a4f45-1f26-40c2-81a2-615f44636679",
+    "data": "2024-12-02",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 7.3%. Glicemia capilar hoje: 229 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "610b26be-0462-4c2a-80ca-127267354dd9",
+    "paciente_id": "fb6a4f45-1f26-40c2-81a2-615f44636679",
+    "data": "2025-04-02",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 7.8%. Glicemia capilar hoje: 196 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "4bc0cc7b-131e-4fec-a9d3-2c6d65130ac0",
+    "paciente_id": "f656730e-ba2c-4b9a-b58b-29146335da71",
+    "data": "2024-06-12",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 6 meses."
+  },
+  {
+    "id": "bfe24e85-238c-405d-adc6-54374fee0707",
+    "paciente_id": "f656730e-ba2c-4b9a-b58b-29146335da71",
+    "data": "2025-02-23",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 163/94 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "5a558f9a-4ffc-4e40-8dbd-183c06a62043",
+    "paciente_id": "f656730e-ba2c-4b9a-b58b-29146335da71",
+    "data": "2025-03-20",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 9. Paciente em uso de ISRS há 2 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "7768cb05-f184-4d84-aa47-9318abb346dd",
+    "paciente_id": "f656730e-ba2c-4b9a-b58b-29146335da71",
+    "data": "2025-03-23",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 165/84 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 3 meses."
+  },
+  {
+    "id": "517ced1d-88ce-436a-bef5-2311450f49df",
+    "paciente_id": "f656730e-ba2c-4b9a-b58b-29146335da71",
+    "data": "2025-09-11",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "d5da0011-6a91-4573-9380-bc3b919b4614",
+    "paciente_id": "9d9e417c-4380-4f6a-94a6-029b15016728",
+    "data": "2024-03-13",
+    "diagnostico_cid": "J44",
+    "diagnostico_texto": "Doença pulmonar obstrutiva crônica",
+    "observacoes": "Acompanhamento de DPOC. Paciente refere dispneia aos pequenos esforços. SpO2 repouso: 93%. Ex-tabagista há 13 anos. Vacinação antigripal e pneumocócica em dia. Manter broncodilatador."
+  },
+  {
+    "id": "fcea225d-d1da-4729-b371-c1e4f0063948",
+    "paciente_id": "9d9e417c-4380-4f6a-94a6-029b15016728",
+    "data": "2025-06-13",
+    "diagnostico_cid": "J44",
+    "diagnostico_texto": "Doença pulmonar obstrutiva crônica",
+    "observacoes": "Acompanhamento de DPOC. Paciente refere dispneia aos médios esforços. SpO2 repouso: 96%. Ex-tabagista há 12 anos. Vacinação antigripal e pneumocócica em dia. Manter broncodilatador."
+  },
+  {
+    "id": "87e3b663-dbdd-4272-b9f2-218198d164f8",
+    "paciente_id": "9d9e417c-4380-4f6a-94a6-029b15016728",
+    "data": "2025-08-15",
+    "diagnostico_cid": "J44",
+    "diagnostico_texto": "Doença pulmonar obstrutiva crônica",
+    "observacoes": "Retorno de rotina DPOC. Sem exacerbações recentes. Espirometria: VEF1 50% do previsto. Classe GOLD II. Manter tratamento e reabilitação pulmonar."
+  },
+  {
+    "id": "bdfd6ac2-5492-496a-b4b9-62e44f37f137",
+    "paciente_id": "9d9e417c-4380-4f6a-94a6-029b15016728",
+    "data": "2026-02-16",
+    "diagnostico_cid": "J44",
+    "diagnostico_texto": "Doença pulmonar obstrutiva crônica",
+    "observacoes": "Acompanhamento de DPOC. Paciente refere dispneia aos grandes esforços. SpO2 repouso: 94%. Ex-tabagista há 15 anos. Vacinação antigripal e pneumocócica em dia. Manter broncodilatador."
+  },
+  {
+    "id": "4233759a-21b5-495f-b56f-2bc17dcbc0b1",
+    "paciente_id": "0a631eca-7eb9-4174-be3f-959988a0c10f",
+    "data": "2024-03-10",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 3 meses."
+  },
+  {
+    "id": "eb64c076-4423-4189-ae2c-9510e1413836",
+    "paciente_id": "0a631eca-7eb9-4174-be3f-959988a0c10f",
+    "data": "2024-03-21",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 8.5%. Glicemia capilar hoje: 247 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "71978610-9f53-4fe9-8f05-16a4473675f9",
+    "paciente_id": "0a631eca-7eb9-4174-be3f-959988a0c10f",
+    "data": "2025-06-29",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 9.6%. Glicemia capilar hoje: 248 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "31754d31-6598-4b4c-a697-c189c9a54766",
+    "paciente_id": "0a631eca-7eb9-4174-be3f-959988a0c10f",
+    "data": "2025-08-08",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "a5e02c46-8e81-4d30-b341-f05736a8b501",
+    "paciente_id": "0a631eca-7eb9-4174-be3f-959988a0c10f",
+    "data": "2026-01-28",
+    "diagnostico_cid": "I50",
+    "diagnostico_texto": "Insuficiência cardíaca",
+    "observacoes": "Acompanhamento de IC. Classe funcional NYHA III. Peso: 80.6 kg. Sem edema MMII. Sem ortopneia. BNP recente: 1345 pg/mL. Manter otimização terapêutica. Dieta hipossódica."
+  },
+  {
+    "id": "88a34e65-1c1d-4673-a4a6-9bf02c5b66ea",
+    "paciente_id": "c5cc2824-0389-4c1c-beb5-3ecf3fd11f18",
+    "data": "2024-08-10",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 18. Paciente em uso de ISRS há 2 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "514c3e5d-9061-443e-9edf-0e50bf4ce32c",
+    "paciente_id": "c5cc2824-0389-4c1c-beb5-3ecf3fd11f18",
+    "data": "2024-08-20",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 18. Paciente em uso de ISRS há 4 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "8aa2e073-83f4-4358-aff7-fcdec45265e8",
+    "paciente_id": "c5cc2824-0389-4c1c-beb5-3ecf3fd11f18",
+    "data": "2024-10-01",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 8. Paciente em uso de ISRS há 8 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "9e710519-026a-43f4-a3a4-ad2971af1b41",
+    "paciente_id": "c5cc2824-0389-4c1c-beb5-3ecf3fd11f18",
+    "data": "2025-10-12",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 8. Paciente em uso de ISRS há 6 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "2316d89d-4b8c-4435-842b-f4553f5ce55d",
+    "paciente_id": "785bd6c3-cae3-47fd-8213-0ad8423e3caa",
+    "data": "2024-05-16",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 1x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "df1b995e-65e8-4f44-86e1-c7aff926711e",
+    "paciente_id": "785bd6c3-cae3-47fd-8213-0ad8423e3caa",
+    "data": "2024-06-01",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "d4e1f0f0-aa8d-46b9-bb57-a45672e52863",
+    "paciente_id": "785bd6c3-cae3-47fd-8213-0ad8423e3caa",
+    "data": "2024-06-12",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 9.9%. Glicemia capilar hoje: 135 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "0e91b239-b3d1-4c95-a01c-765daba9f5ff",
+    "paciente_id": "785bd6c3-cae3-47fd-8213-0ad8423e3caa",
+    "data": "2024-07-31",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 0x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "a5831e32-5214-4ab1-81e5-477e1ed1b103",
+    "paciente_id": "785bd6c3-cae3-47fd-8213-0ad8423e3caa",
+    "data": "2025-08-06",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 1x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "389eef6c-e88a-490a-9658-fffdcff77b6e",
+    "paciente_id": "073c84f7-43b9-48c3-8c15-22bde83c45ec",
+    "data": "2025-09-14",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 17. Paciente em uso de ISRS há 11 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "602f1763-46f9-452c-bcee-20db31755aaf",
+    "paciente_id": "073c84f7-43b9-48c3-8c15-22bde83c45ec",
+    "data": "2025-09-22",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 14. Paciente em uso de ISRS há 3 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "b8faf5f6-2254-4b56-bf7a-89c0562190ca",
+    "paciente_id": "0b04cdd6-d0bb-4fd2-9527-84d9c23417aa",
+    "data": "2024-08-25",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 17. Paciente em uso de ISRS há 10 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "4d40ff85-2b7d-4f69-9237-51b3211e4a5a",
+    "paciente_id": "0b04cdd6-d0bb-4fd2-9527-84d9c23417aa",
+    "data": "2025-10-14",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 18. Paciente em uso de ISRS há 7 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "c840f1a2-ea59-4564-8991-1caeadd207c4",
+    "paciente_id": "0b04cdd6-d0bb-4fd2-9527-84d9c23417aa",
+    "data": "2026-02-07",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 10. Paciente em uso de ISRS há 6 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "2e52361d-8d52-43f2-851a-e45b68ce318a",
+    "paciente_id": "23e76378-5ac7-4135-8593-b97f9c0f465a",
+    "data": "2024-07-12",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "c11238d1-3698-4e63-b7f9-572d1877db52",
+    "paciente_id": "23e76378-5ac7-4135-8593-b97f9c0f465a",
+    "data": "2024-08-12",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 6 meses."
+  },
+  {
+    "id": "5a1903f2-e247-4f56-8465-388fca53c0a2",
+    "paciente_id": "23e76378-5ac7-4135-8593-b97f9c0f465a",
+    "data": "2024-11-17",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 3 meses."
+  },
+  {
+    "id": "893fe220-8762-4b4f-a13c-a65727f01381",
+    "paciente_id": "23e76378-5ac7-4135-8593-b97f9c0f465a",
+    "data": "2025-10-20",
+    "diagnostico_cid": "J44",
+    "diagnostico_texto": "Doença pulmonar obstrutiva crônica",
+    "observacoes": "Retorno de rotina DPOC. Sem exacerbações recentes. Espirometria: VEF1 30% do previsto. Classe GOLD III. Manter tratamento e reabilitação pulmonar."
+  },
+  {
+    "id": "f7d3142d-4048-426c-bd06-96b1d8e809ed",
+    "paciente_id": "b3d4816f-1c0a-4d76-8b97-ef1d8b391cd0",
+    "data": "2024-04-16",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 4 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "c5d260bf-c45e-44b8-97f6-01cc0b0610e9",
+    "paciente_id": "b3d4816f-1c0a-4d76-8b97-ef1d8b391cd0",
+    "data": "2025-10-21",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 6 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "92314c0d-7eeb-46b8-b718-65c783262170",
+    "paciente_id": "3fe3d676-2c70-4f6f-b2d6-0be1c6c35ae8",
+    "data": "2025-01-08",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 69.4 kg, IMC: 38.8. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "9a8d1e64-e320-44a1-a340-cbe7c8590f7d",
+    "paciente_id": "3fe3d676-2c70-4f6f-b2d6-0be1c6c35ae8",
+    "data": "2025-01-31",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 110.9 kg, IMC: 40.7. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "20502360-efea-4b65-af44-0681877ddfc8",
+    "paciente_id": "3fe3d676-2c70-4f6f-b2d6-0be1c6c35ae8",
+    "data": "2025-06-05",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 122.4 kg, IMC: 37.1. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "2296b805-6728-4d3e-aaf9-15c69f7a47ca",
+    "paciente_id": "3fe3d676-2c70-4f6f-b2d6-0be1c6c35ae8",
+    "data": "2025-11-22",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 106.2 kg, IMC: 41.6. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "98a13ea3-4665-4ed9-9a07-a07f7344d2e1",
+    "paciente_id": "3fe3d676-2c70-4f6f-b2d6-0be1c6c35ae8",
+    "data": "2026-01-05",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 62.8 kg, IMC: 37.8. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "00e5d409-fe6c-4f09-991d-00b2f73e0e8f",
+    "paciente_id": "3c82a400-1f4e-4c0f-a12a-dc692f561ee1",
+    "data": "2024-10-02",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 151/75 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "4dfc35a4-7cd5-4e98-98b1-b2301291b362",
+    "paciente_id": "3c82a400-1f4e-4c0f-a12a-dc692f561ee1",
+    "data": "2025-07-04",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 167/84 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "126e6179-76c7-4667-a6a3-6e290cbeb74d",
+    "paciente_id": "3c82a400-1f4e-4c0f-a12a-dc692f561ee1",
+    "data": "2025-07-04",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 3 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "d89886b0-1138-48f3-8140-3eeae25c3043",
+    "paciente_id": "3c82a400-1f4e-4c0f-a12a-dc692f561ee1",
+    "data": "2025-10-26",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 155/96 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 3 meses."
+  },
+  {
+    "id": "3ce7a7e8-c9cd-4768-bc18-1689616f1c91",
+    "paciente_id": "3c82a400-1f4e-4c0f-a12a-dc692f561ee1",
+    "data": "2026-01-21",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 133/83 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "9532c7e6-3682-43da-9220-87ae612dd5c5",
+    "paciente_id": "3a0358e3-bc4c-479a-a3e9-e9b2592d1cd8",
+    "data": "2024-08-12",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 134/90 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 6 meses."
+  },
+  {
+    "id": "405efc70-883d-4700-acd4-5f90921311ed",
+    "paciente_id": "3a0358e3-bc4c-479a-a3e9-e9b2592d1cd8",
+    "data": "2025-04-03",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 156/89 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "aaa4fe0a-7877-4854-a281-c85311bdc828",
+    "paciente_id": "287344f0-5714-4a35-81ff-02f4e8e34b5b",
+    "data": "2024-06-28",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 153/87 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "44e45771-47b4-4ddd-b547-c25f1da8c7c7",
+    "paciente_id": "287344f0-5714-4a35-81ff-02f4e8e34b5b",
+    "data": "2024-11-19",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 158/92 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "950d51ed-7f0f-449b-bd2a-58a96f897ff9",
+    "paciente_id": "287344f0-5714-4a35-81ff-02f4e8e34b5b",
+    "data": "2025-02-12",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 137/82 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "a52fd938-261c-4575-83a1-8c7b8e64c01b",
+    "paciente_id": "287344f0-5714-4a35-81ff-02f4e8e34b5b",
+    "data": "2025-08-08",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 148/94 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "2180f5b9-7cc4-4240-aaac-0694c90e66af",
+    "paciente_id": "98725884-e881-4e8c-ac0e-5094d90c5b60",
+    "data": "2024-10-02",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "5553d6d5-8467-479b-87e4-d042ea3d99f0",
+    "paciente_id": "98725884-e881-4e8c-ac0e-5094d90c5b60",
+    "data": "2025-03-09",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "34ee0242-05b0-4603-8ad3-b16bcff9df00",
+    "paciente_id": "98725884-e881-4e8c-ac0e-5094d90c5b60",
+    "data": "2025-03-17",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "a5562d36-d089-41d4-8f2d-ebf01b2f16a6",
+    "paciente_id": "98725884-e881-4e8c-ac0e-5094d90c5b60",
+    "data": "2025-05-04",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 4 meses."
+  },
+  {
+    "id": "71de91a1-30c8-407b-9ec7-c5c56e683963",
+    "paciente_id": "98725884-e881-4e8c-ac0e-5094d90c5b60",
+    "data": "2026-02-16",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "f8691a98-8b27-4f55-8d86-bbf95ffabd6a",
+    "paciente_id": "5e975095-6577-4cce-809a-273c8965fa1a",
+    "data": "2024-03-30",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 18. Paciente em uso de ISRS há 10 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "b8ca0624-4e64-4d47-a3f8-087578dd7034",
+    "paciente_id": "5e975095-6577-4cce-809a-273c8965fa1a",
+    "data": "2024-04-05",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 16. Paciente em uso de ISRS há 2 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "1f35028e-1b54-446a-b1c7-0738831101e3",
+    "paciente_id": "5e975095-6577-4cce-809a-273c8965fa1a",
+    "data": "2026-01-09",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 14. Paciente em uso de ISRS há 8 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "8c93cbe0-7863-42f4-abe2-c5af393916d6",
+    "paciente_id": "29c65408-3de0-4426-9680-f23ec2841cbd",
+    "data": "2024-03-20",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 6.9%. Glicemia capilar hoje: 207 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "7a46cf2b-3b5d-4744-838c-f4f1aa931964",
+    "paciente_id": "29c65408-3de0-4426-9680-f23ec2841cbd",
+    "data": "2024-04-20",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 6.7%. Glicemia capilar hoje: 215 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "401df823-f93f-4908-a5ae-e4772721f81d",
+    "paciente_id": "29c65408-3de0-4426-9680-f23ec2841cbd",
+    "data": "2024-08-03",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 6 meses."
+  },
+  {
+    "id": "711f2eae-a4e6-48f0-9a4b-b8e4a33aa6b3",
+    "paciente_id": "29c65408-3de0-4426-9680-f23ec2841cbd",
+    "data": "2024-09-09",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 7.3%. Glicemia capilar hoje: 206 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "a9e71b21-a2c1-4501-848f-2cb751aeef1c",
+    "paciente_id": "29c65408-3de0-4426-9680-f23ec2841cbd",
+    "data": "2025-01-23",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 6.8%. Glicemia capilar hoje: 181 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "3947adb1-c844-47e3-aa67-9a3cf73b9e88",
+    "paciente_id": "e44056d7-691c-4af6-9364-c5c34dbad8fc",
+    "data": "2024-05-10",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 141/92 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "b6b68bb7-c33b-42f9-8408-df37837c659f",
+    "paciente_id": "e44056d7-691c-4af6-9364-c5c34dbad8fc",
+    "data": "2024-08-06",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 134/94 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "b0b52c8d-df2f-4b3e-8cdb-a62d62d94b8b",
+    "paciente_id": "e44056d7-691c-4af6-9364-c5c34dbad8fc",
+    "data": "2025-08-26",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 156/91 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "88aade2d-c4c0-4d79-b5bd-92530065b62e",
+    "paciente_id": "eea7e224-f13c-4ff3-a4a6-7d1b769d6ddc",
+    "data": "2024-06-15",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 4 meses."
+  },
+  {
+    "id": "04948720-fe34-4c25-8d8e-67b901d30729",
+    "paciente_id": "eea7e224-f13c-4ff3-a4a6-7d1b769d6ddc",
+    "data": "2024-08-18",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 4 meses."
+  },
+  {
+    "id": "d85dd2a2-a888-4180-b5b3-70e7c83e9836",
+    "paciente_id": "eea7e224-f13c-4ff3-a4a6-7d1b769d6ddc",
+    "data": "2025-05-12",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 8.3%. Glicemia capilar hoje: 241 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "0d6973bb-dc2f-4920-98f5-7212a19ce0d1",
+    "paciente_id": "eea7e224-f13c-4ff3-a4a6-7d1b769d6ddc",
+    "data": "2026-01-11",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 3 meses."
+  },
+  {
+    "id": "ca801518-d985-4f30-a3e4-fdf9b7b34b95",
+    "paciente_id": "eea7e224-f13c-4ff3-a4a6-7d1b769d6ddc",
+    "data": "2026-02-18",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "872982d7-7d89-4951-aa9f-64e013c6eb84",
+    "paciente_id": "e9caae37-de2e-48c9-8665-e62d96dad9ab",
+    "data": "2025-08-19",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 0x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "70299d93-78f1-47cf-92ef-290c959984fb",
+    "paciente_id": "e9caae37-de2e-48c9-8665-e62d96dad9ab",
+    "data": "2025-09-26",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Retorno pós-crise. Paciente estável, sem dispneia em repouso. SpO2: 93%. Orientado sobre uso correto do dispositivo inalatório. Plano de ação revisado."
+  },
+  {
+    "id": "693c2def-38fd-4edd-9057-e0332662e130",
+    "paciente_id": "e9caae37-de2e-48c9-8665-e62d96dad9ab",
+    "data": "2025-11-21",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 18. Paciente em uso de ISRS há 10 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "a82a3eb6-5b09-496b-8b23-f42ac3769269",
+    "paciente_id": "a5ca467b-60a9-4d47-830b-79a02fe2929b",
+    "data": "2024-10-23",
+    "diagnostico_cid": "I50",
+    "diagnostico_texto": "Insuficiência cardíaca",
+    "observacoes": "Retorno IC. Paciente refere dispneia aos grandes esforços. ECO recente: FE 25%. Ajuste de diurético realizado. Retorno em 30 dias."
+  },
+  {
+    "id": "00e3da09-d277-4f77-9b2e-4d1435ac6798",
+    "paciente_id": "a5ca467b-60a9-4d47-830b-79a02fe2929b",
+    "data": "2025-03-25",
+    "diagnostico_cid": "I50",
+    "diagnostico_texto": "Insuficiência cardíaca",
+    "observacoes": "Retorno IC. Paciente refere dispneia aos grandes esforços. ECO recente: FE 46%. Ajuste de diurético realizado. Retorno em 30 dias."
+  },
+  {
+    "id": "56fb0a88-3fd7-43a0-83ef-d45481b36cdc",
+    "paciente_id": "a5ca467b-60a9-4d47-830b-79a02fe2929b",
+    "data": "2025-03-31",
+    "diagnostico_cid": "I50",
+    "diagnostico_texto": "Insuficiência cardíaca",
+    "observacoes": "Acompanhamento de IC. Classe funcional NYHA I. Peso: 69.7 kg. Sem edema MMII. Sem ortopneia. BNP recente: 782 pg/mL. Manter otimização terapêutica. Dieta hipossódica."
+  },
+  {
+    "id": "237af157-367d-443c-8ece-988192958d75",
+    "paciente_id": "a5ca467b-60a9-4d47-830b-79a02fe2929b",
+    "data": "2025-12-25",
+    "diagnostico_cid": "I50",
+    "diagnostico_texto": "Insuficiência cardíaca",
+    "observacoes": "Acompanhamento de IC. Classe funcional NYHA II. Peso: 62.1 kg. Sem edema MMII. Sem ortopneia. BNP recente: 771 pg/mL. Manter otimização terapêutica. Dieta hipossódica."
+  },
+  {
+    "id": "4358d7fe-44d9-4c5e-9b2e-35d78b293210",
+    "paciente_id": "f1a87a28-7aea-41f0-8973-5c692d66fd14",
+    "data": "2024-07-19",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 1x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "faa2cea8-581e-42af-8300-ef5665fa9ff6",
+    "paciente_id": "f1a87a28-7aea-41f0-8973-5c692d66fd14",
+    "data": "2024-08-15",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Retorno pós-crise. Paciente estável, sem dispneia em repouso. SpO2: 96%. Orientado sobre uso correto do dispositivo inalatório. Plano de ação revisado."
+  },
+  {
+    "id": "793456be-d204-4007-9099-8b1231b84f4d",
+    "paciente_id": "f1a87a28-7aea-41f0-8973-5c692d66fd14",
+    "data": "2024-09-14",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Retorno pós-crise. Paciente estável, sem dispneia em repouso. SpO2: 95%. Orientado sobre uso correto do dispositivo inalatório. Plano de ação revisado."
+  },
+  {
+    "id": "d4722e72-6141-4e48-95f0-2b628ebb91d9",
+    "paciente_id": "f1a87a28-7aea-41f0-8973-5c692d66fd14",
+    "data": "2025-06-29",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 1x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "bafabcc6-d479-4c14-8a4d-bee7446b81c7",
+    "paciente_id": "f1a87a28-7aea-41f0-8973-5c692d66fd14",
+    "data": "2025-07-17",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 0x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "0b3b14a1-e228-493c-a648-788f60014302",
+    "paciente_id": "27ddb9aa-bc5d-435a-bf18-39088bd97b8f",
+    "data": "2024-03-06",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 4 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "3f8bd718-5f66-4b36-9c38-6f160ce3685f",
+    "paciente_id": "27ddb9aa-bc5d-435a-bf18-39088bd97b8f",
+    "data": "2024-10-30",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 14. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "7236f8a9-4908-4c4d-a519-2e43502d825d",
+    "paciente_id": "27ddb9aa-bc5d-435a-bf18-39088bd97b8f",
+    "data": "2025-07-19",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 16. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "48aeb0f1-2cde-43a6-848a-8b1606a3a5d4",
+    "paciente_id": "27ddb9aa-bc5d-435a-bf18-39088bd97b8f",
+    "data": "2025-09-08",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 19. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "efc8e557-bede-4927-bf9c-2bd37e8d4960",
+    "paciente_id": "27ddb9aa-bc5d-435a-bf18-39088bd97b8f",
+    "data": "2025-11-13",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 3 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "a1de56b8-fc57-42b8-9db7-d64bf33a4d7f",
+    "paciente_id": "153f66c4-f1dc-4d44-941a-c80334d900e1",
+    "data": "2024-04-27",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 97.4 kg, IMC: 32.0. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "90b87a09-3dc0-43dc-a0c1-e59b617332a6",
+    "paciente_id": "153f66c4-f1dc-4d44-941a-c80334d900e1",
+    "data": "2025-01-01",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "bfe2ec6e-09e8-4987-9022-b73e246c8fe2",
+    "paciente_id": "153f66c4-f1dc-4d44-941a-c80334d900e1",
+    "data": "2025-08-16",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 9.6%. Glicemia capilar hoje: 174 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "b9170f4b-e58c-48ec-a3a1-555d5ded9ab6",
+    "paciente_id": "153f66c4-f1dc-4d44-941a-c80334d900e1",
+    "data": "2025-09-30",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 100.4 kg, IMC: 33.7. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "e5969cc1-ade9-463d-bf67-8cf73606a94a",
+    "paciente_id": "153f66c4-f1dc-4d44-941a-c80334d900e1",
+    "data": "2026-01-24",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 98.0 kg, IMC: 36.6. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "7e37b7de-b781-41f6-99ba-a6e947983d35",
+    "paciente_id": "4ea0b6eb-3a34-4c38-9892-53acb40ae88c",
+    "data": "2024-09-19",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Retorno pós-crise. Paciente estável, sem dispneia em repouso. SpO2: 96%. Orientado sobre uso correto do dispositivo inalatório. Plano de ação revisado."
+  },
+  {
+    "id": "6ebfbe89-ad28-4ec3-b78d-d4190e996477",
+    "paciente_id": "4ea0b6eb-3a34-4c38-9892-53acb40ae88c",
+    "data": "2025-01-14",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 3 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "ad03422c-4cdf-4030-930b-daef2da5e8c4",
+    "paciente_id": "4ea0b6eb-3a34-4c38-9892-53acb40ae88c",
+    "data": "2025-02-04",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Retorno pós-crise. Paciente estável, sem dispneia em repouso. SpO2: 94%. Orientado sobre uso correto do dispositivo inalatório. Plano de ação revisado."
+  },
+  {
+    "id": "0c6e97c7-3db8-482a-8da1-ada70de79fbb",
+    "paciente_id": "4ea0b6eb-3a34-4c38-9892-53acb40ae88c",
+    "data": "2025-02-28",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 3x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "ea79ec64-3829-430d-8b48-7e857bf34256",
+    "paciente_id": "4ea0b6eb-3a34-4c38-9892-53acb40ae88c",
+    "data": "2025-11-22",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 6 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "459aca78-ca6a-4df9-80ff-5bc35c022e3a",
+    "paciente_id": "cdea0c45-46ad-4357-944b-987567f23d26",
+    "data": "2024-09-09",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 134/84 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "1f816a1c-88d1-4ee1-bafa-a4b0af710a95",
+    "paciente_id": "cdea0c45-46ad-4357-944b-987567f23d26",
+    "data": "2025-03-29",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 136/89 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "c59b29db-907e-4004-94b7-576cc749a1cb",
+    "paciente_id": "cdea0c45-46ad-4357-944b-987567f23d26",
+    "data": "2025-09-20",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 127/93 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 4 meses."
+  },
+  {
+    "id": "5adaa660-db6c-42f5-ae75-e50bc112dd83",
+    "paciente_id": "f548c8fe-14df-4548-969d-c1a885ed02b2",
+    "data": "2024-12-07",
+    "diagnostico_cid": "E03",
+    "diagnostico_texto": "Hipotireoidismo",
+    "observacoes": "Controle de hipotireoidismo. TSH recente: 0.75 mUI/L. Paciente em uso regular de levotiroxina. Sem sintomas de hipo ou hipertireoidismo. Manter dose e controle em 3 meses."
+  },
+  {
+    "id": "7793e8da-5c92-48f1-848b-d29ccd4ebebf",
+    "paciente_id": "f548c8fe-14df-4548-969d-c1a885ed02b2",
+    "data": "2024-12-13",
+    "diagnostico_cid": "E03",
+    "diagnostico_texto": "Hipotireoidismo",
+    "observacoes": "Controle de hipotireoidismo. TSH recente: 4.07 mUI/L. Paciente em uso regular de levotiroxina. Sem sintomas de hipo ou hipertireoidismo. Manter dose e controle em 4 meses."
+  },
+  {
+    "id": "c11a7d6f-0d53-46cb-b22b-d3eec0667c04",
+    "paciente_id": "f548c8fe-14df-4548-969d-c1a885ed02b2",
+    "data": "2025-11-21",
+    "diagnostico_cid": "E03",
+    "diagnostico_texto": "Hipotireoidismo",
+    "observacoes": "Controle de hipotireoidismo. TSH recente: 7.38 mUI/L. Paciente em uso regular de levotiroxina. Sem sintomas de hipo ou hipertireoidismo. Manter dose e controle em 3 meses."
+  },
+  {
+    "id": "3e570521-1c69-4b16-9bb8-c39deff5e1b7",
+    "paciente_id": "74a3b411-d552-442d-9228-03649ba69b15",
+    "data": "2024-07-03",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 106.2 kg, IMC: 30.9. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "6c062913-f856-43c4-8ae6-ae838c9de99d",
+    "paciente_id": "74a3b411-d552-442d-9228-03649ba69b15",
+    "data": "2025-11-04",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 7.8%. Glicemia capilar hoje: 180 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "bcd8c8c5-dbf5-4cc1-a412-622825fa195f",
+    "paciente_id": "74a3b411-d552-442d-9228-03649ba69b15",
+    "data": "2025-12-14",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 77.5 kg, IMC: 35.4. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "b8013367-2c63-44e3-957a-078990ca0dcb",
+    "paciente_id": "d1e6d77f-c581-4b2a-a415-77c31641aeab",
+    "data": "2025-01-01",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 4 meses."
+  },
+  {
+    "id": "02792a1e-336e-494f-b216-000185cd33bf",
+    "paciente_id": "d1e6d77f-c581-4b2a-a415-77c31641aeab",
+    "data": "2025-04-04",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "9cb3516b-5d4d-4bb4-9f77-de3b982e45ef",
+    "paciente_id": "d1e6d77f-c581-4b2a-a415-77c31641aeab",
+    "data": "2026-02-11",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "3fd63097-9fc9-4111-b530-45c151af199c",
+    "paciente_id": "0b775d9a-d689-4690-a4ba-dc5cc956e2f1",
+    "data": "2024-08-16",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 22. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "a6b116b3-4e27-479c-8b71-ff05198de879",
+    "paciente_id": "0b775d9a-d689-4690-a4ba-dc5cc956e2f1",
+    "data": "2024-08-20",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 19. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "c5051a58-3d81-477f-9829-b7aa9e86fa60",
+    "paciente_id": "0b775d9a-d689-4690-a4ba-dc5cc956e2f1",
+    "data": "2025-03-14",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 15. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "ff1f3631-3cda-45eb-8595-8b8fc2fb2224",
+    "paciente_id": "0b775d9a-d689-4690-a4ba-dc5cc956e2f1",
+    "data": "2025-09-18",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 20. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "f85494ad-2285-4665-8f25-a8989ff8193b",
+    "paciente_id": "0b775d9a-d689-4690-a4ba-dc5cc956e2f1",
+    "data": "2026-02-12",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 4 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "9af6b027-e7e3-47bc-8390-82e3418031b6",
+    "paciente_id": "bf06e9c6-33d3-4fcc-8a95-b1fc844c7b52",
+    "data": "2024-10-12",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 11. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "4b8465b0-e4d7-4797-84cf-c813ca8d5be6",
+    "paciente_id": "bf06e9c6-33d3-4fcc-8a95-b1fc844c7b52",
+    "data": "2024-12-28",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 16. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "b4019a35-9ef7-4cf2-adcf-c13ab2ebaa48",
+    "paciente_id": "bf06e9c6-33d3-4fcc-8a95-b1fc844c7b52",
+    "data": "2025-02-15",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 13. Paciente em uso de ISRS há 12 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "6b277252-f873-4fb2-911a-9ec5b7a5823a",
+    "paciente_id": "f56be058-f85f-4340-83d2-1003f740d87c",
+    "data": "2025-09-26",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 6.9%. Glicemia capilar hoje: 217 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "9892f803-c417-4819-9805-6d0c4b139241",
+    "paciente_id": "f56be058-f85f-4340-83d2-1003f740d87c",
+    "data": "2026-02-25",
+    "diagnostico_cid": "E03",
+    "diagnostico_texto": "Hipotireoidismo",
+    "observacoes": "Controle de hipotireoidismo. TSH recente: 1.10 mUI/L. Paciente em uso regular de levotiroxina. Sem sintomas de hipo ou hipertireoidismo. Manter dose e controle em 3 meses."
+  },
+  {
+    "id": "8dca8cd9-aea3-437c-8eda-6b49be11613c",
+    "paciente_id": "40eed459-3fab-4e08-96c7-e0cae119e91d",
+    "data": "2024-10-19",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 147/84 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 4 meses."
+  },
+  {
+    "id": "c8cbdea7-9923-48fb-893a-115a2e0c92eb",
+    "paciente_id": "40eed459-3fab-4e08-96c7-e0cae119e91d",
+    "data": "2024-12-21",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 170/76 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "92a32a64-7c00-490c-8e13-d8c6a088550c",
+    "paciente_id": "40eed459-3fab-4e08-96c7-e0cae119e91d",
+    "data": "2025-03-16",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 69.8 kg, IMC: 36.6. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "22b8bc07-9bfb-4ef9-858b-12ff01afae8d",
+    "paciente_id": "40eed459-3fab-4e08-96c7-e0cae119e91d",
+    "data": "2025-07-09",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 128/94 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "78ac3812-217f-4bba-a674-61dbccbacbab",
+    "paciente_id": "2c79fd67-9a8c-4176-a11a-73f99f6ee3df",
+    "data": "2024-05-28",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 10.0%. Glicemia capilar hoje: 111 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "01d60a17-5221-46cb-b51f-99794336e6cb",
+    "paciente_id": "2c79fd67-9a8c-4176-a11a-73f99f6ee3df",
+    "data": "2024-07-21",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "4793e2e1-4f67-4b22-aff0-92f21f31067d",
+    "paciente_id": "2c79fd67-9a8c-4176-a11a-73f99f6ee3df",
+    "data": "2025-04-29",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "2e71bc5d-cf4d-4ce1-b344-c9625ebb03ed",
+    "paciente_id": "2c79fd67-9a8c-4176-a11a-73f99f6ee3df",
+    "data": "2025-10-23",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 4 meses."
+  },
+  {
+    "id": "ad5eb6a5-d455-481f-8ace-45e44103f58e",
+    "paciente_id": "2c79fd67-9a8c-4176-a11a-73f99f6ee3df",
+    "data": "2025-11-03",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 6 meses."
+  },
+  {
+    "id": "563a4aa5-873b-4eb3-acc9-865f0c137a92",
+    "paciente_id": "4df365d0-91b8-4cb4-b8a7-8c5035d228c4",
+    "data": "2024-03-18",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 10. Paciente em uso de ISRS há 3 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "17846941-c5b5-4751-b029-2848d691d7c7",
+    "paciente_id": "4df365d0-91b8-4cb4-b8a7-8c5035d228c4",
+    "data": "2025-02-20",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 9. Paciente em uso de ISRS há 3 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "d24d95ea-2e9a-4362-9890-5893d4f0a66e",
+    "paciente_id": "4df365d0-91b8-4cb4-b8a7-8c5035d228c4",
+    "data": "2025-07-05",
+    "diagnostico_cid": "F41",
+    "diagnostico_texto": "Transtorno de ansiedade generalizada",
+    "observacoes": "Acompanhamento de TAG. GAD-7 atual: 16. Paciente em uso de ISRS há 5 meses. Refere melhora de sintomas somáticos. Manter medicação e psicoterapia."
+  },
+  {
+    "id": "7e394666-f29e-4e36-a6b7-c239afa75a12",
+    "paciente_id": "ea1a773c-fb09-4e9c-a160-7b3f128c20dc",
+    "data": "2024-10-18",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 70.0 kg, IMC: 34.8. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "c1f11e6b-228c-452e-8fd3-5c09272d2ee8",
+    "paciente_id": "ea1a773c-fb09-4e9c-a160-7b3f128c20dc",
+    "data": "2024-12-23",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 79.1 kg, IMC: 39.5. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "23123883-c93e-43bf-9e9e-f4c260ed8537",
+    "paciente_id": "ea1a773c-fb09-4e9c-a160-7b3f128c20dc",
+    "data": "2025-04-22",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 62.1 kg, IMC: 38.9. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "eda7928b-15c4-4ed8-bb2d-1657aa4bd1d7",
+    "paciente_id": "ea1a773c-fb09-4e9c-a160-7b3f128c20dc",
+    "data": "2025-05-13",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 94.9 kg, IMC: 36.1. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "7fed2119-d9f5-4407-be6c-12f9515ccd5b",
+    "paciente_id": "ea1a773c-fb09-4e9c-a160-7b3f128c20dc",
+    "data": "2025-09-19",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 71.5 kg, IMC: 35.2. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "7507a417-5496-47fe-98b5-a45bb1b00292",
+    "paciente_id": "7aa4c4d3-592e-4111-832f-41d28996b42e",
+    "data": "2024-10-27",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 13. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "6cd2df0a-e1ec-46a1-b426-171b6c8352d5",
+    "paciente_id": "7aa4c4d3-592e-4111-832f-41d28996b42e",
+    "data": "2024-11-09",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 4 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "22c0aa23-e8ad-454c-b389-fd140ed3540e",
+    "paciente_id": "7aa4c4d3-592e-4111-832f-41d28996b42e",
+    "data": "2025-12-24",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 6 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "61327a11-28e7-48eb-85ea-0ddcdfc0bb6e",
+    "paciente_id": "58722885-541f-4813-8ef8-c9381996ca16",
+    "data": "2024-11-30",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 137/86 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "4cc32b48-8658-4075-9a2a-d62803e94425",
+    "paciente_id": "58722885-541f-4813-8ef8-c9381996ca16",
+    "data": "2025-05-19",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 140/78 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "61e728e4-ea87-4c5b-b2b8-bc2942c6eee8",
+    "paciente_id": "58722885-541f-4813-8ef8-c9381996ca16",
+    "data": "2025-08-28",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 127/98 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "f3f3d4b2-13e3-4ccd-be21-57b6d224c674",
+    "paciente_id": "58722885-541f-4813-8ef8-c9381996ca16",
+    "data": "2025-11-20",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 167/93 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "95b857c1-0d15-4994-8098-25ed0200cb4a",
+    "paciente_id": "58722885-541f-4813-8ef8-c9381996ca16",
+    "data": "2025-12-14",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 153/88 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "20a914ab-141f-448e-826a-305279f84c0e",
+    "paciente_id": "a901a8bb-9180-436d-842f-31f047a53fae",
+    "data": "2024-06-01",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 153/95 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 4 meses."
+  },
+  {
+    "id": "390ecde2-5260-49f7-a67c-47f459ff5c6b",
+    "paciente_id": "a901a8bb-9180-436d-842f-31f047a53fae",
+    "data": "2024-10-28",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 151/94 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "fbe58c9c-3c5e-408f-9bac-cce0af062cd2",
+    "paciente_id": "a901a8bb-9180-436d-842f-31f047a53fae",
+    "data": "2024-12-30",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 135/82 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 6 meses."
+  },
+  {
+    "id": "7f11100c-9d28-416a-a767-68ce4d2f6fa1",
+    "paciente_id": "a901a8bb-9180-436d-842f-31f047a53fae",
+    "data": "2025-01-03",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 136/87 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "4995857b-fb71-4ffd-837d-9c6bdc8f20ca",
+    "paciente_id": "e9eff724-275b-4b67-955e-6456414c7ba1",
+    "data": "2024-09-01",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 18. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "fe744d3c-1881-4e1b-b808-ae147042b9d9",
+    "paciente_id": "e9eff724-275b-4b67-955e-6456414c7ba1",
+    "data": "2025-04-23",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 17. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "12aea0a4-9756-431e-b69d-04c2281189ab",
+    "paciente_id": "e9eff724-275b-4b67-955e-6456414c7ba1",
+    "data": "2025-05-03",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 22. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "2b653c75-9517-4bd4-879d-9e0be6ebf05b",
+    "paciente_id": "4fa3acac-4707-4c98-ba7c-b946e0d5607a",
+    "data": "2024-04-11",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 170/92 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "ee65511f-17d1-49af-9d6a-c4c58c352875",
+    "paciente_id": "4fa3acac-4707-4c98-ba7c-b946e0d5607a",
+    "data": "2025-07-20",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 161/80 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "ff5fdb79-553b-4fbb-84b1-2130a6092cc1",
+    "paciente_id": "412c6008-ea81-4cd8-bf58-8fb06ed9d05b",
+    "data": "2024-06-07",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 4 meses."
+  },
+  {
+    "id": "b8f652ce-4fff-4a76-9868-55b2dbcf0f4a",
+    "paciente_id": "412c6008-ea81-4cd8-bf58-8fb06ed9d05b",
+    "data": "2025-03-03",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 168/97 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "9aa33cb3-fe1c-47b5-80e5-530bcddbea91",
+    "paciente_id": "412c6008-ea81-4cd8-bf58-8fb06ed9d05b",
+    "data": "2026-01-11",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 129/76 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "fb79c214-95d6-4c78-b237-2f660dcf8070",
+    "paciente_id": "6b3ad814-7ca6-4d83-b05e-4fff9cebeca8",
+    "data": "2025-06-15",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 6 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "772f3eee-1fb7-406a-8882-492e2e2fa2cb",
+    "paciente_id": "6b3ad814-7ca6-4d83-b05e-4fff9cebeca8",
+    "data": "2025-07-02",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 165/100 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "bbc5b096-f8d1-4758-9a3b-3750e24c77c7",
+    "paciente_id": "6b3ad814-7ca6-4d83-b05e-4fff9cebeca8",
+    "data": "2026-01-01",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 143/93 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 4 meses."
+  },
+  {
+    "id": "3e1191dc-3de9-4001-b360-3c67eb821a2e",
+    "paciente_id": "5044792e-2a92-4c35-ac0d-f6b16c3dda2d",
+    "data": "2024-07-13",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 135/94 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "4c7776ab-f94c-4427-9282-3f0efdeb580c",
+    "paciente_id": "5044792e-2a92-4c35-ac0d-f6b16c3dda2d",
+    "data": "2024-12-26",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 141/86 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "3ed6474e-7d1b-4d3e-b111-37fca488a004",
+    "paciente_id": "5044792e-2a92-4c35-ac0d-f6b16c3dda2d",
+    "data": "2025-04-04",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 169/91 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 6 meses."
+  },
+  {
+    "id": "2d5c2c5d-2946-40e2-8f9d-8c22ab09a225",
+    "paciente_id": "5044792e-2a92-4c35-ac0d-f6b16c3dda2d",
+    "data": "2025-05-01",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 148/80 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 6 meses."
+  },
+  {
+    "id": "0d5eefea-9a24-4095-abb4-eb1e29c60c8a",
+    "paciente_id": "5044792e-2a92-4c35-ac0d-f6b16c3dda2d",
+    "data": "2026-02-27",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 143/91 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "413ab9f2-8859-4a95-8488-7f74cbe565a7",
+    "paciente_id": "22e354a9-76eb-48ff-a876-7e192320928c",
+    "data": "2025-04-18",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 110.3 kg, IMC: 40.6. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "74e21a77-b1e7-4de1-8262-50a54397aeaf",
+    "paciente_id": "22e354a9-76eb-48ff-a876-7e192320928c",
+    "data": "2025-05-31",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 67.7 kg, IMC: 30.7. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "cb92fcab-7e27-4abe-a8c7-fa2d1bf66a35",
+    "paciente_id": "22e354a9-76eb-48ff-a876-7e192320928c",
+    "data": "2026-02-16",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 97.3 kg, IMC: 37.1. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "73cdd881-ac66-4997-8434-b479010b33d6",
+    "paciente_id": "756776ed-4095-4bf8-bcc4-ee7163c97b52",
+    "data": "2025-05-08",
+    "diagnostico_cid": "J44",
+    "diagnostico_texto": "Doença pulmonar obstrutiva crônica",
+    "observacoes": "Retorno de rotina DPOC. Sem exacerbações recentes. Espirometria: VEF1 43% do previsto. Classe GOLD II. Manter tratamento e reabilitação pulmonar."
+  },
+  {
+    "id": "e2db261a-a102-4732-90bc-69f06f0c7af0",
+    "paciente_id": "756776ed-4095-4bf8-bcc4-ee7163c97b52",
+    "data": "2025-05-25",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 161/84 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "2e564367-6f0b-4822-9956-700bb4860199",
+    "paciente_id": "756776ed-4095-4bf8-bcc4-ee7163c97b52",
+    "data": "2025-07-15",
+    "diagnostico_cid": "J44",
+    "diagnostico_texto": "Doença pulmonar obstrutiva crônica",
+    "observacoes": "Retorno de rotina DPOC. Sem exacerbações recentes. Espirometria: VEF1 58% do previsto. Classe GOLD II. Manter tratamento e reabilitação pulmonar."
+  },
+  {
+    "id": "bb56f8ba-955d-4cdc-af6f-4850caba0036",
+    "paciente_id": "756776ed-4095-4bf8-bcc4-ee7163c97b52",
+    "data": "2025-12-12",
+    "diagnostico_cid": "J44",
+    "diagnostico_texto": "Doença pulmonar obstrutiva crônica",
+    "observacoes": "Retorno de rotina DPOC. Sem exacerbações recentes. Espirometria: VEF1 56% do previsto. Classe GOLD II. Manter tratamento e reabilitação pulmonar."
+  },
+  {
+    "id": "796fbbbf-62f7-4549-ac9d-8fd049ec5286",
+    "paciente_id": "756776ed-4095-4bf8-bcc4-ee7163c97b52",
+    "data": "2026-02-04",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 170/75 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 6 meses."
+  },
+  {
+    "id": "255730d2-5794-4c8e-9808-3c0addce8108",
+    "paciente_id": "f3ecb0f6-671d-4de6-a6ad-2628ee10faf9",
+    "data": "2025-01-19",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 3 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "837d59f4-9afe-40a6-975c-2b67a15e83c8",
+    "paciente_id": "f3ecb0f6-671d-4de6-a6ad-2628ee10faf9",
+    "data": "2025-08-23",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 22. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "e61577a8-3470-4345-a933-39d4f075b1dc",
+    "paciente_id": "35dc65d7-9bb2-4c36-bc24-06672e54da12",
+    "data": "2024-03-02",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 3x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "eba0c61b-adf1-4812-97bc-b5be1c291dab",
+    "paciente_id": "35dc65d7-9bb2-4c36-bc24-06672e54da12",
+    "data": "2024-04-12",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Retorno pós-crise. Paciente estável, sem dispneia em repouso. SpO2: 98%. Orientado sobre uso correto do dispositivo inalatório. Plano de ação revisado."
+  },
+  {
+    "id": "c07436a5-9650-42c0-a368-2185c6b42afc",
+    "paciente_id": "35dc65d7-9bb2-4c36-bc24-06672e54da12",
+    "data": "2025-06-06",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Retorno pós-crise. Paciente estável, sem dispneia em repouso. SpO2: 99%. Orientado sobre uso correto do dispositivo inalatório. Plano de ação revisado."
+  },
+  {
+    "id": "8493fe08-e114-4e89-bc10-fd46ce2650ed",
+    "paciente_id": "35dc65d7-9bb2-4c36-bc24-06672e54da12",
+    "data": "2025-06-19",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Retorno pós-crise. Paciente estável, sem dispneia em repouso. SpO2: 95%. Orientado sobre uso correto do dispositivo inalatório. Plano de ação revisado."
+  },
+  {
+    "id": "9d5e9593-9fbe-455b-ae74-6c870827a06a",
+    "paciente_id": "35dc65d7-9bb2-4c36-bc24-06672e54da12",
+    "data": "2025-09-20",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 4x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "ee6c9242-305d-4234-ac1c-bdbfebf30042",
+    "paciente_id": "94e36133-b6be-4e2f-8038-94e504f8c7ba",
+    "data": "2024-03-26",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 0x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "0c64a691-3b93-493b-84dd-1f2f361b963a",
+    "paciente_id": "94e36133-b6be-4e2f-8038-94e504f8c7ba",
+    "data": "2024-05-23",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 158/100 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "323fe949-30ea-44eb-88ce-901f270e48ec",
+    "paciente_id": "94e36133-b6be-4e2f-8038-94e504f8c7ba",
+    "data": "2024-10-18",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 128/84 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "403be8cc-dba2-4324-a51c-daff27f329df",
+    "paciente_id": "94e36133-b6be-4e2f-8038-94e504f8c7ba",
+    "data": "2025-10-07",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Retorno pós-crise. Paciente estável, sem dispneia em repouso. SpO2: 98%. Orientado sobre uso correto do dispositivo inalatório. Plano de ação revisado."
+  },
+  {
+    "id": "534b3b99-4f47-41fa-80d1-aed0abcadc8a",
+    "paciente_id": "a96af180-b4e1-4924-9a09-18daad44d786",
+    "data": "2024-04-28",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 147/81 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "4d8f9964-5f46-4f7c-affc-d733d50e6d5a",
+    "paciente_id": "a96af180-b4e1-4924-9a09-18daad44d786",
+    "data": "2024-10-30",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 154/100 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 3 meses."
+  },
+  {
+    "id": "5e85bc6a-377c-40b0-aac0-8744c66bfab4",
+    "paciente_id": "a96af180-b4e1-4924-9a09-18daad44d786",
+    "data": "2025-08-02",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 125/77 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "108a7a2c-3eba-4e1a-a975-5894069b6ff7",
+    "paciente_id": "52a428e1-767e-4e72-8129-a16b63710fc7",
+    "data": "2024-04-24",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 162/90 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "8b30eee0-2da7-42bf-b864-71cbe3333e25",
+    "paciente_id": "52a428e1-767e-4e72-8129-a16b63710fc7",
+    "data": "2024-12-12",
+    "diagnostico_cid": "E03",
+    "diagnostico_texto": "Hipotireoidismo",
+    "observacoes": "Controle de hipotireoidismo. TSH recente: 3.33 mUI/L. Paciente em uso regular de levotiroxina. Sem sintomas de hipo ou hipertireoidismo. Manter dose e controle em 6 meses."
+  },
+  {
+    "id": "985b99d7-361d-4362-8d33-680f5f52abf6",
+    "paciente_id": "52a428e1-767e-4e72-8129-a16b63710fc7",
+    "data": "2025-12-05",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 143/89 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 6 meses."
+  },
+  {
+    "id": "77b37415-ac89-4f69-8672-45a5721e90d6",
+    "paciente_id": "8053705b-6fa8-46c6-979c-7c6de9c17000",
+    "data": "2024-12-14",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "16d36281-dd1a-40d6-a0b3-3d657171e3a9",
+    "paciente_id": "8053705b-6fa8-46c6-979c-7c6de9c17000",
+    "data": "2025-02-18",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "ceff9048-83a0-4dd9-88b4-d1a6c9573a6b",
+    "paciente_id": "8053705b-6fa8-46c6-979c-7c6de9c17000",
+    "data": "2025-04-18",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 4 meses."
+  },
+  {
+    "id": "ca0d603d-aa64-4a63-a099-5c30930816bd",
+    "paciente_id": "8053705b-6fa8-46c6-979c-7c6de9c17000",
+    "data": "2025-04-20",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 8.5%. Glicemia capilar hoje: 210 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "759c9482-36fc-4451-9dc2-b09951bbe21f",
+    "paciente_id": "691fc563-bddb-4859-83a5-5d3a704ece4d",
+    "data": "2024-07-12",
+    "diagnostico_cid": "E03",
+    "diagnostico_texto": "Hipotireoidismo",
+    "observacoes": "Controle de hipotireoidismo. TSH recente: 0.98 mUI/L. Paciente em uso regular de levotiroxina. Sem sintomas de hipo ou hipertireoidismo. Manter dose e controle em 6 meses."
+  },
+  {
+    "id": "19c6e9fd-4f00-42c3-a4e4-4e8ce78e8785",
+    "paciente_id": "691fc563-bddb-4859-83a5-5d3a704ece4d",
+    "data": "2024-09-27",
+    "diagnostico_cid": "E03",
+    "diagnostico_texto": "Hipotireoidismo",
+    "observacoes": "Controle de hipotireoidismo. TSH recente: 1.81 mUI/L. Paciente em uso regular de levotiroxina. Sem sintomas de hipo ou hipertireoidismo. Manter dose e controle em 6 meses."
+  },
+  {
+    "id": "eec9272e-9d2a-4d68-9a2b-b21e72a9b9a3",
+    "paciente_id": "691fc563-bddb-4859-83a5-5d3a704ece4d",
+    "data": "2025-01-12",
+    "diagnostico_cid": "E03",
+    "diagnostico_texto": "Hipotireoidismo",
+    "observacoes": "Controle de hipotireoidismo. TSH recente: 5.74 mUI/L. Paciente em uso regular de levotiroxina. Sem sintomas de hipo ou hipertireoidismo. Manter dose e controle em 3 meses."
+  },
+  {
+    "id": "641733a8-7071-44c7-8dcb-710361bff5a6",
+    "paciente_id": "acba471e-c195-4acc-b2f6-09a75c0b5a96",
+    "data": "2024-05-09",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 153/79 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "d87cec3b-bc5b-404d-8fa4-07c16fec7411",
+    "paciente_id": "acba471e-c195-4acc-b2f6-09a75c0b5a96",
+    "data": "2024-05-24",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 147/80 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "3cd87836-970d-4e4c-8f84-f7d43137e449",
+    "paciente_id": "acba471e-c195-4acc-b2f6-09a75c0b5a96",
+    "data": "2025-06-16",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 149/99 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 3 meses."
+  },
+  {
+    "id": "2f4e932f-beb7-4d97-b90e-e7fa5f5eeeac",
+    "paciente_id": "acba471e-c195-4acc-b2f6-09a75c0b5a96",
+    "data": "2025-07-10",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 151/91 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 3 meses."
+  },
+  {
+    "id": "5033c402-b4ba-478c-ba34-2d85ba9fbcae",
+    "paciente_id": "acba471e-c195-4acc-b2f6-09a75c0b5a96",
+    "data": "2025-09-13",
+    "diagnostico_cid": "E03",
+    "diagnostico_texto": "Hipotireoidismo",
+    "observacoes": "Controle de hipotireoidismo. TSH recente: 7.87 mUI/L. Paciente em uso regular de levotiroxina. Sem sintomas de hipo ou hipertireoidismo. Manter dose e controle em 4 meses."
+  },
+  {
+    "id": "18223acf-9ede-4dcb-9048-2fe66efb5b85",
+    "paciente_id": "9f2d5f27-e1e6-4070-a9c2-69c678996e80",
+    "data": "2024-04-08",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 4 meses."
+  },
+  {
+    "id": "cd052757-2dfa-43d6-85b0-ed430c1525e8",
+    "paciente_id": "9f2d5f27-e1e6-4070-a9c2-69c678996e80",
+    "data": "2024-10-30",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente com PA elevada hoje: 149/91 mmHg. Ajuste de dose realizado. Reforçadas orientações sobre MEV. Retorno em 30 dias para reavaliação."
+  },
+  {
+    "id": "ecda477f-5d3d-4e39-aa9a-4d4b5b039438",
+    "paciente_id": "9f2d5f27-e1e6-4070-a9c2-69c678996e80",
+    "data": "2025-12-18",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 154/84 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "c955be99-83bc-485e-94dc-9d02f0911716",
+    "paciente_id": "e1a49b4e-b97c-45a4-b4d8-2ae85fdf8f78",
+    "data": "2025-04-09",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 4 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "e35916b6-3a68-47c1-87b8-16916082c968",
+    "paciente_id": "e1a49b4e-b97c-45a4-b4d8-2ae85fdf8f78",
+    "data": "2025-04-19",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 4 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "2497938e-40b7-443d-ad1b-8522839f08a4",
+    "paciente_id": "e1a49b4e-b97c-45a4-b4d8-2ae85fdf8f78",
+    "data": "2025-04-30",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 20. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "b928e1dd-cf8d-4420-b39f-385a5a5eb237",
+    "paciente_id": "e1a49b4e-b97c-45a4-b4d8-2ae85fdf8f78",
+    "data": "2025-07-17",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 6 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "274cdbad-322f-48a9-9573-cbcf75fd2ef5",
+    "paciente_id": "7ef2af4e-dd93-49f4-9588-5773deed4573",
+    "data": "2024-03-31",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 20. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "d65e2127-acac-4695-96ce-f8209770aaef",
+    "paciente_id": "7ef2af4e-dd93-49f4-9588-5773deed4573",
+    "data": "2025-02-14",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Retorno pós-crise. Paciente estável, sem dispneia em repouso. SpO2: 99%. Orientado sobre uso correto do dispositivo inalatório. Plano de ação revisado."
+  },
+  {
+    "id": "e68cc383-b332-437b-97fd-b1b00e880bdc",
+    "paciente_id": "a4ecad9b-f616-41a1-b717-40029d596450",
+    "data": "2024-10-26",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "353feb00-b38e-4de1-ad4d-c4269dc43830",
+    "paciente_id": "a4ecad9b-f616-41a1-b717-40029d596450",
+    "data": "2025-05-29",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "7faa2597-efc8-4f14-af2a-d06a31b017f6",
+    "paciente_id": "a4ecad9b-f616-41a1-b717-40029d596450",
+    "data": "2025-11-12",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "6303f64d-c8c0-433f-bb51-02cdb647bed8",
+    "paciente_id": "a4ecad9b-f616-41a1-b717-40029d596450",
+    "data": "2026-01-24",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "bbbceb47-7903-4790-8341-3e0ffadec615",
+    "paciente_id": "f85c3387-3d86-4e23-9fae-4f5499c1f23c",
+    "data": "2024-07-27",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 12. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "fc51a796-9edc-4270-80ea-90d260fda075",
+    "paciente_id": "f85c3387-3d86-4e23-9fae-4f5499c1f23c",
+    "data": "2024-10-11",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Acompanhamento de episódio depressivo. PHQ-9 atual: 20. Paciente refere melhora parcial dos sintomas com medicação. Manter ISRS e encaminhar para psicoterapia."
+  },
+  {
+    "id": "d98f39c3-192e-4c36-9316-a2dd204b1a39",
+    "paciente_id": "f85c3387-3d86-4e23-9fae-4f5499c1f23c",
+    "data": "2024-12-29",
+    "diagnostico_cid": "F32",
+    "diagnostico_texto": "Episódio depressivo",
+    "observacoes": "Retorno em 4 meses de tratamento. Sono melhorado, apetite preservado. Ainda com dificuldade de concentração. Manter esquema e reavaliar em 60 dias."
+  },
+  {
+    "id": "079c4825-a0a4-4cfd-9c5b-3704cd63656e",
+    "paciente_id": "f85c3387-3d86-4e23-9fae-4f5499c1f23c",
+    "data": "2025-01-18",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Consulta de rotina DM2. Exame dos pés: sem alterações. Fundo de olho: solicitado. Creatinina e microalbuminúria: solicitados. Retorno em 6 meses."
+  },
+  {
+    "id": "7ba1709c-9d71-40d1-a42d-f68f78f73f80",
+    "paciente_id": "f85c3387-3d86-4e23-9fae-4f5499c1f23c",
+    "data": "2025-07-25",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Controle de DM2. HbA1C recente: 9.8%. Glicemia capilar hoje: 125 mg/dL. Orientado sobre dieta e automonitoramento. Manter esquema atual."
+  },
+  {
+    "id": "2abafac4-ce1f-4911-b835-47de6d562af8",
+    "paciente_id": "8140d9fe-d99d-42c0-9003-689f73d6575a",
+    "data": "2025-08-14",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 0x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "198c6f15-778b-437b-bf3e-c37b8a265205",
+    "paciente_id": "8140d9fe-d99d-42c0-9003-689f73d6575a",
+    "data": "2025-10-20",
+    "diagnostico_cid": "J44",
+    "diagnostico_texto": "Doença pulmonar obstrutiva crônica",
+    "observacoes": "Retorno de rotina DPOC. Sem exacerbações recentes. Espirometria: VEF1 48% do previsto. Classe GOLD III. Manter tratamento e reabilitação pulmonar."
+  },
+  {
+    "id": "ab3d54df-1b1c-42ec-a065-f961d609dc05",
+    "paciente_id": "21d44ece-9752-432d-8a10-435d75e4f4e3",
+    "data": "2024-08-05",
+    "diagnostico_cid": "I50",
+    "diagnostico_texto": "Insuficiência cardíaca",
+    "observacoes": "Retorno IC. Paciente refere dispneia aos grandes esforços. ECO recente: FE 50%. Ajuste de diurético realizado. Retorno em 30 dias."
+  },
+  {
+    "id": "514ca7ba-ba24-443c-a9d3-8e1018a658c9",
+    "paciente_id": "21d44ece-9752-432d-8a10-435d75e4f4e3",
+    "data": "2025-01-18",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 97.0 kg, IMC: 38.4. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "dd4c0ac1-f175-4db5-a515-f56b1823e388",
+    "paciente_id": "21d44ece-9752-432d-8a10-435d75e4f4e3",
+    "data": "2025-05-04",
+    "diagnostico_cid": "E66",
+    "diagnostico_texto": "Obesidade",
+    "observacoes": "Acompanhamento de obesidade. Peso atual: 78.1 kg, IMC: 38.2. Paciente em acompanhamento nutricional. Meta: perda de 5-10% em 6 meses. Orientado sobre atividade física 150min/semana."
+  },
+  {
+    "id": "10bcf6c0-8ce2-4647-895f-f9a3dcac640a",
+    "paciente_id": "5489c506-9175-49dd-8069-71368094d523",
+    "data": "2024-07-18",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "1fff2e72-f694-487f-adaa-de72782c5674",
+    "paciente_id": "5489c506-9175-49dd-8069-71368094d523",
+    "data": "2025-07-05",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 0x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "40bca870-e34e-45f0-bd26-db319215225c",
+    "paciente_id": "5489c506-9175-49dd-8069-71368094d523",
+    "data": "2025-07-23",
+    "diagnostico_cid": "E11",
+    "diagnostico_texto": "Diabetes mellitus tipo 2",
+    "observacoes": "Retorno para avaliação de DM2. Paciente refere episódios de hipoglicemia leve. Ajustada dose de medicação. Solicitados exames de seguimento."
+  },
+  {
+    "id": "d3e6fac9-42bc-47c5-ace3-56c19fc33e35",
+    "paciente_id": "5489c506-9175-49dd-8069-71368094d523",
+    "data": "2025-08-03",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Retorno pós-crise. Paciente estável, sem dispneia em repouso. SpO2: 95%. Orientado sobre uso correto do dispositivo inalatório. Plano de ação revisado."
+  },
+  {
+    "id": "4fc859dd-a76d-4657-84c6-92aadb837208",
+    "paciente_id": "5489c506-9175-49dd-8069-71368094d523",
+    "data": "2026-01-23",
+    "diagnostico_cid": "J45",
+    "diagnostico_texto": "Asma",
+    "observacoes": "Controle de asma. Paciente refere uso de resgate 1x/semana. Sem despertar noturno. Espirometria solicitada. Manter corticoide inalatório."
+  },
+  {
+    "id": "8d947357-034b-4e1b-a93c-2c7c986528a3",
+    "paciente_id": "a936257a-52ef-46a2-ad4d-75365e18b913",
+    "data": "2024-03-22",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 157/75 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "e490a72c-9d76-4ac5-a97c-6c8d61edfaa5",
+    "paciente_id": "a936257a-52ef-46a2-ad4d-75365e18b913",
+    "data": "2024-06-19",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 132/83 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "348bafdc-dcc7-4678-b2eb-de06f24f3a05",
+    "paciente_id": "a936257a-52ef-46a2-ad4d-75365e18b913",
+    "data": "2024-06-21",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Paciente em acompanhamento de HAS. PA aferida em consultório: 142/81 mmHg. Orientado sobre dieta hipossódica e atividade física regular. Manter medicação atual e retorno em 3 meses."
+  },
+  {
+    "id": "ea8a867c-465e-4f28-9791-2b4df8456052",
+    "paciente_id": "a936257a-52ef-46a2-ad4d-75365e18b913",
+    "data": "2024-07-08",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 132/83 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  },
+  {
+    "id": "d2f57c26-1ed0-4f71-b44c-2204b23a2c5f",
+    "paciente_id": "a936257a-52ef-46a2-ad4d-75365e18b913",
+    "data": "2024-07-13",
+    "diagnostico_cid": "I10",
+    "diagnostico_texto": "Hipertensão essencial (primária)",
+    "observacoes": "Retorno de rotina. Refere adesão à medicação. PA: 156/86 mmHg. Sem queixas cardiovasculares. Solicitados exames de controle."
+  }
+]

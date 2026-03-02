@@ -1,0 +1,2505 @@
+[
+  {
+    "id": "eb14fe34-5081-4b16-8728-4b0b2749215f",
+    "paciente_id": "4a4db681-8fb7-4fee-a00d-1ee59ce512b3",
+    "tipo": "Avaliação antropométrica",
+    "data": "2025-04-14",
+    "resultados": {
+      "Peso": "103.8 kg",
+      "Altura": "1.78 m",
+      "IMC": "32.9 kg/m²",
+      "Circunferência abdominal": "103 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "f19080ac-1bcc-4481-a907-d548c5898334",
+    "paciente_id": "4a4db681-8fb7-4fee-a00d-1ee59ce512b3",
+    "tipo": "Avaliação antropométrica",
+    "data": "2026-02-08",
+    "resultados": {
+      "Peso": "127.4 kg",
+      "Altura": "1.80 m",
+      "IMC": "43.3 kg/m²",
+      "Circunferência abdominal": "97 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "e535a857-b009-4425-ab25-3e402ef7ce72",
+    "paciente_id": "e1db9429-2e24-4b75-95d6-0d7894fd4a1c",
+    "tipo": "Creatinina sérica",
+    "data": "2025-09-03",
+    "resultados": {
+      "Creatinina": "0.96 mg/dL",
+      "TFG estimada": "98 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "06d27e9e-2d74-4d48-ba5a-7d82a8da87df",
+    "paciente_id": "e1db9429-2e24-4b75-95d6-0d7894fd4a1c",
+    "tipo": "Perfil lipídico",
+    "data": "2025-09-11",
+    "resultados": {
+      "Colesterol total": "167 mg/dL",
+      "HDL": "63 mg/dL",
+      "LDL": "139 mg/dL",
+      "Triglicerídeos": "339 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "realizado"
+  },
+  {
+    "id": "897dc817-c0e8-4174-8feb-07f3483d7434",
+    "paciente_id": "db94b889-164b-46b7-8683-4a7324dc7ec7",
+    "tipo": "Ecocardiograma",
+    "data": "2025-03-17",
+    "resultados": {
+      "FE": "65%",
+      "Septo IV": "12.5 mm",
+      "Átrio esquerdo": "36.8 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "realizado"
+  },
+  {
+    "id": "55731c69-5e05-477e-b1c1-af8dd646a297",
+    "paciente_id": "db94b889-164b-46b7-8683-4a7324dc7ec7",
+    "tipo": "Creatinina sérica",
+    "data": "2025-06-07",
+    "resultados": {
+      "Creatinina": "1.58 mg/dL",
+      "TFG estimada": "99 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "5f85affd-01c8-4be1-b811-1c00e2adf8e8",
+    "paciente_id": "db94b889-164b-46b7-8683-4a7324dc7ec7",
+    "tipo": "Gasometria arterial",
+    "data": "2025-08-01",
+    "resultados": {
+      "pH": "7.33",
+      "pO2": "65 mmHg",
+      "pCO2": "44 mmHg",
+      "HCO3": "24.5 mEq/L"
+    },
+    "interpretacao": "Avaliar presença de hipoxemia e retenção de CO2.",
+    "status": "realizado"
+  },
+  {
+    "id": "22c381cc-891b-4c27-b44e-1a04e299d40b",
+    "paciente_id": "5f0bd794-9232-49e3-bba4-9aa8c8338d4f",
+    "tipo": "TSH e T4 livre",
+    "data": "2025-11-24",
+    "resultados": {
+      "TSH": "9.78 mUI/L",
+      "T4 livre": "0.92 ng/dL"
+    },
+    "interpretacao": "TSH elevado com T4L baixo/normal. Compatível com hipotireoidismo.",
+    "status": "realizado"
+  },
+  {
+    "id": "edaa0175-5064-4937-82d4-d53bbccc743d",
+    "paciente_id": "5f0bd794-9232-49e3-bba4-9aa8c8338d4f",
+    "tipo": "TSH e T4 livre",
+    "data": "2025-02-22",
+    "resultados": {
+      "TSH": "6.20 mUI/L",
+      "T4 livre": "0.96 ng/dL"
+    },
+    "interpretacao": "TSH elevado com T4L baixo/normal. Compatível com hipotireoidismo.",
+    "status": "realizado"
+  },
+  {
+    "id": "4985e288-e262-4a0e-a06f-ee16ac1afaaa",
+    "paciente_id": "8bc5622c-ffb5-4672-96e9-45fe6b39e82a",
+    "tipo": "MAPA 24h",
+    "data": "2026-01-30",
+    "resultados": {
+      "PA média diurna": "141/92 mmHg",
+      "PA média noturna": "125/74 mmHg",
+      "Descenso noturno": "12%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "a14dd86d-a7c5-4fbf-807b-389007bd5536",
+    "paciente_id": "8bc5622c-ffb5-4672-96e9-45fe6b39e82a",
+    "tipo": "Creatinina sérica",
+    "data": "2025-10-14",
+    "resultados": {
+      "Creatinina": "1.26 mg/dL",
+      "TFG estimada": "75 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "7e3b1a8f-e775-47c2-a55b-b666fd723c0b",
+    "paciente_id": "8bc5622c-ffb5-4672-96e9-45fe6b39e82a",
+    "tipo": "Avaliação GAD-7",
+    "data": "2024-10-28",
+    "resultados": {
+      "Score GAD-7": "14",
+      "Classificação": "grave"
+    },
+    "interpretacao": "Sintomas ansiosos significativos. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "c2712a6e-54fd-4cfe-87e7-e6b362209c34",
+    "paciente_id": "f0bb033c-bfad-489a-b2fe-d911f4936148",
+    "tipo": "MAPA 24h",
+    "data": "2025-06-29",
+    "resultados": {
+      "PA média diurna": "147/84 mmHg",
+      "PA média noturna": "132/80 mmHg",
+      "Descenso noturno": "10%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "718aab06-1924-465b-822c-52d688b2fe0f",
+    "paciente_id": "f0bb033c-bfad-489a-b2fe-d911f4936148",
+    "tipo": "Ecocardiograma",
+    "data": "2025-06-14",
+    "resultados": {
+      "FE": "59%",
+      "Septo IV": "9.6 mm",
+      "Átrio esquerdo": "40.8 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "realizado"
+  },
+  {
+    "id": "ffaf26fc-7cf7-49b4-9a9a-2892f17f5d2b",
+    "paciente_id": "f0bb033c-bfad-489a-b2fe-d911f4936148",
+    "tipo": "Avaliação antropométrica",
+    "data": "2025-02-03",
+    "resultados": {
+      "Peso": "101.0 kg",
+      "Altura": "1.64 m",
+      "IMC": "40.7 kg/m²",
+      "Circunferência abdominal": "117 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "pendente"
+  },
+  {
+    "id": "4e01a4aa-7cf5-4e37-be95-f0892ef2ff06",
+    "paciente_id": "e7eea9ff-dfb1-4341-a819-7b7f233f6b4c",
+    "tipo": "TSH (rastreamento)",
+    "data": "2025-10-27",
+    "resultados": {
+      "TSH": "3.59 mUI/L"
+    },
+    "interpretacao": "Excluir hipotireoidismo como causa de sintomas depressivos.",
+    "status": "pendente"
+  },
+  {
+    "id": "39f5c551-dadf-4161-ae29-5cc141687b50",
+    "paciente_id": "e7eea9ff-dfb1-4341-a819-7b7f233f6b4c",
+    "tipo": "Avaliação PHQ-9",
+    "data": "2025-07-22",
+    "resultados": {
+      "Score PHQ-9": "21",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sugere episódio depressivo. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "e3a0e51b-5749-4ab6-bf43-0e678175f8bf",
+    "paciente_id": "b2b6d2ce-05f2-4943-a9c3-cea3ed89bc35",
+    "tipo": "MAPA 24h",
+    "data": "2025-04-06",
+    "resultados": {
+      "PA média diurna": "127/81 mmHg",
+      "PA média noturna": "129/66 mmHg",
+      "Descenso noturno": "12%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "19159949-af5f-49d7-93bc-188fc2bec245",
+    "paciente_id": "b2b6d2ce-05f2-4943-a9c3-cea3ed89bc35",
+    "tipo": "Avaliação antropométrica",
+    "data": "2024-10-22",
+    "resultados": {
+      "Peso": "107.1 kg",
+      "Altura": "1.62 m",
+      "IMC": "33.3 kg/m²",
+      "Circunferência abdominal": "98 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "9ff283b3-2577-4426-a480-e191f4a05f1a",
+    "paciente_id": "dd5b5c53-3bfc-4c1f-9a90-122eb950a3cd",
+    "tipo": "Saturação de O2",
+    "data": "2024-10-23",
+    "resultados": {
+      "SpO2": "95%"
+    },
+    "interpretacao": "Oximetria de pulso em repouso.",
+    "status": "realizado"
+  },
+  {
+    "id": "86499a66-b739-4c63-b77c-bf4a08723d51",
+    "paciente_id": "dd5b5c53-3bfc-4c1f-9a90-122eb950a3cd",
+    "tipo": "Espirometria",
+    "data": "2024-09-23",
+    "resultados": {
+      "VEF1": "71% do previsto",
+      "CVF": "100% do previsto",
+      "VEF1/CVF": "0.83",
+      "Resposta ao BD": "21%"
+    },
+    "interpretacao": "Padrão obstrutivo com resposta ao broncodilatador.",
+    "status": "realizado"
+  },
+  {
+    "id": "32040a64-f486-4537-9195-a600634315f5",
+    "paciente_id": "a6e684e6-2a2e-4772-b80a-2ead59016a2a",
+    "tipo": "Ecocardiograma",
+    "data": "2024-11-03",
+    "resultados": {
+      "FE": "50%",
+      "Septo IV": "12.5 mm",
+      "Átrio esquerdo": "33.1 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "realizado"
+  },
+  {
+    "id": "9997e3ce-8c45-433c-8751-210ca0b7ce07",
+    "paciente_id": "a6e684e6-2a2e-4772-b80a-2ead59016a2a",
+    "tipo": "Creatinina sérica",
+    "data": "2025-08-12",
+    "resultados": {
+      "Creatinina": "1.32 mg/dL",
+      "TFG estimada": "57 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "09a5e2c1-e744-4f5e-99a6-7162caa5a047",
+    "paciente_id": "f7be8e34-28d0-408e-9b04-88896eaf5aa6",
+    "tipo": "Espirometria",
+    "data": "2025-03-17",
+    "resultados": {
+      "VEF1": "82% do previsto",
+      "CVF": "93% do previsto",
+      "VEF1/CVF": "0.72",
+      "Resposta ao BD": "24%"
+    },
+    "interpretacao": "Padrão obstrutivo com resposta ao broncodilatador.",
+    "status": "realizado"
+  },
+  {
+    "id": "0b0c8b1e-08af-45f0-80fb-9f153ea31c38",
+    "paciente_id": "f7be8e34-28d0-408e-9b04-88896eaf5aa6",
+    "tipo": "Avaliação PHQ-9",
+    "data": "2025-09-04",
+    "resultados": {
+      "Score PHQ-9": "18",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sugere episódio depressivo. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "2af6a57c-407d-4383-9610-7437539d2806",
+    "paciente_id": "f7be8e34-28d0-408e-9b04-88896eaf5aa6",
+    "tipo": "Saturação de O2",
+    "data": "2025-06-10",
+    "resultados": {
+      "SpO2": "93%"
+    },
+    "interpretacao": "Oximetria de pulso em repouso.",
+    "status": "realizado"
+  },
+  {
+    "id": "c45960e3-e658-4fd1-bad8-de2953e0ba46",
+    "paciente_id": "f7be8e34-28d0-408e-9b04-88896eaf5aa6",
+    "tipo": "Perfil lipídico",
+    "data": "2025-10-10",
+    "resultados": {
+      "Colesterol total": "231 mg/dL",
+      "HDL": "53 mg/dL",
+      "LDL": "83 mg/dL",
+      "Triglicerídeos": "126 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "realizado"
+  },
+  {
+    "id": "5a2806c5-1537-4dee-bbd2-df2ec538f52e",
+    "paciente_id": "25337483-80c0-48c6-9043-e73d7093317f",
+    "tipo": "Saturação de O2",
+    "data": "2024-12-24",
+    "resultados": {
+      "SpO2": "92%"
+    },
+    "interpretacao": "Oximetria de pulso em repouso.",
+    "status": "realizado"
+  },
+  {
+    "id": "a70b9e29-8f2b-40b5-ac0e-a4fd22fad1bf",
+    "paciente_id": "25337483-80c0-48c6-9043-e73d7093317f",
+    "tipo": "Avaliação antropométrica",
+    "data": "2026-02-01",
+    "resultados": {
+      "Peso": "93.3 kg",
+      "Altura": "1.85 m",
+      "IMC": "37.2 kg/m²",
+      "Circunferência abdominal": "113 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "880af4de-e85b-42e9-aacd-d209dc109be4",
+    "paciente_id": "25337483-80c0-48c6-9043-e73d7093317f",
+    "tipo": "Avaliação GAD-7",
+    "data": "2025-01-30",
+    "resultados": {
+      "Score GAD-7": "15",
+      "Classificação": "grave"
+    },
+    "interpretacao": "Sintomas ansiosos significativos. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "c3a805b4-fddf-428d-916e-7b3e9ea02945",
+    "paciente_id": "25337483-80c0-48c6-9043-e73d7093317f",
+    "tipo": "Espirometria",
+    "data": "2025-04-22",
+    "resultados": {
+      "VEF1": "87% do previsto",
+      "CVF": "98% do previsto",
+      "VEF1/CVF": "0.72",
+      "Resposta ao BD": "15%"
+    },
+    "interpretacao": "Padrão obstrutivo com resposta ao broncodilatador.",
+    "status": "realizado"
+  },
+  {
+    "id": "828c7c86-245f-4c4d-a1c1-b5357bd8583c",
+    "paciente_id": "7c760620-1cda-41da-a5a3-676247c6024c",
+    "tipo": "Saturação de O2",
+    "data": "2025-03-02",
+    "resultados": {
+      "SpO2": "96%"
+    },
+    "interpretacao": "Oximetria de pulso em repouso.",
+    "status": "pendente"
+  },
+  {
+    "id": "f097e7d8-6359-4a2e-905f-13a8e211dc85",
+    "paciente_id": "7c760620-1cda-41da-a5a3-676247c6024c",
+    "tipo": "Espirometria",
+    "data": "2024-12-02",
+    "resultados": {
+      "VEF1": "63% do previsto",
+      "CVF": "85% do previsto",
+      "VEF1/CVF": "0.59",
+      "Resposta ao BD": "17%"
+    },
+    "interpretacao": "Padrão obstrutivo com resposta ao broncodilatador.",
+    "status": "realizado"
+  },
+  {
+    "id": "241334c3-96a4-4126-9052-f6010efd2ef0",
+    "paciente_id": "7c760620-1cda-41da-a5a3-676247c6024c",
+    "tipo": "Avaliação PHQ-9",
+    "data": "2025-11-09",
+    "resultados": {
+      "Score PHQ-9": "19",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sugere episódio depressivo. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "517dc423-0460-4ae2-bc0b-6e8202559790",
+    "paciente_id": "7c760620-1cda-41da-a5a3-676247c6024c",
+    "tipo": "TSH (rastreamento)",
+    "data": "2025-11-14",
+    "resultados": {
+      "TSH": "1.34 mUI/L"
+    },
+    "interpretacao": "Excluir hipotireoidismo como causa de sintomas depressivos.",
+    "status": "realizado"
+  },
+  {
+    "id": "43f94fb6-aee1-495d-97a7-c195159a8489",
+    "paciente_id": "de02e646-67e0-4fc2-b2c2-6a31feade28c",
+    "tipo": "Avaliação antropométrica",
+    "data": "2025-01-20",
+    "resultados": {
+      "Peso": "98.7 kg",
+      "Altura": "1.76 m",
+      "IMC": "42.4 kg/m²",
+      "Circunferência abdominal": "120 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "158eadd9-a190-4ea4-b343-3816891d94c3",
+    "paciente_id": "de02e646-67e0-4fc2-b2c2-6a31feade28c",
+    "tipo": "BNP",
+    "data": "2025-12-13",
+    "resultados": {
+      "BNP": "354 pg/mL"
+    },
+    "interpretacao": "BNP elevado, compatível com insuficiência cardíaca.",
+    "status": "realizado"
+  },
+  {
+    "id": "60e188b9-f841-4860-8078-5a6d07afedba",
+    "paciente_id": "de02e646-67e0-4fc2-b2c2-6a31feade28c",
+    "tipo": "Ecocardiograma",
+    "data": "2024-12-11",
+    "resultados": {
+      "FE": "37%",
+      "VE diástole": "66 mm",
+      "Átrio esquerdo": "46 mm",
+      "PSAP": "47 mmHg"
+    },
+    "interpretacao": "Disfunção sistólica do VE. FE reduzida.",
+    "status": "pendente"
+  },
+  {
+    "id": "394ba309-1147-4b38-bbd3-548404132bd7",
+    "paciente_id": "ad3c1d44-5e70-4606-830c-918bbb63f698",
+    "tipo": "Hemoglobina glicada (HbA1C)",
+    "data": "2025-06-17",
+    "resultados": {
+      "HbA1C": "8.9%",
+      "Glicemia média estimada": "183 mg/dL"
+    },
+    "interpretacao": "Controle glicêmico a ser avaliado conforme meta individual.",
+    "status": "realizado"
+  },
+  {
+    "id": "a7694af4-e27f-4b35-a86e-bb0a5f33a0c3",
+    "paciente_id": "ad3c1d44-5e70-4606-830c-918bbb63f698",
+    "tipo": "Perfil lipídico",
+    "data": "2024-10-04",
+    "resultados": {
+      "Colesterol total": "227 mg/dL",
+      "HDL": "43 mg/dL",
+      "LDL": "136 mg/dL",
+      "Triglicerídeos": "340 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "realizado"
+  },
+  {
+    "id": "63fa5f41-0589-46b4-becb-29954edd4868",
+    "paciente_id": "901a39c1-ef9b-489b-b2f7-256a0b43703e",
+    "tipo": "Hemoglobina glicada (HbA1C)",
+    "data": "2025-01-14",
+    "resultados": {
+      "HbA1C": "9.4%",
+      "Glicemia média estimada": "188 mg/dL"
+    },
+    "interpretacao": "Controle glicêmico a ser avaliado conforme meta individual.",
+    "status": "realizado"
+  },
+  {
+    "id": "370e28cc-5638-40ed-a436-3636e8c3e1fb",
+    "paciente_id": "901a39c1-ef9b-489b-b2f7-256a0b43703e",
+    "tipo": "Glicemia de jejum",
+    "data": "2025-01-05",
+    "resultados": {
+      "Glicemia": "97 mg/dL"
+    },
+    "interpretacao": "Valor a ser correlacionado com HbA1C e quadro clínico.",
+    "status": "realizado"
+  },
+  {
+    "id": "f7380083-2ac7-470e-9739-f1a26216a25b",
+    "paciente_id": "71b3c329-222c-44f6-bb68-279f53dbfe4c",
+    "tipo": "Avaliação antropométrica",
+    "data": "2025-05-31",
+    "resultados": {
+      "Peso": "130.1 kg",
+      "Altura": "1.60 m",
+      "IMC": "44.3 kg/m²",
+      "Circunferência abdominal": "123 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "d8bef19c-6717-4886-9e9f-c5e81f034ede",
+    "paciente_id": "71b3c329-222c-44f6-bb68-279f53dbfe4c",
+    "tipo": "Saturação de O2",
+    "data": "2025-09-08",
+    "resultados": {
+      "SpO2": "95%"
+    },
+    "interpretacao": "Oximetria de pulso em repouso.",
+    "status": "realizado"
+  },
+  {
+    "id": "93488e9e-bacb-42ea-97b1-a1d007fbf378",
+    "paciente_id": "71b3c329-222c-44f6-bb68-279f53dbfe4c",
+    "tipo": "MAPA 24h",
+    "data": "2025-01-24",
+    "resultados": {
+      "PA média diurna": "149/81 mmHg",
+      "PA média noturna": "114/68 mmHg",
+      "Descenso noturno": "7%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "26a48f6e-0662-44ad-b294-182a4b997993",
+    "paciente_id": "71b3c329-222c-44f6-bb68-279f53dbfe4c",
+    "tipo": "Espirometria",
+    "data": "2025-08-08",
+    "resultados": {
+      "VEF1": "39% do previsto",
+      "CVF": "55% do previsto",
+      "VEF1/CVF": "0.56",
+      "Resposta ao BD": "7%"
+    },
+    "interpretacao": "Padrão obstrutivo sem resposta significativa ao BD. Compatível com DPOC.",
+    "status": "realizado"
+  },
+  {
+    "id": "6d4b0c60-2e98-42da-96fd-d61bad518493",
+    "paciente_id": "fb6a4f45-1f26-40c2-81a2-615f44636679",
+    "tipo": "Glicemia de jejum",
+    "data": "2025-10-04",
+    "resultados": {
+      "Glicemia": "125 mg/dL"
+    },
+    "interpretacao": "Valor a ser correlacionado com HbA1C e quadro clínico.",
+    "status": "realizado"
+  },
+  {
+    "id": "c7c0e113-3fc0-4965-9539-60eda265fab9",
+    "paciente_id": "fb6a4f45-1f26-40c2-81a2-615f44636679",
+    "tipo": "Avaliação antropométrica",
+    "data": "2025-10-03",
+    "resultados": {
+      "Peso": "128.0 kg",
+      "Altura": "1.66 m",
+      "IMC": "38.2 kg/m²",
+      "Circunferência abdominal": "126 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "a3e2218c-ca4c-4100-9e6c-ce3ed20f9d07",
+    "paciente_id": "f656730e-ba2c-4b9a-b58b-29146335da71",
+    "tipo": "Creatinina sérica",
+    "data": "2025-05-08",
+    "resultados": {
+      "Creatinina": "1.08 mg/dL",
+      "TFG estimada": "85 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "d0bea410-aa77-4178-8972-9bd60f638d0e",
+    "paciente_id": "f656730e-ba2c-4b9a-b58b-29146335da71",
+    "tipo": "MAPA 24h",
+    "data": "2024-12-06",
+    "resultados": {
+      "PA média diurna": "151/88 mmHg",
+      "PA média noturna": "124/65 mmHg",
+      "Descenso noturno": "9%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "ca408725-c713-4f3c-a95d-c11acc7c4755",
+    "paciente_id": "f656730e-ba2c-4b9a-b58b-29146335da71",
+    "tipo": "Glicemia de jejum",
+    "data": "2025-05-27",
+    "resultados": {
+      "Glicemia": "117 mg/dL"
+    },
+    "interpretacao": "Valor a ser correlacionado com HbA1C e quadro clínico.",
+    "status": "realizado"
+  },
+  {
+    "id": "bdad5ab3-1d96-4f3c-a92b-0fdac777e80e",
+    "paciente_id": "f656730e-ba2c-4b9a-b58b-29146335da71",
+    "tipo": "Avaliação GAD-7",
+    "data": "2025-11-29",
+    "resultados": {
+      "Score GAD-7": "16",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sintomas ansiosos significativos. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "1d26fdbd-faa8-4a2b-8e10-80f43a8ba2f7",
+    "paciente_id": "9d9e417c-4380-4f6a-94a6-029b15016728",
+    "tipo": "Gasometria arterial",
+    "data": "2024-11-26",
+    "resultados": {
+      "pH": "7.45",
+      "pO2": "68 mmHg",
+      "pCO2": "41 mmHg",
+      "HCO3": "30.0 mEq/L"
+    },
+    "interpretacao": "Avaliar presença de hipoxemia e retenção de CO2.",
+    "status": "realizado"
+  },
+  {
+    "id": "654fd1e6-f108-4ad9-9b75-32f699875d25",
+    "paciente_id": "9d9e417c-4380-4f6a-94a6-029b15016728",
+    "tipo": "Gasometria arterial",
+    "data": "2024-11-14",
+    "resultados": {
+      "pH": "7.33",
+      "pO2": "72 mmHg",
+      "pCO2": "47 mmHg",
+      "HCO3": "26.4 mEq/L"
+    },
+    "interpretacao": "Avaliar presença de hipoxemia e retenção de CO2.",
+    "status": "realizado"
+  },
+  {
+    "id": "d2d359f1-633f-4ee0-a7f8-484111fe99ee",
+    "paciente_id": "0a631eca-7eb9-4174-be3f-959988a0c10f",
+    "tipo": "Hemoglobina glicada (HbA1C)",
+    "data": "2025-08-31",
+    "resultados": {
+      "HbA1C": "7.5%",
+      "Glicemia média estimada": "186 mg/dL"
+    },
+    "interpretacao": "Controle glicêmico a ser avaliado conforme meta individual.",
+    "status": "realizado"
+  },
+  {
+    "id": "6db850f3-83ce-441f-a4e7-5057b10aec20",
+    "paciente_id": "0a631eca-7eb9-4174-be3f-959988a0c10f",
+    "tipo": "Glicemia de jejum",
+    "data": "2024-12-08",
+    "resultados": {
+      "Glicemia": "162 mg/dL"
+    },
+    "interpretacao": "Valor a ser correlacionado com HbA1C e quadro clínico.",
+    "status": "realizado"
+  },
+  {
+    "id": "3e86038c-9ba7-40b0-a677-3c515ed5e58e",
+    "paciente_id": "0a631eca-7eb9-4174-be3f-959988a0c10f",
+    "tipo": "Ecocardiograma",
+    "data": "2025-04-14",
+    "resultados": {
+      "FE": "32%",
+      "VE diástole": "70 mm",
+      "Átrio esquerdo": "45 mm",
+      "PSAP": "46 mmHg"
+    },
+    "interpretacao": "Disfunção sistólica do VE. FE reduzida.",
+    "status": "realizado"
+  },
+  {
+    "id": "4250d28e-626f-4190-ab7f-6e29c12955b1",
+    "paciente_id": "c5cc2824-0389-4c1c-beb5-3ecf3fd11f18",
+    "tipo": "Avaliação GAD-7",
+    "data": "2025-07-27",
+    "resultados": {
+      "Score GAD-7": "12",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sintomas ansiosos significativos. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "2c994d72-efdb-42a5-bfad-a737ba0ef986",
+    "paciente_id": "c5cc2824-0389-4c1c-beb5-3ecf3fd11f18",
+    "tipo": "Avaliação GAD-7",
+    "data": "2024-11-05",
+    "resultados": {
+      "Score GAD-7": "10",
+      "Classificação": "grave"
+    },
+    "interpretacao": "Sintomas ansiosos significativos. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "b1b63c07-fad0-45b6-868e-607fd101bd15",
+    "paciente_id": "785bd6c3-cae3-47fd-8213-0ad8423e3caa",
+    "tipo": "Glicemia de jejum",
+    "data": "2026-02-24",
+    "resultados": {
+      "Glicemia": "141 mg/dL"
+    },
+    "interpretacao": "Valor a ser correlacionado com HbA1C e quadro clínico.",
+    "status": "realizado"
+  },
+  {
+    "id": "7e4f7910-6ea4-48e2-8948-2f82200e165c",
+    "paciente_id": "785bd6c3-cae3-47fd-8213-0ad8423e3caa",
+    "tipo": "Saturação de O2",
+    "data": "2024-10-17",
+    "resultados": {
+      "SpO2": "99%"
+    },
+    "interpretacao": "Oximetria de pulso em repouso.",
+    "status": "pendente"
+  },
+  {
+    "id": "7456b2b4-b841-49f7-8f57-6fe16ece20e6",
+    "paciente_id": "785bd6c3-cae3-47fd-8213-0ad8423e3caa",
+    "tipo": "Espirometria",
+    "data": "2026-01-12",
+    "resultados": {
+      "VEF1": "76% do previsto",
+      "CVF": "80% do previsto",
+      "VEF1/CVF": "0.55",
+      "Resposta ao BD": "10%"
+    },
+    "interpretacao": "Padrão obstrutivo com resposta ao broncodilatador.",
+    "status": "pendente"
+  },
+  {
+    "id": "65bed1a1-2f66-4ed4-97b8-77ef01c51784",
+    "paciente_id": "073c84f7-43b9-48c3-8c15-22bde83c45ec",
+    "tipo": "Avaliação GAD-7",
+    "data": "2026-01-30",
+    "resultados": {
+      "Score GAD-7": "17",
+      "Classificação": "grave"
+    },
+    "interpretacao": "Sintomas ansiosos significativos. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "304612f1-f533-46ca-9534-de18420b2466",
+    "paciente_id": "073c84f7-43b9-48c3-8c15-22bde83c45ec",
+    "tipo": "Avaliação GAD-7",
+    "data": "2024-12-21",
+    "resultados": {
+      "Score GAD-7": "16",
+      "Classificação": "grave"
+    },
+    "interpretacao": "Sintomas ansiosos significativos. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "7e69810e-5cb5-410c-9613-97795eff018a",
+    "paciente_id": "0b04cdd6-d0bb-4fd2-9527-84d9c23417aa",
+    "tipo": "Avaliação GAD-7",
+    "data": "2025-12-19",
+    "resultados": {
+      "Score GAD-7": "20",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sintomas ansiosos significativos. Acompanhar evolução.",
+    "status": "pendente"
+  },
+  {
+    "id": "db6f5d8c-9fb7-42da-8375-fe4c22815bb9",
+    "paciente_id": "0b04cdd6-d0bb-4fd2-9527-84d9c23417aa",
+    "tipo": "Avaliação GAD-7",
+    "data": "2025-11-24",
+    "resultados": {
+      "Score GAD-7": "19",
+      "Classificação": "grave"
+    },
+    "interpretacao": "Sintomas ansiosos significativos. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "7a76ba69-0adb-43eb-aaf7-485876505f10",
+    "paciente_id": "23e76378-5ac7-4135-8593-b97f9c0f465a",
+    "tipo": "Hemoglobina glicada (HbA1C)",
+    "data": "2025-05-22",
+    "resultados": {
+      "HbA1C": "6.9%",
+      "Glicemia média estimada": "233 mg/dL"
+    },
+    "interpretacao": "Controle glicêmico a ser avaliado conforme meta individual.",
+    "status": "realizado"
+  },
+  {
+    "id": "8c70df7d-1660-4bf9-a0bb-52dc5b574a7f",
+    "paciente_id": "23e76378-5ac7-4135-8593-b97f9c0f465a",
+    "tipo": "Espirometria",
+    "data": "2025-07-05",
+    "resultados": {
+      "VEF1": "58% do previsto",
+      "CVF": "61% do previsto",
+      "VEF1/CVF": "0.65",
+      "Resposta ao BD": "3%"
+    },
+    "interpretacao": "Padrão obstrutivo sem resposta significativa ao BD. Compatível com DPOC.",
+    "status": "realizado"
+  },
+  {
+    "id": "a3503932-dabf-47d0-8b7c-3546fa899ce0",
+    "paciente_id": "23e76378-5ac7-4135-8593-b97f9c0f465a",
+    "tipo": "Gasometria arterial",
+    "data": "2025-03-03",
+    "resultados": {
+      "pH": "7.42",
+      "pO2": "58 mmHg",
+      "pCO2": "47 mmHg",
+      "HCO3": "22.3 mEq/L"
+    },
+    "interpretacao": "Avaliar presença de hipoxemia e retenção de CO2.",
+    "status": "realizado"
+  },
+  {
+    "id": "ead6f927-1e90-44a2-ac19-cbdc2ac1affb",
+    "paciente_id": "b3d4816f-1c0a-4d76-8b97-ef1d8b391cd0",
+    "tipo": "TSH (rastreamento)",
+    "data": "2025-11-24",
+    "resultados": {
+      "TSH": "1.92 mUI/L"
+    },
+    "interpretacao": "Excluir hipotireoidismo como causa de sintomas depressivos.",
+    "status": "realizado"
+  },
+  {
+    "id": "a5870bae-5700-45ef-9425-84a35a1c021c",
+    "paciente_id": "b3d4816f-1c0a-4d76-8b97-ef1d8b391cd0",
+    "tipo": "Avaliação PHQ-9",
+    "data": "2025-01-06",
+    "resultados": {
+      "Score PHQ-9": "18",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sugere episódio depressivo. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "35d44843-98ef-4748-9932-b6c66963e6e8",
+    "paciente_id": "3fe3d676-2c70-4f6f-b2d6-0be1c6c35ae8",
+    "tipo": "Avaliação antropométrica",
+    "data": "2024-11-20",
+    "resultados": {
+      "Peso": "101.0 kg",
+      "Altura": "1.57 m",
+      "IMC": "31.5 kg/m²",
+      "Circunferência abdominal": "126 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "pendente"
+  },
+  {
+    "id": "dd9dcc44-66ec-4654-b1d5-a64af7f30395",
+    "paciente_id": "3fe3d676-2c70-4f6f-b2d6-0be1c6c35ae8",
+    "tipo": "Avaliação antropométrica",
+    "data": "2025-05-05",
+    "resultados": {
+      "Peso": "90.5 kg",
+      "Altura": "1.74 m",
+      "IMC": "43.5 kg/m²",
+      "Circunferência abdominal": "115 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "eafb7353-f7b7-4f90-bc18-2613aaf082e3",
+    "paciente_id": "3c82a400-1f4e-4c0f-a12a-dc692f561ee1",
+    "tipo": "Creatinina sérica",
+    "data": "2025-06-21",
+    "resultados": {
+      "Creatinina": "0.93 mg/dL",
+      "TFG estimada": "68 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "fcf4355c-9bb2-4bc3-96ec-48126221271c",
+    "paciente_id": "3c82a400-1f4e-4c0f-a12a-dc692f561ee1",
+    "tipo": "Avaliação PHQ-9",
+    "data": "2025-11-05",
+    "resultados": {
+      "Score PHQ-9": "22",
+      "Classificação": "moderadamente grave"
+    },
+    "interpretacao": "Sugere episódio depressivo. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "d029d931-1c0a-4187-ab58-7f9ddf941ab4",
+    "paciente_id": "3a0358e3-bc4c-479a-a3e9-e9b2592d1cd8",
+    "tipo": "MAPA 24h",
+    "data": "2026-01-15",
+    "resultados": {
+      "PA média diurna": "133/87 mmHg",
+      "PA média noturna": "128/76 mmHg",
+      "Descenso noturno": "11%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "45b2a534-f356-47c7-a133-7e29dc46d0f3",
+    "paciente_id": "3a0358e3-bc4c-479a-a3e9-e9b2592d1cd8",
+    "tipo": "Ecocardiograma",
+    "data": "2025-01-06",
+    "resultados": {
+      "FE": "57%",
+      "Septo IV": "11.2 mm",
+      "Átrio esquerdo": "41.1 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "realizado"
+  },
+  {
+    "id": "8099b064-4c31-4f2d-9ef4-59fac71d28b3",
+    "paciente_id": "3a0358e3-bc4c-479a-a3e9-e9b2592d1cd8",
+    "tipo": "TSH (rastreamento)",
+    "data": "2025-08-19",
+    "resultados": {
+      "TSH": "4.10 mUI/L"
+    },
+    "interpretacao": "Excluir hipotireoidismo como causa de sintomas depressivos.",
+    "status": "realizado"
+  },
+  {
+    "id": "c35c9911-ae72-4556-8590-8e2ea9c4e344",
+    "paciente_id": "287344f0-5714-4a35-81ff-02f4e8e34b5b",
+    "tipo": "Ecocardiograma",
+    "data": "2025-04-26",
+    "resultados": {
+      "FE": "56%",
+      "Septo IV": "11.3 mm",
+      "Átrio esquerdo": "37.3 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "realizado"
+  },
+  {
+    "id": "a3d2e2da-5da1-48bd-9e54-c52991769460",
+    "paciente_id": "287344f0-5714-4a35-81ff-02f4e8e34b5b",
+    "tipo": "Creatinina sérica",
+    "data": "2025-03-05",
+    "resultados": {
+      "Creatinina": "1.15 mg/dL",
+      "TFG estimada": "58 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "e2d0c19e-fcbd-4f9a-b262-5fcb4045119a",
+    "paciente_id": "98725884-e881-4e8c-ac0e-5094d90c5b60",
+    "tipo": "Perfil lipídico",
+    "data": "2025-03-17",
+    "resultados": {
+      "Colesterol total": "217 mg/dL",
+      "HDL": "45 mg/dL",
+      "LDL": "104 mg/dL",
+      "Triglicerídeos": "321 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "pendente"
+  },
+  {
+    "id": "d1b225cd-ae14-4d4b-bd9c-88c3e7194b2d",
+    "paciente_id": "98725884-e881-4e8c-ac0e-5094d90c5b60",
+    "tipo": "Glicemia de jejum",
+    "data": "2025-08-24",
+    "resultados": {
+      "Glicemia": "183 mg/dL"
+    },
+    "interpretacao": "Valor a ser correlacionado com HbA1C e quadro clínico.",
+    "status": "realizado"
+  },
+  {
+    "id": "01e75fb0-7201-47a8-a6c6-b13bbb660b61",
+    "paciente_id": "5e975095-6577-4cce-809a-273c8965fa1a",
+    "tipo": "Espirometria",
+    "data": "2025-06-02",
+    "resultados": {
+      "VEF1": "94% do previsto",
+      "CVF": "74% do previsto",
+      "VEF1/CVF": "0.58",
+      "Resposta ao BD": "20%"
+    },
+    "interpretacao": "Padrão obstrutivo com resposta ao broncodilatador.",
+    "status": "realizado"
+  },
+  {
+    "id": "adff79e5-d644-456c-acf6-4ce0c419603a",
+    "paciente_id": "5e975095-6577-4cce-809a-273c8965fa1a",
+    "tipo": "Avaliação GAD-7",
+    "data": "2025-12-04",
+    "resultados": {
+      "Score GAD-7": "20",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sintomas ansiosos significativos. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "167033f1-4183-46f2-a84f-de54c8a182c2",
+    "paciente_id": "29c65408-3de0-4426-9680-f23ec2841cbd",
+    "tipo": "Perfil lipídico",
+    "data": "2025-11-03",
+    "resultados": {
+      "Colesterol total": "198 mg/dL",
+      "HDL": "34 mg/dL",
+      "LDL": "93 mg/dL",
+      "Triglicerídeos": "149 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "realizado"
+  },
+  {
+    "id": "7cdf2af4-274f-4529-8c48-325fdfaf5a47",
+    "paciente_id": "29c65408-3de0-4426-9680-f23ec2841cbd",
+    "tipo": "Glicemia de jejum",
+    "data": "2025-12-17",
+    "resultados": {
+      "Glicemia": "248 mg/dL"
+    },
+    "interpretacao": "Valor a ser correlacionado com HbA1C e quadro clínico.",
+    "status": "realizado"
+  },
+  {
+    "id": "5a377ffb-fc68-4b18-8ad9-51990e167678",
+    "paciente_id": "e44056d7-691c-4af6-9364-c5c34dbad8fc",
+    "tipo": "Creatinina sérica",
+    "data": "2026-01-21",
+    "resultados": {
+      "Creatinina": "0.91 mg/dL",
+      "TFG estimada": "68 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "7d5b5382-94fa-4dc2-a809-93694db77de9",
+    "paciente_id": "e44056d7-691c-4af6-9364-c5c34dbad8fc",
+    "tipo": "Ecocardiograma",
+    "data": "2025-08-04",
+    "resultados": {
+      "FE": "64%",
+      "Septo IV": "10.4 mm",
+      "Átrio esquerdo": "42.8 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "pendente"
+  },
+  {
+    "id": "f3021b73-3997-4451-bd14-32b8ce0558c4",
+    "paciente_id": "eea7e224-f13c-4ff3-a4a6-7d1b769d6ddc",
+    "tipo": "Perfil lipídico",
+    "data": "2025-05-01",
+    "resultados": {
+      "Colesterol total": "248 mg/dL",
+      "HDL": "42 mg/dL",
+      "LDL": "94 mg/dL",
+      "Triglicerídeos": "349 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "realizado"
+  },
+  {
+    "id": "c1229900-9391-4ef4-b682-6d2b37818a27",
+    "paciente_id": "eea7e224-f13c-4ff3-a4a6-7d1b769d6ddc",
+    "tipo": "Perfil lipídico",
+    "data": "2025-11-06",
+    "resultados": {
+      "Colesterol total": "177 mg/dL",
+      "HDL": "70 mg/dL",
+      "LDL": "143 mg/dL",
+      "Triglicerídeos": "263 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "realizado"
+  },
+  {
+    "id": "30747c79-daef-4aa6-9fae-49cd4f7452e2",
+    "paciente_id": "e9caae37-de2e-48c9-8665-e62d96dad9ab",
+    "tipo": "Saturação de O2",
+    "data": "2025-01-20",
+    "resultados": {
+      "SpO2": "97%"
+    },
+    "interpretacao": "Oximetria de pulso em repouso.",
+    "status": "realizado"
+  },
+  {
+    "id": "50265035-e758-4cdd-b514-1178b6697a8c",
+    "paciente_id": "e9caae37-de2e-48c9-8665-e62d96dad9ab",
+    "tipo": "Espirometria",
+    "data": "2024-10-27",
+    "resultados": {
+      "VEF1": "90% do previsto",
+      "CVF": "90% do previsto",
+      "VEF1/CVF": "0.63",
+      "Resposta ao BD": "20%"
+    },
+    "interpretacao": "Padrão obstrutivo com resposta ao broncodilatador.",
+    "status": "realizado"
+  },
+  {
+    "id": "40089dae-091f-401e-9c5c-aae2c8ac07b3",
+    "paciente_id": "e9caae37-de2e-48c9-8665-e62d96dad9ab",
+    "tipo": "Avaliação GAD-7",
+    "data": "2026-01-12",
+    "resultados": {
+      "Score GAD-7": "18",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sintomas ansiosos significativos. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "b2028085-ca84-42f5-b40d-28e870c9e2c2",
+    "paciente_id": "a5ca467b-60a9-4d47-830b-79a02fe2929b",
+    "tipo": "Ecocardiograma",
+    "data": "2024-09-15",
+    "resultados": {
+      "FE": "27%",
+      "VE diástole": "62 mm",
+      "Átrio esquerdo": "46 mm",
+      "PSAP": "46 mmHg"
+    },
+    "interpretacao": "Disfunção sistólica do VE. FE reduzida.",
+    "status": "realizado"
+  },
+  {
+    "id": "958b8b7c-30d9-4614-855d-a2f91b76d5da",
+    "paciente_id": "a5ca467b-60a9-4d47-830b-79a02fe2929b",
+    "tipo": "BNP",
+    "data": "2025-09-10",
+    "resultados": {
+      "BNP": "1970 pg/mL"
+    },
+    "interpretacao": "BNP elevado, compatível com insuficiência cardíaca.",
+    "status": "realizado"
+  },
+  {
+    "id": "f659524c-d880-41ae-a955-44c2f5e56cae",
+    "paciente_id": "f1a87a28-7aea-41f0-8973-5c692d66fd14",
+    "tipo": "Espirometria",
+    "data": "2025-05-01",
+    "resultados": {
+      "VEF1": "56% do previsto",
+      "CVF": "87% do previsto",
+      "VEF1/CVF": "0.57",
+      "Resposta ao BD": "23%"
+    },
+    "interpretacao": "Padrão obstrutivo com resposta ao broncodilatador.",
+    "status": "realizado"
+  },
+  {
+    "id": "20efdda9-ef80-4210-8e85-62e45f197b19",
+    "paciente_id": "f1a87a28-7aea-41f0-8973-5c692d66fd14",
+    "tipo": "Saturação de O2",
+    "data": "2025-12-31",
+    "resultados": {
+      "SpO2": "97%"
+    },
+    "interpretacao": "Oximetria de pulso em repouso.",
+    "status": "realizado"
+  },
+  {
+    "id": "487b51d3-e662-42b2-917d-3c06a991d44b",
+    "paciente_id": "27ddb9aa-bc5d-435a-bf18-39088bd97b8f",
+    "tipo": "Avaliação PHQ-9",
+    "data": "2025-01-19",
+    "resultados": {
+      "Score PHQ-9": "13",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sugere episódio depressivo. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "f62776d3-360f-43ce-9430-c0f2fe0bd975",
+    "paciente_id": "27ddb9aa-bc5d-435a-bf18-39088bd97b8f",
+    "tipo": "TSH (rastreamento)",
+    "data": "2025-05-24",
+    "resultados": {
+      "TSH": "0.55 mUI/L"
+    },
+    "interpretacao": "Excluir hipotireoidismo como causa de sintomas depressivos.",
+    "status": "realizado"
+  },
+  {
+    "id": "0f3e086b-ab82-43f3-aeb6-dcf8c47c2f47",
+    "paciente_id": "153f66c4-f1dc-4d44-941a-c80334d900e1",
+    "tipo": "Hemoglobina glicada (HbA1C)",
+    "data": "2025-08-14",
+    "resultados": {
+      "HbA1C": "7.5%",
+      "Glicemia média estimada": "127 mg/dL"
+    },
+    "interpretacao": "Controle glicêmico a ser avaliado conforme meta individual.",
+    "status": "realizado"
+  },
+  {
+    "id": "8031473f-e088-40cc-8a0e-7540d465d319",
+    "paciente_id": "153f66c4-f1dc-4d44-941a-c80334d900e1",
+    "tipo": "Perfil lipídico",
+    "data": "2025-03-24",
+    "resultados": {
+      "Colesterol total": "234 mg/dL",
+      "HDL": "51 mg/dL",
+      "LDL": "188 mg/dL",
+      "Triglicerídeos": "325 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "pendente"
+  },
+  {
+    "id": "e2abe9dc-0f44-483b-b16b-9beb9a9db7e6",
+    "paciente_id": "153f66c4-f1dc-4d44-941a-c80334d900e1",
+    "tipo": "Avaliação antropométrica",
+    "data": "2026-01-13",
+    "resultados": {
+      "Peso": "93.5 kg",
+      "Altura": "1.69 m",
+      "IMC": "43.0 kg/m²",
+      "Circunferência abdominal": "116 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "31dfdada-9502-4ebc-aea3-6ebd5a843e18",
+    "paciente_id": "4ea0b6eb-3a34-4c38-9892-53acb40ae88c",
+    "tipo": "Saturação de O2",
+    "data": "2024-10-28",
+    "resultados": {
+      "SpO2": "93%"
+    },
+    "interpretacao": "Oximetria de pulso em repouso.",
+    "status": "realizado"
+  },
+  {
+    "id": "2824c41d-bc43-4cda-ad1d-3802a5dec04c",
+    "paciente_id": "4ea0b6eb-3a34-4c38-9892-53acb40ae88c",
+    "tipo": "TSH (rastreamento)",
+    "data": "2025-10-13",
+    "resultados": {
+      "TSH": "1.31 mUI/L"
+    },
+    "interpretacao": "Excluir hipotireoidismo como causa de sintomas depressivos.",
+    "status": "realizado"
+  },
+  {
+    "id": "a3608ac4-35ea-4a95-b49b-cbb9a4c722db",
+    "paciente_id": "cdea0c45-46ad-4357-944b-987567f23d26",
+    "tipo": "MAPA 24h",
+    "data": "2025-11-23",
+    "resultados": {
+      "PA média diurna": "147/90 mmHg",
+      "PA média noturna": "130/75 mmHg",
+      "Descenso noturno": "11%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "5ce601ef-2097-43d8-912a-3ff17472a157",
+    "paciente_id": "cdea0c45-46ad-4357-944b-987567f23d26",
+    "tipo": "Creatinina sérica",
+    "data": "2025-04-11",
+    "resultados": {
+      "Creatinina": "1.43 mg/dL",
+      "TFG estimada": "105 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "18f7d84e-ee24-430a-9031-66987cdefdf4",
+    "paciente_id": "f548c8fe-14df-4548-969d-c1a885ed02b2",
+    "tipo": "Perfil lipídico",
+    "data": "2024-11-08",
+    "resultados": {
+      "Colesterol total": "271 mg/dL",
+      "HDL": "67 mg/dL",
+      "LDL": "91 mg/dL",
+      "Triglicerídeos": "106 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "realizado"
+  },
+  {
+    "id": "0b08b355-450f-41f3-9046-3a427ccbcc91",
+    "paciente_id": "f548c8fe-14df-4548-969d-c1a885ed02b2",
+    "tipo": "Glicemia de jejum",
+    "data": "2025-07-02",
+    "resultados": {
+      "Glicemia": "249 mg/dL"
+    },
+    "interpretacao": "Valor a ser correlacionado com HbA1C e quadro clínico.",
+    "status": "realizado"
+  },
+  {
+    "id": "e5e1dcda-d618-4291-b908-c8aac4cd4b5f",
+    "paciente_id": "f548c8fe-14df-4548-969d-c1a885ed02b2",
+    "tipo": "TSH e T4 livre",
+    "data": "2025-01-14",
+    "resultados": {
+      "TSH": "9.81 mUI/L",
+      "T4 livre": "0.91 ng/dL"
+    },
+    "interpretacao": "TSH elevado com T4L baixo/normal. Compatível com hipotireoidismo.",
+    "status": "realizado"
+  },
+  {
+    "id": "07bc6e7b-0e2a-4fd5-a660-c9dc0a2d27d9",
+    "paciente_id": "74a3b411-d552-442d-9228-03649ba69b15",
+    "tipo": "Creatinina sérica",
+    "data": "2025-08-18",
+    "resultados": {
+      "Creatinina": "1.45 mg/dL",
+      "TFG estimada": "68 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "afa28b78-4e40-4daf-b3ea-45331ea5243c",
+    "paciente_id": "74a3b411-d552-442d-9228-03649ba69b15",
+    "tipo": "Perfil lipídico",
+    "data": "2024-09-15",
+    "resultados": {
+      "Colesterol total": "167 mg/dL",
+      "HDL": "30 mg/dL",
+      "LDL": "122 mg/dL",
+      "Triglicerídeos": "130 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "realizado"
+  },
+  {
+    "id": "94e65da2-ab5b-4153-8548-2dd49bb2bdca",
+    "paciente_id": "74a3b411-d552-442d-9228-03649ba69b15",
+    "tipo": "Avaliação antropométrica",
+    "data": "2025-04-19",
+    "resultados": {
+      "Peso": "124.9 kg",
+      "Altura": "1.63 m",
+      "IMC": "30.5 kg/m²",
+      "Circunferência abdominal": "100 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "87ce2319-9797-45cf-af4f-8bca5a4e49ed",
+    "paciente_id": "d1e6d77f-c581-4b2a-a415-77c31641aeab",
+    "tipo": "Glicemia de jejum",
+    "data": "2025-10-22",
+    "resultados": {
+      "Glicemia": "104 mg/dL"
+    },
+    "interpretacao": "Valor a ser correlacionado com HbA1C e quadro clínico.",
+    "status": "realizado"
+  },
+  {
+    "id": "87834721-54f8-470f-a04c-5ec74078a139",
+    "paciente_id": "d1e6d77f-c581-4b2a-a415-77c31641aeab",
+    "tipo": "Perfil lipídico",
+    "data": "2024-12-08",
+    "resultados": {
+      "Colesterol total": "243 mg/dL",
+      "HDL": "64 mg/dL",
+      "LDL": "179 mg/dL",
+      "Triglicerídeos": "254 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "realizado"
+  },
+  {
+    "id": "7e857be2-3e68-48b1-8162-9199d1eb15e6",
+    "paciente_id": "d1e6d77f-c581-4b2a-a415-77c31641aeab",
+    "tipo": "TSH e T4 livre",
+    "data": "2025-04-02",
+    "resultados": {
+      "TSH": "6.35 mUI/L",
+      "T4 livre": "0.42 ng/dL"
+    },
+    "interpretacao": "TSH elevado com T4L baixo/normal. Compatível com hipotireoidismo.",
+    "status": "realizado"
+  },
+  {
+    "id": "eeb20407-c021-4adc-8516-bc537dcef9ef",
+    "paciente_id": "0b775d9a-d689-4690-a4ba-dc5cc956e2f1",
+    "tipo": "TSH (rastreamento)",
+    "data": "2025-04-13",
+    "resultados": {
+      "TSH": "3.94 mUI/L"
+    },
+    "interpretacao": "Excluir hipotireoidismo como causa de sintomas depressivos.",
+    "status": "realizado"
+  },
+  {
+    "id": "0c073da4-17ef-441d-8268-2dd3d2ecdcb5",
+    "paciente_id": "0b775d9a-d689-4690-a4ba-dc5cc956e2f1",
+    "tipo": "Avaliação PHQ-9",
+    "data": "2025-01-08",
+    "resultados": {
+      "Score PHQ-9": "14",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sugere episódio depressivo. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "f7a07949-5102-4eac-b94e-cf830eece1a9",
+    "paciente_id": "bf06e9c6-33d3-4fcc-8a95-b1fc844c7b52",
+    "tipo": "TSH (rastreamento)",
+    "data": "2025-12-19",
+    "resultados": {
+      "TSH": "3.74 mUI/L"
+    },
+    "interpretacao": "Excluir hipotireoidismo como causa de sintomas depressivos.",
+    "status": "realizado"
+  },
+  {
+    "id": "a23ebd95-7089-46d6-9943-fd96f6a1640b",
+    "paciente_id": "bf06e9c6-33d3-4fcc-8a95-b1fc844c7b52",
+    "tipo": "Avaliação PHQ-9",
+    "data": "2025-06-10",
+    "resultados": {
+      "Score PHQ-9": "13",
+      "Classificação": "moderadamente grave"
+    },
+    "interpretacao": "Sugere episódio depressivo. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "85c2c91e-c169-4284-9c4d-324a68306747",
+    "paciente_id": "bf06e9c6-33d3-4fcc-8a95-b1fc844c7b52",
+    "tipo": "Avaliação GAD-7",
+    "data": "2025-01-24",
+    "resultados": {
+      "Score GAD-7": "11",
+      "Classificação": "grave"
+    },
+    "interpretacao": "Sintomas ansiosos significativos. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "09415efa-2787-4b0c-901f-fd08e64b06ed",
+    "paciente_id": "f56be058-f85f-4340-83d2-1003f740d87c",
+    "tipo": "Perfil lipídico",
+    "data": "2024-11-28",
+    "resultados": {
+      "Colesterol total": "235 mg/dL",
+      "HDL": "33 mg/dL",
+      "LDL": "135 mg/dL",
+      "Triglicerídeos": "266 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "realizado"
+  },
+  {
+    "id": "5d08e67e-b280-46e9-9c7c-1eb970175d53",
+    "paciente_id": "f56be058-f85f-4340-83d2-1003f740d87c",
+    "tipo": "TSH e T4 livre",
+    "data": "2025-09-16",
+    "resultados": {
+      "TSH": "9.39 mUI/L",
+      "T4 livre": "0.42 ng/dL"
+    },
+    "interpretacao": "TSH elevado com T4L baixo/normal. Compatível com hipotireoidismo.",
+    "status": "realizado"
+  },
+  {
+    "id": "4b2eb835-2cfc-43d7-aa29-d730056bb565",
+    "paciente_id": "40eed459-3fab-4e08-96c7-e0cae119e91d",
+    "tipo": "Ecocardiograma",
+    "data": "2025-07-02",
+    "resultados": {
+      "FE": "56%",
+      "Septo IV": "9.3 mm",
+      "Átrio esquerdo": "43.3 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "realizado"
+  },
+  {
+    "id": "8588e874-cfd1-45cb-9597-e15c53662541",
+    "paciente_id": "40eed459-3fab-4e08-96c7-e0cae119e91d",
+    "tipo": "MAPA 24h",
+    "data": "2026-02-21",
+    "resultados": {
+      "PA média diurna": "145/88 mmHg",
+      "PA média noturna": "123/83 mmHg",
+      "Descenso noturno": "10%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "b7fa1a1b-5639-4bcf-b513-a152c795dc4f",
+    "paciente_id": "40eed459-3fab-4e08-96c7-e0cae119e91d",
+    "tipo": "Avaliação antropométrica",
+    "data": "2025-12-06",
+    "resultados": {
+      "Peso": "110.2 kg",
+      "Altura": "1.72 m",
+      "IMC": "43.5 kg/m²",
+      "Circunferência abdominal": "114 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "20569b71-7398-4e64-ac9c-831714972491",
+    "paciente_id": "2c79fd67-9a8c-4176-a11a-73f99f6ee3df",
+    "tipo": "Glicemia de jejum",
+    "data": "2024-12-05",
+    "resultados": {
+      "Glicemia": "145 mg/dL"
+    },
+    "interpretacao": "Valor a ser correlacionado com HbA1C e quadro clínico.",
+    "status": "realizado"
+  },
+  {
+    "id": "7f4446c6-28cf-49a9-b824-912455ef4797",
+    "paciente_id": "2c79fd67-9a8c-4176-a11a-73f99f6ee3df",
+    "tipo": "Perfil lipídico",
+    "data": "2025-12-05",
+    "resultados": {
+      "Colesterol total": "256 mg/dL",
+      "HDL": "58 mg/dL",
+      "LDL": "106 mg/dL",
+      "Triglicerídeos": "163 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "realizado"
+  },
+  {
+    "id": "2ddc369b-4bd3-45d8-bd1c-3e867604f5f5",
+    "paciente_id": "4df365d0-91b8-4cb4-b8a7-8c5035d228c4",
+    "tipo": "Avaliação GAD-7",
+    "data": "2025-04-18",
+    "resultados": {
+      "Score GAD-7": "12",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sintomas ansiosos significativos. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "9877cf31-b1d9-476d-9b07-bf00fbaa0884",
+    "paciente_id": "4df365d0-91b8-4cb4-b8a7-8c5035d228c4",
+    "tipo": "Avaliação GAD-7",
+    "data": "2025-12-22",
+    "resultados": {
+      "Score GAD-7": "11",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sintomas ansiosos significativos. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "d1131f43-fb1b-40d1-929b-379ef20e32e0",
+    "paciente_id": "ea1a773c-fb09-4e9c-a160-7b3f128c20dc",
+    "tipo": "Avaliação antropométrica",
+    "data": "2025-12-28",
+    "resultados": {
+      "Peso": "91.1 kg",
+      "Altura": "1.59 m",
+      "IMC": "41.4 kg/m²",
+      "Circunferência abdominal": "113 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "7f83fe4e-5460-4a84-abaf-7434dd9b1b33",
+    "paciente_id": "ea1a773c-fb09-4e9c-a160-7b3f128c20dc",
+    "tipo": "Avaliação antropométrica",
+    "data": "2025-08-08",
+    "resultados": {
+      "Peso": "112.2 kg",
+      "Altura": "1.67 m",
+      "IMC": "36.9 kg/m²",
+      "Circunferência abdominal": "114 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "7e2b53d7-a9c6-46fa-a96c-d2fb063edece",
+    "paciente_id": "7aa4c4d3-592e-4111-832f-41d28996b42e",
+    "tipo": "Avaliação PHQ-9",
+    "data": "2025-10-01",
+    "resultados": {
+      "Score PHQ-9": "11",
+      "Classificação": "moderadamente grave"
+    },
+    "interpretacao": "Sugere episódio depressivo. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "0dfdb6a0-2ed8-4a4f-84dc-c7334bef95a7",
+    "paciente_id": "7aa4c4d3-592e-4111-832f-41d28996b42e",
+    "tipo": "TSH (rastreamento)",
+    "data": "2025-09-07",
+    "resultados": {
+      "TSH": "2.35 mUI/L"
+    },
+    "interpretacao": "Excluir hipotireoidismo como causa de sintomas depressivos.",
+    "status": "realizado"
+  },
+  {
+    "id": "0759017b-237f-42a5-9fb0-c6a608919efc",
+    "paciente_id": "58722885-541f-4813-8ef8-c9381996ca16",
+    "tipo": "Ecocardiograma",
+    "data": "2025-10-23",
+    "resultados": {
+      "FE": "58%",
+      "Septo IV": "12.1 mm",
+      "Átrio esquerdo": "37.9 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "realizado"
+  },
+  {
+    "id": "9de629ff-3674-4e0a-9d18-be21fec05a6b",
+    "paciente_id": "58722885-541f-4813-8ef8-c9381996ca16",
+    "tipo": "Hemoglobina glicada (HbA1C)",
+    "data": "2026-02-17",
+    "resultados": {
+      "HbA1C": "9.9%",
+      "Glicemia média estimada": "247 mg/dL"
+    },
+    "interpretacao": "Controle glicêmico a ser avaliado conforme meta individual.",
+    "status": "realizado"
+  },
+  {
+    "id": "6774fa5e-934e-4bb2-8ad6-ef7615e3c03b",
+    "paciente_id": "a901a8bb-9180-436d-842f-31f047a53fae",
+    "tipo": "Creatinina sérica",
+    "data": "2025-01-09",
+    "resultados": {
+      "Creatinina": "1.29 mg/dL",
+      "TFG estimada": "75 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "d8c86808-4291-4121-8478-93717b63b732",
+    "paciente_id": "a901a8bb-9180-436d-842f-31f047a53fae",
+    "tipo": "Ecocardiograma",
+    "data": "2025-10-09",
+    "resultados": {
+      "FE": "50%",
+      "Septo IV": "13.5 mm",
+      "Átrio esquerdo": "37.1 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "pendente"
+  },
+  {
+    "id": "dad60667-7f41-4af5-8371-105d02804f4e",
+    "paciente_id": "e9eff724-275b-4b67-955e-6456414c7ba1",
+    "tipo": "TSH (rastreamento)",
+    "data": "2025-06-28",
+    "resultados": {
+      "TSH": "3.86 mUI/L"
+    },
+    "interpretacao": "Excluir hipotireoidismo como causa de sintomas depressivos.",
+    "status": "realizado"
+  },
+  {
+    "id": "fac5c835-645c-4f3a-bf53-72c3f4a32a34",
+    "paciente_id": "e9eff724-275b-4b67-955e-6456414c7ba1",
+    "tipo": "Avaliação PHQ-9",
+    "data": "2025-04-15",
+    "resultados": {
+      "Score PHQ-9": "23",
+      "Classificação": "moderadamente grave"
+    },
+    "interpretacao": "Sugere episódio depressivo. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "28111ed3-632f-417c-b3cb-fdae03ba4e6f",
+    "paciente_id": "4fa3acac-4707-4c98-ba7c-b946e0d5607a",
+    "tipo": "Creatinina sérica",
+    "data": "2025-12-01",
+    "resultados": {
+      "Creatinina": "0.76 mg/dL",
+      "TFG estimada": "64 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "34fc2979-b852-4893-a005-4d848549fc90",
+    "paciente_id": "4fa3acac-4707-4c98-ba7c-b946e0d5607a",
+    "tipo": "MAPA 24h",
+    "data": "2026-01-01",
+    "resultados": {
+      "PA média diurna": "133/83 mmHg",
+      "PA média noturna": "132/79 mmHg",
+      "Descenso noturno": "11%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "908d6390-204e-4785-932d-befc95db1902",
+    "paciente_id": "412c6008-ea81-4cd8-bf58-8fb06ed9d05b",
+    "tipo": "Ecocardiograma",
+    "data": "2024-11-18",
+    "resultados": {
+      "FE": "67%",
+      "Septo IV": "13.8 mm",
+      "Átrio esquerdo": "37.0 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "realizado"
+  },
+  {
+    "id": "38df8c72-b0e3-4e92-98bd-54bc38dea79a",
+    "paciente_id": "412c6008-ea81-4cd8-bf58-8fb06ed9d05b",
+    "tipo": "MAPA 24h",
+    "data": "2025-03-08",
+    "resultados": {
+      "PA média diurna": "132/90 mmHg",
+      "PA média noturna": "112/65 mmHg",
+      "Descenso noturno": "8%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "9a49ab9d-9045-4b7a-b94b-6b7ef7995b4b",
+    "paciente_id": "412c6008-ea81-4cd8-bf58-8fb06ed9d05b",
+    "tipo": "Glicemia de jejum",
+    "data": "2025-01-08",
+    "resultados": {
+      "Glicemia": "166 mg/dL"
+    },
+    "interpretacao": "Valor a ser correlacionado com HbA1C e quadro clínico.",
+    "status": "realizado"
+  },
+  {
+    "id": "4e3fb3b0-9a1b-45e5-a234-f886fa7fcf00",
+    "paciente_id": "412c6008-ea81-4cd8-bf58-8fb06ed9d05b",
+    "tipo": "Hemoglobina glicada (HbA1C)",
+    "data": "2025-11-23",
+    "resultados": {
+      "HbA1C": "9.3%",
+      "Glicemia média estimada": "199 mg/dL"
+    },
+    "interpretacao": "Controle glicêmico a ser avaliado conforme meta individual.",
+    "status": "pendente"
+  },
+  {
+    "id": "cc468498-89c6-476c-bead-3aa6e8197bc1",
+    "paciente_id": "6b3ad814-7ca6-4d83-b05e-4fff9cebeca8",
+    "tipo": "Creatinina sérica",
+    "data": "2025-12-11",
+    "resultados": {
+      "Creatinina": "1.39 mg/dL",
+      "TFG estimada": "78 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "e0aa7a22-aa6d-428b-bf05-f1fc7abd2e4c",
+    "paciente_id": "6b3ad814-7ca6-4d83-b05e-4fff9cebeca8",
+    "tipo": "Ecocardiograma",
+    "data": "2025-03-17",
+    "resultados": {
+      "FE": "56%",
+      "Septo IV": "9.9 mm",
+      "Átrio esquerdo": "41.7 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "realizado"
+  },
+  {
+    "id": "075b4f27-6f3f-4598-a212-4ce76eb158aa",
+    "paciente_id": "6b3ad814-7ca6-4d83-b05e-4fff9cebeca8",
+    "tipo": "TSH (rastreamento)",
+    "data": "2024-09-25",
+    "resultados": {
+      "TSH": "0.53 mUI/L"
+    },
+    "interpretacao": "Excluir hipotireoidismo como causa de sintomas depressivos.",
+    "status": "realizado"
+  },
+  {
+    "id": "dd2ee298-b83a-4b90-9914-975fb27b1977",
+    "paciente_id": "5044792e-2a92-4c35-ac0d-f6b16c3dda2d",
+    "tipo": "Creatinina sérica",
+    "data": "2024-09-28",
+    "resultados": {
+      "Creatinina": "0.88 mg/dL",
+      "TFG estimada": "69 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "7f6b4025-c7dd-48a6-9e09-8ebbd3fbf3d5",
+    "paciente_id": "5044792e-2a92-4c35-ac0d-f6b16c3dda2d",
+    "tipo": "Ecocardiograma",
+    "data": "2025-11-29",
+    "resultados": {
+      "FE": "57%",
+      "Septo IV": "11.5 mm",
+      "Átrio esquerdo": "39.6 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "realizado"
+  },
+  {
+    "id": "dc68678b-a897-4922-8147-85295e370d94",
+    "paciente_id": "22e354a9-76eb-48ff-a876-7e192320928c",
+    "tipo": "Avaliação antropométrica",
+    "data": "2025-02-08",
+    "resultados": {
+      "Peso": "134.6 kg",
+      "Altura": "1.57 m",
+      "IMC": "39.5 kg/m²",
+      "Circunferência abdominal": "128 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "pendente"
+  },
+  {
+    "id": "9633a916-8c88-4375-b88c-2d70484b70fa",
+    "paciente_id": "22e354a9-76eb-48ff-a876-7e192320928c",
+    "tipo": "Avaliação antropométrica",
+    "data": "2025-07-15",
+    "resultados": {
+      "Peso": "124.7 kg",
+      "Altura": "1.64 m",
+      "IMC": "35.2 kg/m²",
+      "Circunferência abdominal": "112 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "fafd21d2-5e37-4122-9a57-834ca8b76ceb",
+    "paciente_id": "756776ed-4095-4bf8-bcc4-ee7163c97b52",
+    "tipo": "Ecocardiograma",
+    "data": "2025-12-16",
+    "resultados": {
+      "FE": "53%",
+      "Septo IV": "9.7 mm",
+      "Átrio esquerdo": "37.5 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "realizado"
+  },
+  {
+    "id": "3019c231-78ee-438e-8690-d82facb5f373",
+    "paciente_id": "756776ed-4095-4bf8-bcc4-ee7163c97b52",
+    "tipo": "Hemoglobina glicada (HbA1C)",
+    "data": "2025-11-16",
+    "resultados": {
+      "HbA1C": "10.0%",
+      "Glicemia média estimada": "241 mg/dL"
+    },
+    "interpretacao": "Controle glicêmico a ser avaliado conforme meta individual.",
+    "status": "realizado"
+  },
+  {
+    "id": "1079f415-9933-4252-8df6-a9d19fa5cdc9",
+    "paciente_id": "756776ed-4095-4bf8-bcc4-ee7163c97b52",
+    "tipo": "Gasometria arterial",
+    "data": "2026-02-27",
+    "resultados": {
+      "pH": "7.37",
+      "pO2": "72 mmHg",
+      "pCO2": "51 mmHg",
+      "HCO3": "28.2 mEq/L"
+    },
+    "interpretacao": "Avaliar presença de hipoxemia e retenção de CO2.",
+    "status": "realizado"
+  },
+  {
+    "id": "c921c680-b7a4-480d-9be8-1599acac7015",
+    "paciente_id": "f3ecb0f6-671d-4de6-a6ad-2628ee10faf9",
+    "tipo": "Avaliação PHQ-9",
+    "data": "2025-10-23",
+    "resultados": {
+      "Score PHQ-9": "19",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sugere episódio depressivo. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "db0f59d8-0ce3-4405-8fd3-9ec1802e7c36",
+    "paciente_id": "f3ecb0f6-671d-4de6-a6ad-2628ee10faf9",
+    "tipo": "TSH (rastreamento)",
+    "data": "2024-09-30",
+    "resultados": {
+      "TSH": "2.03 mUI/L"
+    },
+    "interpretacao": "Excluir hipotireoidismo como causa de sintomas depressivos.",
+    "status": "realizado"
+  },
+  {
+    "id": "2873d115-6ea1-424e-996c-0577e0a3f6e2",
+    "paciente_id": "35dc65d7-9bb2-4c36-bc24-06672e54da12",
+    "tipo": "Espirometria",
+    "data": "2025-01-13",
+    "resultados": {
+      "VEF1": "74% do previsto",
+      "CVF": "91% do previsto",
+      "VEF1/CVF": "0.68",
+      "Resposta ao BD": "24%"
+    },
+    "interpretacao": "Padrão obstrutivo com resposta ao broncodilatador.",
+    "status": "realizado"
+  },
+  {
+    "id": "608fc8b7-1cb8-4e65-9196-6caf83df9fc7",
+    "paciente_id": "35dc65d7-9bb2-4c36-bc24-06672e54da12",
+    "tipo": "Saturação de O2",
+    "data": "2025-02-26",
+    "resultados": {
+      "SpO2": "95%"
+    },
+    "interpretacao": "Oximetria de pulso em repouso.",
+    "status": "realizado"
+  },
+  {
+    "id": "3d605ffd-a438-4dd5-98c4-4ea448785ee3",
+    "paciente_id": "94e36133-b6be-4e2f-8038-94e504f8c7ba",
+    "tipo": "MAPA 24h",
+    "data": "2024-10-30",
+    "resultados": {
+      "PA média diurna": "152/88 mmHg",
+      "PA média noturna": "123/78 mmHg",
+      "Descenso noturno": "9%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "98b4b9b8-a0bc-42d4-abad-bbdf3ba8c590",
+    "paciente_id": "94e36133-b6be-4e2f-8038-94e504f8c7ba",
+    "tipo": "Ecocardiograma",
+    "data": "2026-02-19",
+    "resultados": {
+      "FE": "64%",
+      "Septo IV": "11.5 mm",
+      "Átrio esquerdo": "38.7 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "realizado"
+  },
+  {
+    "id": "404e2a97-318f-40de-82b8-45487ffc3d0a",
+    "paciente_id": "94e36133-b6be-4e2f-8038-94e504f8c7ba",
+    "tipo": "Espirometria",
+    "data": "2025-06-18",
+    "resultados": {
+      "VEF1": "81% do previsto",
+      "CVF": "99% do previsto",
+      "VEF1/CVF": "0.68",
+      "Resposta ao BD": "8%"
+    },
+    "interpretacao": "Padrão obstrutivo com resposta ao broncodilatador.",
+    "status": "realizado"
+  },
+  {
+    "id": "5317e681-7a1f-46dc-b1b2-ce199502e452",
+    "paciente_id": "a96af180-b4e1-4924-9a09-18daad44d786",
+    "tipo": "MAPA 24h",
+    "data": "2025-01-25",
+    "resultados": {
+      "PA média diurna": "150/79 mmHg",
+      "PA média noturna": "111/69 mmHg",
+      "Descenso noturno": "9%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "0855a067-b011-4049-ba32-8da9b1bb4f6c",
+    "paciente_id": "a96af180-b4e1-4924-9a09-18daad44d786",
+    "tipo": "Creatinina sérica",
+    "data": "2026-02-14",
+    "resultados": {
+      "Creatinina": "1.76 mg/dL",
+      "TFG estimada": "90 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "30e75807-1025-4326-9489-8af55ddab5d8",
+    "paciente_id": "a96af180-b4e1-4924-9a09-18daad44d786",
+    "tipo": "Avaliação antropométrica",
+    "data": "2025-12-31",
+    "resultados": {
+      "Peso": "102.0 kg",
+      "Altura": "1.65 m",
+      "IMC": "35.5 kg/m²",
+      "Circunferência abdominal": "95 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "5208a05d-a57a-4dd9-b99f-38b68502d285",
+    "paciente_id": "52a428e1-767e-4e72-8129-a16b63710fc7",
+    "tipo": "Creatinina sérica",
+    "data": "2025-01-06",
+    "resultados": {
+      "Creatinina": "0.86 mg/dL",
+      "TFG estimada": "61 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "243323bf-8765-4aa6-ae0e-bf5b2777a436",
+    "paciente_id": "52a428e1-767e-4e72-8129-a16b63710fc7",
+    "tipo": "MAPA 24h",
+    "data": "2025-03-22",
+    "resultados": {
+      "PA média diurna": "142/90 mmHg",
+      "PA média noturna": "132/76 mmHg",
+      "Descenso noturno": "10%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "22054f00-d1dd-48dc-9453-e03792c1e5f6",
+    "paciente_id": "52a428e1-767e-4e72-8129-a16b63710fc7",
+    "tipo": "TSH e T4 livre",
+    "data": "2025-03-19",
+    "resultados": {
+      "TSH": "13.47 mUI/L",
+      "T4 livre": "0.58 ng/dL"
+    },
+    "interpretacao": "TSH elevado com T4L baixo/normal. Compatível com hipotireoidismo.",
+    "status": "realizado"
+  },
+  {
+    "id": "af80e7ae-1ad4-4378-8a9b-9e2d085bd1a1",
+    "paciente_id": "8053705b-6fa8-46c6-979c-7c6de9c17000",
+    "tipo": "Hemoglobina glicada (HbA1C)",
+    "data": "2025-08-14",
+    "resultados": {
+      "HbA1C": "6.9%",
+      "Glicemia média estimada": "204 mg/dL"
+    },
+    "interpretacao": "Controle glicêmico a ser avaliado conforme meta individual.",
+    "status": "realizado"
+  },
+  {
+    "id": "32df47b3-bf98-49a4-a126-61160f0503b6",
+    "paciente_id": "8053705b-6fa8-46c6-979c-7c6de9c17000",
+    "tipo": "Perfil lipídico",
+    "data": "2025-06-15",
+    "resultados": {
+      "Colesterol total": "198 mg/dL",
+      "HDL": "68 mg/dL",
+      "LDL": "87 mg/dL",
+      "Triglicerídeos": "213 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "realizado"
+  },
+  {
+    "id": "98ffef63-6c0f-48f3-89b4-0b6a2d11e590",
+    "paciente_id": "691fc563-bddb-4859-83a5-5d3a704ece4d",
+    "tipo": "TSH e T4 livre",
+    "data": "2025-08-07",
+    "resultados": {
+      "TSH": "13.53 mUI/L",
+      "T4 livre": "0.65 ng/dL"
+    },
+    "interpretacao": "TSH elevado com T4L baixo/normal. Compatível com hipotireoidismo.",
+    "status": "realizado"
+  },
+  {
+    "id": "bc0513ba-f4fb-47c9-908c-dce33735cec7",
+    "paciente_id": "691fc563-bddb-4859-83a5-5d3a704ece4d",
+    "tipo": "TSH e T4 livre",
+    "data": "2025-11-09",
+    "resultados": {
+      "TSH": "9.52 mUI/L",
+      "T4 livre": "0.44 ng/dL"
+    },
+    "interpretacao": "TSH elevado com T4L baixo/normal. Compatível com hipotireoidismo.",
+    "status": "realizado"
+  },
+  {
+    "id": "f9efa335-d448-48e0-9664-4c001cecacbc",
+    "paciente_id": "acba471e-c195-4acc-b2f6-09a75c0b5a96",
+    "tipo": "MAPA 24h",
+    "data": "2025-04-07",
+    "resultados": {
+      "PA média diurna": "141/79 mmHg",
+      "PA média noturna": "124/65 mmHg",
+      "Descenso noturno": "6%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "9e1b14d8-9454-4fae-8995-cf5f160d40a8",
+    "paciente_id": "acba471e-c195-4acc-b2f6-09a75c0b5a96",
+    "tipo": "Ecocardiograma",
+    "data": "2025-12-23",
+    "resultados": {
+      "FE": "62%",
+      "Septo IV": "10.7 mm",
+      "Átrio esquerdo": "37.2 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "realizado"
+  },
+  {
+    "id": "1f5bbc5e-9de5-4dbc-a9a0-6ee4685d3d75",
+    "paciente_id": "acba471e-c195-4acc-b2f6-09a75c0b5a96",
+    "tipo": "TSH e T4 livre",
+    "data": "2025-05-21",
+    "resultados": {
+      "TSH": "5.70 mUI/L",
+      "T4 livre": "0.95 ng/dL"
+    },
+    "interpretacao": "TSH elevado com T4L baixo/normal. Compatível com hipotireoidismo.",
+    "status": "realizado"
+  },
+  {
+    "id": "bab9eb79-c7ef-46f9-a807-cc9248a9e25f",
+    "paciente_id": "9f2d5f27-e1e6-4070-a9c2-69c678996e80",
+    "tipo": "Ecocardiograma",
+    "data": "2026-02-04",
+    "resultados": {
+      "FE": "68%",
+      "Septo IV": "12.5 mm",
+      "Átrio esquerdo": "32.2 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "realizado"
+  },
+  {
+    "id": "e2b43cf5-2259-4565-a05f-64431211eb43",
+    "paciente_id": "9f2d5f27-e1e6-4070-a9c2-69c678996e80",
+    "tipo": "MAPA 24h",
+    "data": "2025-01-12",
+    "resultados": {
+      "PA média diurna": "134/85 mmHg",
+      "PA média noturna": "133/78 mmHg",
+      "Descenso noturno": "8%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "fbeff59e-bd82-4266-be0c-65853166e02c",
+    "paciente_id": "9f2d5f27-e1e6-4070-a9c2-69c678996e80",
+    "tipo": "Hemoglobina glicada (HbA1C)",
+    "data": "2025-09-25",
+    "resultados": {
+      "HbA1C": "8.2%",
+      "Glicemia média estimada": "171 mg/dL"
+    },
+    "interpretacao": "Controle glicêmico a ser avaliado conforme meta individual.",
+    "status": "realizado"
+  },
+  {
+    "id": "7480e2bb-68d0-4b4b-a97d-73c3c96545f1",
+    "paciente_id": "e1a49b4e-b97c-45a4-b4d8-2ae85fdf8f78",
+    "tipo": "Ecocardiograma",
+    "data": "2025-11-18",
+    "resultados": {
+      "FE": "52%",
+      "Septo IV": "12.8 mm",
+      "Átrio esquerdo": "44.0 mm"
+    },
+    "interpretacao": "Função sistólica preservada. Avaliar hipertrofia ventricular.",
+    "status": "realizado"
+  },
+  {
+    "id": "4f980a63-c666-4c68-96c6-1435ada548d7",
+    "paciente_id": "e1a49b4e-b97c-45a4-b4d8-2ae85fdf8f78",
+    "tipo": "Perfil lipídico",
+    "data": "2025-03-05",
+    "resultados": {
+      "Colesterol total": "215 mg/dL",
+      "HDL": "54 mg/dL",
+      "LDL": "129 mg/dL",
+      "Triglicerídeos": "236 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "realizado"
+  },
+  {
+    "id": "3887d028-efcd-442f-bd3e-149006c5d203",
+    "paciente_id": "e1a49b4e-b97c-45a4-b4d8-2ae85fdf8f78",
+    "tipo": "TSH (rastreamento)",
+    "data": "2025-08-14",
+    "resultados": {
+      "TSH": "1.11 mUI/L"
+    },
+    "interpretacao": "Excluir hipotireoidismo como causa de sintomas depressivos.",
+    "status": "realizado"
+  },
+  {
+    "id": "3e88bad8-4458-4e5d-b424-3538848464d8",
+    "paciente_id": "e1a49b4e-b97c-45a4-b4d8-2ae85fdf8f78",
+    "tipo": "Avaliação PHQ-9",
+    "data": "2025-02-12",
+    "resultados": {
+      "Score PHQ-9": "24",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sugere episódio depressivo. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "3ce47792-74ea-42d6-a83f-2d83007f4fae",
+    "paciente_id": "7ef2af4e-dd93-49f4-9588-5773deed4573",
+    "tipo": "Creatinina sérica",
+    "data": "2024-12-28",
+    "resultados": {
+      "Creatinina": "1.20 mg/dL",
+      "TFG estimada": "72 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  },
+  {
+    "id": "d83f7430-f53a-446f-a65e-edd9066eab6e",
+    "paciente_id": "7ef2af4e-dd93-49f4-9588-5773deed4573",
+    "tipo": "Espirometria",
+    "data": "2025-03-22",
+    "resultados": {
+      "VEF1": "71% do previsto",
+      "CVF": "91% do previsto",
+      "VEF1/CVF": "0.68",
+      "Resposta ao BD": "11%"
+    },
+    "interpretacao": "Padrão obstrutivo com resposta ao broncodilatador.",
+    "status": "realizado"
+  },
+  {
+    "id": "748cfefe-cff4-4d6e-a4ae-68192018d661",
+    "paciente_id": "7ef2af4e-dd93-49f4-9588-5773deed4573",
+    "tipo": "Avaliação PHQ-9",
+    "data": "2025-07-04",
+    "resultados": {
+      "Score PHQ-9": "11",
+      "Classificação": "moderadamente grave"
+    },
+    "interpretacao": "Sugere episódio depressivo. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "65ae5ada-8af8-492d-8878-8cef62d0add6",
+    "paciente_id": "a4ecad9b-f616-41a1-b717-40029d596450",
+    "tipo": "Perfil lipídico",
+    "data": "2025-03-18",
+    "resultados": {
+      "Colesterol total": "150 mg/dL",
+      "HDL": "70 mg/dL",
+      "LDL": "190 mg/dL",
+      "Triglicerídeos": "244 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "realizado"
+  },
+  {
+    "id": "29f7c938-3b60-481a-b718-0cdc3956fa78",
+    "paciente_id": "a4ecad9b-f616-41a1-b717-40029d596450",
+    "tipo": "Glicemia de jejum",
+    "data": "2025-09-10",
+    "resultados": {
+      "Glicemia": "101 mg/dL"
+    },
+    "interpretacao": "Valor a ser correlacionado com HbA1C e quadro clínico.",
+    "status": "pendente"
+  },
+  {
+    "id": "f06b6ab4-8afa-419e-a4b3-d956dcc1426c",
+    "paciente_id": "f85c3387-3d86-4e23-9fae-4f5499c1f23c",
+    "tipo": "Glicemia de jejum",
+    "data": "2025-11-14",
+    "resultados": {
+      "Glicemia": "171 mg/dL"
+    },
+    "interpretacao": "Valor a ser correlacionado com HbA1C e quadro clínico.",
+    "status": "realizado"
+  },
+  {
+    "id": "704c4cb1-e3fa-4254-81de-0dca8b9c38f8",
+    "paciente_id": "f85c3387-3d86-4e23-9fae-4f5499c1f23c",
+    "tipo": "Avaliação PHQ-9",
+    "data": "2024-12-25",
+    "resultados": {
+      "Score PHQ-9": "16",
+      "Classificação": "moderada"
+    },
+    "interpretacao": "Sugere episódio depressivo. Acompanhar evolução.",
+    "status": "realizado"
+  },
+  {
+    "id": "7d5ad16b-348d-465d-9337-9ae4251579d8",
+    "paciente_id": "8140d9fe-d99d-42c0-9003-689f73d6575a",
+    "tipo": "Saturação de O2",
+    "data": "2025-03-11",
+    "resultados": {
+      "SpO2": "98%"
+    },
+    "interpretacao": "Oximetria de pulso em repouso.",
+    "status": "realizado"
+  },
+  {
+    "id": "250df24c-12c4-410c-907f-a8f2ea18fd01",
+    "paciente_id": "8140d9fe-d99d-42c0-9003-689f73d6575a",
+    "tipo": "Espirometria",
+    "data": "2025-11-25",
+    "resultados": {
+      "VEF1": "74% do previsto",
+      "CVF": "73% do previsto",
+      "VEF1/CVF": "0.58",
+      "Resposta ao BD": "10%"
+    },
+    "interpretacao": "Padrão obstrutivo com resposta ao broncodilatador.",
+    "status": "realizado"
+  },
+  {
+    "id": "d52497db-328c-4526-8305-a8647fdf3df7",
+    "paciente_id": "8140d9fe-d99d-42c0-9003-689f73d6575a",
+    "tipo": "Gasometria arterial",
+    "data": "2024-09-27",
+    "resultados": {
+      "pH": "7.37",
+      "pO2": "81 mmHg",
+      "pCO2": "52 mmHg",
+      "HCO3": "28.3 mEq/L"
+    },
+    "interpretacao": "Avaliar presença de hipoxemia e retenção de CO2.",
+    "status": "realizado"
+  },
+  {
+    "id": "cd966a50-0d7b-475f-a11e-cace427930f1",
+    "paciente_id": "21d44ece-9752-432d-8a10-435d75e4f4e3",
+    "tipo": "Avaliação antropométrica",
+    "data": "2025-05-26",
+    "resultados": {
+      "Peso": "99.3 kg",
+      "Altura": "1.74 m",
+      "IMC": "32.4 kg/m²",
+      "Circunferência abdominal": "124 cm"
+    },
+    "interpretacao": "Obesidade. Avaliar comorbidades metabólicas associadas.",
+    "status": "realizado"
+  },
+  {
+    "id": "76611b86-4d33-4739-8a3b-55f8e415674f",
+    "paciente_id": "21d44ece-9752-432d-8a10-435d75e4f4e3",
+    "tipo": "BNP",
+    "data": "2025-04-03",
+    "resultados": {
+      "BNP": "344 pg/mL"
+    },
+    "interpretacao": "BNP elevado, compatível com insuficiência cardíaca.",
+    "status": "realizado"
+  },
+  {
+    "id": "cf1265ae-954b-4980-8057-a0fb941ae0b9",
+    "paciente_id": "21d44ece-9752-432d-8a10-435d75e4f4e3",
+    "tipo": "Ecocardiograma",
+    "data": "2025-06-09",
+    "resultados": {
+      "FE": "45%",
+      "VE diástole": "70 mm",
+      "Átrio esquerdo": "44 mm",
+      "PSAP": "47 mmHg"
+    },
+    "interpretacao": "Disfunção sistólica do VE. FE reduzida.",
+    "status": "realizado"
+  },
+  {
+    "id": "28b3d76d-c145-4bac-a913-a86abd776df1",
+    "paciente_id": "5489c506-9175-49dd-8069-71368094d523",
+    "tipo": "Perfil lipídico",
+    "data": "2024-11-27",
+    "resultados": {
+      "Colesterol total": "169 mg/dL",
+      "HDL": "45 mg/dL",
+      "LDL": "190 mg/dL",
+      "Triglicerídeos": "127 mg/dL"
+    },
+    "interpretacao": "Avaliar risco cardiovascular associado ao diabetes.",
+    "status": "realizado"
+  },
+  {
+    "id": "ccdac96c-3035-439d-bc3c-e2a1ec576732",
+    "paciente_id": "5489c506-9175-49dd-8069-71368094d523",
+    "tipo": "Espirometria",
+    "data": "2025-06-26",
+    "resultados": {
+      "VEF1": "90% do previsto",
+      "CVF": "96% do previsto",
+      "VEF1/CVF": "0.79",
+      "Resposta ao BD": "8%"
+    },
+    "interpretacao": "Padrão obstrutivo com resposta ao broncodilatador.",
+    "status": "pendente"
+  },
+  {
+    "id": "4fb5ed45-43d1-47ff-943e-7b4bdd380795",
+    "paciente_id": "a936257a-52ef-46a2-ad4d-75365e18b913",
+    "tipo": "MAPA 24h",
+    "data": "2025-03-29",
+    "resultados": {
+      "PA média diurna": "155/93 mmHg",
+      "PA média noturna": "140/73 mmHg",
+      "Descenso noturno": "6%"
+    },
+    "interpretacao": "Padrão compatível com hipertensão arterial sistêmica.",
+    "status": "realizado"
+  },
+  {
+    "id": "9f5de318-eb05-454d-be5f-5762d92e6258",
+    "paciente_id": "a936257a-52ef-46a2-ad4d-75365e18b913",
+    "tipo": "Creatinina sérica",
+    "data": "2025-01-15",
+    "resultados": {
+      "Creatinina": "1.06 mg/dL",
+      "TFG estimada": "96 mL/min/1.73m²"
+    },
+    "interpretacao": "Função renal a ser monitorada em paciente hipertenso.",
+    "status": "realizado"
+  }
+]

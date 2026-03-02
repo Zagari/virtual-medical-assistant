@@ -1,0 +1,1559 @@
+[
+  {
+    "id": "4a4db681-8fb7-4fee-a00d-1ee59ce512b3",
+    "nome": "Sr. Apollo Sousa",
+    "cpf": "438.150.926-98",
+    "data_nascimento": "2004-10-17",
+    "sexo": "M",
+    "telefone": "+55 (051) 0133 8908",
+    "endereco": "Vila de Nogueira, 83, Tupi A, 02654-235 Borges / MG",
+    "comorbidades": [
+      "Obesidade"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "liraglutida 3mg 1x/dia SC"
+    ]
+  },
+  {
+    "id": "e1db9429-2e24-4b75-95d6-0d7894fd4a1c",
+    "nome": "Maria Alice Ferreira",
+    "cpf": "940.538.716-20",
+    "data_nascimento": "1984-05-07",
+    "sexo": "F",
+    "telefone": "81 4959-3103",
+    "endereco": "Colônia Garcia, Itatiaia, 52553-419 Nascimento / SC",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Diabetes mellitus tipo 2"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "enalapril 10mg 2x/dia",
+      "sitagliptina 100mg 1x/dia",
+      "insulina NPH 10UI à noite"
+    ]
+  },
+  {
+    "id": "db94b889-164b-46b7-8683-4a7324dc7ec7",
+    "nome": "Enrico Martins",
+    "cpf": "643.520.187-08",
+    "data_nascimento": "1977-01-25",
+    "sexo": "M",
+    "telefone": "71 4139 5376",
+    "endereco": "Conjunto Thales Souza, 784, São Lucas, 53287-101 Pires / CE",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Doença pulmonar obstrutiva crônica"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "atenolol 50mg 1x/dia",
+      "formoterol 12mcg 2x/dia",
+      "budesonida + formoterol 400/12mcg 2x/dia"
+    ]
+  },
+  {
+    "id": "5f0bd794-9232-49e3-bba4-9aa8c8338d4f",
+    "nome": "Sra. Ana Luiza Gomes",
+    "cpf": "674.805.231-90",
+    "data_nascimento": "1960-10-20",
+    "sexo": "F",
+    "telefone": "+55 61 4627 0482",
+    "endereco": "Lagoa de Porto, 393, Milionario, 88095701 das Neves de Goiás / AL",
+    "comorbidades": [
+      "Hipotireoidismo"
+    ],
+    "alergias": [
+      "cefalexina"
+    ],
+    "medicamentos_uso": [
+      "levotiroxina 100mcg 1x/dia em jejum"
+    ]
+  },
+  {
+    "id": "8bc5622c-ffb5-4672-96e9-45fe6b39e82a",
+    "nome": "Bruno Barros",
+    "cpf": "712.853.649-37",
+    "data_nascimento": "1989-08-28",
+    "sexo": "M",
+    "telefone": "+55 11 8346-5787",
+    "endereco": "Campo Fernandes, 9, Fazendinha, 01031051 da Mota / RO",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Transtorno de ansiedade generalizada"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "anlodipino 5mg 1x/dia",
+      "buspirona 10mg 2x/dia",
+      "escitalopram 10mg 1x/dia"
+    ]
+  },
+  {
+    "id": "f0bb033c-bfad-489a-b2fe-d911f4936148",
+    "nome": "Heitor Nogueira",
+    "cpf": "273.685.109-95",
+    "data_nascimento": "1946-10-11",
+    "sexo": "M",
+    "telefone": "(021) 5667-0106",
+    "endereco": "Feira Correia, 88, Colégio Batista, 24731-781 Rezende / PI",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Obesidade"
+    ],
+    "alergias": [
+      "penicilina"
+    ],
+    "medicamentos_uso": [
+      "atenolol 50mg 1x/dia",
+      "hidroclorotiazida 25mg 1x/dia",
+      "orlistate 120mg 3x/dia",
+      "liraglutida 3mg 1x/dia SC"
+    ]
+  },
+  {
+    "id": "e7eea9ff-dfb1-4341-a819-7b7f233f6b4c",
+    "nome": "Caleb Sá",
+    "cpf": "326.971.508-03",
+    "data_nascimento": "1948-01-02",
+    "sexo": "M",
+    "telefone": "41 0647 4687",
+    "endereco": "Favela Danilo Pacheco, 105, Baleia, 88208-121 Rocha / ES",
+    "comorbidades": [
+      "Episódio depressivo"
+    ],
+    "alergias": [
+      "cefalexina"
+    ],
+    "medicamentos_uso": [
+      "sertralina 50mg 1x/dia"
+    ]
+  },
+  {
+    "id": "b2b6d2ce-05f2-4943-a9c3-cea3ed89bc35",
+    "nome": "Dante Nunes",
+    "cpf": "301.954.278-23",
+    "data_nascimento": "1954-09-26",
+    "sexo": "M",
+    "telefone": "(051) 3462 4751",
+    "endereco": "Travessa de Brito, 9, Ermelinda, 25135-427 Pimenta do Galho / AC",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Obesidade"
+    ],
+    "alergias": [
+      "cefalexina"
+    ],
+    "medicamentos_uso": [
+      "atenolol 50mg 1x/dia",
+      "enalapril 10mg 2x/dia",
+      "liraglutida 3mg 1x/dia SC"
+    ]
+  },
+  {
+    "id": "dd5b5c53-3bfc-4c1f-9a90-122eb950a3cd",
+    "nome": "Dr. Cauã Carvalho",
+    "cpf": "418.597.260-11",
+    "data_nascimento": "1943-03-22",
+    "sexo": "M",
+    "telefone": "(081) 3487 4016",
+    "endereco": "Loteamento Vargas, Cenaculo, 27868-011 Nogueira / AL",
+    "comorbidades": [
+      "Asma"
+    ],
+    "alergias": [
+      "penicilina"
+    ],
+    "medicamentos_uso": [
+      "salbutamol spray 100mcg SOS"
+    ]
+  },
+  {
+    "id": "a6e684e6-2a2e-4772-b80a-2ead59016a2a",
+    "nome": "Yuri Casa Grande",
+    "cpf": "620.897.543-38",
+    "data_nascimento": "1967-01-11",
+    "sexo": "M",
+    "telefone": "+55 51 5869 2322",
+    "endereco": "Loteamento Viana, Funcionários, 34216-073 Marques / MS",
+    "comorbidades": [
+      "Hipertensão essencial (primária)"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "anlodipino 5mg 1x/dia"
+    ]
+  },
+  {
+    "id": "f7be8e34-28d0-408e-9b04-88896eaf5aa6",
+    "nome": "Ian Câmara",
+    "cpf": "036.279.518-59",
+    "data_nascimento": "1974-06-23",
+    "sexo": "M",
+    "telefone": "61 5014-2940",
+    "endereco": "Morro Ana Sophia Lopes, 781, São Luiz, 40608835 Azevedo Alegre / RN",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2",
+      "Asma",
+      "Episódio depressivo",
+      "Hipotireoidismo",
+      "Transtorno de ansiedade generalizada"
+    ],
+    "alergias": [
+      "AAS",
+      "penicilina"
+    ],
+    "medicamentos_uso": [
+      "metformina 850mg 2x/dia",
+      "salbutamol spray 100mcg SOS",
+      "formoterol + budesonida 12/400mcg 2x/dia",
+      "escitalopram 10mg 1x/dia",
+      "levotiroxina 50mcg 1x/dia em jejum",
+      "levotiroxina 100mcg 1x/dia em jejum",
+      "sertralina 50mg 1x/dia",
+      "clonazepam 0.5mg à noite (curto prazo)"
+    ]
+  },
+  {
+    "id": "25337483-80c0-48c6-9043-e73d7093317f",
+    "nome": "Camila Silveira",
+    "cpf": "489.532.671-37",
+    "data_nascimento": "1971-08-11",
+    "sexo": "F",
+    "telefone": "81 2366-2994",
+    "endereco": "Lagoa da Paz, 66, Piratininga, 73872-148 Borges de Goiás / RO",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Asma",
+      "Obesidade",
+      "Transtorno de ansiedade generalizada"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "enalapril 10mg 2x/dia",
+      "budesonida 200mcg 2x/dia",
+      "montelucaste 10mg 1x/dia",
+      "liraglutida 3mg 1x/dia SC",
+      "sertralina 50mg 1x/dia",
+      "escitalopram 10mg 1x/dia"
+    ]
+  },
+  {
+    "id": "7c760620-1cda-41da-a5a3-676247c6024c",
+    "nome": "Henry Gabriel Costa",
+    "cpf": "208.134.769-50",
+    "data_nascimento": "1966-02-19",
+    "sexo": "M",
+    "telefone": "0500 367 6320",
+    "endereco": "Fazenda Luiz Gustavo Sampaio, 970, Graça, 72788957 Novaes dos Dourados / CE",
+    "comorbidades": [
+      "Asma",
+      "Episódio depressivo"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "budesonida 200mcg 2x/dia",
+      "sertralina 50mg 1x/dia",
+      "venlafaxina 75mg 1x/dia"
+    ]
+  },
+  {
+    "id": "de02e646-67e0-4fc2-b2c2-6a31feade28c",
+    "nome": "Dr. Rael da Luz",
+    "cpf": "347.512.906-06",
+    "data_nascimento": "1970-08-11",
+    "sexo": "M",
+    "telefone": "+55 41 4558-1223",
+    "endereco": "Favela Azevedo, 66, São José, 60366-909 Mendes do Sul / MS",
+    "comorbidades": [
+      "Obesidade",
+      "Insuficiência cardíaca"
+    ],
+    "alergias": [
+      "cefalexina"
+    ],
+    "medicamentos_uso": [
+      "liraglutida 3mg 1x/dia SC",
+      "enalapril 10mg 2x/dia"
+    ]
+  },
+  {
+    "id": "ad3c1d44-5e70-4606-830c-918bbb63f698",
+    "nome": "Mathias Leão",
+    "cpf": "893.712.650-86",
+    "data_nascimento": "1967-02-15",
+    "sexo": "M",
+    "telefone": "51 5627 2980",
+    "endereco": "Viaduto de Alves, 7, Cidade Jardim Taquaril, 20465-375 Teixeira das Flores / GO",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "insulina NPH 10UI à noite"
+    ]
+  },
+  {
+    "id": "901a39c1-ef9b-489b-b2f7-256a0b43703e",
+    "nome": "José Barros",
+    "cpf": "708.219.436-69",
+    "data_nascimento": "1965-10-06",
+    "sexo": "M",
+    "telefone": "+55 (081) 0923-2719",
+    "endereco": "Jardim de Vargas, 22, Vila São Paulo, 41904966 Barbosa / RJ",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "metformina 850mg 2x/dia"
+    ]
+  },
+  {
+    "id": "71b3c329-222c-44f6-bb68-279f53dbfe4c",
+    "nome": "Sr. Cauã Sampaio",
+    "cpf": "410.293.678-50",
+    "data_nascimento": "1938-02-14",
+    "sexo": "M",
+    "telefone": "+55 (021) 6716 5726",
+    "endereco": "Via de da Mata, 887, Olhos D'água, 53147-379 Fernandes do Sul / PR",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Asma",
+      "Doença pulmonar obstrutiva crônica",
+      "Obesidade"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "atenolol 50mg 1x/dia",
+      "losartana 50mg 1x/dia",
+      "salbutamol spray 100mcg SOS",
+      "montelucaste 10mg 1x/dia",
+      "tiotrópio 18mcg 1x/dia",
+      "budesonida + formoterol 400/12mcg 2x/dia",
+      "liraglutida 3mg 1x/dia SC"
+    ]
+  },
+  {
+    "id": "fb6a4f45-1f26-40c2-81a2-615f44636679",
+    "nome": "Emilly Mendonça",
+    "cpf": "354.267.890-29",
+    "data_nascimento": "1976-03-27",
+    "sexo": "F",
+    "telefone": "41 3136-7837",
+    "endereco": "Chácara da Rocha, 46, Jatobá, 78856-855 da Mata de das Neves / GO",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2",
+      "Obesidade"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "sitagliptina 100mg 1x/dia",
+      "liraglutida 3mg 1x/dia SC"
+    ]
+  },
+  {
+    "id": "f656730e-ba2c-4b9a-b58b-29146335da71",
+    "nome": "Bárbara Silveira",
+    "cpf": "351.847.609-20",
+    "data_nascimento": "1958-06-04",
+    "sexo": "F",
+    "telefone": "+55 84 9894-1343",
+    "endereco": "Aeroporto Sophie Cardoso, 10, São Vicente, 27109-477 Fernandes de Cirino / AL",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Diabetes mellitus tipo 2",
+      "Transtorno de ansiedade generalizada"
+    ],
+    "alergias": [
+      "contraste iodado"
+    ],
+    "medicamentos_uso": [
+      "anlodipino 5mg 1x/dia",
+      "losartana 50mg 1x/dia",
+      "glibenclamida 5mg 1x/dia",
+      "insulina NPH 10UI à noite",
+      "buspirona 10mg 2x/dia"
+    ]
+  },
+  {
+    "id": "9d9e417c-4380-4f6a-94a6-029b15016728",
+    "nome": "Rhavi Camargo",
+    "cpf": "167.048.953-10",
+    "data_nascimento": "1955-11-18",
+    "sexo": "M",
+    "telefone": "+55 21 3186 9993",
+    "endereco": "Lagoa Liz das Neves, 290, Vila Santo Antônio, 34123281 Abreu / PA",
+    "comorbidades": [
+      "Doença pulmonar obstrutiva crônica"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "formoterol 12mcg 2x/dia"
+    ]
+  },
+  {
+    "id": "0a631eca-7eb9-4174-be3f-959988a0c10f",
+    "nome": "Ravy da Rocha",
+    "cpf": "034.528.967-65",
+    "data_nascimento": "1975-02-23",
+    "sexo": "M",
+    "telefone": "+55 71 9361-8324",
+    "endereco": "Esplanada Vieira, João Alfredo, 71746-488 Macedo de Barros / RN",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2",
+      "Insuficiência cardíaca"
+    ],
+    "alergias": [
+      "cefalexina"
+    ],
+    "medicamentos_uso": [
+      "sitagliptina 100mg 1x/dia",
+      "metformina 850mg 2x/dia",
+      "furosemida 40mg 1x/dia",
+      "espironolactona 25mg 1x/dia"
+    ]
+  },
+  {
+    "id": "c5cc2824-0389-4c1c-beb5-3ecf3fd11f18",
+    "nome": "Marina Sousa",
+    "cpf": "540.718.629-20",
+    "data_nascimento": "2003-10-25",
+    "sexo": "F",
+    "telefone": "0500 027 8742",
+    "endereco": "Chácara Maria Isis Ferreira, 65, Vila Havaí, 25674680 Borges de Dias / GO",
+    "comorbidades": [
+      "Transtorno de ansiedade generalizada"
+    ],
+    "alergias": [
+      "contraste iodado"
+    ],
+    "medicamentos_uso": [
+      "buspirona 10mg 2x/dia",
+      "clonazepam 0.5mg à noite (curto prazo)"
+    ]
+  },
+  {
+    "id": "785bd6c3-cae3-47fd-8213-0ad8423e3caa",
+    "nome": "Danilo Vargas",
+    "cpf": "680.543.972-83",
+    "data_nascimento": "1967-08-31",
+    "sexo": "M",
+    "telefone": "41 5977-0348",
+    "endereco": "Vila Maria Vitória Campos, 4, Vila Nova Cachoeirinha 1ª Seção, 48086131 Campos de Ramos / TO",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2",
+      "Asma"
+    ],
+    "alergias": [
+      "diclofenaco",
+      "latex"
+    ],
+    "medicamentos_uso": [
+      "sitagliptina 100mg 1x/dia",
+      "salbutamol spray 100mcg SOS",
+      "formoterol + budesonida 12/400mcg 2x/dia"
+    ]
+  },
+  {
+    "id": "073c84f7-43b9-48c3-8c15-22bde83c45ec",
+    "nome": "Theo Silva",
+    "cpf": "489.365.170-66",
+    "data_nascimento": "1992-10-07",
+    "sexo": "M",
+    "telefone": "51 3982 1465",
+    "endereco": "Lago Silveira, 89, Santa Monica, 78755886 Duarte de Correia / RR",
+    "comorbidades": [
+      "Transtorno de ansiedade generalizada"
+    ],
+    "alergias": [
+      "contraste iodado"
+    ],
+    "medicamentos_uso": [
+      "sertralina 50mg 1x/dia",
+      "buspirona 10mg 2x/dia"
+    ]
+  },
+  {
+    "id": "0b04cdd6-d0bb-4fd2-9527-84d9c23417aa",
+    "nome": "Maria Isis da Conceição",
+    "cpf": "605.739.428-38",
+    "data_nascimento": "2007-10-11",
+    "sexo": "F",
+    "telefone": "11 0289-5171",
+    "endereco": "Distrito de Jesus, Santa Rosa, 17459615 Dias do Amparo / PI",
+    "comorbidades": [
+      "Transtorno de ansiedade generalizada"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "sertralina 50mg 1x/dia",
+      "buspirona 10mg 2x/dia"
+    ]
+  },
+  {
+    "id": "23e76378-5ac7-4135-8593-b97f9c0f465a",
+    "nome": "Bernardo da Costa",
+    "cpf": "431.805.697-00",
+    "data_nascimento": "1952-12-23",
+    "sexo": "M",
+    "telefone": "+55 (041) 0504 5562",
+    "endereco": "Travessa Luiz Miguel Cavalcante, 71, Vila Atila De Paiva, 79237474 Martins / MA",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2",
+      "Doença pulmonar obstrutiva crônica"
+    ],
+    "alergias": [
+      "diclofenaco",
+      "penicilina",
+      "amoxicilina"
+    ],
+    "medicamentos_uso": [
+      "metformina 850mg 2x/dia",
+      "salbutamol spray 100mcg SOS"
+    ]
+  },
+  {
+    "id": "b3d4816f-1c0a-4d76-8b97-ef1d8b391cd0",
+    "nome": "Dra. Eduarda Barbosa",
+    "cpf": "754.832.610-62",
+    "data_nascimento": "1961-12-08",
+    "sexo": "F",
+    "telefone": "51 7136 9594",
+    "endereco": "Passarela de da Mota, Aeroporto, 97439533 Rocha Grande / RS",
+    "comorbidades": [
+      "Episódio depressivo"
+    ],
+    "alergias": [
+      "cefalexina",
+      "amoxicilina"
+    ],
+    "medicamentos_uso": [
+      "fluoxetina 20mg 1x/dia"
+    ]
+  },
+  {
+    "id": "3fe3d676-2c70-4f6f-b2d6-0be1c6c35ae8",
+    "nome": "Ana Cecília das Neves",
+    "cpf": "705.918.263-21",
+    "data_nascimento": "1984-01-09",
+    "sexo": "F",
+    "telefone": "+55 (051) 3285-8842",
+    "endereco": "Lago Camila Camargo, 31, Vila Rica, 68516048 Marques / MS",
+    "comorbidades": [
+      "Obesidade"
+    ],
+    "alergias": [
+      "amoxicilina"
+    ],
+    "medicamentos_uso": [
+      "liraglutida 3mg 1x/dia SC",
+      "orlistate 120mg 3x/dia"
+    ]
+  },
+  {
+    "id": "3c82a400-1f4e-4c0f-a12a-dc692f561ee1",
+    "nome": "Dra. Julia Pacheco",
+    "cpf": "651.873.029-30",
+    "data_nascimento": "1955-04-27",
+    "sexo": "F",
+    "telefone": "0800-317-4612",
+    "endereco": "Residencial Igor Brito, Flavio Marques Lisboa, 67586926 Mendonça / RN",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Episódio depressivo"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "enalapril 10mg 2x/dia",
+      "fluoxetina 20mg 1x/dia"
+    ]
+  },
+  {
+    "id": "3a0358e3-bc4c-479a-a3e9-e9b2592d1cd8",
+    "nome": "Lara Andrade",
+    "cpf": "537.812.049-79",
+    "data_nascimento": "1985-08-11",
+    "sexo": "F",
+    "telefone": "71 5064-3171",
+    "endereco": "Trevo de Almeida, 6, Garças, 93183933 Vasconcelos Grande / SE",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Episódio depressivo"
+    ],
+    "alergias": [
+      "ibuprofeno",
+      "contraste iodado"
+    ],
+    "medicamentos_uso": [
+      "atenolol 50mg 1x/dia",
+      "venlafaxina 75mg 1x/dia",
+      "sertralina 50mg 1x/dia"
+    ]
+  },
+  {
+    "id": "287344f0-5714-4a35-81ff-02f4e8e34b5b",
+    "nome": "Alexandre da Mota",
+    "cpf": "294.610.738-87",
+    "data_nascimento": "1940-08-20",
+    "sexo": "M",
+    "telefone": "11 3950 2402",
+    "endereco": "Campo Melo, 95, União, 78390847 Araújo / PR",
+    "comorbidades": [
+      "Hipertensão essencial (primária)"
+    ],
+    "alergias": [
+      "diclofenaco",
+      "cefalexina"
+    ],
+    "medicamentos_uso": [
+      "enalapril 10mg 2x/dia",
+      "hidroclorotiazida 25mg 1x/dia"
+    ]
+  },
+  {
+    "id": "98725884-e881-4e8c-ac0e-5094d90c5b60",
+    "nome": "Mariane Rodrigues",
+    "cpf": "178.062.954-02",
+    "data_nascimento": "1973-05-30",
+    "sexo": "F",
+    "telefone": "+55 84 9985-6984",
+    "endereco": "Praça de Brito, 9, Vila Nova Gameleira 3ª Seção, 67365766 Dias / PA",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "sitagliptina 100mg 1x/dia",
+      "empagliflozina 25mg 1x/dia"
+    ]
+  },
+  {
+    "id": "5e975095-6577-4cce-809a-273c8965fa1a",
+    "nome": "Jade Freitas",
+    "cpf": "271.065.348-62",
+    "data_nascimento": "2005-06-03",
+    "sexo": "F",
+    "telefone": "+55 81 8098 8516",
+    "endereco": "Praça de Silveira, 5, Urca, 51983-273 Ferreira / PI",
+    "comorbidades": [
+      "Asma",
+      "Transtorno de ansiedade generalizada"
+    ],
+    "alergias": [
+      "diclofenaco",
+      "sulfa"
+    ],
+    "medicamentos_uso": [
+      "salbutamol spray 100mcg SOS",
+      "sertralina 50mg 1x/dia"
+    ]
+  },
+  {
+    "id": "29c65408-3de0-4426-9680-f23ec2841cbd",
+    "nome": "Bruna Teixeira",
+    "cpf": "436.795.021-25",
+    "data_nascimento": "1970-01-16",
+    "sexo": "F",
+    "telefone": "+55 (041) 2445 5022",
+    "endereco": "Vereda Alves, Braúnas, 66752545 Aragão / BA",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2"
+    ],
+    "alergias": [
+      "diclofenaco",
+      "contraste iodado"
+    ],
+    "medicamentos_uso": [
+      "metformina 850mg 2x/dia",
+      "insulina NPH 10UI à noite"
+    ]
+  },
+  {
+    "id": "e44056d7-691c-4af6-9364-c5c34dbad8fc",
+    "nome": "Ana Julia Rocha",
+    "cpf": "147.536.892-55",
+    "data_nascimento": "1958-02-08",
+    "sexo": "F",
+    "telefone": "+55 11 8156-1497",
+    "endereco": "Passarela Peixoto, Barão Homem De Melo 3ª Seção, 34324451 Monteiro / SC",
+    "comorbidades": [
+      "Hipertensão essencial (primária)"
+    ],
+    "alergias": [
+      "penicilina"
+    ],
+    "medicamentos_uso": [
+      "atenolol 50mg 1x/dia",
+      "hidroclorotiazida 25mg 1x/dia"
+    ]
+  },
+  {
+    "id": "eea7e224-f13c-4ff3-a4a6-7d1b769d6ddc",
+    "nome": "Emanuella Cardoso",
+    "cpf": "683.492.017-03",
+    "data_nascimento": "1976-08-10",
+    "sexo": "F",
+    "telefone": "(021) 0715-9696",
+    "endereco": "Passarela Almeida, 82, Palmeiras, 16136-968 Gonçalves / MA",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "insulina NPH 10UI à noite",
+      "empagliflozina 25mg 1x/dia"
+    ]
+  },
+  {
+    "id": "e9caae37-de2e-48c9-8665-e62d96dad9ab",
+    "nome": "Dr. Henry Farias",
+    "cpf": "218.467.950-01",
+    "data_nascimento": "1963-10-03",
+    "sexo": "M",
+    "telefone": "+55 41 1243-2921",
+    "endereco": "Residencial de Martins, 697, Santa Lúcia, 27177-449 Fogaça / PE",
+    "comorbidades": [
+      "Asma",
+      "Transtorno de ansiedade generalizada"
+    ],
+    "alergias": [
+      "latex"
+    ],
+    "medicamentos_uso": [
+      "budesonida 200mcg 2x/dia",
+      "montelucaste 10mg 1x/dia",
+      "buspirona 10mg 2x/dia"
+    ]
+  },
+  {
+    "id": "a5ca467b-60a9-4d47-830b-79a02fe2929b",
+    "nome": "Luana Martins",
+    "cpf": "708.269.451-20",
+    "data_nascimento": "1963-10-27",
+    "sexo": "F",
+    "telefone": "(061) 9807-9359",
+    "endereco": "Avenida Machado, 6, Vila Nova Cachoeirinha 3ª Seção, 82037788 Fonseca / MS",
+    "comorbidades": [
+      "Insuficiência cardíaca"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "enalapril 10mg 2x/dia"
+    ]
+  },
+  {
+    "id": "f1a87a28-7aea-41f0-8973-5c692d66fd14",
+    "nome": "Maria Julia Jesus",
+    "cpf": "509.826.317-40",
+    "data_nascimento": "1983-04-07",
+    "sexo": "F",
+    "telefone": "0500-251-9254",
+    "endereco": "Chácara de das Neves, 365, Vila Havaí, 68505423 Vargas do Amparo / DF",
+    "comorbidades": [
+      "Asma"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "formoterol + budesonida 12/400mcg 2x/dia",
+      "salbutamol spray 100mcg SOS"
+    ]
+  },
+  {
+    "id": "27ddb9aa-bc5d-435a-bf18-39088bd97b8f",
+    "nome": "Cecilia Cassiano",
+    "cpf": "149.865.027-94",
+    "data_nascimento": "1993-06-08",
+    "sexo": "F",
+    "telefone": "0900-296-2229",
+    "endereco": "Área Juliana Fonseca, 57, Vila Real 2ª Seção, 38347-359 Martins de Vargas / MA",
+    "comorbidades": [
+      "Episódio depressivo"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "sertralina 50mg 1x/dia",
+      "fluoxetina 20mg 1x/dia"
+    ]
+  },
+  {
+    "id": "153f66c4-f1dc-4d44-941a-c80334d900e1",
+    "nome": "Sarah Moura",
+    "cpf": "623.941.805-60",
+    "data_nascimento": "1979-03-16",
+    "sexo": "F",
+    "telefone": "31 8181 4124",
+    "endereco": "Praça Borges, 67, Funcionários, 60685361 Câmara do Sul / MT",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2",
+      "Obesidade"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "insulina NPH 10UI à noite",
+      "liraglutida 3mg 1x/dia SC",
+      "orlistate 120mg 3x/dia"
+    ]
+  },
+  {
+    "id": "4ea0b6eb-3a34-4c38-9892-53acb40ae88c",
+    "nome": "Lívia Vieira",
+    "cpf": "290.831.547-50",
+    "data_nascimento": "2000-07-06",
+    "sexo": "F",
+    "telefone": "+55 21 0432 8986",
+    "endereco": "Feira Ana Julia Campos, 4, Nova Gameleira, 11798-089 Silva / BA",
+    "comorbidades": [
+      "Asma",
+      "Episódio depressivo"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "budesonida 200mcg 2x/dia",
+      "sertralina 50mg 1x/dia",
+      "fluoxetina 20mg 1x/dia"
+    ]
+  },
+  {
+    "id": "cdea0c45-46ad-4357-944b-987567f23d26",
+    "nome": "Paulo Abreu",
+    "cpf": "953.471.026-16",
+    "data_nascimento": "1963-05-05",
+    "sexo": "M",
+    "telefone": "+55 (084) 8888 8067",
+    "endereco": "Núcleo Thiago Souza, 6, Vila Suzana Primeira Seção, 53195205 Ramos da Serra / TO",
+    "comorbidades": [
+      "Hipertensão essencial (primária)"
+    ],
+    "alergias": [
+      "ibuprofeno"
+    ],
+    "medicamentos_uso": [
+      "enalapril 10mg 2x/dia"
+    ]
+  },
+  {
+    "id": "f548c8fe-14df-4548-969d-c1a885ed02b2",
+    "nome": "Dr. Rhavi Pires",
+    "cpf": "291.530.846-24",
+    "data_nascimento": "1990-12-12",
+    "sexo": "M",
+    "telefone": "+55 (081) 0548-6874",
+    "endereco": "Estrada de da Paz, 60, Independência, 56676527 Freitas de Moreira / GO",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2",
+      "Hipotireoidismo"
+    ],
+    "alergias": [
+      "diclofenaco"
+    ],
+    "medicamentos_uso": [
+      "empagliflozina 25mg 1x/dia",
+      "metformina 850mg 2x/dia",
+      "levotiroxina 75mcg 1x/dia em jejum"
+    ]
+  },
+  {
+    "id": "74a3b411-d552-442d-9228-03649ba69b15",
+    "nome": "Otávio Barros",
+    "cpf": "624.805.931-42",
+    "data_nascimento": "1941-08-17",
+    "sexo": "M",
+    "telefone": "(041) 7962 7570",
+    "endereco": "Ladeira Danilo Barbosa, 95, Vista Alegre, 02970213 Fonseca das Flores / RJ",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Diabetes mellitus tipo 2",
+      "Obesidade"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "hidroclorotiazida 25mg 1x/dia",
+      "losartana 50mg 1x/dia",
+      "sitagliptina 100mg 1x/dia",
+      "empagliflozina 25mg 1x/dia",
+      "liraglutida 3mg 1x/dia SC",
+      "orlistate 120mg 3x/dia"
+    ]
+  },
+  {
+    "id": "d1e6d77f-c581-4b2a-a415-77c31641aeab",
+    "nome": "Daniela Rocha",
+    "cpf": "758.304.126-08",
+    "data_nascimento": "1971-10-01",
+    "sexo": "F",
+    "telefone": "61 5431 0278",
+    "endereco": "Jardim Vasconcelos, 47, Vila Aeroporto, 73121-727 Rodrigues / MT",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2",
+      "Hipotireoidismo"
+    ],
+    "alergias": [
+      "sulfa",
+      "contraste iodado"
+    ],
+    "medicamentos_uso": [
+      "glibenclamida 5mg 1x/dia",
+      "levotiroxina 100mcg 1x/dia em jejum",
+      "levotiroxina 75mcg 1x/dia em jejum"
+    ]
+  },
+  {
+    "id": "0b775d9a-d689-4690-a4ba-dc5cc956e2f1",
+    "nome": "Dr. Benício Novaes",
+    "cpf": "849.615.230-89",
+    "data_nascimento": "1969-01-28",
+    "sexo": "M",
+    "telefone": "+55 71 3237 0589",
+    "endereco": "Conjunto de Pimenta, 2, João Paulo Ii, 78669-125 Machado / PB",
+    "comorbidades": [
+      "Episódio depressivo"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "venlafaxina 75mg 1x/dia"
+    ]
+  },
+  {
+    "id": "bf06e9c6-33d3-4fcc-8a95-b1fc844c7b52",
+    "nome": "Dra. Manuella Cardoso",
+    "cpf": "829.340.576-74",
+    "data_nascimento": "1993-08-15",
+    "sexo": "F",
+    "telefone": "(031) 2253 5841",
+    "endereco": "Sítio de da Mota, 94, Buraco Quente, 99229959 Alves / AP",
+    "comorbidades": [
+      "Episódio depressivo",
+      "Transtorno de ansiedade generalizada"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "amitriptilina 25mg à noite",
+      "venlafaxina 75mg 1x/dia",
+      "escitalopram 10mg 1x/dia",
+      "clonazepam 0.5mg à noite (curto prazo)"
+    ]
+  },
+  {
+    "id": "f56be058-f85f-4340-83d2-1003f740d87c",
+    "nome": "Julia Rezende",
+    "cpf": "360.954.281-06",
+    "data_nascimento": "1980-03-20",
+    "sexo": "F",
+    "telefone": "(081) 3647-1027",
+    "endereco": "Favela Carolina Pereira, 65, Vila Paquetá, 62588-153 Campos de da Mata / PB",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2",
+      "Hipotireoidismo"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "metformina 850mg 2x/dia",
+      "levotiroxina 50mcg 1x/dia em jejum",
+      "levotiroxina 100mcg 1x/dia em jejum"
+    ]
+  },
+  {
+    "id": "40eed459-3fab-4e08-96c7-e0cae119e91d",
+    "nome": "Diego Brito",
+    "cpf": "046.783.195-57",
+    "data_nascimento": "1967-10-28",
+    "sexo": "M",
+    "telefone": "0500 532 7877",
+    "endereco": "Chácara Gonçalves, 473, Tres Marias, 00479-748 Caldeira / PA",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Obesidade"
+    ],
+    "alergias": [
+      "ibuprofeno",
+      "diclofenaco"
+    ],
+    "medicamentos_uso": [
+      "anlodipino 5mg 1x/dia",
+      "liraglutida 3mg 1x/dia SC",
+      "orlistate 120mg 3x/dia"
+    ]
+  },
+  {
+    "id": "2c79fd67-9a8c-4176-a11a-73f99f6ee3df",
+    "nome": "João Siqueira",
+    "cpf": "569.038.172-12",
+    "data_nascimento": "1964-04-13",
+    "sexo": "M",
+    "telefone": "+55 11 6878 4991",
+    "endereco": "Núcleo Camila Novais, Nova Suíça, 23986-800 Carvalho / RR",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "insulina NPH 10UI à noite"
+    ]
+  },
+  {
+    "id": "4df365d0-91b8-4cb4-b8a7-8c5035d228c4",
+    "nome": "Renan Moreira",
+    "cpf": "728.946.135-55",
+    "data_nascimento": "1972-10-03",
+    "sexo": "M",
+    "telefone": "0900 588 8794",
+    "endereco": "Núcleo Farias, 7, Tres Marias, 09749-930 Cavalcante de Moura / RS",
+    "comorbidades": [
+      "Transtorno de ansiedade generalizada"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "escitalopram 10mg 1x/dia",
+      "sertralina 50mg 1x/dia"
+    ]
+  },
+  {
+    "id": "ea1a773c-fb09-4e9c-a160-7b3f128c20dc",
+    "nome": "Dr. Diogo Rodrigues",
+    "cpf": "301.789.265-40",
+    "data_nascimento": "2005-12-23",
+    "sexo": "M",
+    "telefone": "81 3689 7028",
+    "endereco": "Viaduto Maria Liz Moura, 35, Pindorama, 85497-334 Câmara da Mata / SP",
+    "comorbidades": [
+      "Obesidade"
+    ],
+    "alergias": [
+      "latex"
+    ],
+    "medicamentos_uso": [
+      "liraglutida 3mg 1x/dia SC",
+      "orlistate 120mg 3x/dia"
+    ]
+  },
+  {
+    "id": "7aa4c4d3-592e-4111-832f-41d28996b42e",
+    "nome": "Gustavo Henrique Sales",
+    "cpf": "759.246.801-85",
+    "data_nascimento": "1947-09-08",
+    "sexo": "M",
+    "telefone": "61 5240 4157",
+    "endereco": "Favela Nathan Nascimento, 58, Cinquentenário, 99330833 Brito / PA",
+    "comorbidades": [
+      "Episódio depressivo"
+    ],
+    "alergias": [
+      "penicilina",
+      "amoxicilina",
+      "sulfa"
+    ],
+    "medicamentos_uso": [
+      "venlafaxina 75mg 1x/dia"
+    ]
+  },
+  {
+    "id": "58722885-541f-4813-8ef8-c9381996ca16",
+    "nome": "Ravy Brito",
+    "cpf": "209.356.478-56",
+    "data_nascimento": "1945-02-26",
+    "sexo": "M",
+    "telefone": "(011) 5401 9380",
+    "endereco": "Área Gonçalves, 52, Vila Paris, 04991547 Carvalho de Montenegro / PB",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Diabetes mellitus tipo 2"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "atenolol 50mg 1x/dia",
+      "enalapril 10mg 2x/dia",
+      "insulina NPH 10UI à noite",
+      "glibenclamida 5mg 1x/dia"
+    ]
+  },
+  {
+    "id": "a901a8bb-9180-436d-842f-31f047a53fae",
+    "nome": "Gael Camargo",
+    "cpf": "527.981.064-94",
+    "data_nascimento": "1970-04-08",
+    "sexo": "M",
+    "telefone": "(021) 9329 6685",
+    "endereco": "Colônia de Cirino, 67, Nova Granada, 04637454 da Luz / RS",
+    "comorbidades": [
+      "Hipertensão essencial (primária)"
+    ],
+    "alergias": [
+      "AAS",
+      "contraste iodado"
+    ],
+    "medicamentos_uso": [
+      "anlodipino 5mg 1x/dia",
+      "hidroclorotiazida 25mg 1x/dia"
+    ]
+  },
+  {
+    "id": "e9eff724-275b-4b67-955e-6456414c7ba1",
+    "nome": "Isaac Araújo",
+    "cpf": "174.938.250-41",
+    "data_nascimento": "1994-08-26",
+    "sexo": "M",
+    "telefone": "(021) 5933 2727",
+    "endereco": "Sítio de Melo, 233, São Gabriel, 85191-088 Oliveira / PI",
+    "comorbidades": [
+      "Episódio depressivo"
+    ],
+    "alergias": [
+      "dipirona",
+      "amoxicilina"
+    ],
+    "medicamentos_uso": [
+      "amitriptilina 25mg à noite"
+    ]
+  },
+  {
+    "id": "4fa3acac-4707-4c98-ba7c-b946e0d5607a",
+    "nome": "Enzo Duarte",
+    "cpf": "871.594.306-20",
+    "data_nascimento": "1944-11-24",
+    "sexo": "M",
+    "telefone": "+55 (081) 7286 7908",
+    "endereco": "Alameda Isabela da Cunha, 4, Tiradentes, 06518017 da Paz / PA",
+    "comorbidades": [
+      "Hipertensão essencial (primária)"
+    ],
+    "alergias": [
+      "sulfa"
+    ],
+    "medicamentos_uso": [
+      "hidroclorotiazida 25mg 1x/dia",
+      "losartana 50mg 1x/dia"
+    ]
+  },
+  {
+    "id": "412c6008-ea81-4cd8-bf58-8fb06ed9d05b",
+    "nome": "Catarina Vargas",
+    "cpf": "659.378.024-38",
+    "data_nascimento": "1979-08-13",
+    "sexo": "F",
+    "telefone": "(084) 1286 8230",
+    "endereco": "Viela Yasmin Lima, 463, Pindorama, 24310-690 Costela / AP",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Diabetes mellitus tipo 2"
+    ],
+    "alergias": [
+      "sulfa",
+      "AAS",
+      "contraste iodado"
+    ],
+    "medicamentos_uso": [
+      "anlodipino 5mg 1x/dia",
+      "atenolol 50mg 1x/dia",
+      "empagliflozina 25mg 1x/dia"
+    ]
+  },
+  {
+    "id": "6b3ad814-7ca6-4d83-b05e-4fff9cebeca8",
+    "nome": "Arthur Gabriel Machado",
+    "cpf": "903.587.462-56",
+    "data_nascimento": "1951-09-14",
+    "sexo": "M",
+    "telefone": "+55 (081) 2843 9599",
+    "endereco": "Distrito Raquel Câmara, 54, Beira Linha, 68705685 Jesus Grande / MA",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Episódio depressivo"
+    ],
+    "alergias": [
+      "AAS",
+      "penicilina"
+    ],
+    "medicamentos_uso": [
+      "losartana 50mg 1x/dia",
+      "enalapril 10mg 2x/dia",
+      "sertralina 50mg 1x/dia",
+      "escitalopram 10mg 1x/dia"
+    ]
+  },
+  {
+    "id": "5044792e-2a92-4c35-ac0d-f6b16c3dda2d",
+    "nome": "Francisco Sá",
+    "cpf": "873.612.590-30",
+    "data_nascimento": "1970-03-22",
+    "sexo": "M",
+    "telefone": "84 6688-2634",
+    "endereco": "Chácara de Machado, 91, Vila Nova Paraíso, 04699013 Mendes / DF",
+    "comorbidades": [
+      "Hipertensão essencial (primária)"
+    ],
+    "alergias": [
+      "sulfa"
+    ],
+    "medicamentos_uso": [
+      "anlodipino 5mg 1x/dia",
+      "hidroclorotiazida 25mg 1x/dia"
+    ]
+  },
+  {
+    "id": "22e354a9-76eb-48ff-a876-7e192320928c",
+    "nome": "Kevin Albuquerque",
+    "cpf": "391.587.460-48",
+    "data_nascimento": "1960-07-10",
+    "sexo": "M",
+    "telefone": "81 5467-8544",
+    "endereco": "Quadra Gael Henrique Silveira, 45, Mariquinhas, 60932-048 da Rocha Grande / DF",
+    "comorbidades": [
+      "Obesidade"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "orlistate 120mg 3x/dia",
+      "liraglutida 3mg 1x/dia SC"
+    ]
+  },
+  {
+    "id": "756776ed-4095-4bf8-bcc4-ee7163c97b52",
+    "nome": "Ian Garcia",
+    "cpf": "937.452.618-28",
+    "data_nascimento": "1940-08-02",
+    "sexo": "M",
+    "telefone": "(051) 2522-8728",
+    "endereco": "Campo Rios, 1, Nova Cintra, 31203875 Pinto / RS",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Diabetes mellitus tipo 2",
+      "Doença pulmonar obstrutiva crônica"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "atenolol 50mg 1x/dia",
+      "glibenclamida 5mg 1x/dia",
+      "salbutamol spray 100mcg SOS",
+      "formoterol 12mcg 2x/dia"
+    ]
+  },
+  {
+    "id": "f3ecb0f6-671d-4de6-a6ad-2628ee10faf9",
+    "nome": "Dr. Ryan Almeida",
+    "cpf": "086.974.231-04",
+    "data_nascimento": "1992-01-03",
+    "sexo": "M",
+    "telefone": "+55 (031) 8621 1823",
+    "endereco": "Jardim de Fogaça, 26, Milionario, 79334-101 Garcia das Flores / PI",
+    "comorbidades": [
+      "Episódio depressivo"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "amitriptilina 25mg à noite"
+    ]
+  },
+  {
+    "id": "35dc65d7-9bb2-4c36-bc24-06672e54da12",
+    "nome": "Ana Laura Porto",
+    "cpf": "021.368.945-60",
+    "data_nascimento": "2000-08-04",
+    "sexo": "F",
+    "telefone": "+55 31 3974-0148",
+    "endereco": "Alameda Oliver Pastor, 26, Jardim São José, 93968562 Montenegro / SC",
+    "comorbidades": [
+      "Asma"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "budesonida 200mcg 2x/dia",
+      "formoterol + budesonida 12/400mcg 2x/dia"
+    ]
+  },
+  {
+    "id": "94e36133-b6be-4e2f-8038-94e504f8c7ba",
+    "nome": "Benjamim Brito",
+    "cpf": "631.245.870-90",
+    "data_nascimento": "1946-06-28",
+    "sexo": "M",
+    "telefone": "+55 81 7735-8662",
+    "endereco": "Lago de da Cruz, Vila Nova Cachoeirinha 3ª Seção, 14262655 Borges / AC",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Asma"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "anlodipino 5mg 1x/dia",
+      "salbutamol spray 100mcg SOS"
+    ]
+  },
+  {
+    "id": "a96af180-b4e1-4924-9a09-18daad44d786",
+    "nome": "Pedro Miguel Fonseca",
+    "cpf": "412.083.975-32",
+    "data_nascimento": "1964-03-17",
+    "sexo": "M",
+    "telefone": "+55 51 0158 1995",
+    "endereco": "Pátio Hellena Vasconcelos, Bonfim, 98262244 Monteiro Grande / AP",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Obesidade"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "hidroclorotiazida 25mg 1x/dia",
+      "orlistate 120mg 3x/dia",
+      "liraglutida 3mg 1x/dia SC"
+    ]
+  },
+  {
+    "id": "52a428e1-767e-4e72-8129-a16b63710fc7",
+    "nome": "Maya da Mota",
+    "cpf": "647.902.851-11",
+    "data_nascimento": "1973-01-25",
+    "sexo": "F",
+    "telefone": "0300-937-1240",
+    "endereco": "Parque de Farias, 75, Outro, 45937526 da Rocha do Amparo / RJ",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Hipotireoidismo"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "enalapril 10mg 2x/dia",
+      "losartana 50mg 1x/dia",
+      "levotiroxina 100mcg 1x/dia em jejum",
+      "levotiroxina 50mcg 1x/dia em jejum"
+    ]
+  },
+  {
+    "id": "8053705b-6fa8-46c6-979c-7c6de9c17000",
+    "nome": "Luan Garcia",
+    "cpf": "465.091.728-01",
+    "data_nascimento": "1941-08-18",
+    "sexo": "M",
+    "telefone": "(061) 3741-6724",
+    "endereco": "Distrito de Silva, 26, Parque São Pedro, 96886-805 Caldeira / SP",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "insulina NPH 10UI à noite",
+      "sitagliptina 100mg 1x/dia"
+    ]
+  },
+  {
+    "id": "691fc563-bddb-4859-83a5-5d3a704ece4d",
+    "nome": "Maria Cavalcante",
+    "cpf": "906.723.845-74",
+    "data_nascimento": "1985-08-04",
+    "sexo": "F",
+    "telefone": "+55 71 3888-9937",
+    "endereco": "Viela Melissa Cassiano, 80, Califórnia, 61125-457 Moreira / PR",
+    "comorbidades": [
+      "Hipotireoidismo"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "levotiroxina 50mcg 1x/dia em jejum",
+      "levotiroxina 100mcg 1x/dia em jejum"
+    ]
+  },
+  {
+    "id": "acba471e-c195-4acc-b2f6-09a75c0b5a96",
+    "nome": "Renan Brito",
+    "cpf": "795.026.431-43",
+    "data_nascimento": "1942-09-24",
+    "sexo": "M",
+    "telefone": "+55 51 2382 8258",
+    "endereco": "Passarela Pires, 72, Morro Dos Macacos, 93796603 da Mota / SP",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Hipotireoidismo"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "hidroclorotiazida 25mg 1x/dia",
+      "anlodipino 5mg 1x/dia",
+      "levotiroxina 75mcg 1x/dia em jejum"
+    ]
+  },
+  {
+    "id": "9f2d5f27-e1e6-4070-a9c2-69c678996e80",
+    "nome": "Srta. Bella Nascimento",
+    "cpf": "258.130.976-86",
+    "data_nascimento": "1941-05-21",
+    "sexo": "F",
+    "telefone": "51 5969 6915",
+    "endereco": "Vale Luiz Felipe Rocha, 29, Vila Independencia 1ª Seção, 51341252 Leão Grande / RJ",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Diabetes mellitus tipo 2"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "enalapril 10mg 2x/dia",
+      "losartana 50mg 1x/dia",
+      "empagliflozina 25mg 1x/dia",
+      "metformina 850mg 2x/dia"
+    ]
+  },
+  {
+    "id": "e1a49b4e-b97c-45a4-b4d8-2ae85fdf8f78",
+    "nome": "Otávio Cirino",
+    "cpf": "782.413.906-96",
+    "data_nascimento": "1969-04-08",
+    "sexo": "M",
+    "telefone": "(051) 7905 0723",
+    "endereco": "Via de Monteiro, 77, Vila Nova Cachoeirinha 1ª Seção, 72190-340 Câmara da Prata / MA",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Diabetes mellitus tipo 2",
+      "Episódio depressivo"
+    ],
+    "alergias": [
+      "AAS"
+    ],
+    "medicamentos_uso": [
+      "losartana 50mg 1x/dia",
+      "empagliflozina 25mg 1x/dia",
+      "glibenclamida 5mg 1x/dia",
+      "venlafaxina 75mg 1x/dia"
+    ]
+  },
+  {
+    "id": "7ef2af4e-dd93-49f4-9588-5773deed4573",
+    "nome": "Natália Nunes",
+    "cpf": "781.402.635-08",
+    "data_nascimento": "1949-09-20",
+    "sexo": "F",
+    "telefone": "(031) 8361-3407",
+    "endereco": "Praia Campos, 63, Belvedere, 29233-095 Peixoto da Prata / CE",
+    "comorbidades": [
+      "Hipertensão essencial (primária)",
+      "Asma",
+      "Episódio depressivo"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "anlodipino 5mg 1x/dia",
+      "losartana 50mg 1x/dia",
+      "salbutamol spray 100mcg SOS",
+      "budesonida 200mcg 2x/dia",
+      "amitriptilina 25mg à noite"
+    ]
+  },
+  {
+    "id": "a4ecad9b-f616-41a1-b717-40029d596450",
+    "nome": "João Vitor da Rocha",
+    "cpf": "941.730.258-23",
+    "data_nascimento": "1975-08-03",
+    "sexo": "M",
+    "telefone": "+55 81 3253 6729",
+    "endereco": "Parque Marcela Barbosa, 7, São Benedito, 57759-017 Azevedo da Prata / MG",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2"
+    ],
+    "alergias": [
+      "latex"
+    ],
+    "medicamentos_uso": [
+      "insulina NPH 10UI à noite"
+    ]
+  },
+  {
+    "id": "f85c3387-3d86-4e23-9fae-4f5499c1f23c",
+    "nome": "Mariane Cunha",
+    "cpf": "745.629.183-73",
+    "data_nascimento": "1940-04-26",
+    "sexo": "F",
+    "telefone": "(081) 0017 0127",
+    "endereco": "Estrada João Rezende, Jardim Vitoria, 41541520 Pires da Mata / SC",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2",
+      "Episódio depressivo"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "empagliflozina 25mg 1x/dia",
+      "insulina NPH 10UI à noite",
+      "escitalopram 10mg 1x/dia",
+      "fluoxetina 20mg 1x/dia"
+    ]
+  },
+  {
+    "id": "8140d9fe-d99d-42c0-9003-689f73d6575a",
+    "nome": "Srta. Mariane Rezende",
+    "cpf": "190.837.624-40",
+    "data_nascimento": "1961-10-28",
+    "sexo": "F",
+    "telefone": "41 7005-1627",
+    "endereco": "Chácara Gustavo Caldeira, 55, Cinquentenário, 22189-092 Ferreira de Silveira / DF",
+    "comorbidades": [
+      "Asma",
+      "Doença pulmonar obstrutiva crônica"
+    ],
+    "alergias": [
+      "diclofenaco",
+      "AAS"
+    ],
+    "medicamentos_uso": [
+      "montelucaste 10mg 1x/dia",
+      "tiotrópio 18mcg 1x/dia",
+      "salbutamol spray 100mcg SOS"
+    ]
+  },
+  {
+    "id": "21d44ece-9752-432d-8a10-435d75e4f4e3",
+    "nome": "Dra. Clarice Jesus",
+    "cpf": "973.061.524-16",
+    "data_nascimento": "1969-12-28",
+    "sexo": "F",
+    "telefone": "(084) 6523 4138",
+    "endereco": "Alameda de Ribeiro, 93, Venda Nova, 64037613 Porto de Peixoto / AP",
+    "comorbidades": [
+      "Obesidade",
+      "Insuficiência cardíaca"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "orlistate 120mg 3x/dia",
+      "liraglutida 3mg 1x/dia SC",
+      "furosemida 40mg 1x/dia",
+      "espironolactona 25mg 1x/dia"
+    ]
+  },
+  {
+    "id": "5489c506-9175-49dd-8069-71368094d523",
+    "nome": "Alice Fonseca",
+    "cpf": "526.743.890-10",
+    "data_nascimento": "1963-04-28",
+    "sexo": "F",
+    "telefone": "(071) 1091-0430",
+    "endereco": "Rodovia Allana Pires, 766, Bom Jesus, 41418328 Gonçalves Verde / RS",
+    "comorbidades": [
+      "Diabetes mellitus tipo 2",
+      "Asma"
+    ],
+    "alergias": [
+      "contraste iodado"
+    ],
+    "medicamentos_uso": [
+      "metformina 850mg 2x/dia",
+      "glibenclamida 5mg 1x/dia",
+      "formoterol + budesonida 12/400mcg 2x/dia",
+      "montelucaste 10mg 1x/dia"
+    ]
+  },
+  {
+    "id": "a936257a-52ef-46a2-ad4d-75365e18b913",
+    "nome": "Dra. Ana Luiza das Neves",
+    "cpf": "630.178.594-01",
+    "data_nascimento": "1958-02-03",
+    "sexo": "F",
+    "telefone": "(041) 2102 0275",
+    "endereco": "Conjunto Vitor Gabriel Siqueira, 1, Madre Gertrudes, 48149-177 Araújo do Amparo / RJ",
+    "comorbidades": [
+      "Hipertensão essencial (primária)"
+    ],
+    "alergias": [],
+    "medicamentos_uso": [
+      "atenolol 50mg 1x/dia",
+      "anlodipino 5mg 1x/dia"
+    ]
+  }
+]

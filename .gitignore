@@ -231,3 +231,29 @@ data/processed/*
 # Evaluation results (generated)
 data/evaluation/*
 !data/evaluation/.gitkeep
+
+# LaTeX auxiliary files
+docs/*.aux
+docs/*.log
+docs/*.out
+docs/*.toc
+docs/*.lof
+docs/*.lot
+docs/*.acn
+docs/*.acr
+docs/*.alg
+docs/*.glg
+docs/*.glo
+docs/*.gls
+docs/*.ist
+docs/*.lol
+docs/*.bcf
+docs/*.run.xml
+docs/*.bbl
+docs/*.blg
+docs/*.pdf
+docs/chapters/*.aux
+docs/lib/*.aux
+
+# Misc
+instalados.txt

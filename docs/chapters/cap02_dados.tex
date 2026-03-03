@@ -254,11 +254,15 @@ O script \texttt{02\_setup\_postgres.py} automatiza todo o processo:
 
 \section{Dataset MedQuAD}
 
-O \textbf{MedQuAD} (\textit{Medical Question Answering Dataset}) é o dataset utilizado para o fine-tuning do modelo Mistral 7B. Criado pelo National Institutes of Health (NIH) dos Estados Unidos, o MedQuAD reúne pares de perguntas e respostas médicas extraídas de fontes confiáveis do governo americano.
+O \textbf{MedQuAD} (\textit{Medical Question Answering Dataset}) é o dataset base utilizado para o fine-tuning do modelo Mistral 7B. Criado pelo National Institutes of Health (NIH) dos Estados Unidos, o MedQuAD reúne pares de perguntas e respostas médicas extraídas de fontes confiáveis do governo americano.
 
-\subsection{Escolha da Versão}
+\subsection{Escolha da Versão e Limitações de Copyright}
 
-Existem múltiplas versões do MedQuAD disponíveis no HuggingFace. Após análise comparativa, optou-se pela versão \texttt{lavita/MedQuAD}, a mais completa:
+Existem múltiplas versões do MedQuAD disponíveis no HuggingFace. Optou-se pela versão \texttt{lavita/MedQuAD}, que possui os metadados mais completos. No entanto, uma \textbf{limitação importante} foi descoberta durante a implementação:
+
+\begin{warningbox}[Remoção de Respostas por Copyright]
+O dataset \texttt{lavita/MedQuAD} contém 47.441 registros, porém \textbf{aproximadamente 65\% (31.034 registros) possuem o campo \texttt{answer=None}}. Isso ocorreu porque as instituições originais (NIH, NCI, etc.) solicitaram a remoção das respostas por questões de copyright, mantendo apenas as perguntas. O dataset utilizável contém \textbf{aproximadamente 16.400 pares QA completos}.
+\end{warningbox}
 
 \begin{table}[H]
 \centering
@@ -267,11 +271,11 @@ Existem múltiplas versões do MedQuAD disponíveis no HuggingFace. Após análi
 \rowcolors{2}{fiap-light}{white}
 \begin{tabularx}{\textwidth}{l c c X}
 \toprule
-\textbf{Dataset} & \textbf{Pares QA} & \textbf{Metadados} & \textbf{Observações} \\
+\textbf{Dataset} & \textbf{Registros} & \textbf{Com Resposta} & \textbf{Observações} \\
 \midrule
-\texttt{lavita/MedQuAD} & \textbf{47.400} & UMLS, fontes, sinônimos & Versão mais completa \\
-\texttt{keivalya/MedQuad-...} & 16.400 & Apenas tipo de questão & Versão simplificada \\
-\texttt{Tonic/medquad} & 15.549 & Nenhum & Pré-formatado Alpaca \\
+\texttt{lavita/MedQuAD} & 47.441 & \textbf{$\sim$16.400} & Metadados ricos, 65\% sem resposta \\
+\texttt{keivalya/MedQuad-...} & 16.400 & 16.400 & Versão já filtrada \\
+\texttt{Tonic/medquad} & 15.549 & 15.549 & Pré-formatado Alpaca \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -280,34 +284,83 @@ Existem múltiplas versões do MedQuAD disponíveis no HuggingFace. Após análi
 
 \begin{table}[H]
 \centering
-\caption{Resumo do dataset MedQuAD (versão lavita).}
+\caption{Resumo do dataset MedQuAD (versão lavita, registros válidos).}
 \label{tab:medquad}
 \rowcolors{2}{fiap-light}{white}
 \begin{tabularx}{\textwidth}{l X}
 \toprule
 \textbf{Característica} & \textbf{Descrição} \\
 \midrule
-Tamanho           & \textbf{47.400} pares pergunta-resposta \\
+Tamanho original  & 47.441 registros (65\% com \texttt{answer=None}) \\
+Tamanho útil      & \textbf{$\sim$16.400} pares pergunta-resposta completos \\
 Idioma original   & Inglês \\
 Fontes            & 8 institutos NIH: NCI, GHR, MedlinePlus, NIDDK, NINDS, NIHSeniorHealth, NHLBI, CDC \\
 Metadados         & Códigos UMLS, tipos semânticos, sinônimos, URLs das fontes \\
 Domínios          & Doenças, tratamentos, medicamentos, prevenção, diagnósticos \\
 Qualidade         & Alta --- respostas baseadas em fontes governamentais revisadas \\
 Licença           & Creative Commons BY 4.0 \\
-Disponibilidade   & HuggingFace: \texttt{lavita/MedQuAD} \\
 \bottomrule
 \end{tabularx}
 \end{table}
+
+\subsection{Abordagem Híbrida de Treinamento}
+
+Com base em pesquisa sobre fine-tuning multilíngue, adotamos uma \textbf{abordagem híbrida} para composição do dataset final, combinando três fontes:
+
+\begin{enumerate}
+    \item \textbf{MedQuAD traduzido (80\%):} Pares QA traduzidos para português via Google Translate;
+    \item \textbf{MedQuAD original em inglês (20\%):} Amostra dos dados originais para preservar a qualidade médica e a capacidade multilíngue do modelo;
+    \item \textbf{QA de medicina brasileira:} Perguntas e respostas nativas em português sobre temas específicos do Brasil.
+\end{enumerate}
+
+\begin{infobox}[Fundamentação da Abordagem Híbrida]
+Pesquisas recentes (2024-2025) demonstram que fine-tuning exclusivamente com dados traduzidos pode introduzir ruído e perder nuances do conhecimento médico original. A inclusão de 20\% de dados em inglês, combinada com dados nativos em português, mitiga esses problemas e preserva a capacidade multilíngue do Mistral 7B.
+\end{infobox}
+
+\subsection{QA de Medicina Brasileira}
+
+Para cobrir conhecimento médico específico do Brasil --- ausente no MedQuAD americano ---, desenvolvemos um conjunto de \textbf{55 pares QA} sobre temas brasileiros:
+
+\begin{table}[H]
+\centering
+\caption{Categorias de QA de medicina brasileira.}
+\label{tab:qa-brasileiro}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabularx}{\textwidth}{l c X}
+\toprule
+\textbf{Categoria} & \textbf{QA} & \textbf{Exemplos de Tópicos} \\
+\midrule
+Arboviroses & 6 & Dengue, Zika, Chikungunya, diagnóstico diferencial \\
+Malária & 5 & Regiões endêmicas, P. vivax vs P. falciparum, tratamento \\
+Doença de Chagas & 4 & Transmissão oral (açaí), benznidazol, cardiopatia \\
+Leishmaniose & 3 & Tegumentar vs visceral, antimoniato de meglumina \\
+Febre Amarela & 2 & Vacinação, áreas de recomendação \\
+Acidentes com animais & 7 & Jararaca, cascavel, aranha-marrom, escorpião \\
+SUS e navegação & 5 & UBS, CAPS, referência/contrarreferência, alto custo \\
+Medicamentos Brasil & 4 & Dipirona, RENAME, Farmácia Popular \\
+Vacinação PNI & 3 & Calendário infantil, febre amarela, dengue \\
+Pré-natal SUS & 3 & Consultas, exames obrigatórios, diabetes gestacional \\
+Saúde Mental & 2 & RAPS, tipos de CAPS, manejo de crise \\
+\midrule
+\textbf{Total} & \textbf{55} & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Estes QA foram elaborados com base em fontes oficiais: Ministério da Saúde, Protocolos Clínicos e Diretrizes Terapêuticas (PCDT), RENAME 2024 e diretrizes do PNI.
 
 \subsection{Pipeline de Preparação}
 
 O \texttt{scripts/03\_preparar\_dataset.py} executa o seguinte pipeline:
 
 \begin{enumerate}
-    \item \textbf{Download:} Baixa o dataset \texttt{lavita/MedQuAD} do HuggingFace via biblioteca \texttt{datasets};
-    \item \textbf{Tradução:} Traduz perguntas e respostas para português brasileiro utilizando a biblioteca \texttt{deep-translator} (Google Translate gratuito);
-    \item \textbf{Checkpoints:} Salva o progresso a cada 1.000 registros traduzidos, permitindo retomar em caso de interrupção;
-    \item \textbf{Formatação Alpaca:} Converte para o formato JSONL esperado pelo fine-tuning.
+    \item \textbf{Download:} Baixa o dataset \texttt{lavita/MedQuAD} do HuggingFace;
+    \item \textbf{Filtragem:} Remove registros com \texttt{answer=None} ($\sim$65\% do total);
+    \item \textbf{Tradução:} Traduz perguntas e respostas para português (com checkpoints a cada 1.000 registros);
+    \item \textbf{Amostragem EN:} Seleciona 20\% do MedQuAD original em inglês;
+    \item \textbf{QA Brasileiro:} Carrega os 55 pares de medicina brasileira;
+    \item \textbf{Composição:} Combina as três fontes e embaralha;
+    \item \textbf{Formatação Alpaca:} Salva no formato JSONL.
 \end{enumerate}
 
 O formato Alpaca utilizado segue a estrutura padrão para instruction tuning:
@@ -321,8 +374,26 @@ O formato Alpaca utilizado segue a estrutura padrão para instruction tuning:
 }
 \end{lstlisting}
 
-O arquivo de saída (\texttt{data/processed/training\_data.jsonl}) contém aproximadamente 47.400 registros traduzidos, totalizando cerca de 100--200~MB.
+\subsection{Composição Final do Dataset}
 
-\begin{infobox}[Por que a versão lavita/MedQuAD?]
-A versão \texttt{lavita/MedQuAD} foi escolhida por oferecer: (1)~\textbf{maior volume} --- 47.400 pares, quase 3x mais que alternativas; (2)~\textbf{metadados ricos} --- códigos UMLS, tipos semânticos e sinônimos úteis para RAG; (3)~\textbf{fontes documentadas} --- 8 institutos do NIH com cobertura ampla de especialidades médicas; (4)~\textbf{licença clara} --- CC BY 4.0, permitindo uso acadêmico e comercial.
+\begin{table}[H]
+\centering
+\caption{Composição do dataset final de treinamento.}
+\label{tab:composicao-dataset}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabular}{l r r l}
+\toprule
+\textbf{Fonte} & \textbf{Registros} & \textbf{Proporção} & \textbf{Arquivo} \\
+\midrule
+MedQuAD traduzido (PT) & $\sim$16.400 & 78\% & \texttt{medquad\_pt.jsonl} \\
+MedQuAD original (EN) & $\sim$4.100 & 20\% & \texttt{medquad\_en\_sample.jsonl} \\
+QA Brasileiro & 55 & 2\% & \texttt{brazilian\_medical\_qa.jsonl} \\
+\midrule
+\textbf{Total} & \textbf{$\sim$20.500} & 100\% & \texttt{training\_data.jsonl} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{infobox}[Arquivos Versionados]
+Os arquivos de dataset processado (\texttt{medquad\_pt.jsonl}, \texttt{medquad\_en\_sample.jsonl}, \texttt{brazilian\_medical\_qa.jsonl} e \texttt{training\_data.jsonl}) são versionados no repositório Git. Isso permite reproduzir o treinamento sem necessidade de re-executar a tradução, que leva várias horas.
 \end{infobox}

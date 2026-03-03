@@ -48,32 +48,35 @@ O Mistral 7B apresenta características técnicas que o tornam ideal para este p
 \end{itemize}
 
 % ============================================================================
-\section{Dataset: MedQuAD}
+\section{Dataset: MedQuAD e Abordagem Híbrida}
 \label{sec:dataset-medquad}
 
 \subsection{Escolha do Dataset}
 
-Para o fine-tuning, utilizamos o \textbf{MedQuAD} (Medical Question Answering Dataset), um dataset de perguntas e respostas médicas criado pelo National Institutes of Health (NIH) dos Estados Unidos.
+Para o fine-tuning, utilizamos o \textbf{MedQuAD} (Medical Question Answering Dataset), um dataset de perguntas e respostas médicas criado pelo National Institutes of Health (NIH) dos Estados Unidos, combinado com uma abordagem híbrida que inclui dados em inglês e conhecimento médico brasileiro.
 
 \begin{table}[H]
 \centering
 \caption{Comparação de versões do MedQuAD disponíveis}
-\label{tab:versoes-medquad}
+\label{tab:versoes-medquad-ft}
 \begin{tabular}{lccc}
 \toprule
-\textbf{Dataset (HuggingFace)} & \textbf{Pares QA} & \textbf{Metadados} & \textbf{Escolhido} \\
+\textbf{Dataset (HuggingFace)} & \textbf{Registros} & \textbf{Com Resposta} & \textbf{Escolhido} \\
 \midrule
-\texttt{lavita/MedQuAD} & 47.400 & UMLS, fontes, sinônimos & \checkmark \\
-\texttt{keivalya/MedQuad-MedicalQnADataset} & 16.400 & Apenas tipo de questão & \\
-\texttt{Tonic/medquad} & 15.549 & Nenhum & \\
+\texttt{lavita/MedQuAD} & 47.441 & $\sim$16.400 & \checkmark \\
+\texttt{keivalya/MedQuad-...} & 16.400 & 16.400 & \\
+\texttt{Tonic/medquad} & 15.549 & 15.549 & \\
 \bottomrule
 \end{tabular}
 \end{table}
 
+\begin{warningbox}[Limitação do Dataset]
+O dataset \texttt{lavita/MedQuAD} possui 47.441 registros, porém \textbf{$\sim$65\% (31.034 registros) têm \texttt{answer=None}} devido a remoções por copyright solicitadas pelas instituições originais. O dataset utilizável contém aproximadamente \textbf{16.400 pares QA completos}.
+\end{warningbox}
+
 Optamos pela versão \texttt{lavita/MedQuAD} por oferecer:
 
 \begin{itemize}
-    \item \textbf{Maior volume}: 47.400 pares QA (quase 3x mais que alternativas)
     \item \textbf{Metadados ricos}: códigos UMLS, tipos semânticos, sinônimos
     \item \textbf{Fontes documentadas}: NCI, GHR, MedlinePlus, NIDDK, NINDS, NIHSeniorHealth, NHLBI, CDC
     \item \textbf{Licença clara}: Creative Commons BY 4.0
@@ -81,7 +84,7 @@ Optamos pela versão \texttt{lavita/MedQuAD} por oferecer:
 
 \subsection{Fontes do MedQuAD}
 
-O dataset original do MedQuAD compila informações de 12 fontes do NIH, cobrindo diversas especialidades médicas:
+O dataset original do MedQuAD compila informações de 8 fontes do NIH, cobrindo diversas especialidades médicas:
 
 \begin{table}[H]
 \centering
@@ -89,21 +92,36 @@ O dataset original do MedQuAD compila informações de 12 fontes do NIH, cobrind
 \label{tab:fontes-medquad}
 \begin{tabular}{llc}
 \toprule
-\textbf{Fonte} & \textbf{Cobertura} & \textbf{Pares QA} \\
+\textbf{Fonte} & \textbf{Cobertura} & \textbf{Pares QA (úteis)} \\
 \midrule
-National Cancer Institute (NCI) & Oncologia & 729 \\
-Genetics Home Reference (GHR) & Genética & 5.430 \\
-MedlinePlus Health Topics & Saúde geral & 981 \\
-NIDDK & Diabetes, digestivo, renal & 1.192 \\
-NINDS & Neurologia & 1.104 \\
-NIHSeniorHealth & Geriatria & 769 \\
-NHLBI & Cardiologia, pneumologia & 559 \\
-CDC & Doenças infecciosas & 270 \\
+National Cancer Institute (NCI) & Oncologia & $\sim$250 \\
+Genetics Home Reference (GHR) & Genética & $\sim$5.400 \\
+MedlinePlus Health Topics & Saúde geral & $\sim$980 \\
+NIDDK & Diabetes, digestivo, renal & $\sim$1.100 \\
+NINDS & Neurologia & $\sim$1.100 \\
+NIHSeniorHealth & Geriatria & $\sim$750 \\
+NHLBI & Cardiologia, pneumologia & $\sim$550 \\
+CDC & Doenças infecciosas & $\sim$270 \\
 \midrule
-\textbf{Total (versão filtrada)} & & \textbf{47.400} \\
+\textbf{Total (com resposta)} & & \textbf{$\sim$16.400} \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\subsection{Abordagem Híbrida: PT + EN + Brasileiro}
+\label{subsec:abordagem-hibrida}
+
+Com base em pesquisa sobre fine-tuning multilíngue, adotamos uma abordagem híbrida que combina três fontes de dados para maximizar a qualidade do modelo:
+
+\begin{enumerate}
+    \item \textbf{MedQuAD traduzido (78\%):} $\sim$16.400 pares traduzidos para português
+    \item \textbf{MedQuAD original em inglês (20\%):} $\sim$4.100 pares preservados no idioma original
+    \item \textbf{QA de medicina brasileira (2\%):} 55 pares sobre doenças endêmicas, SUS, medicamentos brasileiros
+\end{enumerate}
+
+\begin{infobox}[Fundamentação da Abordagem Híbrida]
+Estudos recentes demonstram que: (1) dados traduzidos automaticamente introduzem ruído que o modelo aprende a imitar; (2) fine-tuning exclusivo em um idioma pode degradar capacidades multilíngues; (3) apenas 40 exemplos multilíngues preservam capacidades cross-lingual. Nossa proporção de 20\% em inglês mitiga esses problemas.
+\end{infobox}
 
 \subsection{Tradução para Português}
 \label{subsec:traducao}
@@ -135,7 +153,7 @@ def translate_to_portuguese(text: str) -> str:
 
 \subsubsection{Sistema de Checkpoints}
 
-Dado o volume do dataset (47.400 registros), implementamos um sistema de checkpoints que salva o progresso a cada 1.000 traduções. Isso permite:
+Dado o volume do dataset ($\sim$16.400 registros úteis), implementamos um sistema de checkpoints que salva o progresso a cada 1.000 traduções. Isso permite:
 
 \begin{itemize}
     \item Retomar o processo em caso de interrupção
@@ -147,6 +165,10 @@ Dado o volume do dataset (47.400 registros), implementamos um sistema de checkpo
 CHECKPOINT_INTERVAL = 1000
 
 for i, row in enumerate(dataset):
+    # Pular registros sem resposta (copyright)
+    if row['answer'] is None:
+        continue
+
     # Traduzir pergunta e resposta
     translated_question = translate_to_portuguese(row['question'])
     translated_answer = translate_to_portuguese(row['answer'])
@@ -361,7 +383,7 @@ Checkpoints & 500 steps & Recuperação de sessão \\
 \subsection{Sistema de Checkpoints para Colab Free}
 \label{subsec:checkpoints}
 
-Uma limitação crítica do Google Colab Free é o limite de sessão de aproximadamente 12 horas. Para um treino de 5 epochs com 47.400 registros, o tempo total estimado é de 20-30 horas, exigindo múltiplas sessões.
+Uma limitação crítica do Google Colab Free é o limite de sessão de aproximadamente 12 horas. Para um treino de 5 epochs com $\sim$20.500 registros (dataset híbrido), o tempo total estimado é de 10-15 horas, exigindo múltiplas sessões.
 
 \begin{warningbox}[Estratégia de Múltiplas Sessões]
 O treino completo requer 3-4 sessões do Colab. Checkpoints são salvos a cada 500 steps (~30-40 minutos) no Google Drive, permitindo retomar o treino de onde parou.
@@ -433,9 +455,9 @@ else:
 \toprule
 \textbf{Dataset} & \textbf{Epochs} & \textbf{Tempo Estimado} & \textbf{Sessões Colab} \\
 \midrule
-47.400 pares & 1 & 4-6 horas & 1 \\
-47.400 pares & 3 & 12-18 horas & 2-3 \\
-\textbf{47.400 pares} & \textbf{5} & \textbf{20-30 horas} & \textbf{3-4} \\
+$\sim$20.500 pares (híbrido) & 1 & 2-3 horas & 1 \\
+$\sim$20.500 pares (híbrido) & 3 & 6-9 horas & 1-2 \\
+\textbf{$\sim$20.500 pares (híbrido)} & \textbf{5} & \textbf{10-15 horas} & \textbf{2} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -591,9 +613,14 @@ Este capítulo apresentou o processo completo de fine-tuning do modelo Mistral 7
 
 \begin{enumerate}
     \item \textbf{Modelo Base}: Mistral 7B Instruct v0.3, escolhido por ser generalista (permite demonstrar delta)
-    \item \textbf{Dataset}: MedQuAD com 47.400 pares QA, traduzido para português via \texttt{deep-translator}
+    \item \textbf{Dataset Híbrido}: $\sim$20.500 pares QA compostos por:
+    \begin{itemize}
+        \item 78\% MedQuAD traduzido para português ($\sim$16.400 pares)
+        \item 20\% MedQuAD original em inglês ($\sim$4.100 pares)
+        \item 2\% QA de medicina brasileira (55 pares sobre dengue, Chagas, SUS, etc.)
+    \end{itemize}
     \item \textbf{Técnica}: QLoRA 4-bit ($r=64$, $\alpha=128$), permitindo treino em GPU T4 (15GB)
-    \item \textbf{Treinamento}: 5 epochs, ~20-30h, dividido em 3-4 sessões do Colab Free
+    \item \textbf{Treinamento}: 5 epochs, $\sim$10-15h, dividido em 2 sessões do Colab Free
     \item \textbf{Avaliação}: 50 perguntas médicas, comparação baseline vs fine-tuned
 \end{enumerate}
 

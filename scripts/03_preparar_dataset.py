@@ -4,9 +4,13 @@
 
 Este script:
 1. Baixa o dataset MedQuAD do HuggingFace (lavita/MedQuAD - 47.4k pares QA)
-2. Traduz perguntas e respostas de inglês para português (deep-translator)
-3. Formata no padrão Alpaca (instruction/input/output) para fine-tuning
-4. Salva checkpoints a cada 1000 registros para poder resumir
+2. Filtra registros sem resposta (~65% do dataset tem answer=None devido a copyright)
+3. Traduz perguntas e respostas de inglês para português (deep-translator)
+4. Formata no padrão Alpaca (instruction/input/output) para fine-tuning
+5. Salva checkpoints a cada 1000 registros para poder resumir
+
+Nota: O dataset MedQuAD original tem ~47k registros, mas apenas ~16k possuem
+respostas completas. Os demais foram removidos por questões de copyright.
 
 Saída: data/processed/training_data.jsonl
 
@@ -87,8 +91,11 @@ def translate_text(text: str, translator: GoogleTranslator, retries: int = MAX_R
     Returns:
         Texto traduzido para português
     """
-    if not text or len(text.strip()) == 0:
-        return text
+    # Handle None or empty text
+    if text is None:
+        return ""
+    if len(text.strip()) == 0:
+        return ""
 
     text = text.strip()
 
@@ -327,6 +334,8 @@ def prepare_dataset(limit: int = None, resume: bool = True, test_mode: bool = Fa
         unit="reg"
     )
 
+    skipped_count = 0
+
     try:
         for i in pbar:
             row = dataset[i]
@@ -334,6 +343,20 @@ def prepare_dataset(limit: int = None, resume: bool = True, test_mode: bool = Fa
             # Extrair pergunta e resposta
             question = row.get('question', row.get('Question', ''))
             answer = row.get('answer', row.get('Answer', ''))
+
+            # Skip records with None or empty answer (MedQuAD has ~65% without answers due to copyright)
+            if answer is None or (isinstance(answer, str) and len(answer.strip()) == 0):
+                skipped_count += 1
+                pbar.set_postfix({
+                    'traduzidos': len(translated_data),
+                    'sem_resposta': skipped_count
+                })
+                continue
+
+            # Skip records with None or empty question
+            if question is None or (isinstance(question, str) and len(question.strip()) == 0):
+                skipped_count += 1
+                continue
 
             # Traduzir
             translated_question = translate_text(question, translator)
@@ -359,6 +382,11 @@ def prepare_dataset(limit: int = None, resume: bool = True, test_mode: bool = Fa
 
         # Checkpoint final
         save_checkpoint(translated_data, total_records, total_records)
+
+        # Resumo dos registros pulados
+        if skipped_count > 0:
+            print(f"\n  ℹ Registros sem resposta (pulados): {skipped_count}")
+            print(f"    Isso é esperado - MedQuAD tem ~65% de registros sem resposta devido a copyright")
 
     except KeyboardInterrupt:
         print("\n\n⚠ Interrompido pelo usuário!")

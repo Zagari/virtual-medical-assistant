@@ -227,6 +227,10 @@ data/raw/*
 # Processed training data (generated)
 data/processed/*
 !data/processed/.gitkeep
+!data/processed/medquad_pt.jsonl
+!data/processed/medquad_en_sample.jsonl
+!data/processed/brazilian_medical_qa.jsonl
+!data/processed/training_data.jsonl
 
 # Evaluation results (generated)
 data/evaluation/*

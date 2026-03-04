@@ -1,27 +1,38 @@
 #!/usr/bin/env python3
 """
-03_preparar_dataset.py - Preparação do Dataset MedQuAD para Fine-Tuning
+03_preparar_dataset_v2.py - Preparação do Dataset para Fine-Tuning (v2)
+
+Melhorias sobre a v1:
+1. Pula tradução se medquad_pt.jsonl já existir (commitável no repo)
+2. Compõe dataset híbrido: 80% português + 20% inglês original
+3. Inclui QA pairs de medicina brasileira (doenças endêmicas, SUS, etc.)
 
 Este script:
 1. Baixa o dataset MedQuAD do HuggingFace (lavita/MedQuAD - 47.4k pares QA)
-2. Filtra registros sem resposta (~65% do dataset tem answer=None devido a copyright)
-3. Traduz perguntas e respostas de inglês para português (deep-translator)
-4. Formata no padrão Alpaca (instruction/input/output) para fine-tuning
-5. Salva checkpoints a cada 1000 registros para poder resumir
+2. Filtra registros sem resposta (~65% do dataset tem answer=None)
+3. Traduz perguntas e respostas para português (se não existir cache)
+4. Adiciona 20% de dados originais em inglês (preserva qualidade médica)
+5. Adiciona QA brasileiro (dengue, malária, SUS, etc.)
+6. Formata no padrão Alpaca e salva dataset final
 
-Nota: O dataset MedQuAD original tem ~47k registros, mas apenas ~16k possuem
-respostas completas. Os demais foram removidos por questões de copyright.
-
-Saída: data/processed/training_data.jsonl
+Saídas:
+- data/processed/medquad_pt.jsonl         # MedQuAD traduzido (cache)
+- data/processed/medquad_en_sample.jsonl  # Amostra em inglês
+- data/processed/brazilian_medical_qa.jsonl # QA brasileiro
+- data/processed/training_data.jsonl      # Dataset final composto
 
 Uso:
-    python scripts/03_preparar_dataset.py [--test] [--limit N]
+    python scripts/03_preparar_dataset_v2.py [--flags]
 
 Flags:
-    --test      Modo teste: traduz apenas 10 registros
-    --limit N   Limita a N registros (para testes parciais)
-    --resume    Resume do último checkpoint (padrão: True)
-    --no-resume Ignora checkpoint e começa do zero
+    --test              Modo teste: 10 registros apenas
+    --limit N           Limitar tradução a N registros
+    --resume            Continuar do checkpoint (padrão)
+    --no-resume         Ignorar checkpoint, começar do zero
+    --force-translate   Forçar re-tradução mesmo se cache existir
+    --en-ratio 0.20     Proporção de dados em inglês (padrão: 0.20)
+    --skip-brazilian    Não incluir QA brasileiro
+    --only-translate    Apenas traduzir, não compor dataset final
 
 Requisitos:
     pip install datasets deep-translator tqdm
@@ -31,9 +42,11 @@ import json
 import os
 import sys
 import time
+import random
 import argparse
 from datetime import datetime
 from pathlib import Path
+from typing import List, Dict, Tuple, Optional
 
 try:
     from datasets import load_dataset
@@ -44,6 +57,15 @@ except ImportError as e:
     print("Instale com: pip install datasets deep-translator tqdm")
     sys.exit(1)
 
+# Importar gerador de QA brasileiro
+sys.path.insert(0, str(Path(__file__).parent.parent))
+try:
+    from src.data.brazilian_medical_qa import get_qa_without_metadata, get_statistics
+    BRAZILIAN_QA_AVAILABLE = True
+except ImportError:
+    BRAZILIAN_QA_AVAILABLE = False
+    print("⚠ Módulo brazilian_medical_qa não encontrado. QA brasileiro será ignorado.")
+
 
 # ============================================================================
 # CONFIGURAÇÕES
@@ -53,21 +75,31 @@ except ImportError as e:
 PROJECT_ROOT = Path(__file__).parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 PROCESSED_DIR = DATA_DIR / "processed"
+
+# Arquivos de saída
+TRANSLATED_FILE = PROCESSED_DIR / "medquad_pt.jsonl"      # Cache da tradução
+EN_SAMPLE_FILE = PROCESSED_DIR / "medquad_en_sample.jsonl"  # Amostra inglês
+BRAZILIAN_QA_FILE = PROCESSED_DIR / "brazilian_medical_qa.jsonl"  # QA brasileiro
+OUTPUT_FILE = PROCESSED_DIR / "training_data.jsonl"        # Dataset final
 CHECKPOINT_FILE = PROCESSED_DIR / "translation_checkpoint.json"
-OUTPUT_FILE = PROCESSED_DIR / "training_data.jsonl"
 
 # Dataset
 DATASET_NAME = "lavita/MedQuAD"
 DATASET_SPLIT = "train"
 
 # Tradução
-CHECKPOINT_INTERVAL = 1000  # Salvar checkpoint a cada N registros
-SLEEP_BETWEEN_REQUESTS = 0.3  # Segundos entre requisições (evita rate limit)
-MAX_RETRIES = 3  # Tentativas em caso de erro
-MAX_TEXT_LENGTH = 4500  # Limite do Google Translate via deep-translator
+CHECKPOINT_INTERVAL = 1000
+SLEEP_BETWEEN_REQUESTS = 0.3
+MAX_RETRIES = 3
+MAX_TEXT_LENGTH = 4500
+
+# Composição do dataset
+DEFAULT_EN_RATIO = 0.20  # 20% inglês original
+RANDOM_SEED = 42
 
 # Formato Alpaca
 INSTRUCTION_PT = "Responda a seguinte pergunta médica de forma clara e detalhada."
+INSTRUCTION_EN = "Answer the following medical question clearly and in detail."
 
 
 # ============================================================================
@@ -80,18 +112,7 @@ def create_translator():
 
 
 def translate_text(text: str, translator: GoogleTranslator, retries: int = MAX_RETRIES) -> str:
-    """
-    Traduz texto de inglês para português.
-
-    Args:
-        text: Texto em inglês
-        translator: Instância do GoogleTranslator
-        retries: Número de tentativas em caso de erro
-
-    Returns:
-        Texto traduzido para português
-    """
-    # Handle None or empty text
+    """Traduz texto de inglês para português."""
     if text is None:
         return ""
     if len(text.strip()) == 0:
@@ -99,12 +120,9 @@ def translate_text(text: str, translator: GoogleTranslator, retries: int = MAX_R
 
     text = text.strip()
 
-    # Textos longos precisam ser divididos
     if len(text) > MAX_TEXT_LENGTH:
         chunks = []
         current_chunk = ""
-
-        # Dividir por sentenças para não cortar no meio
         sentences = text.replace(". ", ".|").split("|")
 
         for sentence in sentences:
@@ -118,7 +136,6 @@ def translate_text(text: str, translator: GoogleTranslator, retries: int = MAX_R
         if current_chunk:
             chunks.append(current_chunk)
 
-        # Traduzir cada chunk
         translated_chunks = []
         for chunk in chunks:
             translated = _translate_with_retry(chunk, translator, retries)
@@ -138,7 +155,7 @@ def _translate_with_retry(text: str, translator: GoogleTranslator, retries: int)
             return result if result else text
         except Exception as e:
             if attempt < retries - 1:
-                wait_time = (attempt + 1) * 2  # Backoff: 2s, 4s, 6s
+                wait_time = (attempt + 1) * 2
                 print(f"\n  ⚠ Erro na tradução (tentativa {attempt + 1}/{retries}): {e}")
                 print(f"    Aguardando {wait_time}s antes de tentar novamente...")
                 time.sleep(wait_time)
@@ -153,14 +170,7 @@ def _translate_with_retry(text: str, translator: GoogleTranslator, retries: int)
 # ============================================================================
 
 def save_checkpoint(translated_data: list, current_index: int, total: int):
-    """
-    Salva checkpoint da tradução para poder resumir.
-
-    Args:
-        translated_data: Lista de registros já traduzidos
-        current_index: Índice atual no dataset original
-        total: Total de registros no dataset
-    """
+    """Salva checkpoint da tradução para poder resumir."""
     PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 
     checkpoint = {
@@ -178,13 +188,8 @@ def save_checkpoint(translated_data: list, current_index: int, total: int):
     print(f"\n  ✓ Checkpoint salvo: {current_index}/{total} ({checkpoint['progress_percent']}%)")
 
 
-def load_checkpoint() -> tuple[list, int]:
-    """
-    Carrega checkpoint anterior se existir.
-
-    Returns:
-        Tupla (dados_traduzidos, índice_para_continuar)
-    """
+def load_checkpoint() -> Tuple[List, int]:
+    """Carrega checkpoint anterior se existir."""
     if CHECKPOINT_FILE.exists():
         try:
             with open(CHECKPOINT_FILE, 'r', encoding='utf-8') as f:
@@ -213,20 +218,34 @@ def clear_checkpoint():
 
 
 # ============================================================================
-# FUNÇÕES DE FORMATAÇÃO
+# FUNÇÕES DE ARQUIVO
 # ============================================================================
 
-def format_as_alpaca(question: str, answer: str) -> dict:
-    """
-    Formata par QA no padrão Alpaca para fine-tuning.
+def load_jsonl(filepath: Path) -> List[Dict]:
+    """Carrega arquivo JSONL."""
+    data = []
+    with open(filepath, 'r', encoding='utf-8') as f:
+        for line in f:
+            if line.strip():
+                data.append(json.loads(line))
+    return data
 
-    Formato esperado pelo SFTTrainer:
-    {
-        "instruction": "Instrução fixa",
-        "input": "Pergunta",
-        "output": "Resposta"
-    }
-    """
+
+def save_jsonl(data: List[Dict], filepath: Path):
+    """Salva dados no formato JSONL."""
+    filepath.parent.mkdir(parents=True, exist_ok=True)
+
+    with open(filepath, 'w', encoding='utf-8') as f:
+        for record in data:
+            f.write(json.dumps(record, ensure_ascii=False) + '\n')
+
+    print(f"✓ Arquivo salvo: {filepath}")
+    print(f"  - Total de registros: {len(data)}")
+    print(f"  - Tamanho: {filepath.stat().st_size / (1024*1024):.2f} MB")
+
+
+def format_as_alpaca_pt(question: str, answer: str) -> Dict:
+    """Formata par QA no padrão Alpaca (português)."""
     return {
         "instruction": INSTRUCTION_PT,
         "input": question.strip(),
@@ -234,98 +253,78 @@ def format_as_alpaca(question: str, answer: str) -> dict:
     }
 
 
-def save_as_jsonl(data: list, filepath: Path):
-    """Salva dados no formato JSONL (uma linha JSON por registro)."""
-    filepath.parent.mkdir(parents=True, exist_ok=True)
-
-    with open(filepath, 'w', encoding='utf-8') as f:
-        for record in data:
-            f.write(json.dumps(record, ensure_ascii=False) + '\n')
-
-    print(f"✓ Dataset salvo: {filepath}")
-    print(f"  - Total de registros: {len(data)}")
-    print(f"  - Tamanho: {filepath.stat().st_size / (1024*1024):.2f} MB")
+def format_as_alpaca_en(question: str, answer: str) -> Dict:
+    """Formata par QA no padrão Alpaca (inglês)."""
+    return {
+        "instruction": INSTRUCTION_EN,
+        "input": question.strip(),
+        "output": answer.strip()
+    }
 
 
 # ============================================================================
-# FUNÇÃO PRINCIPAL
+# ETAPA 1: TRADUÇÃO
 # ============================================================================
 
-def prepare_dataset(limit: int = None, resume: bool = True, test_mode: bool = False):
+def translate_medquad(
+    limit: Optional[int] = None,
+    resume: bool = True,
+    force: bool = False
+) -> List[Dict]:
     """
-    Pipeline principal de preparação do dataset.
+    Traduz MedQuAD de inglês para português.
+
+    Se já existir cache (medquad_pt.jsonl), retorna do cache.
 
     Args:
-        limit: Limitar a N registros (None = todos)
-        resume: Se True, continua do último checkpoint
-        test_mode: Se True, processa apenas 10 registros
+        limit: Limitar a N registros
+        resume: Se True, continua do checkpoint
+        force: Se True, força re-tradução mesmo com cache
+
+    Returns:
+        Lista de QA traduzidos no formato Alpaca
     """
-    print("=" * 60)
-    print("  PREPARAÇÃO DO DATASET MEDQUAD PARA FINE-TUNING")
-    print("  Tech Challenge Fase 3 - FIAP")
-    print("=" * 60)
-    print()
+    # Verificar cache
+    if TRANSLATED_FILE.exists() and not force:
+        print(f"✓ Cache de tradução encontrado: {TRANSLATED_FILE}")
+        print("  Carregando dados traduzidos (use --force-translate para re-traduzir)")
+        return load_jsonl(TRANSLATED_FILE)
 
-    # Modo teste
-    if test_mode:
-        limit = 10
-        print("🧪 MODO TESTE: Processando apenas 10 registros")
-        print()
-
-    # -------------------------------------------------------------------------
-    # 1. Carregar dataset do HuggingFace
-    # -------------------------------------------------------------------------
-    print(f"[1/4] Carregando dataset: {DATASET_NAME}")
-    print("      (isso pode demorar na primeira vez...)")
+    print(f"[TRADUÇÃO] Carregando dataset: {DATASET_NAME}")
 
     try:
         dataset = load_dataset(DATASET_NAME, split=DATASET_SPLIT)
         total_records = len(dataset)
-        print(f"      ✓ Dataset carregado: {total_records} registros")
+        print(f"  ✓ Dataset carregado: {total_records} registros")
     except Exception as e:
-        print(f"      ✗ Erro ao carregar dataset: {e}")
+        print(f"  ✗ Erro ao carregar dataset: {e}")
         sys.exit(1)
 
-    # Aplicar limite se especificado
     if limit and limit < total_records:
-        print(f"      ℹ Limitando a {limit} registros")
+        print(f"  ℹ Limitando a {limit} registros")
         total_records = limit
 
-    print()
-
-    # -------------------------------------------------------------------------
-    # 2. Verificar/carregar checkpoint
-    # -------------------------------------------------------------------------
-    print("[2/4] Verificando checkpoint anterior...")
-
+    # Verificar/carregar checkpoint
     if resume:
         translated_data, start_index = load_checkpoint()
         if start_index > 0:
-            print(f"      Continuando a partir do índice {start_index}")
+            print(f"  Continuando a partir do índice {start_index}")
     else:
         translated_data, start_index = [], 0
         clear_checkpoint()
-        print("      Iniciando do zero (--no-resume)")
 
-    print()
-
-    # Se já completou, apenas salvar
+    # Se já completou
     if start_index >= total_records:
-        print("✓ Tradução já completa! Salvando arquivo final...")
-        save_as_jsonl(translated_data[:total_records], OUTPUT_FILE)
-        return
+        print("✓ Tradução já completa!")
+        save_jsonl(translated_data[:total_records], TRANSLATED_FILE)
+        clear_checkpoint()
+        return translated_data[:total_records]
 
-    # -------------------------------------------------------------------------
-    # 3. Traduzir dataset
-    # -------------------------------------------------------------------------
-    print(f"[3/4] Traduzindo de inglês para português...")
-    print(f"      Registros restantes: {total_records - start_index}")
-    print(f"      Checkpoint a cada: {CHECKPOINT_INTERVAL} registros")
-    print()
+    # Traduzir
+    print(f"[TRADUÇÃO] Traduzindo de inglês para português...")
+    print(f"  Registros restantes: {total_records - start_index}")
 
     translator = create_translator()
-
-    # Progress bar
     pbar = tqdm(
         range(start_index, total_records),
         initial=start_index,
@@ -340,20 +339,15 @@ def prepare_dataset(limit: int = None, resume: bool = True, test_mode: bool = Fa
         for i in pbar:
             row = dataset[i]
 
-            # Extrair pergunta e resposta
             question = row.get('question', row.get('Question', ''))
             answer = row.get('answer', row.get('Answer', ''))
 
-            # Skip records with None or empty answer (MedQuAD has ~65% without answers due to copyright)
+            # Skip registros sem resposta
             if answer is None or (isinstance(answer, str) and len(answer.strip()) == 0):
                 skipped_count += 1
-                pbar.set_postfix({
-                    'traduzidos': len(translated_data),
-                    'sem_resposta': skipped_count
-                })
+                pbar.set_postfix({'traduzidos': len(translated_data), 'sem_resposta': skipped_count})
                 continue
 
-            # Skip records with None or empty question
             if question is None or (isinstance(question, str) and len(question.strip()) == 0):
                 skipped_count += 1
                 continue
@@ -365,59 +359,303 @@ def prepare_dataset(limit: int = None, resume: bool = True, test_mode: bool = Fa
             translated_answer = translate_text(answer, translator)
             time.sleep(SLEEP_BETWEEN_REQUESTS)
 
-            # Formatar como Alpaca
-            formatted = format_as_alpaca(translated_question, translated_answer)
+            formatted = format_as_alpaca_pt(translated_question, translated_answer)
             translated_data.append(formatted)
 
-            # Atualizar progress bar
             pbar.set_postfix({
                 'traduzidos': len(translated_data),
                 'Q_len': len(translated_question),
                 'A_len': len(translated_answer)
             })
 
-            # Salvar checkpoint periodicamente
             if (i + 1) % CHECKPOINT_INTERVAL == 0:
                 save_checkpoint(translated_data, i + 1, total_records)
 
         # Checkpoint final
         save_checkpoint(translated_data, total_records, total_records)
 
-        # Resumo dos registros pulados
         if skipped_count > 0:
             print(f"\n  ℹ Registros sem resposta (pulados): {skipped_count}")
-            print(f"    Isso é esperado - MedQuAD tem ~65% de registros sem resposta devido a copyright")
 
     except KeyboardInterrupt:
         print("\n\n⚠ Interrompido pelo usuário!")
-        print(f"  Salvando checkpoint com {len(translated_data)} registros...")
         save_checkpoint(translated_data, len(translated_data), total_records)
-        print("  Você pode continuar depois com: python scripts/03_preparar_dataset.py")
         sys.exit(0)
 
     except Exception as e:
         print(f"\n\n✗ Erro durante tradução: {e}")
-        print(f"  Salvando checkpoint com {len(translated_data)} registros...")
         save_checkpoint(translated_data, len(translated_data), total_records)
         raise
 
-    print()
-
-    # -------------------------------------------------------------------------
-    # 4. Salvar dataset final
-    # -------------------------------------------------------------------------
-    print("[4/4] Salvando dataset final...")
-    save_as_jsonl(translated_data, OUTPUT_FILE)
-
-    # Limpar checkpoint após sucesso
+    # Salvar cache da tradução
+    print("\n[TRADUÇÃO] Salvando cache...")
+    save_jsonl(translated_data, TRANSLATED_FILE)
     clear_checkpoint()
 
+    return translated_data
+
+
+# ============================================================================
+# ETAPA 2: AMOSTRA EM INGLÊS
+# ============================================================================
+
+def get_english_sample(
+    pt_data: List[Dict],
+    en_ratio: float = DEFAULT_EN_RATIO,
+    seed: int = RANDOM_SEED
+) -> List[Dict]:
+    """
+    Seleciona amostra do MedQuAD original em inglês.
+
+    Args:
+        pt_data: Dados traduzidos (para calcular proporção)
+        en_ratio: Proporção de dados em inglês (0.20 = 20%)
+        seed: Seed para reprodutibilidade
+
+    Returns:
+        Lista de QA em inglês no formato Alpaca
+    """
+    # Verificar cache
+    if EN_SAMPLE_FILE.exists():
+        print(f"✓ Amostra inglês encontrada: {EN_SAMPLE_FILE}")
+        return load_jsonl(EN_SAMPLE_FILE)
+
+    print(f"[INGLÊS] Selecionando {en_ratio:.0%} de dados em inglês...")
+
+    random.seed(seed)
+
+    # Calcular quantos registros EN adicionar
+    n_pt = len(pt_data)
+    n_en = int(n_pt * en_ratio / (1 - en_ratio))
+
+    print(f"  - Registros PT: {n_pt}")
+    print(f"  - Registros EN a adicionar: {n_en}")
+
+    # Carregar MedQuAD original
+    dataset = load_dataset(DATASET_NAME, split=DATASET_SPLIT)
+
+    # Filtrar índices com resposta válida
+    valid_indices = [
+        i for i, row in enumerate(dataset)
+        if row.get('answer') is not None and len(str(row.get('answer', '')).strip()) > 0
+    ]
+
+    print(f"  - Índices válidos disponíveis: {len(valid_indices)}")
+
+    # Amostrar
+    n_en = min(n_en, len(valid_indices))
+    en_indices = random.sample(valid_indices, n_en)
+
+    # Formatar
+    en_data = []
+    for i in tqdm(en_indices, desc="Preparando EN", unit="reg"):
+        row = dataset[i]
+        en_data.append(format_as_alpaca_en(
+            row['question'],
+            row['answer']
+        ))
+
+    # Salvar cache
+    save_jsonl(en_data, EN_SAMPLE_FILE)
+
+    return en_data
+
+
+# ============================================================================
+# ETAPA 3: QA BRASILEIRO
+# ============================================================================
+
+def get_brazilian_qa() -> List[Dict]:
+    """
+    Carrega QA pairs de medicina brasileira.
+
+    Returns:
+        Lista de QA brasileiro no formato Alpaca
+    """
+    # Verificar cache
+    if BRAZILIAN_QA_FILE.exists():
+        print(f"✓ QA brasileiro encontrado: {BRAZILIAN_QA_FILE}")
+        return load_jsonl(BRAZILIAN_QA_FILE)
+
+    if not BRAZILIAN_QA_AVAILABLE:
+        print("⚠ Módulo brazilian_medical_qa não disponível. Pulando...")
+        return []
+
+    print("[BRASILEIRO] Gerando QA de medicina brasileira...")
+
+    # Estatísticas
+    stats = get_statistics()
+    for cat, count in stats.items():
+        if cat != "Total":
+            print(f"  - {cat}: {count} QA pairs")
+    print(f"  TOTAL: {stats['Total']} QA pairs")
+
+    # Gerar
+    brazilian_qa = get_qa_without_metadata()
+
+    # Salvar cache
+    save_jsonl(brazilian_qa, BRAZILIAN_QA_FILE)
+
+    return brazilian_qa
+
+
+# ============================================================================
+# ETAPA 4: COMPOSIÇÃO FINAL
+# ============================================================================
+
+def compose_final_dataset(
+    pt_data: List[Dict],
+    en_data: List[Dict],
+    brazilian_qa: List[Dict],
+    seed: int = RANDOM_SEED
+) -> List[Dict]:
+    """
+    Compõe dataset final combinando todas as fontes.
+
+    Args:
+        pt_data: MedQuAD traduzido para português
+        en_data: Amostra do MedQuAD original em inglês
+        brazilian_qa: QA de medicina brasileira
+        seed: Seed para embaralhamento
+
+    Returns:
+        Dataset final combinado e embaralhado
+    """
+    print("[COMPOSIÇÃO] Combinando datasets...")
+
+    random.seed(seed)
+
+    combined = pt_data + en_data + brazilian_qa
+
+    print(f"  - Português (MedQuAD traduzido): {len(pt_data)}")
+    print(f"  - Inglês (MedQuAD original): {len(en_data)}")
+    print(f"  - Brasileiro (nativo): {len(brazilian_qa)}")
+    print(f"  - TOTAL: {len(combined)}")
+
+    # Calcular proporções
+    total = len(combined)
+    if total > 0:
+        print(f"\n  Proporções finais:")
+        print(f"    - PT: {len(pt_data)/total:.1%}")
+        print(f"    - EN: {len(en_data)/total:.1%}")
+        print(f"    - BR: {len(brazilian_qa)/total:.1%}")
+
+    # Embaralhar
+    random.shuffle(combined)
+
+    return combined
+
+
+# ============================================================================
+# FUNÇÃO PRINCIPAL
+# ============================================================================
+
+def prepare_dataset(
+    limit: Optional[int] = None,
+    resume: bool = True,
+    test_mode: bool = False,
+    force_translate: bool = False,
+    en_ratio: float = DEFAULT_EN_RATIO,
+    skip_brazilian: bool = False,
+    only_translate: bool = False
+):
+    """
+    Pipeline principal de preparação do dataset.
+
+    Args:
+        limit: Limitar a N registros
+        resume: Se True, continua do checkpoint
+        test_mode: Se True, processa apenas 10 registros
+        force_translate: Se True, força re-tradução
+        en_ratio: Proporção de dados em inglês
+        skip_brazilian: Se True, não inclui QA brasileiro
+        only_translate: Se True, apenas traduz (não compõe dataset)
+    """
+    print("=" * 70)
+    print("  PREPARAÇÃO DO DATASET PARA FINE-TUNING (v2)")
+    print("  Tech Challenge Fase 3 - FIAP")
+    print("  Dataset Híbrido: PT + EN + Brasileiro")
+    print("=" * 70)
     print()
-    print("=" * 60)
+
+    if test_mode:
+        limit = 10
+        print("🧪 MODO TESTE: Processando apenas 10 registros")
+        print()
+
+    # -------------------------------------------------------------------------
+    # Etapa 1: Tradução (ou carregar cache)
+    # -------------------------------------------------------------------------
+    print("=" * 50)
+    print("  ETAPA 1: Tradução MedQuAD")
+    print("=" * 50)
+
+    pt_data = translate_medquad(
+        limit=limit,
+        resume=resume,
+        force=force_translate
+    )
+
+    if only_translate:
+        print("\n✓ Apenas tradução solicitada. Finalizando.")
+        return
+
+    print()
+
+    # -------------------------------------------------------------------------
+    # Etapa 2: Amostra em inglês
+    # -------------------------------------------------------------------------
+    print("=" * 50)
+    print("  ETAPA 2: Amostra em Inglês")
+    print("=" * 50)
+
+    en_data = get_english_sample(pt_data, en_ratio=en_ratio)
+
+    print()
+
+    # -------------------------------------------------------------------------
+    # Etapa 3: QA Brasileiro
+    # -------------------------------------------------------------------------
+    print("=" * 50)
+    print("  ETAPA 3: QA Brasileiro")
+    print("=" * 50)
+
+    if skip_brazilian:
+        print("  Pulando QA brasileiro (--skip-brazilian)")
+        brazilian_qa = []
+    else:
+        brazilian_qa = get_brazilian_qa()
+
+    print()
+
+    # -------------------------------------------------------------------------
+    # Etapa 4: Composição final
+    # -------------------------------------------------------------------------
+    print("=" * 50)
+    print("  ETAPA 4: Composição Final")
+    print("=" * 50)
+
+    final_data = compose_final_dataset(pt_data, en_data, brazilian_qa)
+
+    print()
+    save_jsonl(final_data, OUTPUT_FILE)
+
+    # -------------------------------------------------------------------------
+    # Resumo final
+    # -------------------------------------------------------------------------
+    print()
+    print("=" * 70)
     print("  PREPARAÇÃO CONCLUÍDA!")
-    print("=" * 60)
-    print(f"  Arquivo: {OUTPUT_FILE}")
-    print(f"  Registros: {len(translated_data)}")
+    print("=" * 70)
+    print()
+    print("  Arquivos gerados:")
+    print(f"    - {TRANSLATED_FILE} (cache tradução)")
+    print(f"    - {EN_SAMPLE_FILE} (amostra inglês)")
+    if not skip_brazilian:
+        print(f"    - {BRAZILIAN_QA_FILE} (QA brasileiro)")
+    print(f"    - {OUTPUT_FILE} (dataset final)")
+    print()
+    print(f"  Total de registros: {len(final_data)}")
     print(f"  Formato: Alpaca JSONL (instruction/input/output)")
     print()
     print("  Próximo passo:")
@@ -433,7 +671,7 @@ def prepare_dataset(limit: int = None, resume: bool = True, test_mode: bool = Fa
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Prepara dataset MedQuAD para fine-tuning (tradução EN→PT)"
+        description="Prepara dataset híbrido para fine-tuning (PT + EN + BR)"
     )
     parser.add_argument(
         '--test',
@@ -444,7 +682,7 @@ def main():
         '--limit',
         type=int,
         default=None,
-        help='Limita a N registros (para testes parciais)'
+        help='Limita tradução a N registros'
     )
     parser.add_argument(
         '--resume',
@@ -457,16 +695,40 @@ def main():
         action='store_true',
         help='Ignora checkpoint e começa do zero'
     )
+    parser.add_argument(
+        '--force-translate',
+        action='store_true',
+        help='Força re-tradução mesmo se cache existir'
+    )
+    parser.add_argument(
+        '--en-ratio',
+        type=float,
+        default=DEFAULT_EN_RATIO,
+        help=f'Proporção de dados em inglês (padrão: {DEFAULT_EN_RATIO})'
+    )
+    parser.add_argument(
+        '--skip-brazilian',
+        action='store_true',
+        help='Não incluir QA brasileiro'
+    )
+    parser.add_argument(
+        '--only-translate',
+        action='store_true',
+        help='Apenas traduzir, não compor dataset final'
+    )
 
     args = parser.parse_args()
 
-    # --no-resume sobrescreve --resume
     resume = not args.no_resume
 
     prepare_dataset(
         limit=args.limit,
         resume=resume,
-        test_mode=args.test
+        test_mode=args.test,
+        force_translate=args.force_translate,
+        en_ratio=args.en_ratio,
+        skip_brazilian=args.skip_brazilian,
+        only_translate=args.only_translate
     )
 
 

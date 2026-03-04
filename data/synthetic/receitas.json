@@ -1,8 +1,8 @@
 [
   {
-    "id": "7eaec5c0-7197-4fd0-9eae-0c279f023e01",
-    "paciente_id": "4a4db681-8fb7-4fee-a00d-1ee59ce512b3",
-    "data": "2025-10-03",
+    "id": "cde37af6-af58-40ff-be65-7ef74228a7cb",
+    "paciente_id": "87c198f3-4507-46a6-82fd-5bce4fd02851",
+    "data": "2025-10-04",
     "condicao": "Obesidade",
     "medicamentos": [
       "orlistate 120mg 3x/dia",
@@ -12,9 +12,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "8d83426b-1ab4-4706-8c69-2e9fc285a4c2",
-    "paciente_id": "4a4db681-8fb7-4fee-a00d-1ee59ce512b3",
-    "data": "2025-11-26",
+    "id": "998bf073-3655-4fb6-b3aa-4663e256710d",
+    "paciente_id": "87c198f3-4507-46a6-82fd-5bce4fd02851",
+    "data": "2025-11-27",
     "condicao": "Obesidade",
     "medicamentos": [
       "liraglutida 3mg 1x/dia SC",
@@ -24,9 +24,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "e7a8cfbb-df4b-4c43-854c-10cf90fa9e5d",
-    "paciente_id": "4a4db681-8fb7-4fee-a00d-1ee59ce512b3",
-    "data": "2026-01-06",
+    "id": "779ca636-e87e-48ec-80ee-608a1c1f0855",
+    "paciente_id": "87c198f3-4507-46a6-82fd-5bce4fd02851",
+    "data": "2026-01-07",
     "condicao": "Obesidade",
     "medicamentos": [
       "orlistate 120mg 3x/dia",
@@ -36,9 +36,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "f622928b-2047-4b6c-8076-1a95b6dd3ae1",
-    "paciente_id": "e1db9429-2e24-4b75-95d6-0d7894fd4a1c",
-    "data": "2025-03-19",
+    "id": "000dd7c1-ca41-4fee-bcbe-af07a2a2fd7f",
+    "paciente_id": "090ea2a4-fcc7-41d3-a3ec-aa35f8d4e6ef",
+    "data": "2025-03-20",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "anlodipino 5mg 1x/dia",
@@ -48,9 +48,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "c0a82f0e-8008-4b8e-8794-d2a24cdd169e",
-    "paciente_id": "e1db9429-2e24-4b75-95d6-0d7894fd4a1c",
-    "data": "2026-01-26",
+    "id": "0042c298-a408-411f-98b3-6182c22d47f8",
+    "paciente_id": "090ea2a4-fcc7-41d3-a3ec-aa35f8d4e6ef",
+    "data": "2026-01-27",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "sitagliptina 100mg 1x/dia"
@@ -59,9 +59,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "1dd45638-1d58-4e76-ae51-2830096927e7",
-    "paciente_id": "db94b889-164b-46b7-8683-4a7324dc7ec7",
-    "data": "2025-09-26",
+    "id": "4592505f-9631-4818-80b0-0ef7c408db26",
+    "paciente_id": "b3742ea5-99a9-44c6-89ab-434fd474aac8",
+    "data": "2025-09-27",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "anlodipino 5mg 1x/dia"
@@ -70,9 +70,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "562b050c-3cb0-4628-8463-ed30d9cbad3c",
-    "paciente_id": "db94b889-164b-46b7-8683-4a7324dc7ec7",
-    "data": "2025-12-20",
+    "id": "8abb2bf7-4665-4f43-849c-f3b3ab7c8d19",
+    "paciente_id": "b3742ea5-99a9-44c6-89ab-434fd474aac8",
+    "data": "2025-12-21",
     "condicao": "Doença pulmonar obstrutiva crônica",
     "medicamentos": [
       "formoterol 12mcg 2x/dia",
@@ -82,9 +82,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "bb6a066c-068f-4efa-b2c1-1e62211a34e1",
-    "paciente_id": "5f0bd794-9232-49e3-bba4-9aa8c8338d4f",
-    "data": "2025-04-24",
+    "id": "d83bc35f-ff0e-4621-82dc-bf8a84448514",
+    "paciente_id": "2cab54de-ac56-406d-b9f8-60ffc05b9412",
+    "data": "2025-04-25",
     "condicao": "Hipotireoidismo",
     "medicamentos": [
       "levotiroxina 75mcg 1x/dia em jejum"
@@ -93,9 +93,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "0f816844-33d3-4471-930e-b559c5f24877",
-    "paciente_id": "5f0bd794-9232-49e3-bba4-9aa8c8338d4f",
-    "data": "2025-07-02",
+    "id": "5c31eb9b-d2b8-4ff0-8833-20f30bcd1622",
+    "paciente_id": "2cab54de-ac56-406d-b9f8-60ffc05b9412",
+    "data": "2025-07-03",
     "condicao": "Hipotireoidismo",
     "medicamentos": [
       "levotiroxina 50mcg 1x/dia em jejum"
@@ -104,9 +104,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "88f786e6-dc59-49a7-9f10-d9285686b20d",
-    "paciente_id": "5f0bd794-9232-49e3-bba4-9aa8c8338d4f",
-    "data": "2025-08-11",
+    "id": "b772ff9f-b326-4329-9d5b-90d2ee38789b",
+    "paciente_id": "2cab54de-ac56-406d-b9f8-60ffc05b9412",
+    "data": "2025-08-12",
     "condicao": "Hipotireoidismo",
     "medicamentos": [
       "levotiroxina 50mcg 1x/dia em jejum"
@@ -115,9 +115,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "4cae9731-1378-4d35-9246-b84be656f50d",
-    "paciente_id": "8bc5622c-ffb5-4672-96e9-45fe6b39e82a",
-    "data": "2025-05-28",
+    "id": "3ef74d55-2477-4397-8244-538fe819cc7e",
+    "paciente_id": "71ca7e1f-680d-4f90-afc0-f7e4c7856571",
+    "data": "2025-05-29",
     "condicao": "Transtorno de ansiedade generalizada",
     "medicamentos": [
       "buspirona 10mg 2x/dia",
@@ -128,9 +128,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "cb938bbf-07be-4c52-bbe6-a9854adbc0f0",
-    "paciente_id": "8bc5622c-ffb5-4672-96e9-45fe6b39e82a",
-    "data": "2025-08-08",
+    "id": "dae9a2cb-6cf5-4a30-b164-c2615c189b09",
+    "paciente_id": "71ca7e1f-680d-4f90-afc0-f7e4c7856571",
+    "data": "2025-08-09",
     "condicao": "Transtorno de ansiedade generalizada",
     "medicamentos": [
       "sertralina 50mg 1x/dia"
@@ -139,9 +139,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "903df3f4-5626-4936-b676-317135ed6c5d",
-    "paciente_id": "f0bb033c-bfad-489a-b2fe-d911f4936148",
-    "data": "2025-04-18",
+    "id": "fcfbc3df-4726-4e3c-8478-43311a6ea573",
+    "paciente_id": "d0753a12-6e39-4c8f-a9d7-3bf290fb5369",
+    "data": "2025-04-19",
     "condicao": "Obesidade",
     "medicamentos": [
       "orlistate 120mg 3x/dia",
@@ -151,9 +151,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "542e4a2b-ea4b-405d-880f-3bb786be73fe",
-    "paciente_id": "f0bb033c-bfad-489a-b2fe-d911f4936148",
-    "data": "2025-05-11",
+    "id": "c77d215e-f995-4905-9f8f-4b536d1a6071",
+    "paciente_id": "d0753a12-6e39-4c8f-a9d7-3bf290fb5369",
+    "data": "2025-05-12",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "anlodipino 5mg 1x/dia",
@@ -163,9 +163,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "4a6b5632-9908-4878-9568-f6ca9be4c0c7",
-    "paciente_id": "f0bb033c-bfad-489a-b2fe-d911f4936148",
-    "data": "2025-06-03",
+    "id": "62debe72-bbd1-4abf-b761-16032d80a8b0",
+    "paciente_id": "d0753a12-6e39-4c8f-a9d7-3bf290fb5369",
+    "data": "2025-06-04",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "anlodipino 5mg 1x/dia",
@@ -175,9 +175,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "73d5f2d3-9b9e-4c05-8902-dc53e58cac4a",
-    "paciente_id": "e7eea9ff-dfb1-4341-a819-7b7f233f6b4c",
-    "data": "2025-05-05",
+    "id": "39910a87-81c3-4f74-8886-71961b1344af",
+    "paciente_id": "314851dd-9bae-4f66-996a-d5469cdcdc14",
+    "data": "2025-05-06",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "sertralina 50mg 1x/dia"
@@ -186,9 +186,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "8cafadf1-fb0e-4267-b7ee-6040878f472e",
-    "paciente_id": "e7eea9ff-dfb1-4341-a819-7b7f233f6b4c",
-    "data": "2025-09-18",
+    "id": "ad943e4b-c416-4590-ac63-04cf05df9bfe",
+    "paciente_id": "314851dd-9bae-4f66-996a-d5469cdcdc14",
+    "data": "2025-09-19",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "venlafaxina 75mg 1x/dia",
@@ -199,9 +199,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "827e6909-ed89-4aec-8f8f-fe2f75a2beff",
-    "paciente_id": "e7eea9ff-dfb1-4341-a819-7b7f233f6b4c",
-    "data": "2025-11-26",
+    "id": "416ca3a3-b05b-43f9-a674-9016d475c1db",
+    "paciente_id": "314851dd-9bae-4f66-996a-d5469cdcdc14",
+    "data": "2025-11-27",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "fluoxetina 20mg 1x/dia",
@@ -211,9 +211,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "d8a35de6-0aee-43db-a0fd-b8a46cc8daf8",
-    "paciente_id": "b2b6d2ce-05f2-4943-a9c3-cea3ed89bc35",
-    "data": "2025-11-29",
+    "id": "2eab5ca8-5bc0-4e65-ac14-96a7fdb32878",
+    "paciente_id": "04f73be7-5eca-4ae4-8ed6-aa2a9eda39f4",
+    "data": "2025-11-30",
     "condicao": "Obesidade",
     "medicamentos": [
       "liraglutida 3mg 1x/dia SC",
@@ -223,9 +223,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "df28b586-1cfe-4d44-99a2-b7628dc7a9d9",
-    "paciente_id": "b2b6d2ce-05f2-4943-a9c3-cea3ed89bc35",
-    "data": "2026-01-27",
+    "id": "d47bb900-cb01-489b-9919-30d4ba91a826",
+    "paciente_id": "04f73be7-5eca-4ae4-8ed6-aa2a9eda39f4",
+    "data": "2026-01-28",
     "condicao": "Obesidade",
     "medicamentos": [
       "liraglutida 3mg 1x/dia SC"
@@ -234,9 +234,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "685077f0-3515-4c3f-a57d-022ba374aadf",
-    "paciente_id": "dd5b5c53-3bfc-4c1f-9a90-122eb950a3cd",
-    "data": "2025-04-10",
+    "id": "5aab5e80-5b52-4c78-8302-57c83185d785",
+    "paciente_id": "b2ac49be-5b9b-419f-8951-cd5b3454221a",
+    "data": "2025-04-11",
     "condicao": "Asma",
     "medicamentos": [
       "montelucaste 10mg 1x/dia",
@@ -246,9 +246,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "be08feb4-7d7e-4f63-816a-a519f4a99786",
-    "paciente_id": "dd5b5c53-3bfc-4c1f-9a90-122eb950a3cd",
-    "data": "2025-09-20",
+    "id": "60326b8e-10ec-43aa-abff-be10b7459000",
+    "paciente_id": "b2ac49be-5b9b-419f-8951-cd5b3454221a",
+    "data": "2025-09-21",
     "condicao": "Asma",
     "medicamentos": [
       "salbutamol spray 100mcg SOS",
@@ -259,9 +259,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "dd127fd8-8ce3-44d0-8877-b1e0c4b40029",
-    "paciente_id": "a6e684e6-2a2e-4772-b80a-2ead59016a2a",
-    "data": "2025-07-18",
+    "id": "026a2639-e0a2-40c0-ac3e-06ee6ed35aa0",
+    "paciente_id": "a0ad2ef1-141c-49a0-a54d-1478c20aa33f",
+    "data": "2025-07-19",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "atenolol 50mg 1x/dia",
@@ -271,9 +271,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "a7e8b2f8-1900-4deb-990a-68f842b1980a",
-    "paciente_id": "a6e684e6-2a2e-4772-b80a-2ead59016a2a",
-    "data": "2025-10-17",
+    "id": "17bcf474-8f2f-49b6-b9ef-57157857d04c",
+    "paciente_id": "a0ad2ef1-141c-49a0-a54d-1478c20aa33f",
+    "data": "2025-10-18",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "atenolol 50mg 1x/dia"
@@ -282,9 +282,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "d8a79882-0f3d-437a-87b9-b79e2a608f80",
-    "paciente_id": "a6e684e6-2a2e-4772-b80a-2ead59016a2a",
-    "data": "2025-11-07",
+    "id": "c11f5c07-362f-4b9b-af37-46aa6f1181ab",
+    "paciente_id": "a0ad2ef1-141c-49a0-a54d-1478c20aa33f",
+    "data": "2025-11-08",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "anlodipino 5mg 1x/dia"
@@ -293,9 +293,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "40ec64fb-cfcb-491d-b795-ea30883d9fe4",
-    "paciente_id": "f7be8e34-28d0-408e-9b04-88896eaf5aa6",
-    "data": "2025-07-02",
+    "id": "9fcc8810-c1cf-494d-9476-6eb98b74bb57",
+    "paciente_id": "292bd4ea-ffaa-4eab-944d-461f2ce10946",
+    "data": "2025-07-03",
     "condicao": "Asma",
     "medicamentos": [
       "montelucaste 10mg 1x/dia",
@@ -306,9 +306,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "18c96bdc-779d-48b3-b7a6-dd8e0028941c",
-    "paciente_id": "f7be8e34-28d0-408e-9b04-88896eaf5aa6",
-    "data": "2025-07-08",
+    "id": "9280ccf0-7208-4a99-ac4d-bfd9ad5ef92e",
+    "paciente_id": "292bd4ea-ffaa-4eab-944d-461f2ce10946",
+    "data": "2025-07-09",
     "condicao": "Hipotireoidismo",
     "medicamentos": [
       "levotiroxina 75mcg 1x/dia em jejum",
@@ -319,9 +319,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "8765c872-ccbd-4be9-9ca7-6abfdd1f2b79",
-    "paciente_id": "25337483-80c0-48c6-9043-e73d7093317f",
-    "data": "2025-06-09",
+    "id": "ee5281be-6143-49fc-bf81-070cae81895d",
+    "paciente_id": "6b9c809b-cb4b-49b5-a3fd-67c559dbcaed",
+    "data": "2025-06-10",
     "condicao": "Transtorno de ansiedade generalizada",
     "medicamentos": [
       "buspirona 10mg 2x/dia"
@@ -330,9 +330,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "28359bcd-ec98-4862-9f34-16b01d8e923c",
-    "paciente_id": "25337483-80c0-48c6-9043-e73d7093317f",
-    "data": "2025-08-14",
+    "id": "ba965e6d-5d93-4db9-89f4-1f561afa34f8",
+    "paciente_id": "6b9c809b-cb4b-49b5-a3fd-67c559dbcaed",
+    "data": "2025-08-15",
     "condicao": "Obesidade",
     "medicamentos": [
       "liraglutida 3mg 1x/dia SC",
@@ -342,9 +342,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "ccf05392-f594-4c8d-a13d-ee3cbdeac550",
-    "paciente_id": "7c760620-1cda-41da-a5a3-676247c6024c",
-    "data": "2025-05-24",
+    "id": "d7dcf7dc-23f8-40f5-a995-192f72b81c1f",
+    "paciente_id": "7435c7c7-864e-477b-9bd0-2d3a57ecdd1b",
+    "data": "2025-05-25",
     "condicao": "Asma",
     "medicamentos": [
       "budesonida 200mcg 2x/dia"
@@ -353,9 +353,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "66551042-8220-431e-ab34-c285cd58dcb5",
-    "paciente_id": "7c760620-1cda-41da-a5a3-676247c6024c",
-    "data": "2025-10-06",
+    "id": "396b3835-94f7-4e27-afd8-b19dfddd8e82",
+    "paciente_id": "7435c7c7-864e-477b-9bd0-2d3a57ecdd1b",
+    "data": "2025-10-07",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "escitalopram 10mg 1x/dia",
@@ -366,9 +366,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "0335f8bb-323d-499c-ade0-3c29d32e2905",
-    "paciente_id": "7c760620-1cda-41da-a5a3-676247c6024c",
-    "data": "2026-01-10",
+    "id": "b5a8089b-d7f5-4ef9-a600-84fb7de98f2e",
+    "paciente_id": "7435c7c7-864e-477b-9bd0-2d3a57ecdd1b",
+    "data": "2026-01-11",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "escitalopram 10mg 1x/dia",
@@ -379,9 +379,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "e2f564a4-e1e6-412f-8fb2-aee8c69f786a",
-    "paciente_id": "de02e646-67e0-4fc2-b2c2-6a31feade28c",
-    "data": "2025-03-05",
+    "id": "84cb5255-d398-4813-b531-6ccd064d9c40",
+    "paciente_id": "5cb2aed9-2691-49a9-aa7f-7d8ec9aad1e7",
+    "data": "2025-03-06",
     "condicao": "Obesidade",
     "medicamentos": [
       "liraglutida 3mg 1x/dia SC",
@@ -391,9 +391,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "1827a34c-c714-434f-81f9-fcd8471c6980",
-    "paciente_id": "de02e646-67e0-4fc2-b2c2-6a31feade28c",
-    "data": "2025-12-14",
+    "id": "420565c4-dc76-42a4-b720-8e135526fcc1",
+    "paciente_id": "5cb2aed9-2691-49a9-aa7f-7d8ec9aad1e7",
+    "data": "2025-12-15",
     "condicao": "Insuficiência cardíaca",
     "medicamentos": [
       "espironolactona 25mg 1x/dia",
@@ -404,9 +404,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "d3a7c757-cd1e-49cc-9e87-2aac9b49f408",
-    "paciente_id": "de02e646-67e0-4fc2-b2c2-6a31feade28c",
-    "data": "2026-01-07",
+    "id": "9e4e31f7-321e-42a5-825e-d6cea75ac1f5",
+    "paciente_id": "5cb2aed9-2691-49a9-aa7f-7d8ec9aad1e7",
+    "data": "2026-01-08",
     "condicao": "Obesidade",
     "medicamentos": [
       "liraglutida 3mg 1x/dia SC",
@@ -416,9 +416,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "20f82df7-6ae5-4f47-bdfa-176ded418714",
-    "paciente_id": "ad3c1d44-5e70-4606-830c-918bbb63f698",
-    "data": "2026-01-06",
+    "id": "82c8a82b-85c4-4773-bec1-325d59911170",
+    "paciente_id": "4b9aac94-38a1-4f55-8ef9-c4ca31d5bf54",
+    "data": "2026-01-07",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "glibenclamida 5mg 1x/dia",
@@ -428,9 +428,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "a22c196a-68b6-429d-be03-f386a3a572fb",
-    "paciente_id": "ad3c1d44-5e70-4606-830c-918bbb63f698",
-    "data": "2026-01-08",
+    "id": "9ed7501f-48c5-4ab2-8591-b4938fd9dc9e",
+    "paciente_id": "4b9aac94-38a1-4f55-8ef9-c4ca31d5bf54",
+    "data": "2026-01-09",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "empagliflozina 25mg 1x/dia"
@@ -439,9 +439,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "cdede0f4-a59f-4c8a-9a08-8ec37f8ea919",
-    "paciente_id": "901a39c1-ef9b-489b-b2f7-256a0b43703e",
-    "data": "2025-04-18",
+    "id": "d113bf3c-9130-4bf8-acd7-143c2b554c26",
+    "paciente_id": "f63ef7ee-6f61-49bd-a69e-48cdf793b789",
+    "data": "2025-04-19",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "insulina NPH 10UI à noite"
@@ -450,9 +450,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "34f5e3e6-483f-409e-bbb0-05e21284c4e5",
-    "paciente_id": "901a39c1-ef9b-489b-b2f7-256a0b43703e",
-    "data": "2025-05-08",
+    "id": "ac6059f3-ada6-4696-91ae-a4f5e5deb8af",
+    "paciente_id": "f63ef7ee-6f61-49bd-a69e-48cdf793b789",
+    "data": "2025-05-09",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "glibenclamida 5mg 1x/dia",
@@ -463,9 +463,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "910a712e-cffb-4925-85c2-1f930f09d97c",
-    "paciente_id": "901a39c1-ef9b-489b-b2f7-256a0b43703e",
-    "data": "2025-11-14",
+    "id": "3917e088-61d7-467e-b49c-46371021e47a",
+    "paciente_id": "f63ef7ee-6f61-49bd-a69e-48cdf793b789",
+    "data": "2025-11-15",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "sitagliptina 100mg 1x/dia",
@@ -476,9 +476,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "db363fa6-3fff-4f62-b733-c4298396d46b",
-    "paciente_id": "71b3c329-222c-44f6-bb68-279f53dbfe4c",
-    "data": "2026-01-26",
+    "id": "5dbe291e-d89b-458e-afde-1150f9c739c7",
+    "paciente_id": "2cd58b19-122f-4ecf-9062-b68d3270fc42",
+    "data": "2026-01-27",
     "condicao": "Doença pulmonar obstrutiva crônica",
     "medicamentos": [
       "budesonida + formoterol 400/12mcg 2x/dia",
@@ -488,9 +488,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "9e7525cb-4e14-4a80-adf4-1d93aa10e3cd",
-    "paciente_id": "fb6a4f45-1f26-40c2-81a2-615f44636679",
-    "data": "2025-06-23",
+    "id": "fbf09053-e15a-4cdb-a5aa-7a7232a3484c",
+    "paciente_id": "e9f93079-80ba-4556-a82f-00913fa645e9",
+    "data": "2025-06-24",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "sitagliptina 100mg 1x/dia",
@@ -500,9 +500,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "3cf5179f-48ee-4be1-9a47-81863415554e",
-    "paciente_id": "fb6a4f45-1f26-40c2-81a2-615f44636679",
-    "data": "2025-08-30",
+    "id": "fb94a490-2dc9-41cd-962b-bcf5af8877c4",
+    "paciente_id": "e9f93079-80ba-4556-a82f-00913fa645e9",
+    "data": "2025-08-31",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "insulina NPH 10UI à noite",
@@ -513,9 +513,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "ffac5b21-def3-40dc-9771-d6605684b557",
-    "paciente_id": "fb6a4f45-1f26-40c2-81a2-615f44636679",
-    "data": "2026-01-09",
+    "id": "2a56aec1-17a8-41ab-91a1-4f241a901322",
+    "paciente_id": "e9f93079-80ba-4556-a82f-00913fa645e9",
+    "data": "2026-01-10",
     "condicao": "Obesidade",
     "medicamentos": [
       "orlistate 120mg 3x/dia",
@@ -525,9 +525,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "b7aaa361-4e27-46df-8c0f-3fa10fa50d73",
-    "paciente_id": "f656730e-ba2c-4b9a-b58b-29146335da71",
-    "data": "2025-10-01",
+    "id": "cac6e8b6-eae4-43ac-adda-69576b938211",
+    "paciente_id": "52ed67d2-5e8e-4901-84d9-533b7cb77f6a",
+    "data": "2025-10-02",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "glibenclamida 5mg 1x/dia",
@@ -538,9 +538,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "efa59dfd-c32d-4c22-9d5d-50ae8b62b08d",
-    "paciente_id": "f656730e-ba2c-4b9a-b58b-29146335da71",
-    "data": "2025-11-30",
+    "id": "0d0fe940-0432-460e-801e-cb787457b9bd",
+    "paciente_id": "52ed67d2-5e8e-4901-84d9-533b7cb77f6a",
+    "data": "2025-12-01",
     "condicao": "Transtorno de ansiedade generalizada",
     "medicamentos": [
       "sertralina 50mg 1x/dia"
@@ -549,9 +549,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "c3a164f5-3e22-4476-9b5d-f8b4be454669",
-    "paciente_id": "f656730e-ba2c-4b9a-b58b-29146335da71",
-    "data": "2026-02-15",
+    "id": "13c7889c-f7f9-4d06-b036-136a7cae329c",
+    "paciente_id": "52ed67d2-5e8e-4901-84d9-533b7cb77f6a",
+    "data": "2026-02-16",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "enalapril 10mg 2x/dia"
@@ -560,9 +560,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "d234a80e-fae1-4f3f-b5f1-0c98d1c0b5eb",
-    "paciente_id": "9d9e417c-4380-4f6a-94a6-029b15016728",
-    "data": "2025-06-10",
+    "id": "e4196dd5-3be0-4b1c-ad14-d827e57b1b0b",
+    "paciente_id": "b78ad077-19ab-45b7-82a7-dcf1231de1b2",
+    "data": "2025-06-11",
     "condicao": "Doença pulmonar obstrutiva crônica",
     "medicamentos": [
       "budesonida + formoterol 400/12mcg 2x/dia",
@@ -572,9 +572,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "e24277d2-83ca-438b-bc65-e69fd8f536a1",
-    "paciente_id": "9d9e417c-4380-4f6a-94a6-029b15016728",
-    "data": "2026-02-24",
+    "id": "8b9a0998-a382-4201-98ed-95d78810a483",
+    "paciente_id": "b78ad077-19ab-45b7-82a7-dcf1231de1b2",
+    "data": "2026-02-25",
     "condicao": "Doença pulmonar obstrutiva crônica",
     "medicamentos": [
       "formoterol 12mcg 2x/dia"
@@ -583,9 +583,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "e1ce5703-66ce-4c2b-808c-0465088026d2",
-    "paciente_id": "0a631eca-7eb9-4174-be3f-959988a0c10f",
-    "data": "2025-06-08",
+    "id": "5a8a8c65-1c85-467d-bd81-b1e41bce5a81",
+    "paciente_id": "c92f5ade-5f93-47b5-8a33-51f1f01f47f2",
+    "data": "2025-06-09",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "empagliflozina 25mg 1x/dia",
@@ -596,9 +596,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "a43068a6-452b-4408-8442-2249b4744753",
-    "paciente_id": "0a631eca-7eb9-4174-be3f-959988a0c10f",
-    "data": "2025-11-12",
+    "id": "7d50c8f7-724c-467c-ae25-1c6c3fb2e48a",
+    "paciente_id": "c92f5ade-5f93-47b5-8a33-51f1f01f47f2",
+    "data": "2025-11-13",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "sitagliptina 100mg 1x/dia"
@@ -607,9 +607,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "9f136130-8f93-4c6e-b9ac-a54095e004bd",
-    "paciente_id": "c5cc2824-0389-4c1c-beb5-3ecf3fd11f18",
-    "data": "2025-04-21",
+    "id": "c99250c8-f947-48bd-b580-e4166f5ab47c",
+    "paciente_id": "9be3cece-a3b9-4ef3-80a4-abc30188f7bd",
+    "data": "2025-04-22",
     "condicao": "Transtorno de ansiedade generalizada",
     "medicamentos": [
       "sertralina 50mg 1x/dia",
@@ -620,9 +620,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "82c7919d-e9a7-417b-8882-5a7095639dbf",
-    "paciente_id": "c5cc2824-0389-4c1c-beb5-3ecf3fd11f18",
-    "data": "2026-02-02",
+    "id": "214d4c03-c783-4305-a56c-e18bd5ffeb70",
+    "paciente_id": "9be3cece-a3b9-4ef3-80a4-abc30188f7bd",
+    "data": "2026-02-03",
     "condicao": "Transtorno de ansiedade generalizada",
     "medicamentos": [
       "escitalopram 10mg 1x/dia",
@@ -632,9 +632,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "da603793-358b-415d-9ce4-6de997bb441d",
-    "paciente_id": "785bd6c3-cae3-47fd-8213-0ad8423e3caa",
-    "data": "2025-07-02",
+    "id": "dd1f82bc-c0aa-4f27-8286-dd13ebfd68c8",
+    "paciente_id": "5560f86d-bc04-49a5-aaf7-900eab03ce2a",
+    "data": "2025-07-03",
     "condicao": "Asma",
     "medicamentos": [
       "budesonida 200mcg 2x/dia"
@@ -643,9 +643,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "d7d7032b-9847-41d4-b246-2bbb2260f03b",
-    "paciente_id": "785bd6c3-cae3-47fd-8213-0ad8423e3caa",
-    "data": "2025-08-17",
+    "id": "53759636-d0d6-4d59-ab3f-30f1609826f7",
+    "paciente_id": "5560f86d-bc04-49a5-aaf7-900eab03ce2a",
+    "data": "2025-08-18",
     "condicao": "Asma",
     "medicamentos": [
       "salbutamol spray 100mcg SOS"
@@ -654,9 +654,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "7def12a1-bfac-4d74-93ca-ebd981dd8c97",
-    "paciente_id": "073c84f7-43b9-48c3-8c15-22bde83c45ec",
-    "data": "2025-06-09",
+    "id": "35903be2-571c-4584-acda-d0ce3df00b51",
+    "paciente_id": "776725df-a444-41fa-bf36-5f3fdcfb0aa5",
+    "data": "2025-06-10",
     "condicao": "Transtorno de ansiedade generalizada",
     "medicamentos": [
       "clonazepam 0.5mg à noite (curto prazo)"
@@ -665,9 +665,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "eb6bdea2-1a51-4321-936b-2c2f9a339e55",
-    "paciente_id": "073c84f7-43b9-48c3-8c15-22bde83c45ec",
-    "data": "2026-01-07",
+    "id": "07232703-2bca-4623-823f-706a62d0dced",
+    "paciente_id": "776725df-a444-41fa-bf36-5f3fdcfb0aa5",
+    "data": "2026-01-08",
     "condicao": "Transtorno de ansiedade generalizada",
     "medicamentos": [
       "buspirona 10mg 2x/dia",
@@ -678,9 +678,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "8b9e643f-8b22-44ed-96e0-92f806c892ed",
-    "paciente_id": "0b04cdd6-d0bb-4fd2-9527-84d9c23417aa",
-    "data": "2025-04-01",
+    "id": "ed3ccd44-e541-41a8-91c0-6fd2004db1d5",
+    "paciente_id": "faf4ffd5-8757-4ba1-a24b-03e6ff9c37d3",
+    "data": "2025-04-02",
     "condicao": "Transtorno de ansiedade generalizada",
     "medicamentos": [
       "escitalopram 10mg 1x/dia"
@@ -689,9 +689,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "7ae6770d-b097-4604-86be-4e4f9784da5d",
-    "paciente_id": "0b04cdd6-d0bb-4fd2-9527-84d9c23417aa",
-    "data": "2025-05-14",
+    "id": "816f90ca-d8c6-4c70-bdd2-5b1d48334abb",
+    "paciente_id": "faf4ffd5-8757-4ba1-a24b-03e6ff9c37d3",
+    "data": "2025-05-15",
     "condicao": "Transtorno de ansiedade generalizada",
     "medicamentos": [
       "sertralina 50mg 1x/dia",
@@ -702,9 +702,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "3a55bb42-fe56-4748-9f0c-274eefc4eb07",
-    "paciente_id": "0b04cdd6-d0bb-4fd2-9527-84d9c23417aa",
-    "data": "2025-07-07",
+    "id": "b252ec25-74cc-474c-a4a5-da291bd0e429",
+    "paciente_id": "faf4ffd5-8757-4ba1-a24b-03e6ff9c37d3",
+    "data": "2025-07-08",
     "condicao": "Transtorno de ansiedade generalizada",
     "medicamentos": [
       "escitalopram 10mg 1x/dia",
@@ -715,9 +715,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "ab51274e-21d4-4bae-8860-ed75119b5cea",
-    "paciente_id": "23e76378-5ac7-4135-8593-b97f9c0f465a",
-    "data": "2025-04-06",
+    "id": "9226a9d8-f8a8-4d52-a20e-d69ecf5b3cd0",
+    "paciente_id": "1c77396e-773e-453d-abf3-c99bdb096f28",
+    "data": "2025-04-07",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "empagliflozina 25mg 1x/dia"
@@ -726,9 +726,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "e4412809-6201-4ec3-a70e-740737092d76",
-    "paciente_id": "23e76378-5ac7-4135-8593-b97f9c0f465a",
-    "data": "2025-10-09",
+    "id": "6881ae18-28f9-467d-94e9-feca62da56dc",
+    "paciente_id": "1c77396e-773e-453d-abf3-c99bdb096f28",
+    "data": "2025-10-10",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "metformina 850mg 2x/dia"
@@ -737,9 +737,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "a4b83ab9-d5c8-465a-b7d6-b99975e7cf09",
-    "paciente_id": "23e76378-5ac7-4135-8593-b97f9c0f465a",
-    "data": "2026-01-26",
+    "id": "2edc4e79-4e73-4649-986a-6dfad80a9543",
+    "paciente_id": "1c77396e-773e-453d-abf3-c99bdb096f28",
+    "data": "2026-01-27",
     "condicao": "Doença pulmonar obstrutiva crônica",
     "medicamentos": [
       "tiotrópio 18mcg 1x/dia",
@@ -750,9 +750,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "62c51aa8-0eea-4d0e-ad6e-734d2c05871d",
-    "paciente_id": "b3d4816f-1c0a-4d76-8b97-ef1d8b391cd0",
-    "data": "2025-11-18",
+    "id": "71013afd-4ff9-4724-b7b7-e15bfd865e6d",
+    "paciente_id": "8a05839f-74b3-4473-8287-7d9b00762030",
+    "data": "2025-11-19",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "fluoxetina 20mg 1x/dia"
@@ -761,9 +761,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "07c7c653-ede2-434d-9fdc-34926d581c09",
-    "paciente_id": "b3d4816f-1c0a-4d76-8b97-ef1d8b391cd0",
-    "data": "2026-01-25",
+    "id": "fe56722c-ed85-4bd1-8c85-bb339fa8b456",
+    "paciente_id": "8a05839f-74b3-4473-8287-7d9b00762030",
+    "data": "2026-01-26",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "sertralina 50mg 1x/dia"
@@ -772,9 +772,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "3d0d9a42-e3c3-42be-8eb1-ee739dd4d728",
-    "paciente_id": "3fe3d676-2c70-4f6f-b2d6-0be1c6c35ae8",
-    "data": "2025-05-29",
+    "id": "e7e32ec5-01b2-44c6-bb37-c830376dadfb",
+    "paciente_id": "3a2364be-7034-4c64-8f32-7bbb21d2982d",
+    "data": "2025-05-30",
     "condicao": "Obesidade",
     "medicamentos": [
       "orlistate 120mg 3x/dia",
@@ -784,9 +784,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "acdb2d04-e370-45d7-a039-1ac70c07e88a",
-    "paciente_id": "3fe3d676-2c70-4f6f-b2d6-0be1c6c35ae8",
-    "data": "2025-09-09",
+    "id": "5e570d92-1e9e-4e14-851e-05737daf5375",
+    "paciente_id": "3a2364be-7034-4c64-8f32-7bbb21d2982d",
+    "data": "2025-09-10",
     "condicao": "Obesidade",
     "medicamentos": [
       "liraglutida 3mg 1x/dia SC",
@@ -796,9 +796,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "026c19a6-6987-4f4f-bb7d-a1646cf57bfe",
-    "paciente_id": "3fe3d676-2c70-4f6f-b2d6-0be1c6c35ae8",
-    "data": "2025-12-17",
+    "id": "c767dbfb-96ec-4cd4-98c5-69e652a7c59e",
+    "paciente_id": "3a2364be-7034-4c64-8f32-7bbb21d2982d",
+    "data": "2025-12-18",
     "condicao": "Obesidade",
     "medicamentos": [
       "orlistate 120mg 3x/dia",
@@ -808,9 +808,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "a6e1abc1-1548-4df3-af36-87a7115cb875",
-    "paciente_id": "3c82a400-1f4e-4c0f-a12a-dc692f561ee1",
-    "data": "2025-06-14",
+    "id": "220dc526-a979-48b8-b165-648083c0da4a",
+    "paciente_id": "0287583a-1e36-4007-96c2-f644f9c6bce5",
+    "data": "2025-06-15",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "sertralina 50mg 1x/dia",
@@ -820,9 +820,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "b48bb2f4-1536-4833-8805-7ea97285ec63",
-    "paciente_id": "3c82a400-1f4e-4c0f-a12a-dc692f561ee1",
-    "data": "2025-08-09",
+    "id": "278abb92-86b6-4ecc-bb26-ddad7e4d7e7b",
+    "paciente_id": "0287583a-1e36-4007-96c2-f644f9c6bce5",
+    "data": "2025-08-10",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "amitriptilina 25mg à noite",
@@ -832,9 +832,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "0fe1b6f6-65ad-40a8-a419-964f23166a2d",
-    "paciente_id": "3c82a400-1f4e-4c0f-a12a-dc692f561ee1",
-    "data": "2026-02-16",
+    "id": "de88359a-0828-414c-adf8-94b7a7f3e27b",
+    "paciente_id": "0287583a-1e36-4007-96c2-f644f9c6bce5",
+    "data": "2026-02-17",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "venlafaxina 75mg 1x/dia",
@@ -845,9 +845,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "16d2631d-d890-4735-a785-81e0e6f896cb",
-    "paciente_id": "3a0358e3-bc4c-479a-a3e9-e9b2592d1cd8",
-    "data": "2025-08-28",
+    "id": "a314b8f1-fe54-4801-bbad-5517695d422f",
+    "paciente_id": "1f1829e7-24f5-4080-ab01-8e2d7f3bc86f",
+    "data": "2025-08-29",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "amitriptilina 25mg à noite",
@@ -857,9 +857,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "fafd3d6e-5c38-435a-bb05-f19be40f8863",
-    "paciente_id": "3a0358e3-bc4c-479a-a3e9-e9b2592d1cd8",
-    "data": "2025-09-21",
+    "id": "5777d082-7cf9-47e5-b689-be075d09bd11",
+    "paciente_id": "1f1829e7-24f5-4080-ab01-8e2d7f3bc86f",
+    "data": "2025-09-22",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "atenolol 50mg 1x/dia"
@@ -868,9 +868,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "a50e98f6-5517-449c-8e36-b46f122fb345",
-    "paciente_id": "287344f0-5714-4a35-81ff-02f4e8e34b5b",
-    "data": "2025-09-18",
+    "id": "6bc5fedf-4370-4ae3-8408-cf47b731a768",
+    "paciente_id": "173ab509-63ee-4146-8887-683e1ae2a47d",
+    "data": "2025-09-19",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "losartana 50mg 1x/dia",
@@ -880,9 +880,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "0927224d-d8ab-416a-9696-6799efd41d3b",
-    "paciente_id": "287344f0-5714-4a35-81ff-02f4e8e34b5b",
-    "data": "2026-02-15",
+    "id": "62c6b5db-b53e-4a44-a7ee-aa738f4fa63d",
+    "paciente_id": "173ab509-63ee-4146-8887-683e1ae2a47d",
+    "data": "2026-02-16",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "enalapril 10mg 2x/dia",
@@ -893,9 +893,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "0f686fe6-ec79-4690-93b0-342aecaa9398",
-    "paciente_id": "98725884-e881-4e8c-ac0e-5094d90c5b60",
-    "data": "2025-04-10",
+    "id": "eba95b81-ec67-41b4-bd60-bde10fc3016b",
+    "paciente_id": "d0742ba9-0daf-4dfd-883d-6ce6aae74a23",
+    "data": "2025-04-11",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "empagliflozina 25mg 1x/dia"
@@ -904,9 +904,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "32efb444-582d-47f6-8247-540fb339ac52",
-    "paciente_id": "98725884-e881-4e8c-ac0e-5094d90c5b60",
-    "data": "2026-02-22",
+    "id": "5c559c89-8ae4-4952-9ad6-0f7968ee516b",
+    "paciente_id": "d0742ba9-0daf-4dfd-883d-6ce6aae74a23",
+    "data": "2026-02-23",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "insulina NPH 10UI à noite",
@@ -916,9 +916,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "5d63c76a-68f5-40db-8afd-ab750e7541fc",
-    "paciente_id": "5e975095-6577-4cce-809a-273c8965fa1a",
-    "data": "2025-07-13",
+    "id": "eaace082-b388-4522-9d69-fafc59412e39",
+    "paciente_id": "b814f382-bbb5-4da0-aece-a4bb543f6f1b",
+    "data": "2025-07-14",
     "condicao": "Asma",
     "medicamentos": [
       "budesonida 200mcg 2x/dia",
@@ -928,9 +928,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "df315ae0-8b5f-4de5-823b-e5eb8cbe7016",
-    "paciente_id": "29c65408-3de0-4426-9680-f23ec2841cbd",
-    "data": "2026-02-16",
+    "id": "52e66cc4-ead7-4ebf-8a4c-fe59718f140c",
+    "paciente_id": "b8f7dfd2-8c60-44cb-a679-de27b9fcccc0",
+    "data": "2026-02-17",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "glibenclamida 5mg 1x/dia",
@@ -940,9 +940,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "6d8799cb-1334-46c5-aa77-6be3120c1973",
-    "paciente_id": "e44056d7-691c-4af6-9364-c5c34dbad8fc",
-    "data": "2025-09-29",
+    "id": "36e05a45-2947-4f76-a6ce-475693109520",
+    "paciente_id": "79aa6414-fa34-4c31-8b9c-489e45bc89e6",
+    "data": "2025-09-30",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "losartana 50mg 1x/dia",
@@ -953,9 +953,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "c031c7f2-97d6-4839-ad3c-ba4dd795f142",
-    "paciente_id": "e44056d7-691c-4af6-9364-c5c34dbad8fc",
-    "data": "2025-12-11",
+    "id": "efe747ea-22a3-429d-8065-e3ca53c26dda",
+    "paciente_id": "79aa6414-fa34-4c31-8b9c-489e45bc89e6",
+    "data": "2025-12-12",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "enalapril 10mg 2x/dia"
@@ -964,9 +964,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "e79f93cc-3655-49c6-925c-c90bb03baa55",
-    "paciente_id": "eea7e224-f13c-4ff3-a4a6-7d1b769d6ddc",
-    "data": "2026-02-08",
+    "id": "a9a7f41b-9bbd-4ca3-b99a-368dafa80769",
+    "paciente_id": "b07f6ae9-13d6-487e-9678-6b279d4c3c6e",
+    "data": "2026-02-09",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "insulina NPH 10UI à noite",
@@ -976,9 +976,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "104e6b01-74f5-4cd9-b73e-28f7c1756b36",
-    "paciente_id": "e9caae37-de2e-48c9-8665-e62d96dad9ab",
-    "data": "2025-07-09",
+    "id": "71117130-d2d4-42d0-9131-9258319de03e",
+    "paciente_id": "07da305c-a69f-43fb-b69d-4eec3999543f",
+    "data": "2025-07-10",
     "condicao": "Asma",
     "medicamentos": [
       "formoterol + budesonida 12/400mcg 2x/dia"
@@ -987,9 +987,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "1755655f-589c-4fde-8333-20a35c1eaf6c",
-    "paciente_id": "a5ca467b-60a9-4d47-830b-79a02fe2929b",
-    "data": "2025-06-05",
+    "id": "77895457-a231-4d6f-a140-d949fe3c0411",
+    "paciente_id": "4a9ba14e-e80a-4af1-9978-b0fe75127c17",
+    "data": "2025-06-06",
     "condicao": "Insuficiência cardíaca",
     "medicamentos": [
       "carvedilol 6.25mg 2x/dia"
@@ -998,9 +998,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "812007fc-4f14-4e2b-b60c-ffbc01cc6be7",
-    "paciente_id": "f1a87a28-7aea-41f0-8973-5c692d66fd14",
-    "data": "2025-05-14",
+    "id": "26c03072-6423-49a6-bdc8-3ed2a35a7482",
+    "paciente_id": "76ceed3f-f118-4bfe-8b52-c7baaa32d72c",
+    "data": "2025-05-15",
     "condicao": "Asma",
     "medicamentos": [
       "salbutamol spray 100mcg SOS",
@@ -1011,9 +1011,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "e79020b9-07b6-465b-a810-ab205635be17",
-    "paciente_id": "27ddb9aa-bc5d-435a-bf18-39088bd97b8f",
-    "data": "2025-12-12",
+    "id": "5c231a55-90c4-46b2-aa6b-b448ffbdf73b",
+    "paciente_id": "02a0badc-0d5d-4bfa-8b48-6a747bf759ca",
+    "data": "2025-12-13",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "fluoxetina 20mg 1x/dia"
@@ -1022,9 +1022,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "84a1b722-7b33-4cda-b188-96d0f0528a72",
-    "paciente_id": "27ddb9aa-bc5d-435a-bf18-39088bd97b8f",
-    "data": "2026-01-21",
+    "id": "2cde517a-05f4-459e-8c66-8fb9f6eefd92",
+    "paciente_id": "02a0badc-0d5d-4bfa-8b48-6a747bf759ca",
+    "data": "2026-01-22",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "escitalopram 10mg 1x/dia"
@@ -1033,9 +1033,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "67e2631e-d822-40a4-860e-032951fd7485",
-    "paciente_id": "153f66c4-f1dc-4d44-941a-c80334d900e1",
-    "data": "2025-04-06",
+    "id": "3de45444-00de-4c10-889c-bebd320d394e",
+    "paciente_id": "75e6c492-9fb4-455e-9bf4-75b9478cd0b8",
+    "data": "2025-04-07",
     "condicao": "Obesidade",
     "medicamentos": [
       "liraglutida 3mg 1x/dia SC",
@@ -1045,9 +1045,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "481043e9-00ec-492f-acf2-bc19a333b32e",
-    "paciente_id": "4ea0b6eb-3a34-4c38-9892-53acb40ae88c",
-    "data": "2025-08-01",
+    "id": "55882142-0d2d-4f96-8d99-d12dd150e9c9",
+    "paciente_id": "2603f6d9-9585-4ca0-ba72-48ce4caff37c",
+    "data": "2025-08-02",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "escitalopram 10mg 1x/dia",
@@ -1057,9 +1057,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "d302db7a-95c8-4099-8daf-26085b820659",
-    "paciente_id": "4ea0b6eb-3a34-4c38-9892-53acb40ae88c",
-    "data": "2025-08-10",
+    "id": "b4e7272a-04d1-4517-a423-ff1102890642",
+    "paciente_id": "2603f6d9-9585-4ca0-ba72-48ce4caff37c",
+    "data": "2025-08-11",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "escitalopram 10mg 1x/dia"
@@ -1068,9 +1068,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "6d113e14-af9b-4013-a3d7-e45af57c0b19",
-    "paciente_id": "4ea0b6eb-3a34-4c38-9892-53acb40ae88c",
-    "data": "2025-12-17",
+    "id": "ef858a9b-baea-414b-ba3f-9dd46dd4e1e6",
+    "paciente_id": "2603f6d9-9585-4ca0-ba72-48ce4caff37c",
+    "data": "2025-12-18",
     "condicao": "Asma",
     "medicamentos": [
       "formoterol + budesonida 12/400mcg 2x/dia"
@@ -1079,9 +1079,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "a75d0e29-e1b7-4ad0-a984-eb1b20d7ec4c",
-    "paciente_id": "cdea0c45-46ad-4357-944b-987567f23d26",
-    "data": "2025-04-09",
+    "id": "99fb2ec4-7614-4e5d-9664-02cf1d54356c",
+    "paciente_id": "46a28803-7f98-4543-ba29-3a60e189322c",
+    "data": "2025-04-10",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "losartana 50mg 1x/dia",
@@ -1092,9 +1092,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "1f21ff3b-7b4f-4fc2-94f5-71488a0bc714",
-    "paciente_id": "cdea0c45-46ad-4357-944b-987567f23d26",
-    "data": "2026-01-19",
+    "id": "9d1bf7c3-ea3f-46dd-9775-23f7afda799d",
+    "paciente_id": "46a28803-7f98-4543-ba29-3a60e189322c",
+    "data": "2026-01-20",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "hidroclorotiazida 25mg 1x/dia",
@@ -1105,9 +1105,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "944948a7-03b6-4259-bd06-cd6fa48fa096",
-    "paciente_id": "cdea0c45-46ad-4357-944b-987567f23d26",
-    "data": "2026-02-14",
+    "id": "ffb56476-1229-4175-8d2a-991e5c83a360",
+    "paciente_id": "46a28803-7f98-4543-ba29-3a60e189322c",
+    "data": "2026-02-15",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "losartana 50mg 1x/dia"
@@ -1116,9 +1116,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "6785ff17-2f05-4e99-a896-3c4ee62e5ab7",
-    "paciente_id": "f548c8fe-14df-4548-969d-c1a885ed02b2",
-    "data": "2025-07-17",
+    "id": "7ae9b2ba-72fe-4dfe-bb54-435addbff7f3",
+    "paciente_id": "090963af-e9cb-4234-92bc-20b9bc3491f2",
+    "data": "2025-07-18",
     "condicao": "Hipotireoidismo",
     "medicamentos": [
       "levotiroxina 75mcg 1x/dia em jejum"
@@ -1127,9 +1127,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "99cdf851-7ede-4d40-aefd-88958e8be5de",
-    "paciente_id": "f548c8fe-14df-4548-969d-c1a885ed02b2",
-    "data": "2025-08-19",
+    "id": "4bc31ac2-400f-4dda-bd77-1641df653f4a",
+    "paciente_id": "090963af-e9cb-4234-92bc-20b9bc3491f2",
+    "data": "2025-08-20",
     "condicao": "Hipotireoidismo",
     "medicamentos": [
       "levotiroxina 100mcg 1x/dia em jejum",
@@ -1139,9 +1139,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "8fde0808-4c5b-4290-bc75-9fc5374b2083",
-    "paciente_id": "74a3b411-d552-442d-9228-03649ba69b15",
-    "data": "2025-05-17",
+    "id": "d0891a84-5f09-4980-b335-1ecfe5b2b2af",
+    "paciente_id": "0376d78b-8a0b-45cb-863b-25518b6b887f",
+    "data": "2025-05-18",
     "condicao": "Obesidade",
     "medicamentos": [
       "liraglutida 3mg 1x/dia SC",
@@ -1151,9 +1151,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "99e1ee98-2b4a-4031-aef4-a8a27aabbf1a",
-    "paciente_id": "74a3b411-d552-442d-9228-03649ba69b15",
-    "data": "2025-07-15",
+    "id": "3647d870-3a91-4e25-8b32-0931adfd05da",
+    "paciente_id": "0376d78b-8a0b-45cb-863b-25518b6b887f",
+    "data": "2025-07-16",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "empagliflozina 25mg 1x/dia",
@@ -1163,9 +1163,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "4c0db159-8dc1-4f99-a173-79af1655875e",
-    "paciente_id": "74a3b411-d552-442d-9228-03649ba69b15",
-    "data": "2025-09-16",
+    "id": "460281d7-420b-47c8-839a-0028b5ccd0fa",
+    "paciente_id": "0376d78b-8a0b-45cb-863b-25518b6b887f",
+    "data": "2025-09-17",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "hidroclorotiazida 25mg 1x/dia",
@@ -1175,9 +1175,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "b532f22a-696d-4946-8238-aa84df8337f3",
-    "paciente_id": "d1e6d77f-c581-4b2a-a415-77c31641aeab",
-    "data": "2025-04-02",
+    "id": "33d396d9-9c2f-4cc2-95d9-83c1c46e6b95",
+    "paciente_id": "3fda6f23-0284-4bfd-bc93-af6ee33a7758",
+    "data": "2025-04-03",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "sitagliptina 100mg 1x/dia",
@@ -1187,9 +1187,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "3d4f3989-073b-4aec-bee3-ec490c502410",
-    "paciente_id": "0b775d9a-d689-4690-a4ba-dc5cc956e2f1",
-    "data": "2025-10-10",
+    "id": "afc924b2-4267-4bb9-a8d0-94aee9399313",
+    "paciente_id": "49d59865-c3ed-4119-8854-2787b5b21b23",
+    "data": "2025-10-11",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "amitriptilina 25mg à noite"
@@ -1198,9 +1198,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "068f64a6-5a77-4b13-b881-f765da8a0b53",
-    "paciente_id": "bf06e9c6-33d3-4fcc-8a95-b1fc844c7b52",
-    "data": "2026-01-19",
+    "id": "5fe6dd49-fc71-4a55-837f-157271bd06f1",
+    "paciente_id": "eee030d0-ba51-43fe-8502-af51fc0605ed",
+    "data": "2026-01-20",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "sertralina 50mg 1x/dia",
@@ -1211,9 +1211,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "ce95e19d-99e7-41b9-82b9-abae863ed0db",
-    "paciente_id": "bf06e9c6-33d3-4fcc-8a95-b1fc844c7b52",
-    "data": "2026-02-24",
+    "id": "3fafdacd-cab5-48fb-802c-0b8a0eeef675",
+    "paciente_id": "eee030d0-ba51-43fe-8502-af51fc0605ed",
+    "data": "2026-02-25",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "venlafaxina 75mg 1x/dia",
@@ -1223,9 +1223,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "3d7ab509-01cd-4c7f-9ae5-b35a70e48b86",
-    "paciente_id": "f56be058-f85f-4340-83d2-1003f740d87c",
-    "data": "2025-04-27",
+    "id": "7e58f315-8c9a-4844-9291-6b64556edf94",
+    "paciente_id": "42d42acf-7602-49ce-891a-0266221a0b59",
+    "data": "2025-04-28",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "glibenclamida 5mg 1x/dia",
@@ -1235,9 +1235,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "e268dcc7-ce04-4e1a-a685-d612ae77a979",
-    "paciente_id": "f56be058-f85f-4340-83d2-1003f740d87c",
-    "data": "2026-02-20",
+    "id": "246fb71a-26e1-4490-ab26-928cd4e87b75",
+    "paciente_id": "42d42acf-7602-49ce-891a-0266221a0b59",
+    "data": "2026-02-21",
     "condicao": "Hipotireoidismo",
     "medicamentos": [
       "levotiroxina 100mcg 1x/dia em jejum",
@@ -1247,9 +1247,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "87481b04-6947-4d3e-b306-3b89709bc678",
-    "paciente_id": "40eed459-3fab-4e08-96c7-e0cae119e91d",
-    "data": "2026-01-03",
+    "id": "fbfa3309-207d-4bf6-a1b4-79f3349ad02d",
+    "paciente_id": "a90e145f-6a35-4baf-98ff-b43a094354eb",
+    "data": "2026-01-04",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "anlodipino 5mg 1x/dia",
@@ -1260,9 +1260,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "c2224936-4f6b-4db1-bd03-64dc2b29309e",
-    "paciente_id": "40eed459-3fab-4e08-96c7-e0cae119e91d",
-    "data": "2026-01-04",
+    "id": "fd193777-34b4-48d1-8251-49cfdc1b9367",
+    "paciente_id": "a90e145f-6a35-4baf-98ff-b43a094354eb",
+    "data": "2026-01-05",
     "condicao": "Obesidade",
     "medicamentos": [
       "liraglutida 3mg 1x/dia SC",
@@ -1272,9 +1272,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "038b0734-5c35-4ed3-8899-e49459cc7ed7",
-    "paciente_id": "2c79fd67-9a8c-4176-a11a-73f99f6ee3df",
-    "data": "2025-03-07",
+    "id": "ac641334-f4f6-4c8c-99e3-e8d18769fd73",
+    "paciente_id": "adc7afd6-88a5-4415-af50-b6d10f461d67",
+    "data": "2025-03-08",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "sitagliptina 100mg 1x/dia",
@@ -1285,9 +1285,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "4aba5334-2ca1-41be-b14f-a5f67a4211a6",
-    "paciente_id": "4df365d0-91b8-4cb4-b8a7-8c5035d228c4",
-    "data": "2025-05-27",
+    "id": "c81bcb8a-929e-4f15-87a8-2a2cc4f4b152",
+    "paciente_id": "510c75ac-26a8-43ef-952c-59ddc5f10e72",
+    "data": "2025-05-28",
     "condicao": "Transtorno de ansiedade generalizada",
     "medicamentos": [
       "escitalopram 10mg 1x/dia",
@@ -1298,9 +1298,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "ea44327d-8069-4a2d-84db-b894f345c420",
-    "paciente_id": "4df365d0-91b8-4cb4-b8a7-8c5035d228c4",
-    "data": "2025-06-07",
+    "id": "45cab6c7-266d-4eef-a714-d04a7123d581",
+    "paciente_id": "510c75ac-26a8-43ef-952c-59ddc5f10e72",
+    "data": "2025-06-08",
     "condicao": "Transtorno de ansiedade generalizada",
     "medicamentos": [
       "escitalopram 10mg 1x/dia",
@@ -1310,9 +1310,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "4702ced2-5847-450d-bc9b-16cb4690ea69",
-    "paciente_id": "4df365d0-91b8-4cb4-b8a7-8c5035d228c4",
-    "data": "2025-07-23",
+    "id": "5e4d1d24-eacd-4bc3-8ed3-fc773c53f6fc",
+    "paciente_id": "510c75ac-26a8-43ef-952c-59ddc5f10e72",
+    "data": "2025-07-24",
     "condicao": "Transtorno de ansiedade generalizada",
     "medicamentos": [
       "sertralina 50mg 1x/dia"
@@ -1321,9 +1321,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "65b8ead4-dac0-49af-a821-17aa616d2a69",
-    "paciente_id": "ea1a773c-fb09-4e9c-a160-7b3f128c20dc",
-    "data": "2025-11-07",
+    "id": "8c25269d-9a4c-408d-928b-d297b8042f32",
+    "paciente_id": "f0c012d6-20a5-4309-99f6-77e1f2940bd2",
+    "data": "2025-11-08",
     "condicao": "Obesidade",
     "medicamentos": [
       "orlistate 120mg 3x/dia",
@@ -1333,9 +1333,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "f21a7399-739b-4313-98dd-fa1309581e44",
-    "paciente_id": "ea1a773c-fb09-4e9c-a160-7b3f128c20dc",
-    "data": "2025-12-09",
+    "id": "6a01c1e0-27c1-4d75-985a-50874b5a9ad1",
+    "paciente_id": "f0c012d6-20a5-4309-99f6-77e1f2940bd2",
+    "data": "2025-12-10",
     "condicao": "Obesidade",
     "medicamentos": [
       "liraglutida 3mg 1x/dia SC",
@@ -1345,9 +1345,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "e63019d5-9938-4f25-a98d-d3d96a753d5f",
-    "paciente_id": "ea1a773c-fb09-4e9c-a160-7b3f128c20dc",
-    "data": "2026-02-01",
+    "id": "8716ffd2-cebb-475a-9315-5fe803536832",
+    "paciente_id": "f0c012d6-20a5-4309-99f6-77e1f2940bd2",
+    "data": "2026-02-02",
     "condicao": "Obesidade",
     "medicamentos": [
       "orlistate 120mg 3x/dia"
@@ -1356,9 +1356,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "85c51392-1145-45c9-bbff-7a4205b3eb96",
-    "paciente_id": "7aa4c4d3-592e-4111-832f-41d28996b42e",
-    "data": "2026-01-28",
+    "id": "abed18f0-90b6-4dcb-903a-8d84a71fa842",
+    "paciente_id": "6e59e34f-47f0-425e-8c78-d275bdd94379",
+    "data": "2026-01-29",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "escitalopram 10mg 1x/dia",
@@ -1369,9 +1369,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "946396ff-c7c3-42a6-8bec-8cc9d44b156d",
-    "paciente_id": "58722885-541f-4813-8ef8-c9381996ca16",
-    "data": "2026-01-25",
+    "id": "57c334b7-14d8-49fa-aa2a-50e7573b1752",
+    "paciente_id": "c9c9c7cc-3daa-474b-bebd-fa0cd6a701f0",
+    "data": "2026-01-26",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "losartana 50mg 1x/dia",
@@ -1382,9 +1382,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "0cf08957-b041-4450-bec9-af7346838fcc",
-    "paciente_id": "a901a8bb-9180-436d-842f-31f047a53fae",
-    "data": "2025-07-12",
+    "id": "9eecab88-9bd5-4a56-8db4-970cbb7e40a6",
+    "paciente_id": "4cebac00-c134-452e-9966-8ac5c1216aab",
+    "data": "2025-07-13",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "anlodipino 5mg 1x/dia"
@@ -1393,9 +1393,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "7604e4d3-dc1a-4e5f-80a0-f9c286208d7d",
-    "paciente_id": "a901a8bb-9180-436d-842f-31f047a53fae",
-    "data": "2025-10-06",
+    "id": "867849e4-7abe-4953-8779-8014eedd035f",
+    "paciente_id": "4cebac00-c134-452e-9966-8ac5c1216aab",
+    "data": "2025-10-07",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "atenolol 50mg 1x/dia"
@@ -1404,9 +1404,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "ec2b7d60-de04-4a99-b316-041b7ae40ca1",
-    "paciente_id": "a901a8bb-9180-436d-842f-31f047a53fae",
-    "data": "2026-01-02",
+    "id": "012cc19e-1f8c-4ed8-8899-58c5764cf52f",
+    "paciente_id": "4cebac00-c134-452e-9966-8ac5c1216aab",
+    "data": "2026-01-03",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "enalapril 10mg 2x/dia"
@@ -1415,9 +1415,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "69e0efaa-8717-432a-89d7-3215d29b7247",
-    "paciente_id": "e9eff724-275b-4b67-955e-6456414c7ba1",
-    "data": "2025-07-22",
+    "id": "a5af461f-54a5-4abd-975c-9fbd945c91dc",
+    "paciente_id": "c0cf8645-0901-4caa-a810-92d7fa418ddc",
+    "data": "2025-07-23",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "escitalopram 10mg 1x/dia",
@@ -1427,9 +1427,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "298c3965-4f96-47bc-addf-5f14ed94293c",
-    "paciente_id": "e9eff724-275b-4b67-955e-6456414c7ba1",
-    "data": "2025-09-01",
+    "id": "3940538b-92b6-4588-abd8-7bc14d302142",
+    "paciente_id": "c0cf8645-0901-4caa-a810-92d7fa418ddc",
+    "data": "2025-09-02",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "escitalopram 10mg 1x/dia"
@@ -1438,9 +1438,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "54ec7062-673e-4276-b97f-74a545e32bdb",
-    "paciente_id": "4fa3acac-4707-4c98-ba7c-b946e0d5607a",
-    "data": "2026-02-01",
+    "id": "33622e6d-213f-46fb-9aaa-f7a50004194b",
+    "paciente_id": "db9d644e-c318-4ae9-916a-c70d75d1049e",
+    "data": "2026-02-02",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "anlodipino 5mg 1x/dia",
@@ -1450,9 +1450,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "bf890078-33ea-467c-9cac-0c7b580100ee",
-    "paciente_id": "4fa3acac-4707-4c98-ba7c-b946e0d5607a",
-    "data": "2026-02-26",
+    "id": "bbcefcc5-e018-441e-9452-64f17f1c8816",
+    "paciente_id": "db9d644e-c318-4ae9-916a-c70d75d1049e",
+    "data": "2026-02-27",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "atenolol 50mg 1x/dia",
@@ -1462,9 +1462,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "baa5346f-f208-4555-93cc-f1fd9b6eb371",
-    "paciente_id": "412c6008-ea81-4cd8-bf58-8fb06ed9d05b",
-    "data": "2025-06-02",
+    "id": "3d337ade-0735-4d4c-8475-839b3eee7db9",
+    "paciente_id": "29578e32-73a0-456c-942c-1b35892593bb",
+    "data": "2025-06-03",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "metformina 850mg 2x/dia"
@@ -1473,9 +1473,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "3c9c0c5e-53c5-4e71-9b2c-aca782790e56",
-    "paciente_id": "6b3ad814-7ca6-4d83-b05e-4fff9cebeca8",
-    "data": "2025-12-28",
+    "id": "e271bf9c-0131-4989-86a6-e5f8cc4051e6",
+    "paciente_id": "c049f4f4-a79a-42f9-b486-445ab5e86647",
+    "data": "2025-12-29",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "sertralina 50mg 1x/dia"
@@ -1484,9 +1484,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "19ec775c-af12-4d6d-9342-86e76b75c689",
-    "paciente_id": "6b3ad814-7ca6-4d83-b05e-4fff9cebeca8",
-    "data": "2026-01-08",
+    "id": "aedb95b7-add1-4750-bf93-3fcd337a646e",
+    "paciente_id": "c049f4f4-a79a-42f9-b486-445ab5e86647",
+    "data": "2026-01-09",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "escitalopram 10mg 1x/dia",
@@ -1497,9 +1497,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "3fc9d268-73b3-4fdd-8f9e-b0e1dfd2a721",
-    "paciente_id": "6b3ad814-7ca6-4d83-b05e-4fff9cebeca8",
-    "data": "2026-02-11",
+    "id": "0be5dac2-a171-499e-b4cf-5ae8b8b39ad9",
+    "paciente_id": "c049f4f4-a79a-42f9-b486-445ab5e86647",
+    "data": "2026-02-12",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "venlafaxina 75mg 1x/dia"
@@ -1508,9 +1508,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "2698356b-f3cf-4c9a-9746-c96a30531b7e",
-    "paciente_id": "5044792e-2a92-4c35-ac0d-f6b16c3dda2d",
-    "data": "2025-03-16",
+    "id": "d5a8a319-e26e-4d5a-b158-ef6e02447c9f",
+    "paciente_id": "9efd9b71-9086-4150-ac89-c8b1662ad5e1",
+    "data": "2025-03-17",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "atenolol 50mg 1x/dia"
@@ -1519,9 +1519,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "6b384b0f-c266-4d52-ac80-b52bd97aa7a7",
-    "paciente_id": "5044792e-2a92-4c35-ac0d-f6b16c3dda2d",
-    "data": "2025-10-13",
+    "id": "dc4c6284-873e-4b47-ae54-cede95309f2c",
+    "paciente_id": "9efd9b71-9086-4150-ac89-c8b1662ad5e1",
+    "data": "2025-10-14",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "hidroclorotiazida 25mg 1x/dia",
@@ -1531,9 +1531,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "3e7a34a1-9df6-4a95-8b88-a49dfa0241e3",
-    "paciente_id": "22e354a9-76eb-48ff-a876-7e192320928c",
-    "data": "2026-03-01",
+    "id": "f4107bd5-5bc1-4503-9222-ba1ab9c36167",
+    "paciente_id": "0a3095e0-faf5-4c31-9e6b-59c19a5b53fa",
+    "data": "2026-03-02",
     "condicao": "Obesidade",
     "medicamentos": [
       "orlistate 120mg 3x/dia",
@@ -1543,9 +1543,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "b250cd80-4864-43ef-b0b5-071354addcb6",
-    "paciente_id": "756776ed-4095-4bf8-bcc4-ee7163c97b52",
-    "data": "2025-05-01",
+    "id": "f0b3ffa7-2fa7-4f79-a8eb-4440aa18941f",
+    "paciente_id": "38363a1c-c414-4110-b538-4f7243017cbe",
+    "data": "2025-05-02",
     "condicao": "Doença pulmonar obstrutiva crônica",
     "medicamentos": [
       "salbutamol spray 100mcg SOS",
@@ -1556,9 +1556,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "d7d0b926-d14d-4a4b-9130-d174a1341578",
-    "paciente_id": "f3ecb0f6-671d-4de6-a6ad-2628ee10faf9",
-    "data": "2025-10-24",
+    "id": "76225d85-baba-47f8-930f-1672a9a7d13e",
+    "paciente_id": "fb9ef82a-a1f2-4bd2-9b37-914921257d74",
+    "data": "2025-10-25",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "venlafaxina 75mg 1x/dia"
@@ -1567,9 +1567,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "690c7172-3bba-4c66-9507-ff09a5ba7f7e",
-    "paciente_id": "f3ecb0f6-671d-4de6-a6ad-2628ee10faf9",
-    "data": "2025-12-09",
+    "id": "7153e2d9-56c6-4d46-9b80-a825adaae805",
+    "paciente_id": "fb9ef82a-a1f2-4bd2-9b37-914921257d74",
+    "data": "2025-12-10",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "escitalopram 10mg 1x/dia"
@@ -1578,9 +1578,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "95fc06a9-c3fb-410a-8008-d50d8a39c37e",
-    "paciente_id": "35dc65d7-9bb2-4c36-bc24-06672e54da12",
-    "data": "2025-12-15",
+    "id": "4af343bf-733e-48a3-b49b-ac797a25e793",
+    "paciente_id": "6c7f3279-c0c0-44a0-8ddd-bcfffefb32d0",
+    "data": "2025-12-16",
     "condicao": "Asma",
     "medicamentos": [
       "budesonida 200mcg 2x/dia"
@@ -1589,9 +1589,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "33b30508-d7b4-4196-8631-dd534e75c640",
-    "paciente_id": "35dc65d7-9bb2-4c36-bc24-06672e54da12",
-    "data": "2026-01-03",
+    "id": "464e3360-0480-4e13-a3c9-a795875c5d40",
+    "paciente_id": "6c7f3279-c0c0-44a0-8ddd-bcfffefb32d0",
+    "data": "2026-01-04",
     "condicao": "Asma",
     "medicamentos": [
       "budesonida 200mcg 2x/dia",
@@ -1601,9 +1601,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "1273ecc5-8c50-4904-bc68-7ec77cd5d42e",
-    "paciente_id": "35dc65d7-9bb2-4c36-bc24-06672e54da12",
-    "data": "2026-02-13",
+    "id": "3b2df7b9-be72-45c8-bae1-a87c578b9446",
+    "paciente_id": "6c7f3279-c0c0-44a0-8ddd-bcfffefb32d0",
+    "data": "2026-02-14",
     "condicao": "Asma",
     "medicamentos": [
       "salbutamol spray 100mcg SOS",
@@ -1614,9 +1614,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "8736bd0a-18f5-4cb7-8250-2038a81c41ab",
-    "paciente_id": "94e36133-b6be-4e2f-8038-94e504f8c7ba",
-    "data": "2026-01-21",
+    "id": "3989911e-2dea-4390-91f0-8e9a9fc165c0",
+    "paciente_id": "e626d1a2-299c-4cf5-a9f7-48ff9340c4a0",
+    "data": "2026-01-22",
     "condicao": "Asma",
     "medicamentos": [
       "montelucaste 10mg 1x/dia",
@@ -1626,9 +1626,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "ea0fd0fc-fa63-4cb1-a992-5df063abb3a4",
-    "paciente_id": "a96af180-b4e1-4924-9a09-18daad44d786",
-    "data": "2025-05-31",
+    "id": "6ba67dc6-a47c-4b52-beeb-97ac5112c9ad",
+    "paciente_id": "40a658b6-5e72-4d7b-af9b-ca5f9d2e0630",
+    "data": "2025-06-01",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "anlodipino 5mg 1x/dia"
@@ -1637,9 +1637,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "a5b9877a-fb91-4b50-961a-6956509b9f79",
-    "paciente_id": "a96af180-b4e1-4924-9a09-18daad44d786",
-    "data": "2025-06-09",
+    "id": "7b640f8d-875e-432f-865c-d59121169acb",
+    "paciente_id": "40a658b6-5e72-4d7b-af9b-ca5f9d2e0630",
+    "data": "2025-06-10",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "losartana 50mg 1x/dia",
@@ -1649,9 +1649,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "664fe6e8-7569-49e5-83ef-e39756669b68",
-    "paciente_id": "a96af180-b4e1-4924-9a09-18daad44d786",
-    "data": "2025-07-04",
+    "id": "008879ce-b76c-451d-80ee-9f3511c7d0fa",
+    "paciente_id": "40a658b6-5e72-4d7b-af9b-ca5f9d2e0630",
+    "data": "2025-07-05",
     "condicao": "Obesidade",
     "medicamentos": [
       "liraglutida 3mg 1x/dia SC"
@@ -1660,9 +1660,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "e865be7c-43eb-4a23-b983-c99e8a86ae55",
-    "paciente_id": "52a428e1-767e-4e72-8129-a16b63710fc7",
-    "data": "2025-06-28",
+    "id": "670893bc-d98e-4755-be61-2371ad528b78",
+    "paciente_id": "e16aba11-d510-4d69-8c0a-393d905c049d",
+    "data": "2025-06-29",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "losartana 50mg 1x/dia",
@@ -1672,9 +1672,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "ddfc434b-ad21-4cab-a337-2bdf53f54c1c",
-    "paciente_id": "52a428e1-767e-4e72-8129-a16b63710fc7",
-    "data": "2025-07-14",
+    "id": "2b963bf9-43b1-4ae8-af81-396c6a670749",
+    "paciente_id": "e16aba11-d510-4d69-8c0a-393d905c049d",
+    "data": "2025-07-15",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "enalapril 10mg 2x/dia",
@@ -1684,9 +1684,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "238ff4d1-d670-454d-8994-ef8940d594cf",
-    "paciente_id": "8053705b-6fa8-46c6-979c-7c6de9c17000",
-    "data": "2025-06-28",
+    "id": "aad755c6-6e2f-4a4d-b534-f8b64d0a8e2c",
+    "paciente_id": "555a77cd-882b-4472-92f8-27b4e0e932e6",
+    "data": "2025-06-29",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "insulina NPH 10UI à noite",
@@ -1697,9 +1697,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "7c44b306-1078-4c45-a921-db3002087b52",
-    "paciente_id": "691fc563-bddb-4859-83a5-5d3a704ece4d",
-    "data": "2025-09-05",
+    "id": "b239ac38-4b5e-41da-9b45-93c615494071",
+    "paciente_id": "4b673bea-5691-40cd-a8da-c9384b52ea6e",
+    "data": "2025-09-06",
     "condicao": "Hipotireoidismo",
     "medicamentos": [
       "levotiroxina 100mcg 1x/dia em jejum"
@@ -1708,9 +1708,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "8397ebc8-1b79-418c-8916-31fcb64bbf81",
-    "paciente_id": "acba471e-c195-4acc-b2f6-09a75c0b5a96",
-    "data": "2025-04-18",
+    "id": "b83e3f3a-5251-419e-b642-e77b732ebe8a",
+    "paciente_id": "5ca88231-af50-4044-8a3a-35ac3eefda0e",
+    "data": "2025-04-19",
     "condicao": "Hipotireoidismo",
     "medicamentos": [
       "levotiroxina 100mcg 1x/dia em jejum",
@@ -1721,9 +1721,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "76b851ed-d599-46a6-957d-3e167e25a3ab",
-    "paciente_id": "acba471e-c195-4acc-b2f6-09a75c0b5a96",
-    "data": "2026-01-02",
+    "id": "2d41bf3b-c021-4bae-90c5-a32f9c4de407",
+    "paciente_id": "5ca88231-af50-4044-8a3a-35ac3eefda0e",
+    "data": "2026-01-03",
     "condicao": "Hipotireoidismo",
     "medicamentos": [
       "levotiroxina 75mcg 1x/dia em jejum",
@@ -1734,9 +1734,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "c2e28e99-9c90-4649-bee8-bbdb232e7ad0",
-    "paciente_id": "9f2d5f27-e1e6-4070-a9c2-69c678996e80",
-    "data": "2025-10-28",
+    "id": "6b39916f-4499-4bc9-bec0-4fd5191f0360",
+    "paciente_id": "33afcc62-368b-46e9-8af5-512dc4b029d5",
+    "data": "2025-10-29",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "insulina NPH 10UI à noite",
@@ -1746,9 +1746,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "a0cc3063-e5ae-431e-8d59-c34a5265ece4",
-    "paciente_id": "e1a49b4e-b97c-45a4-b4d8-2ae85fdf8f78",
-    "data": "2025-03-04",
+    "id": "bebd4d7f-99f3-4e53-9b5e-ba258d142194",
+    "paciente_id": "e716074f-6c0d-4d8c-8bfa-12ed106f463c",
+    "data": "2025-03-05",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "metformina 850mg 2x/dia"
@@ -1757,9 +1757,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "ed683ad5-7001-4c75-8c48-f97179a4d2fa",
-    "paciente_id": "e1a49b4e-b97c-45a4-b4d8-2ae85fdf8f78",
-    "data": "2025-05-26",
+    "id": "ea325877-edb0-4060-8f41-03a319ebdb70",
+    "paciente_id": "e716074f-6c0d-4d8c-8bfa-12ed106f463c",
+    "data": "2025-05-27",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "escitalopram 10mg 1x/dia",
@@ -1769,9 +1769,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "57decb05-ab12-4ef1-a56a-1f9beb44ef79",
-    "paciente_id": "e1a49b4e-b97c-45a4-b4d8-2ae85fdf8f78",
-    "data": "2025-08-05",
+    "id": "761ed5e7-bd90-46f8-8c85-421a3d8ff437",
+    "paciente_id": "e716074f-6c0d-4d8c-8bfa-12ed106f463c",
+    "data": "2025-08-06",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "glibenclamida 5mg 1x/dia"
@@ -1780,9 +1780,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "cca57b69-4ce6-468e-ba8d-3064d7061eb4",
-    "paciente_id": "7ef2af4e-dd93-49f4-9588-5773deed4573",
-    "data": "2026-01-03",
+    "id": "a2e5fd4e-aad8-41be-badb-6fb005c172dd",
+    "paciente_id": "c729261b-ebdd-495d-bbef-a1b21e78e768",
+    "data": "2026-01-04",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "anlodipino 5mg 1x/dia",
@@ -1793,9 +1793,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "384bc652-8cdd-4642-899c-c0aa0619a54f",
-    "paciente_id": "a4ecad9b-f616-41a1-b717-40029d596450",
-    "data": "2025-08-08",
+    "id": "297cbc56-1829-4acb-af93-ef90b9858794",
+    "paciente_id": "6bc2630c-e14b-4fb9-9ca4-01f1142947f7",
+    "data": "2025-08-09",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "metformina 850mg 2x/dia",
@@ -1806,9 +1806,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "3f29df05-4ae7-4d7e-8725-7b0c2a8c660a",
-    "paciente_id": "f85c3387-3d86-4e23-9fae-4f5499c1f23c",
-    "data": "2025-09-09",
+    "id": "bf8f6718-69d0-4eba-9c20-de565240f370",
+    "paciente_id": "0390dfb5-ff85-4dd7-b8a7-2f297572a832",
+    "data": "2025-09-10",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "empagliflozina 25mg 1x/dia",
@@ -1818,9 +1818,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "6d88e574-13cd-4bfc-b9ff-bfdc0d84bc5d",
-    "paciente_id": "f85c3387-3d86-4e23-9fae-4f5499c1f23c",
-    "data": "2026-02-07",
+    "id": "72bba697-66a1-4e49-a8aa-ebe689fce803",
+    "paciente_id": "0390dfb5-ff85-4dd7-b8a7-2f297572a832",
+    "data": "2026-02-08",
     "condicao": "Episódio depressivo",
     "medicamentos": [
       "sertralina 50mg 1x/dia"
@@ -1829,9 +1829,9 @@
     "observacoes": "Uso contínuo. Retorno em 3 meses."
   },
   {
-    "id": "e4008b4a-0d90-4839-8408-2ea8e004fb02",
-    "paciente_id": "f85c3387-3d86-4e23-9fae-4f5499c1f23c",
-    "data": "2026-02-18",
+    "id": "73a7144a-1c2d-4524-8d2a-7130da40b760",
+    "paciente_id": "0390dfb5-ff85-4dd7-b8a7-2f297572a832",
+    "data": "2026-02-19",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "insulina NPH 10UI à noite",
@@ -1841,9 +1841,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "48b9d9fa-3fe9-467f-ac49-c0cbc5c90c4a",
-    "paciente_id": "8140d9fe-d99d-42c0-9003-689f73d6575a",
-    "data": "2025-04-20",
+    "id": "875988b7-ac9b-4e2e-a749-1e2886b0a117",
+    "paciente_id": "8dc764e7-d40d-4eb1-bc9f-1cc291738f81",
+    "data": "2025-04-21",
     "condicao": "Asma",
     "medicamentos": [
       "salbutamol spray 100mcg SOS"
@@ -1852,9 +1852,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "36cb55fd-ea65-40a6-9f14-dbb5f6300084",
-    "paciente_id": "8140d9fe-d99d-42c0-9003-689f73d6575a",
-    "data": "2025-06-16",
+    "id": "7be2e0bf-0e9a-4433-a093-9e81a7f5cdcb",
+    "paciente_id": "8dc764e7-d40d-4eb1-bc9f-1cc291738f81",
+    "data": "2025-06-17",
     "condicao": "Doença pulmonar obstrutiva crônica",
     "medicamentos": [
       "salbutamol spray 100mcg SOS"
@@ -1863,9 +1863,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "03f24a55-127a-4f0f-9ef1-3bacfd2be651",
-    "paciente_id": "8140d9fe-d99d-42c0-9003-689f73d6575a",
-    "data": "2026-02-16",
+    "id": "2032e790-53f9-4cbf-8d70-5abc4c28e38e",
+    "paciente_id": "8dc764e7-d40d-4eb1-bc9f-1cc291738f81",
+    "data": "2026-02-17",
     "condicao": "Asma",
     "medicamentos": [
       "formoterol + budesonida 12/400mcg 2x/dia",
@@ -1876,9 +1876,9 @@
     "observacoes": "Novo medicamento adicionado ao esquema."
   },
   {
-    "id": "8cc9d296-f123-488c-8e3b-b68b1b83cab2",
-    "paciente_id": "21d44ece-9752-432d-8a10-435d75e4f4e3",
-    "data": "2025-03-28",
+    "id": "8eeb2d78-2b23-4865-bc52-7545c60ade89",
+    "paciente_id": "1dfef1e8-8d65-4e65-a8f6-3ceaf1e21f0b",
+    "data": "2025-03-29",
     "condicao": "Insuficiência cardíaca",
     "medicamentos": [
       "carvedilol 6.25mg 2x/dia",
@@ -1889,9 +1889,9 @@
     "observacoes": "Manter medicação e dieta orientada."
   },
   {
-    "id": "4ef407d9-622a-4bdc-b086-522cdb5f3008",
-    "paciente_id": "21d44ece-9752-432d-8a10-435d75e4f4e3",
-    "data": "2025-07-15",
+    "id": "bcf95209-60cc-4432-93b1-6c4f45d275e8",
+    "paciente_id": "1dfef1e8-8d65-4e65-a8f6-3ceaf1e21f0b",
+    "data": "2025-07-16",
     "condicao": "Insuficiência cardíaca",
     "medicamentos": [
       "espironolactona 25mg 1x/dia",
@@ -1901,9 +1901,9 @@
     "observacoes": "Receita renovada. Sem alterações."
   },
   {
-    "id": "8d154819-3869-40b6-94af-5dc6b4042576",
-    "paciente_id": "21d44ece-9752-432d-8a10-435d75e4f4e3",
-    "data": "2026-01-22",
+    "id": "634a3737-adb6-44c4-9e9c-504da92449fe",
+    "paciente_id": "1dfef1e8-8d65-4e65-a8f6-3ceaf1e21f0b",
+    "data": "2026-01-23",
     "condicao": "Obesidade",
     "medicamentos": [
       "orlistate 120mg 3x/dia",
@@ -1913,9 +1913,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "0fad5c6a-6435-4399-b480-e07c8406441b",
-    "paciente_id": "5489c506-9175-49dd-8069-71368094d523",
-    "data": "2025-07-24",
+    "id": "684ce94c-d732-4bf0-af33-7908f0ec0d06",
+    "paciente_id": "580aefc0-e5f1-44a2-91d2-d3c76647c0d6",
+    "data": "2025-07-25",
     "condicao": "Diabetes mellitus tipo 2",
     "medicamentos": [
       "empagliflozina 25mg 1x/dia"
@@ -1924,9 +1924,9 @@
     "observacoes": "Ajuste de dose realizado nesta consulta."
   },
   {
-    "id": "7a4f6c5f-5c26-4caf-a7f6-00f643759ce9",
-    "paciente_id": "a936257a-52ef-46a2-ad4d-75365e18b913",
-    "data": "2025-12-25",
+    "id": "abe4addc-47c2-4569-95ab-a1a4c5617d32",
+    "paciente_id": "c69538bc-c8b6-4400-a519-b34ae3339f2a",
+    "data": "2025-12-26",
     "condicao": "Hipertensão essencial (primária)",
     "medicamentos": [
       "losartana 50mg 1x/dia"

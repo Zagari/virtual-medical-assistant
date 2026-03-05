@@ -306,7 +306,25 @@ O rank $r=64$ foi escolhido como um equilíbrio entre capacidade de aprendizado 
 
 \subsection{Ambiente de Execução}
 
-O fine-tuning é realizado no \textbf{Google Colab Free}, que oferece acesso gratuito a GPUs NVIDIA T4:
+O projeto disponibiliza \textbf{dois notebooks} para o fine-tuning, permitindo flexibilidade na escolha do ambiente:
+
+\begin{table}[H]
+\centering
+\caption{Notebooks disponíveis para fine-tuning}
+\label{tab:notebooks-finetuning}
+\begin{tabular}{lp{5cm}l}
+\toprule
+\textbf{Notebook} & \textbf{Ambiente} & \textbf{Requisitos} \\
+\midrule
+\texttt{03\_fine\_tuning.ipynb} & Google Colab Free & Conta Google \\
+\texttt{03\_fine\_tuning\_local.ipynb} & Servidor/PC local & GPU 16GB+ VRAM \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+O notebook para \textbf{Google Colab} é otimizado para sessões limitadas (checkpoints frequentes, Google Drive). O notebook \textbf{local} auto-detecta a GPU disponível e ajusta batch size automaticamente, suportando também Apple Silicon (MPS).
+
+Para o ambiente Colab Free, as especificações são:
 
 \begin{table}[H]
 \centering
@@ -445,19 +463,47 @@ else:
     trainer.train()
 \end{lstlisting}
 
+\subsection{Execução Local}
+\label{subsec:execucao-local}
+
+Para usuários com acesso a GPUs locais (RTX 3090, 4090, A100, etc.), o notebook \texttt{03\_fine\_tuning\_local.ipynb} oferece vantagens:
+
+\begin{itemize}
+    \item \textbf{Sem limite de sessão}: Treino contínuo sem interrupções
+    \item \textbf{Auto-detecção de GPU}: Ajusta batch size conforme VRAM disponível
+    \item \textbf{Paths locais}: Usa diretórios do projeto diretamente
+    \item \textbf{Checkpoints menos frequentes}: 1000 steps (vs 500 no Colab)
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Configuração automática por GPU}
+\label{tab:config-gpu-local}
+\begin{tabular}{lccc}
+\toprule
+\textbf{GPU (VRAM)} & \textbf{Batch Size} & \textbf{Grad Accum} & \textbf{Batch Efetivo} \\
+\midrule
+24GB+ (A100, RTX 4090) & 4 & 4 & 16 \\
+16-24GB (RTX 3090, A10) & 2 & 8 & 16 \\
+$<$16GB & 1 & 16 & 16 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsection{Estimativa de Tempo}
 
 \begin{table}[H]
 \centering
 \caption{Estimativa de tempo de treinamento por configuração}
 \label{tab:tempo-treino}
-\begin{tabular}{cccc}
+\begin{tabular}{ccccc}
 \toprule
-\textbf{Dataset} & \textbf{Epochs} & \textbf{Tempo Estimado} & \textbf{Sessões Colab} \\
+\textbf{Ambiente} & \textbf{GPU} & \textbf{Epochs} & \textbf{Tempo} & \textbf{Sessões} \\
 \midrule
-$\sim$20.500 pares (híbrido) & 1 & 2-3 horas & 1 \\
-$\sim$20.500 pares (híbrido) & 3 & 6-9 horas & 1-2 \\
-\textbf{$\sim$20.500 pares (híbrido)} & \textbf{5} & \textbf{10-15 horas} & \textbf{2} \\
+Colab Free & T4 (15GB) & 5 & 10-15h & 2 \\
+Local & RTX 3090 (24GB) & 5 & 4-5h & 1 \\
+Local & RTX 4090 (24GB) & 5 & 3-4h & 1 \\
+Local & A100 (40GB) & 5 & 2-3h & 1 \\
 \bottomrule
 \end{tabular}
 \end{table}

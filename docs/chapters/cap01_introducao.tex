@@ -45,7 +45,7 @@ A Figura~\ref{fig:arquitetura_geral} apresenta a visão de alto nível da arquit
 ]
 
 % Camada de Dados
-\node[data] (medquad) {MedQuAD\\(16.400 pares QA)};
+\node[data] (medquad) {MedQuAD + QA Brasileiro\\(20.552 pares)};
 \node[data, right=of medquad] (linhas) {14 Linhas de Cuidado\\+ 5 Protocolos Emerg.};
 \node[data, right=of linhas] (sinteticos) {Dados Sintéticos\\(80 pacientes)};
 
@@ -103,7 +103,7 @@ A Tabela~\ref{tab:pipeline_scripts} descreve cada script, suas pré-condições 
 \midrule
 01 & \texttt{gerar\_dados\_sinteticos} & Gera pacientes, exames, prontuários, receitas e 5 protocolos de emergência & \texttt{synthetic/} \\
 02 & \texttt{setup\_postgres} & Cria container Docker PostgreSQL e popula com dados sintéticos & Banco operacional \\
-03 & \texttt{preparar\_dataset} & Baixa MedQuAD, traduz para PT-BR e formata em Alpaca & \texttt{training\_data.jsonl} \\
+03 & \texttt{preparar\_dataset} & Baixa MedQuAD, traduz para PT-BR, adiciona QA de doenças brasileiras e formata em Alpaca & \texttt{training\_data.jsonl} \\
 \rowcolor{orange!10}
 -- & \textit{Pausa: Fine-tuning} & \textit{QLoRA via notebook (Colab ou local)} & \texttt{models/} \\
 04 & \texttt{indexar\_protocolos} & Chunking dos protocolos Markdown e indexação no ChromaDB & \texttt{chroma\_db/} \\
@@ -130,7 +130,7 @@ A Tabela~\ref{tab:pipeline_scripts} descreve cada script, suas pré-condições 
     \node[pstep, right=of s02] (s03) {03};
 
     % Linha 2: Colab (alinhado à direita)
-    \node[colab, below=1.2cm of s03] (colab) {Colab};
+    \node[colab, below=1.2cm of s03] (colab) {\shortstack{Colab ou\\Local}};
 
     % Linha 3: 04, 05, 06, 07 (direita para esquerda)
     \node[pstep, below=1.2cm of colab] (s04) {04};
@@ -153,7 +153,7 @@ A Tabela~\ref{tab:pipeline_scripts} descreve cada script, suas pré-condições 
     \node[below=0.2cm of s03, font=\tiny\sffamily, text width=2cm, align=center] {Dataset\\MedQuAD};
 
     % Label Colab (à esquerda)
-    \node[left=0.3cm of colab, font=\tiny\sffamily, text width=2cm, align=right] {Fine-Tuning\\QLoRA};
+    \node[left=0.3cm of colab, font=\tiny\sffamily, text width=2.5cm, align=right] {Fine-Tuning QLoRA\\(Colab ou Notebook Local)};
 
     % Labels acima (linha 3, invertidos)
     \node[above=0.2cm of s04, font=\tiny\sffamily, text width=2cm, align=center] {RAG\\ChromaDB};
@@ -179,7 +179,7 @@ python scripts/01_gerar_dados_sinteticos.py
 # 2. Subir PostgreSQL e popular banco
 python scripts/02_setup_postgres.py
 
-# 3. Preparar dataset MedQuAD para fine-tuning
+# 3. Preparar dataset (MedQuAD + QA doencas brasileiras)
 python scripts/03_preparar_dataset.py
 
 # --- PAUSA: Fine-tuning ---
@@ -215,9 +215,10 @@ virtual-medical-assistant/
 |-- scripts/                    # Pipeline numerado (01 a 07)
 |-- data/
 |   |-- raw/                    # MedQuAD original
-|   |-- processed/              # Dataset formatado (training_data.jsonl)
+|   |-- processed/              # Dataset hibrido (PT + EN + BR)
+|   |-- evaluation/             # Perguntas de avaliacao
 |   |-- linhas_de_cuidado/      # 14 PDFs + extracted/ (Markdown)
-|   +-- synthetic/              # Pacientes, exames, prontuarios, receitas
+|   +-- synthetic/              # Pacientes, exames, protocolos emerg.
 |-- notebooks/
 |   |-- 03_fine_tuning.ipynb       # Notebook para Google Colab
 |   +-- 03_fine_tuning_local.ipynb # Notebook para execucao local

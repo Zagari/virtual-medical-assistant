@@ -493,7 +493,7 @@ Para ilustrar o funcionamento completo, considere a seguinte consulta:
 
     \item \textbf{Auditoria acumulativa:} O campo \texttt{audit\_log} é incrementado por cada agente (append-only), criando um trace completo de execução sem overhead de um sistema de observabilidade externo.
 
-    \item \textbf{LLM injetável:} A LLM é passada via parâmetro (\texttt{run\_assistant(query, llm=...)}) ao invés de ser instanciada dentro do grafo, permitindo trocar facilmente entre modelo base, fine-tuned ou mock para testes.
+    \item \textbf{LLM injetável:} A LLM é passada via parâmetro (\texttt{run\_assistant(query, llm=...)}) ao invés de ser instanciada dentro do grafo, permitindo trocar facilmente entre modelo base, fine-tuned ou mock para testes. O carregador (\texttt{\_load\_llm()} em \texttt{app/main.py}) aceita tanto um path local (\texttt{models/medical-assistant-final}) quanto um repositório do Hugging Face Hub (\texttt{zagari/medical-assistant-mistral-7b-ft}), configurável pela variável de ambiente \texttt{FINE\_TUNED\_MODEL}. Quando o modelo não está disponível, o agente de raciocínio utiliza o fallback baseado em template.
 
     \item \textbf{Paciente antes de protocolo + busca híbrida:} Para queries tipo ``ambos'', o grafo busca os dados do paciente \emph{antes} dos protocolos. Isso permite busca híbrida no ChromaDB: primeiro pelos \textbf{sintomas} da query (capturando protocolos de emergência como IAM quando há ``dor no peito''), depois por \textbf{comorbidade} do paciente (cobertura de condições crônicas). A query é pré-processada com remoção de stop words e nome do paciente para maximizar a relevância semântica.
 \end{enumerate}

@@ -17,7 +17,7 @@ Este projeto foi desenvolvido no contexto do \textbf{Tech Challenge da Fase~3} d
 O objetivo principal deste trabalho é desenvolver um \textbf{Assistente Virtual Médico} capaz de auxiliar profissionais de saúde no acesso a informações clínicas contextualizadas. Para isso, o sistema integra cinco pilares fundamentais:
 
 \begin{enumerate}
-    \item \textbf{Fine-tuning} do modelo Mistral 7B Instruct v0.3 com o dataset MedQuAD traduzido para português, utilizando \acrfull{qlora} 4-bit no Google Colab;
+    \item \textbf{Fine-tuning} do modelo Mistral 7B Instruct v0.3 com o dataset MedQuAD traduzido para português e complementado com QA de doenças brasileiras, utilizando \acrfull{qlora} 4-bit. O modelo treinado é publicado no Hugging Face Hub\footnote{\url{https://huggingface.co/zagari/medical-assistant-mistral-7b-ft}} para acesso público;
     \item \textbf{\acrfull{rag}} com 14 Linhas de Cuidado reais e 5 protocolos de emergência sintéticos (IAM, AVC, Sepse, Pneumonia, ITU) indexados no ChromaDB;
     \item \textbf{Grafo multi-agente} implementado em LangGraph com 7 agentes (6 especializados + logger de auditoria);
     \item \textbf{Segurança} com guardrails que impedem prescrições diretas e exigem validação humana;
@@ -82,6 +82,47 @@ A Figura~\ref{fig:arquitetura_geral} apresenta a visão de alto nível da arquit
 \caption{Arquitetura geral do Assistente Virtual Médico.}
 \label{fig:arquitetura_geral}
 \end{figure}
+
+\section{Quickstart: Testando em 5 Minutos}\label{sec:quickstart}
+
+Para quem deseja apenas \textbf{testar o assistente} sem re-treinar o modelo ou regenerar dados, o projeto inclui um script de inicialização rápida. Todos os dados sintéticos e o dataset de treino já estão no repositório, e o modelo fine-tuned é baixado automaticamente do Hugging Face Hub.
+
+\subsection{Pré-requisitos}
+
+\begin{itemize}
+    \item Python 3.11+
+    \item Docker Desktop instalado e rodando
+\end{itemize}
+
+\subsection{Execução}
+
+\begin{lstlisting}[style=bash, caption={Quickstart: do clone ao assistente funcionando.}]
+git clone https://github.com/Zagari/virtual-medical-assistant.git
+cd virtual-medical-assistant
+pip install -r requirements.txt
+bash scripts/quickstart.sh
+\end{lstlisting}
+
+O script \texttt{quickstart.sh} executa automaticamente 4 passos:
+
+\begin{enumerate}
+    \item \textbf{Cria o \texttt{.env}} a partir do \texttt{.env.example} (se não existir), já configurado para baixar o modelo do Hugging Face Hub;
+    \item \textbf{Sobe o PostgreSQL} via Docker e popula com os 80 pacientes sintéticos (exames, prontuários, receitas);
+    \item \textbf{Indexa os protocolos clínicos} no ChromaDB (14 Linhas de Cuidado + 5 protocolos de emergência);
+    \item \textbf{Inicia a interface Gradio} em \texttt{http://localhost:7860}.
+\end{enumerate}
+
+\begin{infobox}[O que NÃO precisa ser re-executado]
+Os seguintes artefatos já estão commitados no repositório e não precisam ser regenerados para testar o sistema:
+\begin{itemize}
+    \item \textbf{Dados sintéticos} (\texttt{data/synthetic/}) --- 80 pacientes com exames, prontuários e receitas
+    \item \textbf{Protocolos em Markdown} (\texttt{data/linhas\_de\_cuidado/extracted/}) --- 14 Linhas de Cuidado extraídas dos PDFs
+    \item \textbf{Dataset de treino} (\texttt{data/processed/training\_data.jsonl}) --- $\sim$20.500 pares QA
+    \item \textbf{Modelo fine-tuned} --- publicado no Hugging Face Hub, download automático na primeira consulta
+\end{itemize}
+\end{infobox}
+
+% ============================================================================
 
 \section{Guia de Reprodução Passo a Passo}\label{sec:reproducao}
 
@@ -172,6 +213,7 @@ A Tabela~\ref{tab:pipeline_scripts} descreve cada script, suas pré-condições 
 git clone https://github.com/Zagari/virtual-medical-assistant.git
 cd virtual-medical-assistant
 pip install -r requirements.txt
+cp .env.example .env   # Configurar variaveis de ambiente
 
 # 1. Gerar dados sinteticos (80 pacientes ficticios)
 python scripts/01_gerar_dados_sinteticos.py
@@ -183,12 +225,14 @@ python scripts/02_setup_postgres.py
 python scripts/03_preparar_dataset.py
 
 # --- PAUSA: Fine-tuning ---
-# Opcao A: Google Colab (GPU gratuita)
+# Opcao A: Usar modelo pre-treinado do Hugging Face Hub
+#   O .env.example ja aponta para o modelo publicado
+#   (download automatico na primeira execucao)
+# Opcao B: Google Colab (GPU gratuita)
 #   Abrir notebooks/03_fine_tuning.ipynb no Colab
 #   Upload de data/processed/training_data.jsonl
-# Opcao B: Servidor local (GPU 16GB+)
+# Opcao C: Servidor local (GPU 16GB+)
 #   Executar notebooks/03_fine_tuning_local.ipynb
-# Treinar modelo -> Salvar em models/
 
 # 4. Indexar protocolos clinicos no ChromaDB
 python scripts/04_indexar_protocolos.py

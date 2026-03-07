@@ -490,18 +490,39 @@ $<$16GB & 1 & 16 & 16 \\
 \end{tabular}
 \end{table}
 
-\subsection{Estimativa de Tempo}
+\subsection{Resultados do Treinamento}
+\label{subsec:resultados-treino}
+
+O treinamento foi executado em servidor local com GPU NVIDIA RTX A5000 (24GB VRAM). A Tabela~\ref{tab:resultados-treino} apresenta os resultados obtidos.
 
 \begin{table}[H]
 \centering
-\caption{Estimativa de tempo de treinamento por configuração}
+\caption{Resultados do treinamento}
+\label{tab:resultados-treino}
+\begin{tabular}{ll}
+\toprule
+\textbf{Métrica} & \textbf{Valor} \\
+\midrule
+Steps totais & 5.780 \\
+Loss final (treino) & 6,79 \\
+Tempo total & $\sim$55 horas \\
+Throughput & 0,47 samples/s \\
+Parâmetros treináveis & 167M (4,27\% do total) \\
+Tamanho dos adapters & $\sim$640 MB \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Tempo de treinamento por configuração}
 \label{tab:tempo-treino}
 \begin{tabular}{ccccc}
 \toprule
 \textbf{Ambiente} & \textbf{GPU} & \textbf{Epochs} & \textbf{Tempo} & \textbf{Sessões} \\
 \midrule
+\textbf{Local} & \textbf{RTX A5000 (24GB)} & \textbf{5} & \textbf{$\sim$55h} & \textbf{1} \\
 Colab Free & T4 (15GB) & 5 & 10-15h & 2 \\
-Local & RTX 3090 (24GB) & 5 & 4-5h & 1 \\
 Local & RTX 4090 (24GB) & 5 & 3-4h & 1 \\
 Local & A100 (40GB) & 5 & 2-3h & 1 \\
 \bottomrule
@@ -537,24 +558,49 @@ model.save_pretrained(SAVE_PATH)
 tokenizer.save_pretrained(SAVE_PATH)
 \end{lstlisting}
 
+\subsection{Publicação no Hugging Face Hub}
+\label{subsec:hf-hub}
+
+Os adapters LoRA ($\sim$640~MB) excedem o limite de 100~MB por arquivo do GitHub. Para garantir acesso público ao modelo treinado, os adapters são publicados no \textbf{Hugging Face Hub}, o repositório padrão da comunidade para modelos de linguagem.
+
+Ambos os notebooks incluem uma célula dedicada ao upload:
+
+\begin{lstlisting}[caption={Upload do modelo para o Hugging Face Hub}, label={lst:hf-upload}]
+from huggingface_hub import HfApi, login
+
+login(token=os.getenv("HF_TOKEN"))
+api = HfApi()
+api.create_repo(repo_id=HF_HUB_REPO, exist_ok=True)
+api.upload_folder(
+    folder_path=FINAL_MODEL_DIR,
+    repo_id=HF_HUB_REPO,
+    commit_message="Upload adapters LoRA fine-tuned",
+)
+\end{lstlisting}
+
+O modelo publicado inclui um \textit{model card} (README.md) com descrição completa: hiperparâmetros, dados de treino, resultados, instruções de uso e limitações.
+
 \subsection{Carregando o Modelo para Uso}
 
-Para utilizar o modelo fine-tuned posteriormente:
+O modelo pode ser carregado de duas fontes --- path local ou diretamente do Hugging Face Hub:
 
 \begin{lstlisting}[caption={Carregando o modelo fine-tuned para inferência}, label={lst:load-model}]
-from unsloth import FastLanguageModel
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# Carregar modelo fine-tuned
-model, tokenizer = FastLanguageModel.from_pretrained(
-    model_name="/path/to/medical-assistant-final",
-    max_seq_length=2048,
-    dtype=None,
-    load_in_4bit=True,
+# Opcao 1: path local
+model_id = "models/medical-assistant-final"
+# Opcao 2: Hugging Face Hub (download automatico)
+model_id = "zagari/medical-assistant-mistral-7b-ft"
+
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+model = AutoModelForCausalLM.from_pretrained(
+    model_id,
+    torch_dtype="float16",
+    device_map="auto",
 )
-
-# Preparar para inferencia
-FastLanguageModel.for_inference(model)
 \end{lstlisting}
+
+Na aplicação, a variável de ambiente \texttt{FINE\_TUNED\_MODEL} controla a origem. O \texttt{.env.example} do projeto já vem configurado com o repositório do Hub, permitindo que quem clonar o projeto utilize o modelo sem precisar re-treinar.
 
 % ============================================================================
 \section{Avaliação do Fine-Tuning}
@@ -666,8 +712,9 @@ Este capítulo apresentou o processo completo de fine-tuning do modelo Mistral 7
         \item 2\% QA de medicina brasileira (55 pares sobre dengue, Chagas, SUS, etc.)
     \end{itemize}
     \item \textbf{Técnica}: QLoRA 4-bit ($r=64$, $\alpha=128$), permitindo treino em GPU T4 (15GB)
-    \item \textbf{Treinamento}: 5 epochs, $\sim$10-15h, dividido em 2 sessões do Colab Free
+    \item \textbf{Treinamento}: 5 epochs, 5.780 steps, $\sim$55h em GPU RTX A5000 (24GB)
+    \item \textbf{Publicação}: Adapters LoRA ($\sim$640~MB) publicados no Hugging Face Hub
     \item \textbf{Avaliação}: 50 perguntas médicas, comparação baseline vs fine-tuned
 \end{enumerate}
 
-O modelo resultante será utilizado como o ``cérebro'' do agente de raciocínio no grafo multi-agente descrito no Capítulo~\ref{cap:multi-agente}.
+O modelo resultante é publicado no Hugging Face Hub e utilizado como o ``cérebro'' do agente de raciocínio no grafo multi-agente descrito no Capítulo~\ref{cap:multiagente}.

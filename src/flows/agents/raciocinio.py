@@ -143,26 +143,86 @@ def raciocinio_agent(state: MedicalAssistantState) -> dict:
     }
 
 
+def _truncate_at_sentence(text: str, max_len: int = 400) -> str:
+    """Trunca texto no final da última sentença completa dentro do limite."""
+    if len(text) <= max_len:
+        return text
+    truncated = text[:max_len]
+    # Procurar último ponto final seguido de espaço ou newline
+    for sep in (". ", ".\n", "\n\n"):
+        pos = truncated.rfind(sep)
+        if pos > max_len // 2:
+            return truncated[: pos + 1]
+    return truncated.rstrip() + "..."
+
+
 def _fallback_response(
     query: str, protocols: list[dict], patient_data: dict | None
 ) -> str:
     """Resposta baseada em template quando LLM não está disponível."""
     parts = [f"Com base na consulta sobre: {query}\n"]
 
-    if protocols:
-        parts.append("De acordo com os protocolos clínicos consultados:")
-        for p in protocols[:3]:
-            source = p.get("source", "Protocolo")
-            content = p.get("content", "")[:300]
-            parts.append(f"\n[{source}]: {content}")
-
+    # Dados do paciente (prioridade quando disponíveis)
     if patient_data:
         p = patient_data.get("paciente", {})
         if p:
-            parts.append(f"\nDados do paciente {p.get('nome', 'N/A')}:")
+            parts.append(f"**Dados do paciente {p.get('nome', 'N/A')}:**")
+            sexo = p.get("sexo", "")
+            nascimento = p.get("data_nascimento", "")
+            if sexo or nascimento:
+                parts.append(f"Sexo: {sexo} | Nascimento: {nascimento}")
             comorbidades = p.get("comorbidades", [])
             if comorbidades:
                 parts.append(f"Comorbidades: {', '.join(comorbidades)}")
+            alergias = p.get("alergias", [])
+            if alergias:
+                parts.append(f"Alergias: {', '.join(alergias)}")
+            medicamentos = p.get("medicamentos_uso", [])
+            if medicamentos:
+                parts.append(f"Medicamentos em uso: {', '.join(medicamentos)}")
+
+        exames = patient_data.get("exames", [])
+        if exames:
+            parts.append("\n**Últimos exames:**")
+            for e in exames[:5]:
+                tipo = e.get("tipo", "N/A")
+                data = e.get("data", "N/A")
+                interp = e.get("interpretacao", e.get("resultado", ""))
+                parts.append(f"  - {tipo} ({data}): {interp}")
+
+        prontuarios = patient_data.get("prontuarios", [])
+        if prontuarios:
+            parts.append("\n**Últimos prontuários:**")
+            for pr in prontuarios[:3]:
+                data = pr.get("data", "N/A")
+                diag = pr.get("diagnostico_texto", pr.get("diagnostico_cid", "N/A"))
+                parts.append(f"  - {data}: {diag}")
+
+        receitas = patient_data.get("receitas", [])
+        if receitas:
+            parts.append("\n**Últimas receitas:**")
+            for r in receitas[:3]:
+                data = r.get("data", "N/A")
+                condicao = r.get("condicao", "")
+                meds = r.get("medicamentos", r.get("medicamento", ""))
+                line = f"  - {data}"
+                if condicao:
+                    line += f" ({condicao})"
+                if meds:
+                    line += f": {meds}"
+                parts.append(line)
+
+    # Protocolos clínicos (resumidos)
+    if protocols:
+        parts.append("\n**Protocolos clínicos consultados:**")
+        for p in protocols[:3]:
+            source = p.get("source", "Protocolo")
+            section = p.get("section", "")
+            content = _truncate_at_sentence(p.get("content", ""))
+            header = f"\n[{source}]"
+            if section:
+                header += f" — {section}"
+            parts.append(f"{header}\n{content}")
 
     parts.append(
         "\n\n⚠️ IMPORTANTE: Esta resposta deve ser validada por um "

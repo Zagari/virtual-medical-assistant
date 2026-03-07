@@ -232,9 +232,7 @@ data/processed/*
 !data/processed/brazilian_medical_qa.jsonl
 !data/processed/training_data.jsonl
 
-# Evaluation results (generated)
-data/evaluation/*
-!data/evaluation/.gitkeep
+# Evaluation results (versionados para reprodutibilidade)
 
 # LaTeX auxiliary files
 docs/*.aux

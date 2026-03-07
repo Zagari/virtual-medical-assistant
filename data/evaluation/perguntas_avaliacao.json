@@ -1,0 +1,259 @@
+{
+  "metadata": {
+    "description": "50 perguntas médicas em português para avaliação do fine-tuning",
+    "categorias": ["sintomas", "tratamento", "medicamentos", "prevencao", "emergencias"],
+    "total": 50
+  },
+  "perguntas": [
+    {
+      "id": 1,
+      "categoria": "sintomas",
+      "pergunta": "Quais são os principais sintomas do diabetes tipo 2?"
+    },
+    {
+      "id": 2,
+      "categoria": "sintomas",
+      "pergunta": "Quais são os sinais de alerta de um infarto agudo do miocárdio?"
+    },
+    {
+      "id": 3,
+      "categoria": "sintomas",
+      "pergunta": "Como identificar os sintomas de uma crise de asma?"
+    },
+    {
+      "id": 4,
+      "categoria": "sintomas",
+      "pergunta": "Quais são os sintomas característicos da depressão?"
+    },
+    {
+      "id": 5,
+      "categoria": "sintomas",
+      "pergunta": "Quais são os sinais e sintomas da hipertensão arterial?"
+    },
+    {
+      "id": 6,
+      "categoria": "sintomas",
+      "pergunta": "Como reconhecer os sintomas de hipoglicemia?"
+    },
+    {
+      "id": 7,
+      "categoria": "sintomas",
+      "pergunta": "Quais são os sintomas de uma pneumonia bacteriana?"
+    },
+    {
+      "id": 8,
+      "categoria": "sintomas",
+      "pergunta": "Quais são os sinais de desidratação em adultos?"
+    },
+    {
+      "id": 9,
+      "categoria": "sintomas",
+      "pergunta": "Como identificar os sintomas de ansiedade generalizada?"
+    },
+    {
+      "id": 10,
+      "categoria": "sintomas",
+      "pergunta": "Quais são os sintomas do hipotireoidismo?"
+    },
+    {
+      "id": 11,
+      "categoria": "tratamento",
+      "pergunta": "Qual é o tratamento de primeira linha para hipertensão arterial?"
+    },
+    {
+      "id": 12,
+      "categoria": "tratamento",
+      "pergunta": "Como é feito o tratamento da diabetes tipo 2?"
+    },
+    {
+      "id": 13,
+      "categoria": "tratamento",
+      "pergunta": "Quais são as opções de tratamento para depressão?"
+    },
+    {
+      "id": 14,
+      "categoria": "tratamento",
+      "pergunta": "Como tratar uma crise aguda de asma?"
+    },
+    {
+      "id": 15,
+      "categoria": "tratamento",
+      "pergunta": "Qual é o tratamento para insuficiência cardíaca?"
+    },
+    {
+      "id": 16,
+      "categoria": "tratamento",
+      "pergunta": "Como é feito o tratamento da DPOC?"
+    },
+    {
+      "id": 17,
+      "categoria": "tratamento",
+      "pergunta": "Quais são as opções de tratamento para obesidade?"
+    },
+    {
+      "id": 18,
+      "categoria": "tratamento",
+      "pergunta": "Como tratar infecção do trato urinário?"
+    },
+    {
+      "id": 19,
+      "categoria": "tratamento",
+      "pergunta": "Qual é o tratamento para hipotireoidismo?"
+    },
+    {
+      "id": 20,
+      "categoria": "tratamento",
+      "pergunta": "Como é feito o tratamento de transtorno de ansiedade?"
+    },
+    {
+      "id": 21,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são os efeitos colaterais da metformina?"
+    },
+    {
+      "id": 22,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são as contraindicações do uso de AAS (aspirina)?"
+    },
+    {
+      "id": 23,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são os efeitos adversos dos inibidores da ECA?"
+    },
+    {
+      "id": 24,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são as interações medicamentosas da varfarina?"
+    },
+    {
+      "id": 25,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são os efeitos colaterais dos betabloqueadores?"
+    },
+    {
+      "id": 26,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são as precauções no uso de anti-inflamatórios não esteroidais?"
+    },
+    {
+      "id": 27,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são os efeitos adversos dos corticosteroides de uso prolongado?"
+    },
+    {
+      "id": 28,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são as contraindicações do uso de metoclopramida?"
+    },
+    {
+      "id": 29,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são os efeitos colaterais dos antidepressivos ISRS?"
+    },
+    {
+      "id": 30,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são as precauções no uso de benzodiazepínicos?"
+    },
+    {
+      "id": 31,
+      "categoria": "prevencao",
+      "pergunta": "Como prevenir o diabetes tipo 2?"
+    },
+    {
+      "id": 32,
+      "categoria": "prevencao",
+      "pergunta": "Quais são as medidas de prevenção de doenças cardiovasculares?"
+    },
+    {
+      "id": 33,
+      "categoria": "prevencao",
+      "pergunta": "Como prevenir a osteoporose?"
+    },
+    {
+      "id": 34,
+      "categoria": "prevencao",
+      "pergunta": "Quais são as recomendações para prevenção de AVC?"
+    },
+    {
+      "id": 35,
+      "categoria": "prevencao",
+      "pergunta": "Como prevenir infecções respiratórias?"
+    },
+    {
+      "id": 36,
+      "categoria": "prevencao",
+      "pergunta": "Quais são as medidas de prevenção da hipertensão arterial?"
+    },
+    {
+      "id": 37,
+      "categoria": "prevencao",
+      "pergunta": "Como prevenir complicações do diabetes?"
+    },
+    {
+      "id": 38,
+      "categoria": "prevencao",
+      "pergunta": "Quais são as recomendações para prevenção de trombose venosa?"
+    },
+    {
+      "id": 39,
+      "categoria": "prevencao",
+      "pergunta": "Como prevenir a progressão da doença renal crônica?"
+    },
+    {
+      "id": 40,
+      "categoria": "prevencao",
+      "pergunta": "Quais vacinas são recomendadas para adultos?"
+    },
+    {
+      "id": 41,
+      "categoria": "emergencias",
+      "pergunta": "O que fazer em caso de suspeita de AVC?"
+    },
+    {
+      "id": 42,
+      "categoria": "emergencias",
+      "pergunta": "Como proceder em uma parada cardiorrespiratória?"
+    },
+    {
+      "id": 43,
+      "categoria": "emergencias",
+      "pergunta": "O que fazer em caso de choque anafilático?"
+    },
+    {
+      "id": 44,
+      "categoria": "emergencias",
+      "pergunta": "Como agir em caso de crise convulsiva?"
+    },
+    {
+      "id": 45,
+      "categoria": "emergencias",
+      "pergunta": "O que fazer em caso de hipoglicemia grave?"
+    },
+    {
+      "id": 46,
+      "categoria": "emergencias",
+      "pergunta": "Como proceder em caso de intoxicação medicamentosa?"
+    },
+    {
+      "id": 47,
+      "categoria": "emergencias",
+      "pergunta": "O que fazer em caso de crise hipertensiva?"
+    },
+    {
+      "id": 48,
+      "categoria": "emergencias",
+      "pergunta": "Como agir em caso de obstrução de vias aéreas por corpo estranho?"
+    },
+    {
+      "id": 49,
+      "categoria": "emergencias",
+      "pergunta": "O que fazer em caso de queimadura grave?"
+    },
+    {
+      "id": 50,
+      "categoria": "emergencias",
+      "pergunta": "Como proceder em caso de hemorragia externa grave?"
+    }
+  ]
+}

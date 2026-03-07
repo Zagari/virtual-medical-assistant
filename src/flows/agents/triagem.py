@@ -70,15 +70,26 @@ def _classify_by_heuristic(query: str) -> dict:
             "exame", "indicação", "contraindicação",
         ]
     )
-    is_medical = has_patient or has_protocol or any(
+    has_symptoms = any(
+        kw in query_lower
+        for kw in [
+            "dor", "dor no peito", "palpitação", "palpitações",
+            "falta de ar", "dispneia", "náusea", "vômito",
+            "tontura", "desmaio", "sangramento", "convulsão",
+            "confusão mental", "cefaleia", "edema", "tosse",
+            "febre", "calafrio", "sudorese", "síncope",
+            "queixando", "queixa", "apresentando", "relata",
+        ]
+    )
+    is_medical = has_patient or has_protocol or has_symptoms or any(
         kw in query_lower
         for kw in [
             "pressão", "diabetes", "asma", "dpoc", "infarto",
-            "avc", "febre", "dor", "hipertensão", "glicemia",
+            "avc", "hipertensão", "glicemia",
         ]
     )
 
-    if has_patient and has_protocol:
+    if has_patient and (has_protocol or has_symptoms):
         query_type = "ambos"
     elif has_patient:
         query_type = "paciente"
@@ -120,8 +131,25 @@ def triagem_agent(state: MedicalAssistantState) -> dict:
     entities = result.get("entities", {})
 
     # Se patient_id foi fornecido na entrada, ajustar classificação
-    if state.get("patient_id") and query_type == "protocolo":
-        query_type = "ambos"
+    if state.get("patient_id"):
+        if query_type == "protocolo":
+            query_type = "ambos"
+        elif query_type == "paciente":
+            # Verificar se a query contém conteúdo clínico que justifique busca de protocolos
+            q = state["query"].lower()
+            has_clinical_content = any(
+                kw in q
+                for kw in [
+                    "dor", "febre", "palpitação", "palpitações", "dispneia",
+                    "falta de ar", "sangramento", "convulsão", "tontura",
+                    "náusea", "vômito", "edema", "tosse", "queixa",
+                    "queixando", "apresentando", "relata", "sintoma",
+                    "protocolo", "tratamento", "conduta", "diagnóstico",
+                    "pressão", "diabetes", "infarto", "avc", "sepse",
+                ]
+            )
+            if has_clinical_content:
+                query_type = "ambos"
 
     logger.info("Triagem: query_type=%s, entities=%s", query_type, entities)
 

@@ -212,17 +212,29 @@ def _fallback_response(
                     line += f": {meds}"
                 parts.append(line)
 
-    # Protocolos clínicos (resumidos)
+    # Protocolos clínicos (resumidos, deduplica por fonte)
     if protocols:
         parts.append("\n**Protocolos clínicos consultados:**")
-        for p in protocols[:3]:
+        seen_sources = set()
+        shown = 0
+        for p in protocols:
             source = p.get("source", "Protocolo")
             section = p.get("section", "")
-            content = _truncate_at_sentence(p.get("content", ""))
+            source_key = f"{source}|{section}"
+            if source_key in seen_sources:
+                continue
+            seen_sources.add(source_key)
+            content = _truncate_at_sentence(p.get("content", ""), max_len=300)
             header = f"\n[{source}]"
             if section:
                 header += f" — {section}"
+            relevance = p.get("relevance", "")
+            if relevance == "complementar":
+                header += " _(complementar)_"
             parts.append(f"{header}\n{content}")
+            shown += 1
+            if shown >= 6:
+                break
 
     parts.append(
         "\n\n⚠️ IMPORTANTE: Esta resposta deve ser validada por um "

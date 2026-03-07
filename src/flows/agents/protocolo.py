@@ -10,6 +10,17 @@ logger = logging.getLogger(__name__)
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
 
+# Stop words em português para limpeza de queries de busca semântica
+_STOP_WORDS = frozenset(
+    "a o e de do da dos das em no na nos nas um uma uns umas "
+    "é está se que para por com não mais há foi ser ter como ao "
+    "seu sua ele ela já também muito os as meu minha pelo pela "
+    "lhe nos me te si nós vos ao aos à às este esta esse essa "
+    "aquele aquela isto isso aquilo quem qual quanto quando onde "
+    "estou estava esteve estão sendo sido será foram seria "
+    "queixando relatando apresentando paciente sr sra dona seu".split()
+)
+
 
 def _get_retriever():
     """Inicializa o ProtocolRetriever (lazy loading)."""
@@ -57,29 +68,6 @@ def _rank_by_patient_relevance(
     return diretos + complementares
 
 
-def _search_per_comorbidity(
-    retriever, query: str, comorbidades: list[str], n_per: int = 3
-) -> list[dict]:
-    """Busca protocolos por comorbidade para cobertura equilibrada.
-
-    Faz uma busca focada por comorbidade (ex: "exames hipertensão"),
-    deduplica por ID e retorna os melhores resultados de cada uma.
-    """
-    seen_ids = set()
-    all_results = []
-
-    for comorbidade in comorbidades:
-        focused_query = f"{query} {comorbidade}"
-        results = retriever.search(focused_query, n_results=n_per)
-        for r in results:
-            rid = r["id"]
-            if rid not in seen_ids:
-                seen_ids.add(rid)
-                all_results.append(r)
-
-    return all_results
-
-
 def protocolo_agent(state: MedicalAssistantState) -> dict:
     """Busca protocolos clínicos relevantes no ChromaDB."""
     query = state["query"]
@@ -92,11 +80,19 @@ def protocolo_agent(state: MedicalAssistantState) -> dict:
         paciente = patient_data.get("paciente", {})
         comorbidades = paciente.get("comorbidades", [])
 
-    # Enriquecer query base com entidade de condição (se extraída pela triagem)
+    # Construir query base otimizada para busca semântica:
+    # remover nome do paciente e stop words para focar nos termos clínicos
     base_query = query
+    patient_id = state.get("patient_id")
+    if patient_id:
+        base_query = base_query.replace(patient_id, "")
+    # Remover stop words para melhorar a busca semântica
+    words = base_query.split()
+    clean_words = [w for w in words if w.lower().strip(".,;:!?") not in _STOP_WORDS and len(w) > 1]
+    base_query = " ".join(clean_words) if clean_words else query
     condicao = entities.get("condicao")
     if condicao:
-        base_query = f"{query} {condicao}"
+        base_query = f"{base_query} {condicao}"
 
     search_queries = []
 
@@ -104,15 +100,26 @@ def protocolo_agent(state: MedicalAssistantState) -> dict:
         retriever = _get_retriever()
 
         if comorbidades:
-            # Busca focada: uma busca por comorbidade para cobertura equilibrada
+            # Busca híbrida: query base (sintomas) + por comorbidade
             logger.info(
-                "Protocolo: busca por comorbidade — %s",
+                "Protocolo: busca híbrida — query + comorbidades (%s)",
                 ", ".join(comorbidades),
             )
-            results = _search_per_comorbidity(
-                retriever, base_query, comorbidades, n_per=3
-            )
-            search_queries = [f"{base_query} {c}" for c in comorbidades]
+            # 1. Busca pela query base (captura protocolos de emergência por sintomas)
+            base_results = retriever.search(base_query, n_results=3)
+            seen_ids = {r["id"] for r in base_results}
+            results = list(base_results)
+
+            # 2. Busca por comorbidade (cobertura equilibrada das condições do paciente)
+            for comorbidade in comorbidades:
+                focused_query = f"{base_query} {comorbidade}"
+                comorb_results = retriever.search(focused_query, n_results=3)
+                for r in comorb_results:
+                    if r["id"] not in seen_ids:
+                        seen_ids.add(r["id"])
+                        results.append(r)
+
+            search_queries = [base_query] + [f"{base_query} {c}" for c in comorbidades]
         else:
             # Busca ampla (sem dados do paciente ou sem comorbidades)
             logger.info("Protocolo: busca ampla '%s'", base_query[:80])

@@ -450,10 +450,9 @@ def build_interface() -> gr.Blocks:
                     label="Fontes consultadas", lines=6, interactive=False,
                 )
 
-        resposta_output = gr.Textbox(
-            label="Resposta do Assistente",
-            lines=15,
-            interactive=False,
+        gr.Markdown("### Resposta do Assistente")
+        resposta_output = gr.Markdown(
+            value="*Aguardando consulta...*",
         )
 
         with gr.Accordion("Log de Auditoria", open=False):

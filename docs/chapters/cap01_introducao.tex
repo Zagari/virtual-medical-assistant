@@ -155,10 +155,12 @@ A Tabela~\ref{tab:pipeline_scripts} descreve cada script, suas pré-condições 
 \rowcolor{orange!10}
 -- & \textit{Pausa: Fine-tuning} & \textit{QLoRA via notebook (Colab ou local)} & \texttt{models/} \\
 04 & \texttt{indexar\_protocolos} & Chunking dos protocolos Markdown e indexação no ChromaDB & \texttt{chroma\_db/} \\
-05 & \texttt{avaliar\_baseline} & Executa 50 perguntas médicas no Mistral 7B base & \texttt{baseline.json} \\
-06 & \texttt{avaliar\_finetuned} & Mesmas perguntas no modelo fine-tuned + comparação & Relatório comparativo \\
+05 & \texttt{avaliar\_baseline} & Executa perguntas médicas no Mistral 7B base (suporta \texttt{-{}-tag} para múltiplos conjuntos) & \texttt{baseline*.json} \\
+05b & \texttt{extrair\_amostra\_validacao} & Extrai 50 amostras do split de validação com respostas de referência & \texttt{validacao\_amostra.json} \\
+06 & \texttt{avaliar\_finetuned} & Avalia modelos fine-tuned (multi-checkpoint) com BLEU, ROUGE e similaridade semântica & Relatórios comparativos \\
+06b & \texttt{comparar\_modelos} & Comparação unificada: baseline vs epoch~2 vs epoch~5 & \texttt{comparacao\_completa.*} \\
 07 & \texttt{iniciar\_app} & Inicia o assistente completo com interface Gradio & Servidor web local \\
-08 & \texttt{exportar\_gguf} & Exporta modelo para GGUF (execução sem GPU) & \texttt{models/gguf/} \\
+08 & \texttt{exportar\_gguf} & Exporta modelo(s) para GGUF (suporta \texttt{-{}-model-path} e \texttt{-{}-gguf-filename}) & \texttt{models/gguf/} \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -168,9 +170,10 @@ A Tabela~\ref{tab:pipeline_scripts} descreve cada script, suas pré-condições 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
-    node distance=0.5cm and 0.6cm,
-    pstep/.style={rectangle, draw=fiap-dark, rounded corners=3pt, fill=fiap-light, minimum width=2.2cm, minimum height=0.8cm, align=center, font=\small\sffamily\bfseries},
+    node distance=0.5cm and 0.5cm,
+    pstep/.style={rectangle, draw=fiap-dark, rounded corners=3pt, fill=fiap-light, minimum width=1.8cm, minimum height=0.8cm, align=center, font=\small\sffamily\bfseries},
     colab/.style={pstep, fill=orange!20, draw=orange!70},
+    eval/.style={pstep, fill=blue!10, draw=blue!60},
     arrow/.style={->, thick, >=stealth, color=fiap-red}
 ]
     % Linha 1: 01, 02, 03 (esquerda para direita)
@@ -181,34 +184,43 @@ A Tabela~\ref{tab:pipeline_scripts} descreve cada script, suas pré-condições 
     % Linha 2: Colab (alinhado à direita)
     \node[colab, below=1.2cm of s03] (colab) {\shortstack{Colab ou\\Local}};
 
-    % Linha 3: 04, 05, 06, 07 (direita para esquerda)
+    % Linha 3: 04 (alinhado abaixo do colab)
     \node[pstep, below=1.2cm of colab] (s04) {04};
-    \node[pstep, left=of s04] (s05) {05};
-    \node[pstep, left=of s05] (s06) {06};
-    \node[pstep, left=of s06] (s07) {07};
+
+    % Linha 4: Avaliação (sub-pipeline)
+    \node[eval, below=1.2cm of s04, xshift=-2.5cm] (s05b) {05b};
+    \node[eval, right=of s05b] (s05) {05};
+    \node[eval, right=of s05] (s06) {06};
+    \node[eval, right=of s06] (s06b) {06b};
+
+    % Linha 5: 07 e 08
+    \node[pstep, below=1.2cm of s05] (s07) {07};
+    \node[pstep, right=of s07] (s08) {08};
 
     % Setas
     \draw[arrow] (s01) -- (s02);
     \draw[arrow] (s02) -- (s03);
     \draw[arrow] (s03) -- (colab);
     \draw[arrow] (colab) -- (s04);
-    \draw[arrow] (s04) -- (s05);
+    \draw[arrow] (s04) -- (s05b);
+    \draw[arrow] (s05b) -- (s05);
     \draw[arrow] (s05) -- (s06);
-    \draw[arrow] (s06) -- (s07);
+    \draw[arrow] (s06) -- (s06b);
+    \draw[arrow] (s06b.south) -- ++(0,-0.4) -| (s07.north);
+    \draw[arrow] (s06b.south) -- ++(0,-0.4) -| (s08.north);
 
-    % Labels abaixo (linha 1)
-    \node[below=0.2cm of s01, font=\tiny\sffamily, text width=2cm, align=center] {Dados\\Sintéticos};
-    \node[below=0.2cm of s02, font=\tiny\sffamily, text width=2cm, align=center] {PostgreSQL};
-    \node[below=0.2cm of s03, font=\tiny\sffamily, text width=2cm, align=center] {Dataset\\MedQuAD};
-
-    % Label Colab (à esquerda)
-    \node[left=0.3cm of colab, font=\tiny\sffamily, text width=2.5cm, align=right] {Fine-Tuning QLoRA\\(Colab ou Notebook Local)};
-
-    % Labels acima (linha 3, invertidos)
-    \node[above=0.2cm of s04, font=\tiny\sffamily, text width=2cm, align=center] {RAG\\ChromaDB};
-    \node[above=0.2cm of s05, font=\tiny\sffamily, text width=2cm, align=center] {Baseline};
-    \node[above=0.2cm of s06, font=\tiny\sffamily, text width=2cm, align=center] {Avaliação\\Fine-Tuned};
-    \node[above=0.2cm of s07, font=\tiny\sffamily, text width=2cm, align=center] {Assistente\\Gradio};
+    % Labels
+    \node[below=0.15cm of s01, font=\tiny\sffamily, text width=2cm, align=center] {Dados\\Sintéticos};
+    \node[below=0.15cm of s02, font=\tiny\sffamily, text width=2cm, align=center] {PostgreSQL};
+    \node[below=0.15cm of s03, font=\tiny\sffamily, text width=2cm, align=center] {Dataset\\MedQuAD};
+    \node[left=0.3cm of colab, font=\tiny\sffamily, text width=2.5cm, align=right] {Fine-Tuning QLoRA\\(Colab ou Local)};
+    \node[above=0.15cm of s04, font=\tiny\sffamily, text width=2cm, align=center] {RAG\\ChromaDB};
+    \node[above=0.15cm of s05b, font=\tiny\sffamily, text width=2cm, align=center] {Amostra\\Validação};
+    \node[above=0.15cm of s05, font=\tiny\sffamily, text width=2cm, align=center] {Baseline};
+    \node[above=0.15cm of s06, font=\tiny\sffamily, text width=2cm, align=center] {Avaliação\\Multi-Checkpoint};
+    \node[above=0.15cm of s06b, font=\tiny\sffamily, text width=2cm, align=center] {Comparação\\Unificada};
+    \node[below=0.15cm of s07, font=\tiny\sffamily, text width=2cm, align=center] {Assistente\\Gradio};
+    \node[below=0.15cm of s08, font=\tiny\sffamily, text width=2cm, align=center] {Exportar\\GGUF};
 \end{tikzpicture}
 \caption{Fluxo de execução do pipeline de reprodução.}
 \label{fig:fluxo_pipeline}
@@ -245,12 +257,40 @@ python scripts/03_preparar_dataset.py
 # 4. Indexar protocolos clinicos no ChromaDB
 python scripts/04_indexar_protocolos.py
 
-# 5-6. Avaliar modelo (baseline vs fine-tuned)
+# 5-6. Avaliacao multi-checkpoint (baseline vs epoch 2 vs epoch 5)
+# Trilha A: 50 perguntas manuais (sobreposicao entre modelos)
 python scripts/05_avaliar_baseline.py
-python scripts/06_avaliar_finetuned.py
+python scripts/06_avaliar_finetuned.py \
+  --model-path models/checkpoints/checkpoint-2000 --tag epoch2
+python scripts/06_avaliar_finetuned.py \
+  --model-path models/medical-assistant-final --tag epoch5
+
+# Trilha B: 50 amostras validacao MedQuAD (vs ground truth)
+python scripts/05b_extrair_amostra_validacao.py
+python scripts/05_avaliar_baseline.py \
+  --questions-file data/evaluation/validacao_amostra.json --tag val
+python scripts/06_avaliar_finetuned.py \
+  --model-path models/checkpoints/checkpoint-2000 --tag epoch2_val \
+  --questions-file data/evaluation/validacao_amostra.json \
+  --baseline-file data/evaluation/baseline_responses_val.json
+python scripts/06_avaliar_finetuned.py \
+  --model-path models/medical-assistant-final --tag epoch5_val \
+  --questions-file data/evaluation/validacao_amostra.json \
+  --baseline-file data/evaluation/baseline_responses_val.json
+
+# Comparacao unificada dos 3 modelos
+python scripts/06b_comparar_modelos.py
 
 # 7. Iniciar o assistente
 python scripts/07_iniciar_app.py
+
+# 8. Exportar modelos GGUF (execucao sem GPU)
+python scripts/08_exportar_gguf.py \
+  --model-path models/checkpoints/checkpoint-2000 \
+  --gguf-filename medical-assistant-epoch2-Q4_K_M.gguf
+python scripts/08_exportar_gguf.py \
+  --model-path models/medical-assistant-final \
+  --gguf-filename medical-assistant-epoch5-Q4_K_M.gguf
 \end{lstlisting}
 
 \begin{infobox}[Princípios do Pipeline]
@@ -268,7 +308,7 @@ virtual-medical-assistant/
 |-- data/
 |   |-- raw/                    # MedQuAD original
 |   |-- processed/              # Dataset hibrido (PT + EN + BR)
-|   |-- evaluation/             # Perguntas de avaliacao
+|   |-- evaluation/             # Avaliacoes multi-checkpoint + ground truth
 |   |-- linhas_de_cuidado/      # 14 PDFs + extracted/ (Markdown)
 |   +-- synthetic/              # Pacientes, exames, protocolos emerg.
 |-- notebooks/
@@ -296,6 +336,6 @@ O restante deste relatório está organizado da seguinte forma:
     \item \textbf{Capítulo~4} descreve a implementação do RAG com ChromaDB;
     \item \textbf{Capítulo~5} apresenta o grafo multi-agente com LangGraph;
     \item \textbf{Capítulo~6} aborda a segurança, guardrails e explicabilidade;
-    \item \textbf{Capítulo~7} traz a avaliação e os resultados obtidos;
+    \item \textbf{Capítulo~7} traz a avaliação comparativa multi-checkpoint (baseline vs epoch~2 vs epoch~5) com duas trilhas: sobreposição entre modelos e qualidade contra \textit{ground truth} com similaridade semântica;
     \item \textbf{Capítulo~8} conclui com reflexões, limitações e trabalhos futuros.
 \end{itemize}

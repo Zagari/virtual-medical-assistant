@@ -25,6 +25,10 @@ import time
 from datetime import date
 from pathlib import Path
 from uuid import UUID
+from dotenv import load_dotenv
+
+load_dotenv()  # carrega o .env antes de ler os os.getenv(...)
+
 
 # Adicionar raiz do projeto ao path
 PROJECT_ROOT = Path(__file__).parent.parent

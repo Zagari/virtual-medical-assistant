@@ -260,5 +260,8 @@ docs/*.pdf
 docs/chapters/*.aux
 docs/lib/*.aux
 
+# Script de extracao de protocolos (uso local apenas)
+scripts/00_extrair_protocolos.py
+
 # Misc
 instalados.txt

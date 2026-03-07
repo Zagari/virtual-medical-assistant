@@ -26,20 +26,20 @@ def route_after_triagem(state: MedicalAssistantState) -> str:
     """Rota após triagem baseada no tipo de query."""
     query_type = state.get("query_type", "fora_de_escopo")
 
-    if query_type in ("protocolo", "ambos"):
+    if query_type == "protocolo":
         return "protocolo"
-    elif query_type == "paciente":
+    elif query_type in ("paciente", "ambos"):
         return "paciente_data"
     else:
         return "logger"
 
 
-def route_after_protocolo(state: MedicalAssistantState) -> str:
-    """Rota após busca de protocolos."""
-    query_type = state.get("query_type", "protocolo")
+def route_after_paciente_data(state: MedicalAssistantState) -> str:
+    """Rota após busca de dados do paciente."""
+    query_type = state.get("query_type", "paciente")
 
     if query_type == "ambos":
-        return "paciente_data"
+        return "protocolo"
     return "raciocinio"
 
 
@@ -89,8 +89,8 @@ def build_graph() -> StateGraph:
         "logger": "logger",
     })
 
-    graph.add_conditional_edges("protocolo", route_after_protocolo, {
-        "paciente_data": "paciente_data",
+    graph.add_conditional_edges("paciente_data", route_after_paciente_data, {
+        "protocolo": "protocolo",
         "raciocinio": "raciocinio",
     })
 
@@ -100,7 +100,7 @@ def build_graph() -> StateGraph:
     })
 
     # Arestas fixas
-    graph.add_edge("paciente_data", "raciocinio")
+    graph.add_edge("protocolo", "raciocinio")
     graph.add_edge("raciocinio", "guardrails")
     graph.add_edge("explicabilidade", "logger")
     graph.add_edge("logger", END)

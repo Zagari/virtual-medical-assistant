@@ -13,9 +13,16 @@ DISCLAIMER = (
 )
 
 
-def _extract_sources(protocols: list[dict], patient_data: dict | None) -> list[str]:
-    """Extrai lista de fontes citáveis."""
-    sources = []
+def _extract_sources(
+    protocols: list[dict], patient_data: dict | None
+) -> tuple[list[str], list[str]]:
+    """Extrai fontes citáveis separadas por relevância.
+
+    Returns:
+        Tupla (fontes_diretas, fontes_complementares).
+    """
+    diretas = []
+    complementares = []
     seen = set()
 
     for p in protocols:
@@ -25,21 +32,25 @@ def _extract_sources(protocols: list[dict], patient_data: dict | None) -> list[s
         if section:
             citation = f"[{source}, Seção: {section}]"
         if citation and citation not in seen:
-            sources.append(citation)
             seen.add(citation)
+            if p.get("relevance") == "direta":
+                diretas.append(citation)
+            else:
+                complementares.append(citation)
 
+    # Fontes de dados do paciente são sempre diretas
     if patient_data and patient_data.get("paciente"):
         nome = patient_data["paciente"].get("nome", "N/A")
-        sources.append(f"[Prontuário: {nome}]")
+        diretas.append(f"[Prontuário: {nome}]")
 
         exames = patient_data.get("exames", [])
         for e in exames[:3]:
             tipo = e.get("tipo", "")
             data = e.get("data", "")
             if tipo:
-                sources.append(f"[Exame: {tipo}, Data: {data}]")
+                diretas.append(f"[Exame: {tipo}, Data: {data}]")
 
-    return sources
+    return diretas, complementares
 
 
 def _assess_confidence(
@@ -117,8 +128,9 @@ def explicabilidade_agent(state: MedicalAssistantState) -> dict:
 
     logger.info("Explicabilidade: formatando resposta final")
 
-    # Extrair fontes
-    sources = _extract_sources(protocols, patient_data)
+    # Extrair fontes (separadas por relevância)
+    fontes_diretas, fontes_complementares = _extract_sources(protocols, patient_data)
+    all_sources = fontes_diretas + fontes_complementares
 
     # Avaliar confiança
     confidence = _assess_confidence(
@@ -133,9 +145,14 @@ def explicabilidade_agent(state: MedicalAssistantState) -> dict:
     # Montar resposta final
     final_parts = [draft_response]
 
-    if sources:
+    if fontes_diretas:
         final_parts.append("\n\n📋 **Fontes consultadas:**")
-        for s in sources:
+        for s in fontes_diretas:
+            final_parts.append(f"  • {s}")
+
+    if fontes_complementares:
+        final_parts.append("\n📎 **Fontes complementares:**")
+        for s in fontes_complementares:
             final_parts.append(f"  • {s}")
 
     confidence_labels = {
@@ -157,21 +174,22 @@ def explicabilidade_agent(state: MedicalAssistantState) -> dict:
     final_response = "\n".join(final_parts)
 
     logger.info(
-        "Explicabilidade: confiança=%s, fontes=%d, warnings=%d",
-        confidence, len(sources), len(warnings),
+        "Explicabilidade: confiança=%s, diretas=%d, complementares=%d, warnings=%d",
+        confidence, len(fontes_diretas), len(fontes_complementares), len(warnings),
     )
 
     audit_entry = {
         "agent": "explicabilidade",
         "timestamp": datetime.now().isoformat(),
         "confidence": confidence,
-        "sources_count": len(sources),
+        "sources_direct": len(fontes_diretas),
+        "sources_complementary": len(fontes_complementares),
         "warnings": warnings,
     }
 
     return {
         "final_response": final_response,
-        "sources": sources,
+        "sources": all_sources,
         "confidence": confidence,
         "warnings": warnings,
         "audit_log": state.get("audit_log", []) + [audit_entry],

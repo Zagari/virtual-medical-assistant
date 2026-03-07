@@ -151,6 +151,19 @@ def translate_to_portuguese(text: str) -> str:
     return translator.translate(text)
 \end{lstlisting}
 
+A tradução dos $\sim$16.400 registros leva aproximadamente \textbf{4--6 horas} devido ao volume de chamadas à API do Google Translate e ao \textit{rate limiting} imposto pelo serviço. O sistema de checkpoints descrito a seguir permite retomar o processo em caso de interrupção.
+
+\begin{infobox}[Dataset já traduzido disponível no repositório]
+Para evitar que cada usuário precise repetir o processo de tradução, o dataset final já traduzido e formatado está commitado no repositório em \texttt{data/processed/}:
+\begin{itemize}
+    \item \texttt{medquad\_pt.jsonl} --- MedQuAD traduzido para português ($\sim$16.400 pares)
+    \item \texttt{medquad\_en\_sample.jsonl} --- Amostra em inglês ($\sim$4.100 pares)
+    \item \texttt{brazilian\_medical\_qa.jsonl} --- QA de doenças brasileiras (55 pares)
+    \item \texttt{training\_data.jsonl} --- Dataset final híbrido ($\sim$20.500 pares, pronto para treino)
+\end{itemize}
+O script \texttt{03\_preparar\_dataset.py} só precisa ser re-executado se o usuário desejar regenerar a tradução ou alterar a composição do dataset.
+\end{infobox}
+
 \subsubsection{Sistema de Checkpoints}
 
 Dado o volume do dataset ($\sim$16.400 registros úteis), implementamos um sistema de checkpoints que salva o progresso a cada 1.000 traduções. Isso permite:

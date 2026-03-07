@@ -156,7 +156,12 @@ Quando a LLM está disponível, a classificação é feita via prompt estruturad
 \end{table}
 
 \begin{infobox}[Ajuste Automático de Classificação]
-Quando o campo \texttt{patient\_id} é fornecido na entrada e a triagem classifica a query como \texttt{protocolo}, o sistema automaticamente reclassifica para \texttt{ambos}, garantindo que os dados do paciente sejam consultados.
+Quando o campo \texttt{patient\_id} é fornecido na entrada, dois ajustes automáticos são aplicados:
+\begin{itemize}
+    \item Se a triagem classifica como \texttt{protocolo} $\rightarrow$ reclassifica para \texttt{ambos};
+    \item Se classifica como \texttt{paciente} mas a query contém \textbf{sintomas clínicos} (dor, febre, palpitações, dispneia, etc.) $\rightarrow$ reclassifica para \texttt{ambos}, garantindo busca de protocolos relevantes aos sintomas.
+\end{itemize}
+Além disso, o classificador heurístico detecta palavras-chave de sintomas (``dor no peito'', ``palpitações'', ``febre'') e classifica diretamente como \texttt{ambos} quando coexistem com referência a paciente.
 \end{infobox}
 
 \subsection{Protocolo (RAG ChromaDB)}
@@ -164,13 +169,19 @@ Quando o campo \texttt{patient\_id} é fornecido na entrada e a triagem classifi
 O agente de protocolo realiza \textbf{busca semântica} nos 544 documentos indexados no ChromaDB (14 Linhas de Cuidado + 5 protocolos de emergência, conforme Capítulo~\ref{cap:rag}).
 
 \begin{itemize}
-    \item \textbf{Busca contextualizada:} Quando dados do paciente estão disponíveis (fluxo ``ambos''), o agente realiza \textbf{uma busca por comorbidade} do paciente (ex: uma busca para ``hipertensão'' e outra para ``diabetes tipo 2''), garantindo cobertura equilibrada. Sem dados do paciente, a busca é ampla com a query original;
+    \item \textbf{Limpeza da query:} Antes da busca semântica, a query é pré-processada: o nome do paciente é removido e \textit{stop words} em português são filtradas, mantendo apenas os termos clínicos relevantes (ex: ``A paciente Maria Alice está com dor no peito'' $\rightarrow$ ``dor peito'');
+    \item \textbf{Busca híbrida (sintomas + comorbidades):} Quando dados do paciente estão disponíveis (fluxo ``ambos''), o agente executa três camadas de busca:
+    \begin{enumerate}
+        \item \textbf{Query base} (termos clínicos limpos) --- captura protocolos de emergência relevantes aos sintomas mencionados;
+        \item \textbf{Uma busca por comorbidade} (ex: ``dor peito + Hipertensão'', ``dor peito + Diabetes tipo 2'') --- garante cobertura equilibrada das condições crônicas do paciente.
+    \end{enumerate}
+    Sem dados do paciente, a busca é ampla com a query limpa;
     \item \textbf{Ranking por relevância:} Após a recuperação, os resultados são classificados como \texttt{direta} (contêm termos das comorbidades) ou \texttt{complementar} (informação geral), ordenados por relevância;
     \item Retorna conteúdo, fonte, seção, distância e relevância para cada resultado.
 \end{itemize}
 
-\begin{infobox}[Por que busca por comorbidade?]
-Uma única busca semântica com query longa tende a favorecer uma comorbidade sobre outra. Para um paciente com hipertensão e diabetes, a busca unificada retornava quase exclusivamente protocolos de hipertensão. A busca separada (3 resultados por comorbidade, deduplicados) garante representatividade de cada condição.
+\begin{infobox}[Por que busca híbrida?]
+A busca por comorbidade garante cobertura de todas as condições crônicas do paciente, mas não captura protocolos de emergência associados aos \textbf{sintomas} da consulta. Por exemplo, ``dor no peito e palpitações'' deve encontrar o protocolo de IAM (infarto), mesmo que o paciente não tenha essa comorbidade. A busca híbrida --- primeira camada pelos sintomas, segunda pelas comorbidades --- resolve esse problema. A limpeza de stop words é necessária porque frases longas (``A paciente está se queixando de\ldots'') diluem a busca semântica, favorecendo resultados irrelevantes.
 \end{infobox}
 
 \subsection{Paciente Data (PostgreSQL)}
@@ -222,7 +233,7 @@ sugestao e indique validacao medica.
 RESPOSTA:
 \end{lstlisting}
 
-Quando o modelo fine-tuned não está disponível, um sistema de fallback gera respostas baseadas em template com o contexto recuperado.
+Quando o modelo fine-tuned não está disponível, um sistema de \textbf{fallback} gera respostas baseadas em template com o contexto recuperado. O fallback apresenta os dados completos do paciente (comorbidades, exames, prontuários, receitas) seguidos de até \textbf{6 protocolos distintos}, deduplicados por fonte e seção, com conteúdo truncado no final da última sentença completa. Protocolos complementares são indicados com label, e o limite de 6 garante cobertura de todas as fontes relevantes sem repetição.
 
 \subsection{Guardrails (Segurança)}
 
@@ -439,7 +450,7 @@ Para ilustrar o funcionamento completo, considere a seguinte consulta:
 \begin{enumerate}
     \item \textbf{Triagem} $\rightarrow$ \texttt{query\_type="ambos"}, \texttt{entities=\{paciente: "Maria Santos", condicao: "diabetes"\}}
     \item \textbf{Paciente Data} $\rightarrow$ PostgreSQL $\rightarrow$ Maria Santos: comorbidades=[hipertensão, diabetes], exames, medicamentos
-    \item \textbf{Protocolo} $\rightarrow$ Busca por comorbidade: ``exames + hipertensão'' e ``exames + diabetes'' $\rightarrow$ 3 Pathway-Hipertensão + 3 Pathway-Diabetes (todos ``direta'')
+    \item \textbf{Protocolo} $\rightarrow$ Busca híbrida: (1) query limpa ``exames seguimento diabética'' $\rightarrow$ protocolos de diabetes e emergência; (2) ``+ hipertensão'' e ``+ diabetes'' por comorbidade $\rightarrow$ Pathway-Hipertensão + Pathway-Diabetes (diretos) + protocolos complementares
     \item \textbf{Raciocínio} $\rightarrow$ Mistral 7B FT sintetiza resposta com protocolos relevantes + dados da paciente
     \item \textbf{Guardrails} $\rightarrow$ 4 regras verificadas $\rightarrow$ \texttt{aprovado}
     \item \textbf{Explicabilidade} $\rightarrow$ Confiança: alta | Fontes diretas: [Pathway-Diabetes, Pathway-Hipertensão, Exame HbA1C]
@@ -484,5 +495,5 @@ Para ilustrar o funcionamento completo, considere a seguinte consulta:
 
     \item \textbf{LLM injetável:} A LLM é passada via parâmetro (\texttt{run\_assistant(query, llm=...)}) ao invés de ser instanciada dentro do grafo, permitindo trocar facilmente entre modelo base, fine-tuned ou mock para testes.
 
-    \item \textbf{Paciente antes de protocolo:} Para queries que envolvem um paciente específico (tipo ``ambos''), o grafo busca os dados do paciente \emph{antes} dos protocolos. Isso permite que a busca no ChromaDB seja contextualizada pelas comorbidades reais do paciente, evitando resultados irrelevantes. A busca é feita separadamente por comorbidade para garantir cobertura equilibrada.
+    \item \textbf{Paciente antes de protocolo + busca híbrida:} Para queries tipo ``ambos'', o grafo busca os dados do paciente \emph{antes} dos protocolos. Isso permite busca híbrida no ChromaDB: primeiro pelos \textbf{sintomas} da query (capturando protocolos de emergência como IAM quando há ``dor no peito''), depois por \textbf{comorbidade} do paciente (cobertura de condições crônicas). A query é pré-processada com remoção de stop words e nome do paciente para maximizar a relevância semântica.
 \end{enumerate}

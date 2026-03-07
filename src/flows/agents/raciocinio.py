@@ -1,6 +1,7 @@
 """Agente de Raciocínio (Mistral 7B Fine-Tuned) - Sintetiza resposta clínica."""
 
 import logging
+import re
 from datetime import datetime
 
 from src.flows.state import MedicalAssistantState
@@ -156,6 +157,38 @@ def _truncate_at_sentence(text: str, max_len: int = 400) -> str:
     return truncated.rstrip() + "..."
 
 
+def _clean_chunk_content(text: str) -> str:
+    """Remove artefatos de PDF e pula prefixo garbled de chunks com overlap."""
+    # 1. Remover linhas de cabeçalho de página do PDF
+    text = re.sub(r"^\s*LINHA DE CUIDADO\s*[–\-].+$", "", text, flags=re.MULTILINE)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    text = text.strip()
+
+    if not text:
+        return text
+
+    # 2. Verificar se começa "limpo" (maiúscula, header, bullet ou número)
+    first_char = text[0]
+    starts_clean = first_char.isupper() or first_char in "#*-•" or first_char.isdigit()
+
+    if not starts_clean:
+        # Chunk começa mid-sentence (overlap do chunking) — pular até próximo início limpo
+        # Tentar: sentence boundary → paragraph break → newline com maiúscula
+        for sep in (". ", ".\n"):
+            pos = text[:200].find(sep)
+            if pos != -1:
+                rest = text[pos + len(sep) :].lstrip()
+                if rest:
+                    return rest
+        # Tentar paragraph break
+        pos = text[:200].find("\n\n")
+        if pos != -1:
+            rest = text[pos:].lstrip()
+            if rest:
+                return rest
+    return text
+
+
 def _fallback_response(
     query: str, protocols: list[dict], patient_data: dict | None
 ) -> str:
@@ -212,9 +245,11 @@ def _fallback_response(
                     line += f": {meds}"
                 parts.append(line)
 
-    # Protocolos clínicos (resumidos, deduplica por fonte)
+    # Protocolos clínicos (limpos, deduplica por fonte)
     if protocols:
         parts.append("\n**Protocolos clínicos consultados:**")
+        parts.append("_(Trechos extraídos automaticamente — sem síntese por LLM)_\n")
+        has_diretos = any(p.get("relevance") == "direta" for p in protocols)
         seen_sources = set()
         shown = 0
         for p in protocols:
@@ -224,16 +259,26 @@ def _fallback_response(
             if source_key in seen_sources:
                 continue
             seen_sources.add(source_key)
-            content = _truncate_at_sentence(p.get("content", ""), max_len=300)
-            header = f"\n[{source}]"
+
+            header = f"[{source}]"
             if section:
                 header += f" — {section}"
             relevance = p.get("relevance", "")
-            if relevance == "complementar":
-                header += " _(complementar)_"
-            parts.append(f"{header}\n{content}")
+
+            # Só omitir conteúdo de complementares quando há protocolos diretos
+            if relevance == "complementar" and has_diretos:
+                parts.append(f"\n{header} _(complementar)_")
+            else:
+                raw = p.get("content", "")
+                cleaned = _clean_chunk_content(raw)
+                excerpt = _truncate_at_sentence(cleaned, max_len=200)
+                if excerpt and len(excerpt) > 40:
+                    parts.append(f"\n{header}\n{excerpt}")
+                else:
+                    parts.append(f"\n{header}")
+
             shown += 1
-            if shown >= 6:
+            if shown >= 5:
                 break
 
     parts.append(

@@ -13,10 +13,13 @@ Saída:
 
 Uso:
     python scripts/05_avaliar_baseline.py [--limit N] [--device DEVICE]
+    python scripts/05_avaliar_baseline.py --questions-file data/evaluation/validacao_amostra.json --tag val
 
 Flags:
-    --limit N       Limita a N perguntas (para testes rápidos)
-    --device        Dispositivo: "cuda", "mps" ou "cpu" (auto-detecta)
+    --limit N            Limita a N perguntas (para testes rápidos)
+    --device             Dispositivo: "cuda", "mps" ou "cpu" (auto-detecta)
+    --tag TAG            Sufixo nos arquivos de saída (ex: val)
+    --questions-file     Arquivo de perguntas alternativo
 
 Requisitos:
     pip install transformers accelerate bitsandbytes torch
@@ -50,8 +53,8 @@ PROJECT_ROOT = Path(__file__).parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 EVALUATION_DIR = DATA_DIR / "evaluation"
 
-QUESTIONS_FILE = EVALUATION_DIR / "perguntas_avaliacao.json"
-OUTPUT_FILE = EVALUATION_DIR / "baseline_responses.json"
+DEFAULT_QUESTIONS_FILE = EVALUATION_DIR / "perguntas_avaliacao.json"
+DEFAULT_OUTPUT_FILE = EVALUATION_DIR / "baseline_responses.json"
 
 # Modelo base
 MODEL_NAME = "mistralai/Mistral-7B-Instruct-v0.3"
@@ -226,8 +229,27 @@ def main():
         choices=['cuda', 'mps', 'cpu'],
         help='Dispositivo para execução'
     )
+    parser.add_argument(
+        '--tag',
+        type=str,
+        default=None,
+        help='Sufixo para arquivos de saída (ex: val)'
+    )
+    parser.add_argument(
+        '--questions-file',
+        type=str,
+        default=None,
+        help='Arquivo de perguntas alternativo'
+    )
 
     args = parser.parse_args()
+
+    # Resolver caminhos com base no tag
+    questions_file = Path(args.questions_file) if args.questions_file else DEFAULT_QUESTIONS_FILE
+    if args.tag:
+        output_file = EVALUATION_DIR / f"baseline_responses_{args.tag}.json"
+    else:
+        output_file = DEFAULT_OUTPUT_FILE
 
     print("=" * 60)
     print("  AVALIAÇÃO DO MODELO BASE (Mistral 7B)")
@@ -245,15 +267,20 @@ def main():
         print()
 
     # Verificar arquivo de perguntas
-    if not QUESTIONS_FILE.exists():
+    if not questions_file.exists():
         print(f"✗ ERRO: Arquivo de perguntas não encontrado!")
-        print(f"  Esperado: {QUESTIONS_FILE}")
+        print(f"  Esperado: {questions_file}")
         sys.exit(1)
 
     # Carregar perguntas
     print()
+    print(f"Arquivo de perguntas: {questions_file}")
+    if args.tag:
+        print(f"Tag: {args.tag}")
+    print(f"Saída: {output_file}")
+    print()
     print("[1/3] Carregando perguntas...")
-    questions = load_questions(QUESTIONS_FILE)
+    questions = load_questions(questions_file)
 
     if args.limit:
         questions = questions[:args.limit]
@@ -296,7 +323,7 @@ def main():
     print()
 
     # Salvar resultados
-    save_results(results, OUTPUT_FILE)
+    save_results(results, output_file)
 
     print()
     print("=" * 60)
@@ -304,7 +331,7 @@ def main():
     print("=" * 60)
     print(f"  Modelo: {MODEL_NAME}")
     print(f"  Perguntas: {len(questions)}")
-    print(f"  Arquivo: {OUTPUT_FILE}")
+    print(f"  Arquivo: {output_file}")
     print()
     print("  Próximo passo:")
     print("    Execute o fine-tuning e depois:")

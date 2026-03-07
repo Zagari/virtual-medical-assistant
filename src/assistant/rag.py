@@ -236,7 +236,7 @@ class ProtocolIndexer:
         embeddings = self._generate_embeddings(documents)
 
         # Inserir no ChromaDB
-        self.collection.add(
+        self.collection.upsert(
             ids=ids,
             documents=documents,
             embeddings=embeddings,

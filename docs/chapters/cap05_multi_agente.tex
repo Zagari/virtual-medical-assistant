@@ -1,0 +1,480 @@
+% ============================================================================
+% CAPÍTULO 5 - GRAFO MULTI-AGENTE COM LANGGRAPH
+% ============================================================================
+
+\chapter{Grafo Multi-Agente com LangGraph}\label{cap:multiagente}
+
+Este capítulo apresenta a arquitetura central do assistente: um \textbf{grafo multi-agente} implementado com LangGraph, que orquestra 7 nós especializados para processar consultas médicas de forma segura, rastreável e fundamentada em evidências.
+
+\section{Motivação}
+
+Sistemas de IA para saúde exigem mais do que uma chamada direta a um LLM. É necessário:
+
+\begin{itemize}
+    \item \textbf{Classificar} a intenção do usuário antes de agir;
+    \item \textbf{Recuperar} dados relevantes (protocolos clínicos e dados do paciente);
+    \item \textbf{Validar} a resposta gerada contra regras de segurança;
+    \item \textbf{Rastrear} cada etapa para auditoria e explicabilidade.
+\end{itemize}
+
+Essas responsabilidades são naturalmente separáveis em agentes especializados, orquestrados por um grafo de estados. O LangGraph, extensão do LangChain, oferece primitivas para construir exatamente esse tipo de sistema: \texttt{StateGraph}, nós que transformam estado, arestas condicionais e compilação para execução.
+
+\section{Visão Geral da Arquitetura}
+
+O grafo possui \textbf{7 nós} (agentes), conectados por \textbf{4 arestas fixas} e \textbf{3 arestas condicionais}. A Figura~\ref{fig:grafo_multiagente} apresenta a topologia completa.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{grafo-multiagente.png}
+\caption{Grafo multi-agente LangGraph do Assistente Virtual Médico. Losango representa decisão (router), retângulos representam agentes, elipses representam início/fim. Linhas tracejadas indicam fluxos condicionais.}
+\label{fig:grafo_multiagente}
+\end{figure}
+
+\subsection{Fluxos Possíveis}
+
+O grafo suporta cinco fluxos distintos, determinados pela classificação da triagem:
+
+\begin{table}[H]
+\centering
+\caption{Fluxos de execução do grafo multi-agente.}
+\label{tab:fluxos_grafo}
+\rowcolors{2}{fiap-light}{white}
+\small
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Cenário} & \textbf{Caminho no Grafo} \\
+\midrule
+Protocolo & triagem $\rightarrow$ protocolo $\rightarrow$ raciocínio $\rightarrow$ guardrails $\rightarrow$ explicabilidade $\rightarrow$ logger \\
+Paciente & triagem $\rightarrow$ paciente\_data $\rightarrow$ raciocínio $\rightarrow$ guardrails $\rightarrow$ explicabilidade $\rightarrow$ logger \\
+Ambos & triagem $\rightarrow$ protocolo $\rightarrow$ paciente\_data $\rightarrow$ raciocínio $\rightarrow$ guardrails $\rightarrow$ explicabilidade $\rightarrow$ logger \\
+Fora de escopo & triagem $\rightarrow$ logger $\rightarrow$ END \\
+Retry & $\ldots$ $\rightarrow$ guardrails $\rightarrow$ raciocínio $\rightarrow$ guardrails $\rightarrow$ $\ldots$ (máx.\ 2$\times$) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{State Schema}\label{sec:state}
+
+O estado compartilhado entre todos os nós é definido pelo \texttt{MedicalAssistantState}, um \texttt{TypedDict} com 15 variáveis organizadas em cinco grupos:
+
+\begin{table}[H]
+\centering
+\caption{Variáveis do \texttt{MedicalAssistantState}.}
+\label{tab:state_schema}
+\rowcolors{2}{fiap-light}{white}
+\small
+\begin{tabularx}{\textwidth}{l l l X}
+\toprule
+\textbf{Grupo} & \textbf{Variável} & \textbf{Tipo} & \textbf{Descrição} \\
+\midrule
+\multirow{2}{*}{Entrada}
+    & \texttt{query} & \texttt{str} & Pergunta do médico \\
+    & \texttt{patient\_id} & \texttt{Optional[str]} & ID ou nome do paciente \\
+\midrule
+\multirow{2}{*}{Triagem}
+    & \texttt{query\_type} & \texttt{Literal[4]} & protocolo $|$ paciente $|$ ambos $|$ fora\_de\_escopo \\
+    & \texttt{entities} & \texttt{dict} & Entidades extraídas (paciente, condição, etc.) \\
+\midrule
+\multirow{2}{*}{Contexto}
+    & \texttt{protocols} & \texttt{list[dict]} & Chunks recuperados do ChromaDB \\
+    & \texttt{patient\_data} & \texttt{Optional[dict]} & Dados clínicos do PostgreSQL \\
+\midrule
+\multirow{4}{*}{Raciocínio}
+    & \texttt{draft\_response} & \texttt{str} & Rascunho gerado pelo LLM \\
+    & \texttt{guardrail\_result} & \texttt{Literal[2]} & aprovado $|$ reprovado \\
+    & \texttt{guardrail\_feedback} & \texttt{Optional[str]} & Motivo da reprovação \\
+    & \texttt{retry\_count} & \texttt{int} & Contador de retries (máx.\ 2) \\
+\midrule
+\multirow{4}{*}{Saída}
+    & \texttt{final\_response} & \texttt{str} & Resposta formatada com citações \\
+    & \texttt{sources} & \texttt{list[str]} & Lista de fontes citadas \\
+    & \texttt{confidence} & \texttt{Literal[3]} & alta $|$ media $|$ baixa \\
+    & \texttt{warnings} & \texttt{list[str]} & Advertências ao médico \\
+\midrule
+Auditoria
+    & \texttt{audit\_log} & \texttt{list[dict]} & Trace completo da execução \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{lstlisting}[caption={Definição do \texttt{MedicalAssistantState} em \texttt{src/flows/state.py}.}]
+class MedicalAssistantState(TypedDict):
+    # Entrada
+    query: str
+    patient_id: Optional[str]
+    # Triagem
+    query_type: Literal["protocolo", "paciente",
+                        "ambos", "fora_de_escopo"]
+    entities: dict
+    # Contexto
+    protocols: list[dict]
+    patient_data: Optional[dict]
+    # Raciocinio
+    draft_response: str
+    guardrail_result: Literal["aprovado", "reprovado"]
+    guardrail_feedback: Optional[str]
+    retry_count: int
+    # Saida
+    final_response: str
+    sources: list[str]
+    confidence: Literal["alta", "media", "baixa"]
+    warnings: list[str]
+    # Auditoria
+    audit_log: list[dict]
+\end{lstlisting}
+
+\section{Os 7 Nós do Grafo}\label{sec:agentes}
+
+Cada nó é uma função Python que recebe o estado atual, executa sua lógica e retorna um dicionário parcial com as variáveis que deseja atualizar. O LangGraph faz o merge automático.
+
+\subsection{Triagem (Router)}
+
+O agente de triagem é o \textbf{ponto de entrada} do grafo. Recebe a query do médico e:
+
+\begin{enumerate}
+    \item \textbf{Classifica} o tipo da consulta em uma de quatro categorias;
+    \item \textbf{Extrai entidades} relevantes (nome do paciente, condição médica, medicamento, exame).
+\end{enumerate}
+
+Quando a LLM está disponível, a classificação é feita via prompt estruturado que retorna JSON. Caso contrário, um classificador heurístico baseado em palavras-chave é utilizado como fallback.
+
+\begin{table}[H]
+\centering
+\caption{Classificação da triagem e roteamento.}
+\label{tab:triagem_routing}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabularx}{\textwidth}{l X l}
+\toprule
+\textbf{Tipo} & \textbf{Critério} & \textbf{Destino} \\
+\midrule
+\texttt{protocolo} & Pergunta sobre tratamento, diagnóstico ou conduta clínica genérica & Protocolo \\
+\texttt{paciente} & Pergunta sobre dados de um paciente específico & Paciente Data \\
+\texttt{ambos} & Protocolo clínico aplicado a um paciente específico & Protocolo \\
+\texttt{fora\_de\_escopo} & Pergunta não relacionada à medicina & Logger \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{infobox}[Ajuste Automático de Classificação]
+Quando o campo \texttt{patient\_id} é fornecido na entrada e a triagem classifica a query como \texttt{protocolo}, o sistema automaticamente reclassifica para \texttt{ambos}, garantindo que os dados do paciente sejam consultados.
+\end{infobox}
+
+\subsection{Protocolo (RAG ChromaDB)}
+
+O agente de protocolo realiza \textbf{busca semântica} nos 544 documentos indexados no ChromaDB (14 Linhas de Cuidado + 5 protocolos de emergência, conforme Capítulo~\ref{cap:rag}).
+
+\begin{itemize}
+    \item Enriquece a query com entidades extraídas pela triagem (ex: condição médica);
+    \item Recupera os 5 chunks mais relevantes via embedding similarity;
+    \item Retorna conteúdo, fonte, seção e distância para cada resultado.
+\end{itemize}
+
+\subsection{Paciente Data (PostgreSQL)}
+
+O agente de dados do paciente consulta o banco PostgreSQL via SQLAlchemy, buscando:
+
+\begin{itemize}
+    \item \textbf{Dados cadastrais:} nome, sexo, data de nascimento, comorbidades, alergias, medicamentos em uso;
+    \item \textbf{Exames:} tipo, data, resultados e interpretação (últimos 5);
+    \item \textbf{Prontuários:} data, diagnóstico CID, texto diagnóstico (últimos 3);
+    \item \textbf{Receitas:} data, condição, medicamentos prescritos.
+\end{itemize}
+
+A busca é feita por nome (parcial, case-insensitive) ou por ID do paciente. Todos os valores são serializados para JSON, tratando tipos como \texttt{date} e \texttt{UUID}.
+
+\subsection{Raciocínio (Mistral 7B Fine-Tuned)}
+
+O agente de raciocínio é o \textbf{cérebro} do sistema. Utiliza o modelo Mistral 7B com fine-tuning (Capítulo~3) para sintetizar uma resposta clínica a partir de três fontes de informação:
+
+\begin{enumerate}
+    \item A \textbf{query} original do médico;
+    \item Os \textbf{protocolos clínicos} recuperados pelo agente de protocolo;
+    \item Os \textbf{dados do paciente} recuperados pelo agente de dados.
+\end{enumerate}
+
+O prompt é montado dinamicamente com as seções de contexto disponíveis. Em caso de \textbf{retry} (quando o guardrails reprova a resposta), o feedback de reprovação é incluído no prompt para que o modelo corrija os problemas apontados.
+
+\begin{lstlisting}[caption={Estrutura simplificada do prompt do agente de raciocínio.}]
+Voce e um assistente medico especializado. Com base no
+contexto fornecido, responda a pergunta do medico.
+
+PERGUNTA DO MEDICO: {query}
+
+PROTOCOLOS CLINICOS RELEVANTES:
+[1] Fonte: Pathway-Hipertensao | Secao: Tratamento
+    Os principios que norteiam o tratamento...
+
+DADOS DO PACIENTE:
+Nome: Maria Santos | Sexo: F | Nascimento: 1958-03-15
+Comorbidades: hipertensao, diabetes tipo 2
+Ultimos exames:
+  - HbA1C (2026-01-15): 7.2% - controle moderado
+
+# Se retry:
+ATENCAO - SUA RESPOSTA ANTERIOR FOI REPROVADA:
+Motivo: Prescricao direta detectada. Reformule como
+sugestao e indique validacao medica.
+
+RESPOSTA:
+\end{lstlisting}
+
+Quando o modelo fine-tuned não está disponível, um sistema de fallback gera respostas baseadas em template com o contexto recuperado.
+
+\subsection{Guardrails (Segurança)}
+
+O agente de guardrails aplica \textbf{4 regras de segurança} obrigatórias a cada resposta:
+
+\begin{table}[H]
+\centering
+\caption{Regras de validação dos guardrails.}
+\label{tab:guardrails_rules}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Regra} & \textbf{Tipo} & \textbf{O que verifica} \\
+\midrule
+\texttt{no\_prescription} & Regex & Detecta padrões de prescrição direta (``prescrevo'', ``tome 500mg'', ``administre'') \\
+\texttt{human\_validation} & Keyword & Verifica presença de disclaimer de validação humana \\
+\texttt{no\_definitive\_diagnosis} & Regex & Detecta diagnósticos definitivos (``o paciente tem'', ``confirmo que'') \\
+\texttt{context\_consistency} & Heurística & Verifica se resposta não é excessivamente curta dado o contexto \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection{Mecanismo de Retry}
+
+Quando uma regra falha, o guardrails retorna \texttt{reprovado} com feedback detalhado. O grafo então reenvia o estado ao agente de raciocínio, que recebe o feedback no prompt e gera uma resposta corrigida. Este ciclo pode ocorrer no \textbf{máximo 2 vezes}. Caso o limite seja atingido, a resposta segue com advertências.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=1cm and 1.5cm,
+    block/.style={rectangle, draw, rounded corners=3pt, minimum width=2.8cm, minimum height=0.9cm, align=center, font=\small\sffamily},
+    decision/.style={diamond, draw, minimum width=2cm, minimum height=1.5cm, align=center, font=\small\sffamily, inner sep=1pt},
+    process/.style={block, fill=fiap-red!15, draw=fiap-red, thick},
+    safe/.style={block, fill=green!10, draw=green!60!black, thick},
+    warn/.style={block, fill=orange!10, draw=orange!70, thick},
+    arrow/.style={->, thick, >=stealth}
+]
+
+\node[process] (raciocinio) {Raciocínio\\(gera draft)};
+\node[warn, right=2cm of raciocinio] (guardrails) {Guardrails\\(4 regras)};
+\node[decision, right=2cm of guardrails] (decision) {Aprovado?};
+\node[safe, above right=0.8cm and 1.5cm of decision] (explicabilidade) {Explicabilidade};
+\node[process, below right=0.8cm and 1.5cm of decision] (retry) {Retry\\(com feedback)};
+
+\draw[arrow] (raciocinio) -- (guardrails);
+\draw[arrow] (guardrails) -- (decision);
+\draw[arrow] (decision) -- node[above, font=\tiny\sffamily] {Sim} (explicabilidade);
+\draw[arrow] (decision) -- node[below, font=\tiny\sffamily] {Não (máx 2x)} (retry);
+\draw[arrow] (retry.south) -- ++(0,-0.5) -| node[below, pos=0.25, font=\tiny\sffamily] {feedback no prompt} (raciocinio.south);
+
+\end{tikzpicture}
+\caption{Mecanismo de retry dos guardrails: respostas reprovadas são devolvidas ao raciocínio com feedback.}
+\label{fig:guardrails_retry}
+\end{figure}
+
+\subsection{Explicabilidade (Citações e Confiança)}
+
+O agente de explicabilidade é responsável por tornar a resposta \textbf{transparente e rastreável}:
+
+\begin{enumerate}
+    \item \textbf{Extrai citações} dos protocolos e dados utilizados:
+    \begin{itemize}
+        \item Formato: \texttt{[Pathway-Diabetes, Seção: Tratamento]}
+        \item Formato: \texttt{[Exame: HbA1C, Data: 2026-01-15]}
+    \end{itemize}
+
+    \item \textbf{Avalia confiança} com base em múltiplos fatores:
+
+    \begin{table}[H]
+    \centering
+    \caption{Critérios de avaliação de confiança.}
+    \label{tab:confianca}
+    \rowcolors{2}{fiap-light}{white}
+    \begin{tabular}{l c}
+    \toprule
+    \textbf{Fator} & \textbf{Pontuação} \\
+    \midrule
+    3+ protocolos recuperados & +3 \\
+    1-2 protocolos recuperados & +2 \\
+    Distância média $<$ 0.5 & +2 \\
+    Distância média $<$ 1.0 & +1 \\
+    Dados do paciente disponíveis & +2 \\
+    Cada retry do guardrails & $-1$ \\
+    \midrule
+    $\geq 5$ pontos: \textbf{alta} & $\geq 3$: \textbf{média} \\
+    \multicolumn{2}{c}{$< 3$ pontos: \textbf{baixa}} \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    \item \textbf{Gera advertências} quando apropriado (confiança baixa, sem protocolos, retries realizados);
+
+    \item \textbf{Formata a resposta final} com seções: resposta, fontes, confiança, advertências e disclaimer obrigatório.
+\end{enumerate}
+
+\subsection{Logger (Auditoria)}
+
+O agente de logger é o \textbf{nó final} em todos os fluxos. Consolida o estado completo em um registro JSON estruturado e persiste em arquivo diário (\texttt{logs/audit\_YYYY-MM-DD.jsonl}).
+
+\begin{lstlisting}[caption={Estrutura do registro de auditoria.}]
+{
+    "timestamp": "2026-03-06T18:30:00",
+    "session": {
+        "query": "Qual tratamento para hipertensao?",
+        "patient_id": null
+    },
+    "triagem": {
+        "query_type": "protocolo",
+        "entities": {"condicao": "hipertensao"}
+    },
+    "context": {
+        "protocols_count": 5,
+        "protocols_sources": ["Pathway-Hipertensao", ...],
+        "patient_data_available": false
+    },
+    "response": {
+        "confidence": "alta",
+        "sources": ["[Pathway-Hipertensao, ...]"],
+        "warnings": []
+    },
+    "guardrails": {
+        "result": "aprovado",
+        "retry_count": 0
+    },
+    "agent_trace": [
+        {"agent": "triagem", "timestamp": "..."},
+        {"agent": "protocolo", "timestamp": "..."},
+        ...
+    ]
+}
+\end{lstlisting}
+
+Para consultas classificadas como \texttt{fora\_de\_escopo}, o logger gera uma resposta padrão educada informando o escopo do assistente, sem invocar nenhum outro agente.
+
+\section{Montagem do Grafo}\label{sec:montagem}
+
+A montagem do grafo é feita em \texttt{src/flows/graph.py} utilizando a API do LangGraph:
+
+\begin{lstlisting}[caption={Montagem do grafo em \texttt{src/flows/graph.py}.}]
+from langgraph.graph import StateGraph, END
+
+graph = StateGraph(MedicalAssistantState)
+
+# 7 nos
+graph.add_node("triagem", triagem_agent)
+graph.add_node("protocolo", protocolo_agent)
+graph.add_node("paciente_data", paciente_data_agent)
+graph.add_node("raciocinio", raciocinio_agent)
+graph.add_node("guardrails", guardrails_agent)
+graph.add_node("explicabilidade", explicabilidade_agent)
+graph.add_node("logger", logger_agent)
+
+# Entry point
+graph.set_entry_point("triagem")
+
+# Arestas condicionais
+graph.add_conditional_edges("triagem",
+    route_after_triagem, {
+    "protocolo": "protocolo",
+    "paciente_data": "paciente_data",
+    "logger": "logger",
+})
+graph.add_conditional_edges("protocolo",
+    route_after_protocolo, {
+    "paciente_data": "paciente_data",
+    "raciocinio": "raciocinio",
+})
+graph.add_conditional_edges("guardrails",
+    route_after_guardrails, {
+    "explicabilidade": "explicabilidade",
+    "raciocinio": "raciocinio",
+})
+
+# Arestas fixas
+graph.add_edge("paciente_data", "raciocinio")
+graph.add_edge("raciocinio", "guardrails")
+graph.add_edge("explicabilidade", "logger")
+graph.add_edge("logger", END)
+
+app = graph.compile()
+\end{lstlisting}
+
+\section{Funções de Roteamento}
+
+As três funções de roteamento condicional determinam o caminho de execução no grafo com base no estado atual:
+
+\begin{table}[H]
+\centering
+\caption{Funções de roteamento condicional.}
+\label{tab:routing_functions}
+\rowcolors{2}{fiap-light}{white}
+\small
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Função} & \textbf{Após} & \textbf{Lógica} \\
+\midrule
+\texttt{route\_after\_triagem} & Triagem & Se \texttt{protocolo} ou \texttt{ambos} $\rightarrow$ protocolo; se \texttt{paciente} $\rightarrow$ paciente\_data; senão $\rightarrow$ logger \\
+\texttt{route\_after\_protocolo} & Protocolo & Se \texttt{ambos} $\rightarrow$ paciente\_data; senão $\rightarrow$ raciocínio \\
+\texttt{route\_after\_guardrails} & Guardrails & Se \texttt{aprovado} $\rightarrow$ explicabilidade; se \texttt{reprovado} e retry $<$ 2 $\rightarrow$ raciocínio; senão $\rightarrow$ explicabilidade (com warnings) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Exemplo de Execução End-to-End}
+
+Para ilustrar o funcionamento completo, considere a seguinte consulta:
+
+\begin{warningbox}[Consulta de Exemplo]
+\textbf{Médico:} ``Quais exames de seguimento pedir para a paciente Maria Santos, diabética tipo 2?''
+\end{warningbox}
+
+\begin{enumerate}
+    \item \textbf{Triagem} $\rightarrow$ \texttt{query\_type="ambos"}, \texttt{entities=\{paciente: "Maria Santos", condicao: "diabetes"\}}
+    \item \textbf{Protocolo} $\rightarrow$ Busca ChromaDB $\rightarrow$ Pathway-Diabetes §Exames de Seguimento (3 chunks)
+    \item \textbf{Paciente Data} $\rightarrow$ PostgreSQL $\rightarrow$ Maria Santos: HbA1C 7.2\%, comorbidades, medicamentos
+    \item \textbf{Raciocínio} $\rightarrow$ Mistral 7B FT sintetiza resposta com protocolo + dados da paciente
+    \item \textbf{Guardrails} $\rightarrow$ 4 regras verificadas $\rightarrow$ \texttt{aprovado}
+    \item \textbf{Explicabilidade} $\rightarrow$ Confiança: alta | Fontes: [Pathway-Diabetes, Exame HbA1C]
+    \item \textbf{Logger} $\rightarrow$ Registro JSON persistido em \texttt{logs/audit\_2026-03-06.jsonl}
+\end{enumerate}
+
+\section{Estrutura de Arquivos}
+
+\begin{table}[H]
+\centering
+\caption{Arquivos do módulo \texttt{src/flows/}.}
+\label{tab:arquivos_flows}
+\rowcolors{2}{fiap-light}{white}
+\small
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Arquivo} & \textbf{Responsabilidade} \\
+\midrule
+\texttt{state.py} & Definição do \texttt{MedicalAssistantState} \\
+\texttt{graph.py} & Montagem do grafo, funções de roteamento e \texttt{run\_assistant()} \\
+\texttt{agents/triagem.py} & Classificação da query e extração de entidades \\
+\texttt{agents/protocolo.py} & Busca semântica no ChromaDB \\
+\texttt{agents/paciente\_data.py} & Consulta SQL no PostgreSQL \\
+\texttt{agents/raciocinio.py} & Síntese de resposta via LLM fine-tuned \\
+\texttt{agents/guardrails.py} & 4 regras de validação de segurança \\
+\texttt{agents/explicabilidade.py} & Citações, confiança e formatação final \\
+\texttt{agents/logger\_agent.py} & Consolidação e persistência de auditoria \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Decisões de Design}
+
+\begin{enumerate}
+    \item \textbf{Estado compartilhado vs.\ mensagens:} Optamos por estado compartilhado (\texttt{TypedDict}) ao invés de troca de mensagens entre agentes. Isso simplifica o fluxo e permite que cada agente acesse o contexto completo sem repropagação.
+
+    \item \textbf{Fallbacks em cada agente:} Cada agente possui lógica de fallback para funcionar mesmo sem dependências externas (LLM, ChromaDB, PostgreSQL), facilitando testes unitários e desenvolvimento incremental.
+
+    \item \textbf{Retry com feedback:} Ao invés de simplesmente rejeitar respostas inseguras, o mecanismo de retry reinjeta o feedback do guardrails no prompt, dando à LLM a oportunidade de se autocorrigir.
+
+    \item \textbf{Auditoria acumulativa:} O campo \texttt{audit\_log} é incrementado por cada agente (append-only), criando um trace completo de execução sem overhead de um sistema de observabilidade externo.
+
+    \item \textbf{LLM injetável:} A LLM é passada via parâmetro (\texttt{run\_assistant(query, llm=...)}) ao invés de ser instanciada dentro do grafo, permitindo trocar facilmente entre modelo base, fine-tuned ou mock para testes.
+\end{enumerate}

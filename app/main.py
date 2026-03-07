@@ -1,5 +1,6 @@
 """Interface Gradio do Assistente Virtual Médico."""
 
+import gc
 import json
 import logging
 import os
@@ -19,8 +20,7 @@ logger = logging.getLogger(__name__)
 
 
 def _load_patient_names() -> list[str]:
-    """Carrega nomes dos pacientes (PostgreSQL → fallback JSON)."""
-    # Tentar PostgreSQL primeiro
+    """Carrega nomes dos pacientes (PostgreSQL -> fallback JSON)."""
     try:
         from sqlalchemy import text
         from sqlalchemy.orm import Session
@@ -34,9 +34,8 @@ def _load_patient_names() -> list[str]:
             logger.info("Pacientes carregados do PostgreSQL: %d", len(names))
             return names
     except Exception as e:
-        logger.info("PostgreSQL indisponível (%s) — usando JSON.", e)
+        logger.info("PostgreSQL indisponivel (%s) — usando JSON.", e)
 
-    # Fallback: arquivo JSON sintético
     pacientes_file = PROJECT_ROOT / "data" / "synthetic" / "pacientes.json"
     if not pacientes_file.exists():
         return []
@@ -51,37 +50,109 @@ def _load_patient_names() -> list[str]:
 
 
 # ---------------------------------------------------------------------------
-# LLM loader (opcional)
+# LLM loader com cascata, lazy loading e liberacao de memoria
 # ---------------------------------------------------------------------------
 
-_llm_instance = None
+LABEL_FT_LOCAL = "Fine-Tuned (local)"
+LABEL_FT_HUB = "Fine-Tuned (Hub)"
+LABEL_FT_GGUF = "Fine-Tuned (GGUF)"
+LABEL_BASELINE = "Mistral 7B (baseline)"
+LABEL_NO_LLM = "Sem LLM (protocolos apenas)"
+
+BASELINE_MODEL_ID = os.getenv("BASELINE_MODEL", "mistralai/Mistral-7B-Instruct-v0.3")
+GGUF_FILENAME = os.getenv("GGUF_FILENAME", "medical-assistant-Q4_K_M.gguf")
+GGUF_HUB_REPO = os.getenv("GGUF_HUB_REPO", "zagari/medical-assistant-mistral-7b-ft-gguf")
+
+# Estado global do modelo ativo
+_current_label: str | None = None
+_current_llm_fn = None
+_current_model_ref = None
+_current_tokenizer_ref = None
 
 
-def _load_llm():
-    """Tenta carregar o modelo fine-tuned. Retorna None se indisponível."""
-    global _llm_instance
-    if _llm_instance is not None:
-        return _llm_instance
-
-    model_path = os.getenv("FINE_TUNED_MODEL", str(PROJECT_ROOT / "models" / "medical-assistant-final"))
-
-    # Determinar se é path local ou repo do Hugging Face Hub
-    is_local = Path(model_path).exists()
-    is_hub = not is_local and "/" in model_path and not model_path.startswith(("/", "."))
-
-    if not is_local and not is_hub:
-        logger.info("Modelo fine-tuned não encontrado em %s — usando fallback.", model_path)
-        return None
-
+def _has_cuda() -> bool:
     try:
-        from transformers import AutoModelForCausalLM, AutoTokenizer
+        import torch
+        return torch.cuda.is_available()
+    except Exception:
+        return False
+
+
+def _resolve_ft_source() -> tuple[str | None, str | None]:
+    """Determina onde o fine-tuned LoRA esta: local, hub, ou indisponivel."""
+    ft_path = os.getenv(
+        "FINE_TUNED_MODEL",
+        str(PROJECT_ROOT / "models" / "medical-assistant-final"),
+    )
+
+    ft_resolved = Path(ft_path)
+    if not ft_resolved.is_absolute():
+        ft_resolved = PROJECT_ROOT / ft_resolved
+
+    if ft_resolved.exists():
+        return str(ft_resolved), LABEL_FT_LOCAL
+
+    is_hub = "/" in ft_path and not ft_path.startswith(("/", "."))
+    if is_hub:
+        return ft_path, LABEL_FT_HUB
+
+    return None, None
+
+
+def _resolve_gguf_path() -> str | None:
+    """Encontra arquivo GGUF local ou retorna None."""
+    # Procurar na pasta models/
+    models_dir = PROJECT_ROOT / "models"
+    if models_dir.exists():
+        for gguf in models_dir.glob("*.gguf"):
+            return str(gguf)
+        # Subpasta
+        for gguf in models_dir.glob("*/*.gguf"):
+            return str(gguf)
+    return None
+
+
+def _unload_current():
+    """Libera modelo atual da memoria (GPU e RAM)."""
+    global _current_llm_fn, _current_model_ref, _current_tokenizer_ref, _current_label
+
+    if _current_model_ref is not None:
+        logger.info("Liberando modelo '%s' da memoria...", _current_label)
+        del _current_model_ref
+        del _current_tokenizer_ref
+        _current_model_ref = None
+        _current_tokenizer_ref = None
+        _current_llm_fn = None
+        gc.collect()
+
+        try:
+            import torch
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+        except Exception:
+            pass
+
+        logger.info("Memoria liberada.")
+
+    _current_llm_fn = None
+    _current_label = None
+
+
+def _load_model_transformers(model_name: str) -> tuple[callable, object, object] | None:
+    """Carrega modelo via transformers (requer CUDA)."""
+    try:
         import torch
 
-        source = model_path if is_local else f"Hub: {model_path}"
-        logger.info("Carregando modelo fine-tuned de %s...", source)
-        tokenizer = AutoTokenizer.from_pretrained(model_path)
+        if not torch.cuda.is_available():
+            logger.info("CUDA nao disponivel — pulando carregamento transformers de %s.", model_name)
+            return None
+
+        from transformers import AutoModelForCausalLM, AutoTokenizer
+
+        logger.info("Carregando modelo (transformers) de %s...", model_name)
+        tokenizer = AutoTokenizer.from_pretrained(model_name)
         model = AutoModelForCausalLM.from_pretrained(
-            model_path,
+            model_name,
             torch_dtype=torch.float16,
             device_map="auto",
         )
@@ -96,50 +167,214 @@ def _load_llm():
                     do_sample=True,
                     pad_token_id=tokenizer.eos_token_id,
                 )
-            response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
+            response = tokenizer.decode(
+                outputs[0][inputs.input_ids.shape[1]:],
+                skip_special_tokens=True,
+            )
             return response.strip()
 
-        _llm_instance = llm_fn
-        logger.info("Modelo fine-tuned carregado com sucesso.")
-        return _llm_instance
+        logger.info("Modelo carregado com sucesso (transformers) de %s.", model_name)
+        return llm_fn, model, tokenizer
     except Exception as e:
-        logger.warning("Falha ao carregar modelo: %s — usando fallback.", e)
+        logger.warning("Falha ao carregar modelo (transformers) de %s: %s", model_name, e)
         return None
 
 
+def _load_model_gguf(gguf_path: str) -> tuple[callable, object, None] | None:
+    """Carrega modelo GGUF via llama-cpp-python (CPU/Metal, sem CUDA)."""
+    try:
+        from llama_cpp import Llama
+
+        logger.info("Carregando modelo GGUF de %s...", gguf_path)
+        model = Llama(
+            model_path=gguf_path,
+            n_ctx=2048,
+            n_threads=os.cpu_count() or 4,
+            verbose=False,
+        )
+
+        def llm_fn(prompt: str) -> str:
+            output = model(
+                prompt,
+                max_tokens=512,
+                temperature=0.7,
+                stop=["### Instrução:", "### Entrada:", "</s>"],
+            )
+            return output["choices"][0]["text"].strip()
+
+        logger.info("Modelo GGUF carregado com sucesso (%s).", gguf_path)
+        return llm_fn, model, None
+    except ImportError:
+        logger.warning(
+            "llama-cpp-python nao instalado — instale com: "
+            "pip install llama-cpp-python"
+        )
+        return None
+    except Exception as e:
+        logger.warning("Falha ao carregar modelo GGUF de %s: %s", gguf_path, e)
+        return None
+
+
+def _download_gguf_from_hub() -> str | None:
+    """Baixa arquivo GGUF do HF Hub para models/. Retorna path ou None."""
+    try:
+        from huggingface_hub import hf_hub_download
+
+        dest_dir = PROJECT_ROOT / "models"
+        dest_dir.mkdir(parents=True, exist_ok=True)
+
+        logger.info(
+            "Baixando GGUF de %s/%s...", GGUF_HUB_REPO, GGUF_FILENAME,
+        )
+        path = hf_hub_download(
+            repo_id=GGUF_HUB_REPO,
+            filename=GGUF_FILENAME,
+            local_dir=str(dest_dir),
+        )
+        logger.info("GGUF baixado para %s.", path)
+        return path
+    except Exception as e:
+        logger.warning("Falha ao baixar GGUF do Hub: %s", e)
+        return None
+
+
+def _probe_options() -> list[str]:
+    """Verifica quais opcoes estao potencialmente disponiveis (sem carregar)."""
+    options = []
+    has_cuda = _has_cuda()
+
+    # Fine-tuned LoRA (precisa de CUDA)
+    ft_path, ft_label = _resolve_ft_source()
+    if ft_label and has_cuda:
+        options.append(ft_label)
+
+    # Fine-tuned GGUF (funciona sem CUDA)
+    gguf_local = _resolve_gguf_path()
+    gguf_available = gguf_local is not None
+    if not gguf_available:
+        # Verificar se o pacote llama-cpp-python esta instalado
+        try:
+            import llama_cpp  # noqa: F401
+            # GGUF pode ser baixado do Hub sob demanda
+            gguf_available = True
+        except ImportError:
+            pass
+    if gguf_available:
+        options.append(LABEL_FT_GGUF)
+
+    # Baseline (precisa de CUDA)
+    if has_cuda:
+        options.append(LABEL_BASELINE)
+
+    options.append(LABEL_NO_LLM)
+    return options
+
+
+def activate_model(label: str) -> str:
+    """Ativa modelo pelo label. Retorna mensagem de status."""
+    global _current_label, _current_llm_fn, _current_model_ref, _current_tokenizer_ref
+
+    if label == _current_label:
+        return f"Modelo ativo: {label}"
+
+    _unload_current()
+
+    # Sem LLM
+    if label == LABEL_NO_LLM:
+        _current_label = LABEL_NO_LLM
+        return "Modo sem LLM ativo — respostas baseadas apenas em protocolos."
+
+    # Fine-tuned LoRA (transformers + CUDA)
+    if label in (LABEL_FT_LOCAL, LABEL_FT_HUB):
+        ft_path, _ = _resolve_ft_source()
+        if ft_path:
+            result = _load_model_transformers(ft_path)
+            if result:
+                _current_llm_fn, _current_model_ref, _current_tokenizer_ref = result
+                _current_label = label
+                return f"Modelo fine-tuned carregado de: {ft_path}"
+
+        # Fallback: tentar GGUF
+        logger.warning("Fine-tuned LoRA indisponivel, tentando GGUF...")
+        return activate_model(LABEL_FT_GGUF)
+
+    # Fine-tuned GGUF (CPU/Metal)
+    if label == LABEL_FT_GGUF:
+        gguf_path = _resolve_gguf_path()
+        if not gguf_path:
+            gguf_path = _download_gguf_from_hub()
+        if gguf_path:
+            result = _load_model_gguf(gguf_path)
+            if result:
+                _current_llm_fn, _current_model_ref, _current_tokenizer_ref = result
+                _current_label = LABEL_FT_GGUF
+                return f"Modelo GGUF carregado de: {gguf_path}"
+
+        # Fallback: baseline ou sem LLM
+        if _has_cuda():
+            logger.warning("GGUF indisponivel, tentando baseline...")
+            return activate_model(LABEL_BASELINE)
+        logger.warning("GGUF indisponivel, ativando modo sem LLM.")
+        _current_label = LABEL_NO_LLM
+        return "Modelo GGUF nao disponivel — modo sem LLM ativo."
+
+    # Baseline (transformers + CUDA)
+    if label == LABEL_BASELINE:
+        result = _load_model_transformers(BASELINE_MODEL_ID)
+        if result:
+            _current_llm_fn, _current_model_ref, _current_tokenizer_ref = result
+            _current_label = LABEL_BASELINE
+            return f"Modelo baseline carregado: {BASELINE_MODEL_ID}"
+
+        logger.warning("Baseline indisponivel, ativando modo sem LLM.")
+        _current_label = LABEL_NO_LLM
+        return "Nenhum modelo disponivel — modo sem LLM ativo."
+
+    _current_label = LABEL_NO_LLM
+    return "Opcao desconhecida — modo sem LLM ativo."
+
+
+def _startup_load() -> tuple[list[str], str, str]:
+    """Startup: tenta cascata fine-tuned -> GGUF -> baseline -> sem LLM."""
+    options = _probe_options()
+
+    for label in options:
+        status = activate_model(label)
+        if _current_llm_fn is not None or _current_label == LABEL_NO_LLM:
+            return options, _current_label, status
+
+    return options, LABEL_NO_LLM, "Nenhum modelo carregado."
+
+
 # ---------------------------------------------------------------------------
-# Função principal de consulta
+# Funcao principal de consulta
 # ---------------------------------------------------------------------------
 
-def consultar(query: str, patient_id: str) -> tuple[str, str, str, str]:
-    """
-    Executa o assistente e retorna (resposta, confiança, fontes, audit_log).
-    """
+def consultar(query: str, patient_id: str, model_label: str) -> tuple[str, str, str, str]:
+    """Executa o assistente e retorna (resposta, confianca, fontes, audit_log)."""
     if not query.strip():
         return "Por favor, digite uma consulta.", "", "", ""
 
     pid = patient_id.strip() if patient_id and patient_id.strip() else None
-    llm = _load_llm()
+
+    if model_label != _current_label:
+        activate_model(model_label)
 
     try:
-        result = run_assistant(query=query.strip(), patient_id=pid, llm=llm)
+        result = run_assistant(query=query.strip(), patient_id=pid, llm=_current_llm_fn)
     except Exception as e:
         logger.error("Erro ao executar assistente: %s", e)
         return f"Erro interno: {e}", "", "", ""
 
-    # Resposta
     resposta = result.get("final_response", "Sem resposta.")
 
-    # Confiança
     conf = result.get("confidence", "")
     conf_labels = {"alta": "🟢 Alta", "media": "🟡 Média", "baixa": "🔴 Baixa"}
     confianca = conf_labels.get(conf, conf)
 
-    # Fontes
     sources = result.get("sources", [])
     fontes = "\n".join(f"• {s}" for s in sources) if sources else "Nenhuma fonte citada."
 
-    # Audit log
     audit = result.get("audit_log", [])
     audit_str = json.dumps(audit, indent=2, ensure_ascii=False, default=str)
 
@@ -165,7 +400,11 @@ EXAMPLES = [
 # ---------------------------------------------------------------------------
 
 def build_interface() -> gr.Blocks:
-    """Constrói e retorna a interface Gradio."""
+    """Constroi e retorna a interface Gradio."""
+
+    options, default_label, startup_status = _startup_load()
+    logger.info("Startup: %s", startup_status)
+
     with gr.Blocks(
         title="Assistente Virtual Médico — FIAP Tech Challenge",
     ) as demo:
@@ -197,8 +436,22 @@ def build_interface() -> gr.Blocks:
                 submit_btn = gr.Button("Consultar", variant="primary", size="lg")
 
             with gr.Column(scale=1):
+                model_selector = gr.Radio(
+                    choices=options,
+                    value=default_label,
+                    label="Modelo LLM",
+                    info="Selecione o modelo para gerar respostas",
+                )
+                model_status = gr.Textbox(
+                    label="Status do modelo",
+                    value=startup_status,
+                    interactive=False,
+                    lines=2,
+                )
                 confianca_output = gr.Textbox(label="Confiança", interactive=False)
-                fontes_output = gr.Textbox(label="Fontes consultadas", lines=6, interactive=False)
+                fontes_output = gr.Textbox(
+                    label="Fontes consultadas", lines=6, interactive=False,
+                )
 
         resposta_output = gr.Textbox(
             label="Resposta do Assistente",
@@ -222,14 +475,24 @@ def build_interface() -> gr.Blocks:
             """
         )
 
+        def on_model_change(label):
+            status = activate_model(label)
+            return status
+
+        model_selector.change(
+            fn=on_model_change,
+            inputs=[model_selector],
+            outputs=[model_status],
+        )
+
         submit_btn.click(
             fn=consultar,
-            inputs=[query_input, patient_input],
+            inputs=[query_input, patient_input, model_selector],
             outputs=[resposta_output, confianca_output, fontes_output, audit_output],
         )
         query_input.submit(
             fn=consultar,
-            inputs=[query_input, patient_input],
+            inputs=[query_input, patient_input, model_selector],
             outputs=[resposta_output, confianca_output, fontes_output, audit_output],
         )
 
@@ -238,4 +501,8 @@ def build_interface() -> gr.Blocks:
 
 if __name__ == "__main__":
     demo = build_interface()
-    demo.launch(server_name="0.0.0.0", server_port=7860, theme=gr.themes.Soft(primary_hue="red"))
+    demo.launch(
+        server_name="0.0.0.0",
+        server_port=7860,
+        theme=gr.themes.Soft(primary_hue="red"),
+    )

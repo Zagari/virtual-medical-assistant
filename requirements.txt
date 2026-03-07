@@ -28,6 +28,11 @@ tqdm>=4.65.0
 # Interface
 gradio>=4.0.0
 
+# GGUF (inferencia local sem GPU — opcional)
+# Mac Apple Silicon: CMAKE_ARGS="-DLLAMA_METAL=on" pip install llama-cpp-python
+# CPU apenas:        pip install llama-cpp-python
+# llama-cpp-python>=0.2.0
+
 # Evaluation
 rouge-score>=0.1.2
 bert-score>=0.3.13

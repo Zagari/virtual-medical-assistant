@@ -17,6 +17,39 @@ from src.flows.graph import run_assistant
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+
+def _load_patient_names() -> list[str]:
+    """Carrega nomes dos pacientes (PostgreSQL → fallback JSON)."""
+    # Tentar PostgreSQL primeiro
+    try:
+        from sqlalchemy import text
+        from sqlalchemy.orm import Session
+        from src.database.connection import get_engine
+
+        engine = get_engine()
+        with Session(engine) as session:
+            result = session.execute(text("SELECT nome FROM pacientes ORDER BY nome"))
+            names = [row[0] for row in result]
+        if names:
+            logger.info("Pacientes carregados do PostgreSQL: %d", len(names))
+            return names
+    except Exception as e:
+        logger.info("PostgreSQL indisponível (%s) — usando JSON.", e)
+
+    # Fallback: arquivo JSON sintético
+    pacientes_file = PROJECT_ROOT / "data" / "synthetic" / "pacientes.json"
+    if not pacientes_file.exists():
+        return []
+    try:
+        with open(pacientes_file, encoding="utf-8") as f:
+            data = json.load(f)
+        names = sorted(p["nome"] for p in data if "nome" in p)
+        logger.info("Pacientes carregados do JSON: %d", len(names))
+        return names
+    except Exception:
+        return []
+
+
 # ---------------------------------------------------------------------------
 # LLM loader (opcional)
 # ---------------------------------------------------------------------------
@@ -147,10 +180,13 @@ def build_interface() -> gr.Blocks:
                     placeholder="Ex: Qual o protocolo de tratamento para hipertensão?",
                     lines=3,
                 )
-                patient_input = gr.Textbox(
+                patient_names = _load_patient_names()
+                patient_input = gr.Dropdown(
+                    choices=[""] + patient_names,
+                    value="",
                     label="Paciente (opcional)",
-                    placeholder="Nome ou ID do paciente",
-                    lines=1,
+                    allow_custom_value=True,
+                    filterable=True,
                 )
                 submit_btn = gr.Button("Consultar", variant="primary", size="lg")
 

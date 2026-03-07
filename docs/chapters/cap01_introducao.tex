@@ -104,10 +104,11 @@ pip install -r requirements.txt
 bash scripts/quickstart.sh
 \end{lstlisting}
 
-O script \texttt{quickstart.sh} executa automaticamente 4 passos:
+O script \texttt{quickstart.sh} executa automaticamente 5 passos:
 
 \begin{enumerate}
     \item \textbf{Cria o \texttt{.env}} a partir do \texttt{.env.example} (se não existir), já configurado para baixar o modelo do Hugging Face Hub;
+    \item \textbf{Detecta o hardware:} se há GPU NVIDIA (CUDA), usa o modelo LoRA via \texttt{transformers}; caso contrário, instala automaticamente o \texttt{llama-cpp-python} (com aceleração Metal no Apple Silicon) para carregar o modelo GGUF;
     \item \textbf{Sobe o PostgreSQL} via Docker e popula com os 80 pacientes sintéticos (exames, prontuários, receitas);
     \item \textbf{Indexa os protocolos clínicos} no ChromaDB (14 Linhas de Cuidado + 5 protocolos de emergência);
     \item \textbf{Inicia a interface Gradio} em \texttt{http://localhost:7860}.
@@ -120,7 +121,7 @@ Os seguintes artefatos já estão commitados no repositório e não precisam ser
     \item \textbf{Protocolos em Markdown} (\texttt{data/linhas\_de\_cuidado/extracted/}) --- 14 Linhas de Cuidado extraídas dos PDFs
     \item \textbf{Dataset de treino} (\texttt{data/processed/training\_data.jsonl}) --- $\sim$20.500 pares QA
     \item \textbf{Modelo fine-tuned} --- publicado no Hugging Face Hub, download automático na primeira consulta
-    \item \textbf{Modelo GGUF} (opcional) --- versão quantizada ($\sim$4~GB) para execução sem GPU, baixada automaticamente do Hub quando necessário. Requer apenas \texttt{pip install llama-cpp-python}
+    \item \textbf{Modelo GGUF} (opcional) --- versão quantizada ($\sim$4~GB) para execução sem GPU, baixada automaticamente do Hub quando necessário. A dependência \texttt{llama-cpp-python} é instalada automaticamente pelo \texttt{quickstart.sh}
 \end{itemize}
 \end{infobox}
 

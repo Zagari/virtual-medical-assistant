@@ -615,6 +615,36 @@ model = AutoModelForCausalLM.from_pretrained(
 
 Na aplicação, a variável de ambiente \texttt{FINE\_TUNED\_MODEL} controla a origem. O \texttt{.env.example} do projeto já vem configurado com o repositório do Hub, permitindo que quem clonar o projeto utilize o modelo sem precisar re-treinar.
 
+\subsection{Exportação para GGUF (Inferência sem GPU)}
+\label{subsec:gguf}
+
+Os formatos LoRA + \texttt{bitsandbytes} 4-bit utilizados no treinamento requerem uma GPU NVIDIA com CUDA. Para permitir a execução do assistente em \textbf{máquinas sem GPU} --- como notebooks com Apple Silicon (M1/M2/M3/M4) ou desktops com apenas CPU --- o modelo pode ser exportado para o formato \textbf{GGUF}, utilizado pelo \texttt{llama.cpp}.
+
+O processo de exportação é feito pelo script \texttt{08\_exportar\_gguf.py} no servidor com GPU:
+
+\begin{enumerate}
+    \item \textbf{Merge}: Os adapters LoRA são mesclados com o modelo base Mistral 7B, gerando um modelo completo;
+    \item \textbf{Quantização}: O modelo merged é convertido para GGUF com quantização \texttt{Q4\_K\_M} (4-bit, qualidade média-alta);
+    \item \textbf{Upload}: O arquivo GGUF ($\sim$4~GB) é publicado em repositório separado no Hugging Face Hub.
+\end{enumerate}
+
+\begin{table}[H]
+\centering
+\caption{Comparação de formatos de distribuição do modelo}
+\label{tab:formatos-modelo}
+\begin{tabular}{lcll}
+\toprule
+\textbf{Formato} & \textbf{Tamanho} & \textbf{Requisito} & \textbf{Velocidade} \\
+\midrule
+LoRA + base 4-bit & $\sim$640~MB + 4~GB & GPU NVIDIA (CUDA) & $\sim$2--5s/resposta \\
+\textbf{GGUF Q4\_K\_M} & \textbf{$\sim$4 GB} & \textbf{CPU ou Apple Silicon} & \textbf{$\sim$5--15s/resposta} \\
+Modelo merged float16 & $\sim$14~GB & 14~GB+ RAM & $\sim$2--5min/resposta \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A aplicação detecta automaticamente o hardware disponível: se há CUDA, carrega os adapters LoRA via \texttt{transformers}; caso contrário, carrega o GGUF via \texttt{llama-cpp-python}. Essa detecção é transparente para o usuário (detalhes na Seção~\ref{sec:interface}).
+
 % ============================================================================
 \section{Avaliação do Fine-Tuning}
 \label{sec:avaliacao-ft}
@@ -727,7 +757,8 @@ Este capítulo apresentou o processo completo de fine-tuning do modelo Mistral 7
     \item \textbf{Técnica}: QLoRA 4-bit ($r=64$, $\alpha=128$), permitindo treino em GPU T4 (15GB)
     \item \textbf{Treinamento}: 5 epochs, 5.780 steps, $\sim$55h em GPU RTX A5000 (24GB)
     \item \textbf{Publicação}: Adapters LoRA ($\sim$640~MB) publicados no Hugging Face Hub
+    \item \textbf{GGUF}: Versão quantizada ($\sim$4~GB) para execução sem GPU (CPU/Apple Silicon)
     \item \textbf{Avaliação}: 50 perguntas médicas, comparação baseline vs fine-tuned
 \end{enumerate}
 
-O modelo resultante é publicado no Hugging Face Hub e utilizado como o ``cérebro'' do agente de raciocínio no grafo multi-agente descrito no Capítulo~\ref{cap:multiagente}.
+O modelo resultante é publicado no Hugging Face Hub em dois formatos --- LoRA (para GPU) e GGUF (para CPU) --- e utilizado como o ``cérebro'' do agente de raciocínio no grafo multi-agente descrito no Capítulo~\ref{cap:multiagente}.

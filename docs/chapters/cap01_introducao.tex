@@ -92,6 +92,7 @@ Para quem deseja apenas \textbf{testar o assistente} sem re-treinar o modelo ou 
 \begin{itemize}
     \item Python 3.11+
     \item Docker Desktop instalado e rodando
+    \item \textbf{GPU NVIDIA (CUDA)} para usar o modelo fine-tuned via LoRA --- ou \textbf{qualquer máquina} (Mac, Windows, Linux) com o modelo no formato GGUF (ver Seção~\ref{subsec:gguf})
 \end{itemize}
 
 \subsection{Execução}
@@ -119,7 +120,12 @@ Os seguintes artefatos já estão commitados no repositório e não precisam ser
     \item \textbf{Protocolos em Markdown} (\texttt{data/linhas\_de\_cuidado/extracted/}) --- 14 Linhas de Cuidado extraídas dos PDFs
     \item \textbf{Dataset de treino} (\texttt{data/processed/training\_data.jsonl}) --- $\sim$20.500 pares QA
     \item \textbf{Modelo fine-tuned} --- publicado no Hugging Face Hub, download automático na primeira consulta
+    \item \textbf{Modelo GGUF} (opcional) --- versão quantizada ($\sim$4~GB) para execução sem GPU, baixada automaticamente do Hub quando necessário. Requer apenas \texttt{pip install llama-cpp-python}
 \end{itemize}
+\end{infobox}
+
+\begin{infobox}[Execução sem GPU]
+O assistente detecta automaticamente o hardware disponível. Em máquinas sem GPU NVIDIA, o sistema tenta carregar a versão GGUF do modelo (se disponível) ou opera em modo ``Sem LLM'' com respostas baseadas apenas nos protocolos clínicos. Um seletor na interface permite alternar entre os modelos disponíveis.
 \end{infobox}
 
 % ============================================================================
@@ -151,6 +157,7 @@ A Tabela~\ref{tab:pipeline_scripts} descreve cada script, suas pré-condições 
 05 & \texttt{avaliar\_baseline} & Executa 50 perguntas médicas no Mistral 7B base & \texttt{baseline.json} \\
 06 & \texttt{avaliar\_finetuned} & Mesmas perguntas no modelo fine-tuned + comparação & Relatório comparativo \\
 07 & \texttt{iniciar\_app} & Inicia o assistente completo com interface Gradio & Servidor web local \\
+08 & \texttt{exportar\_gguf} & Exporta modelo para GGUF (execução sem GPU) & \texttt{models/gguf/} \\
 \bottomrule
 \end{tabularx}
 \end{table}

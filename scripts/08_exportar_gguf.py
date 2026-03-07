@@ -81,9 +81,16 @@ def main():
     )
 
     # Encontrar arquivo gerado
-    gguf_files = list(GGUF_OUTPUT_DIR.glob("*.gguf"))
+    # Unsloth adiciona sufixo "_gguf" ao diretorio de saida
+    gguf_actual_dir = Path(str(GGUF_OUTPUT_DIR) + "_gguf")
+    search_dirs = [GGUF_OUTPUT_DIR, gguf_actual_dir]
+    gguf_files = []
+    for d in search_dirs:
+        if d.exists():
+            gguf_files.extend(d.glob("*.gguf"))
     if not gguf_files:
         print("ERRO: Nenhum arquivo GGUF gerado.")
+        print(f"  Procurei em: {[str(d) for d in search_dirs]}")
         sys.exit(1)
 
     gguf_file = gguf_files[0]

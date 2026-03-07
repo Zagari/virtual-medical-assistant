@@ -101,13 +101,10 @@ def _resolve_ft_source() -> tuple[str | None, str | None]:
 
 def _resolve_gguf_path() -> str | None:
     """Encontra arquivo GGUF local ou retorna None."""
-    # Procurar na pasta models/
     models_dir = PROJECT_ROOT / "models"
     if models_dir.exists():
-        for gguf in models_dir.glob("*.gguf"):
-            return str(gguf)
-        # Subpasta
-        for gguf in models_dir.glob("*/*.gguf"):
+        # Procurar em models/ e todas as subpastas (incluindo gguf_gguf/)
+        for gguf in models_dir.glob("**/*.gguf"):
             return str(gguf)
     return None
 

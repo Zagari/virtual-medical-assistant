@@ -1,0 +1,299 @@
+% ============================================================================
+% CAPÍTULO 6 - SEGURANÇA, GUARDRAILS E EXPLICABILIDADE
+% ============================================================================
+
+\chapter{Segurança, Guardrails e Explicabilidade}\label{cap:seguranca}
+
+A aplicação de \acrshort{ia} generativa em contexto clínico exige camadas de proteção que vão além da acurácia do modelo. Este capítulo detalha os três pilares de confiabilidade implementados no assistente: \textbf{guardrails de segurança}, \textbf{explicabilidade} e \textbf{auditoria}.
+
+\section{Princípios de Segurança em IA Médica}
+
+O design de segurança do assistente segue três princípios fundamentais:
+
+\begin{enumerate}
+    \item \textbf{Nunca substituir o médico:} O sistema é uma ferramenta de \emph{apoio à decisão}, não um tomador de decisão. Toda resposta deve ser validada por um profissional de saúde.
+
+    \item \textbf{Falhar de forma segura:} Quando houver incerteza, o sistema prefere recusar ou alertar a arriscar uma informação potencialmente danosa. Uma resposta conservadora com baixa confiança é preferível a uma resposta confiante mas imprecisa.
+
+    \item \textbf{Transparência total:} Cada resposta deve ser rastreável --- quais fontes foram consultadas, qual o nível de confiança, quais regras foram verificadas e se houve retries.
+\end{enumerate}
+
+Estes princípios se materializam nos três subsistemas descritos a seguir.
+
+\section{Guardrails: Validação Automática de Respostas}\label{sec:guardrails}
+
+O agente de guardrails (\texttt{src/flows/agents/guardrails.py}) aplica quatro regras de validação a cada resposta gerada pelo agente de raciocínio. A validação é \textbf{determinística} --- baseada em regex e palavras-chave --- o que garante previsibilidade e auditabilidade, sem depender de um segundo modelo de linguagem.
+
+\subsection{Regra 1: Proibição de Prescrição Direta}
+
+O assistente não pode prescrever medicamentos. Frases como ``prescrevo Losartana 50mg'' ou ``tome 2 comprimidos de 8/8h'' são detectadas e rejeitadas.
+
+\begin{lstlisting}[caption={Padrões regex para detecção de prescrição direta.}]
+PRESCRIPTION_PATTERNS = [
+    r"prescrev[oa]",
+    r"tome\s+\d+",
+    r"administr[ea]\s+\d+\s*mg",
+    r"iniciar?\s+(com\s+)?\d+\s*mg",
+    r"receita[r:]",
+    r"usar?\s+\d+\s*(mg|ml|comprimido)",
+]
+\end{lstlisting}
+
+Quando detectado, o feedback instrui o modelo a reformular como \emph{sugestão} e indicar validação médica. Por exemplo, ``considerar o uso de Losartana 50mg, conforme protocolo, sujeito à avaliação do médico responsável''.
+
+\subsection{Regra 2: Validação Humana Obrigatória}
+
+Toda resposta deve conter um \textbf{disclaimer} indicando necessidade de validação por profissional de saúde. A verificação busca palavras-chave como ``validação'', ``profissional de saúde'', ``médico responsável'' ou ``avaliação clínica''.
+
+\begin{lstlisting}[caption={Palavras-chave de disclaimer de validação humana.}]
+DISCLAIMER_KEYWORDS = [
+    "validação", "validar", "profissional de saúde",
+    "médico responsável", "avaliação clínica",
+    "decisão clínica", "confirmar com",
+]
+\end{lstlisting}
+
+Se ausente, o guardrails reprova a resposta com feedback solicitando a inclusão da ressalva.
+
+\subsection{Regra 3: Proibição de Diagnóstico Definitivo}
+
+O assistente não pode afirmar diagnósticos de forma categórica. Frases como ``o paciente tem diabetes'' ou ``confirmo que é pneumonia'' são detectadas e rejeitadas.
+
+\begin{lstlisting}[caption={Padrões regex para detecção de diagnóstico definitivo.}]
+DEFINITIVE_DIAGNOSIS_PATTERNS = [
+    r"o paciente tem\b",
+    r"o diagnóstico é\b",
+    r"trata-se de\b",
+    r"confirmo que\b",
+    r"certamente (é|tem)\b",
+]
+\end{lstlisting}
+
+O feedback orienta o uso de linguagem probabilística: ``sugere'', ``é compatível com'', ``deve ser investigado''.
+
+\subsection{Regra 4: Consistência com Contexto}
+
+Uma verificação heurística avalia se a resposta é compatível com o volume de contexto disponível. Se protocolos e/ou dados do paciente foram recuperados mas a resposta tem menos de 50 caracteres, o guardrails considera que o modelo pode ter ``alucinado'' uma resposta genérica e solicita elaboração.
+
+\subsection{Execução Sequencial das Regras}
+
+As quatro regras são executadas sequencialmente. Se qualquer regra falha, a resposta é marcada como \texttt{reprovado} e todos os feedbacks são concatenados para fornecer ao modelo de raciocínio uma instrução completa de correção.
+
+\begin{lstlisting}[caption={Pipeline de validação dos guardrails.}]
+GUARDRAIL_CHECKS = [
+    ("no_prescription", _check_no_prescription),
+    ("human_validation", _check_human_validation),
+    ("no_definitive_diagnosis", _check_no_definitive_diagnosis),
+]
+
+for check_name, check_fn in GUARDRAIL_CHECKS:
+    passed, message = check_fn(draft_response)
+    if not passed:
+        all_passed = False
+        feedback_parts.append(message)
+
+# Consistencia com contexto (separada)
+passed, message = _check_context_consistency(
+    draft_response, protocols, patient_data
+)
+\end{lstlisting}
+
+\subsection{Mecanismo de Retry com Feedback}
+
+Conforme descrito na Seção~\ref{sec:agentes} do Capítulo~\ref{cap:multiagente}, respostas reprovadas são devolvidas ao agente de raciocínio com o feedback concatenado. O mecanismo permite até \textbf{2 retries}. Se o limite for atingido, a resposta segue para a explicabilidade com advertências adicionais --- o sistema nunca bloqueia completamente o fluxo.
+
+\begin{importantbox}[Decisão de Design: Por que não bloquear?]
+Um bloqueio total geraria frustração no uso clínico e poderia atrasar decisões urgentes. A abordagem de ``seguir com warnings'' permite que o médico receba a informação acompanhada de alertas claros, preservando a autonomia do profissional.
+\end{importantbox}
+
+O feedback injetado no prompt de retry tem formato específico:
+
+\begin{lstlisting}[caption={Feedback de retry injetado no prompt do raciocínio.}]
+ATENCAO - SUA RESPOSTA ANTERIOR FOI REPROVADA PELO GUARDRAILS:
+Motivo: Prescricao direta detectada: 'prescrevo'.
+Reformule como sugestao e indique validacao medica.
+| Resposta nao inclui disclaimer de validacao humana.
+Adicione uma nota indicando que a resposta deve ser
+validada por um profissional de saude.
+Corrija os problemas apontados nesta nova resposta.
+\end{lstlisting}
+
+\section{Explicabilidade}\label{sec:explicabilidade}
+
+O agente de explicabilidade (\texttt{src/flows/agents/explicabilidade.py}) transforma o rascunho validado em uma resposta \textbf{transparente}, adicionando quatro componentes: citações, confiança, advertências e disclaimer.
+
+\subsection{Citações e Rastreabilidade}
+
+Toda resposta inclui a lista de fontes consultadas, extraídas automaticamente dos metadados dos protocolos recuperados pelo ChromaDB e dos dados do paciente:
+
+\begin{itemize}
+    \item \textbf{Protocolos:} \texttt{[Pathway-Diabetes, Seção: Tratamento]} --- identifica o documento e a seção específica utilizada.
+    \item \textbf{Exames:} \texttt{[Exame: HbA1C, Data: 2026-01-15]} --- identifica o tipo de exame e a data de realização.
+    \item \textbf{Prontuário:} \texttt{[Prontuário: Maria Santos]} --- indica que dados do prontuário foram utilizados.
+\end{itemize}
+
+A deduplicação é feita via conjunto (\texttt{set}), garantindo que cada citação apareça apenas uma vez mesmo quando múltiplos chunks vêm do mesmo documento.
+
+\subsection{Avaliação de Confiança}
+
+A confiança é calculada por um sistema de pontuação que considera a \textbf{quantidade} e \textbf{relevância} do contexto recuperado, a \textbf{disponibilidade} de dados do paciente e eventuais \textbf{penalizações} por retries:
+
+\begin{table}[H]
+\centering
+\caption{Sistema de pontuação para avaliação de confiança.}
+\label{tab:confianca_scoring}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabular}{l r l}
+\toprule
+\textbf{Fator} & \textbf{Pontos} & \textbf{Justificativa} \\
+\midrule
+3+ protocolos recuperados & $+3$ & Múltiplas fontes convergentes \\
+1--2 protocolos recuperados & $+2$ & Ao menos uma fonte de evidência \\
+Distância média $< 0.5$ & $+2$ & Alta relevância semântica \\
+Distância média $< 1.0$ & $+1$ & Relevância moderada \\
+Dados do paciente disponíveis & $+2$ & Contexto individualizado \\
+Cada retry do guardrails & $-1$ & Indica problemas na geração \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A classificação final segue três faixas:
+
+\begin{itemize}
+    \item \textbf{Alta} ($\geq 5$ pontos): múltiplas fontes relevantes e contexto completo;
+    \item \textbf{Média} ($\geq 3$ pontos): alguma fundamentação disponível;
+    \item \textbf{Baixa} ($< 3$ pontos): informação insuficiente para alta confiança.
+\end{itemize}
+
+\subsection{Advertências Contextuais}
+
+O sistema gera advertências automáticas quando detecta situações que merecem atenção:
+
+\begin{itemize}
+    \item \textbf{Confiança baixa:} ``Poucos dados disponíveis para fundamentar a resposta.'';
+    \item \textbf{Sem protocolos:} ``Nenhum protocolo clínico foi encontrado para esta consulta.'';
+    \item \textbf{Retries realizados:} ``Resposta foi refinada N vezes pelo guardrails de segurança.''
+\end{itemize}
+
+\subsection{Disclaimer Obrigatório}
+
+Independentemente do conteúdo, toda resposta inclui o disclaimer:
+
+\begin{warningbox}[Disclaimer do Assistente]
+Esta resposta é uma sugestão baseada em protocolos clínicos e dados disponíveis. Toda decisão clínica deve ser validada pelo médico responsável.
+\end{warningbox}
+
+\subsection{Formato da Resposta Final}
+
+A resposta final apresentada ao médico segue uma estrutura padronizada:
+
+\begin{lstlisting}[caption={Formato da resposta final com explicabilidade.},language={}]
+[Resposta clinica do agente de raciocinio]
+
+Fontes consultadas:
+  . [Pathway-Diabetes, Secao: Tratamento]
+  . [Exame: HbA1C, Data: 2026-01-15]
+
+Confianca: Alta
+
+Advertencias:
+  . Resposta foi refinada 1x pelo guardrails de seguranca.
+
+Esta resposta e uma sugestao baseada em protocolos clinicos
+e dados disponiveis. Toda decisao clinica deve ser validada
+pelo medico responsavel.
+\end{lstlisting}
+
+\section{Auditoria e Logging}\label{sec:auditoria}
+
+O agente de logger (\texttt{src/flows/agents/logger\_agent.py}) é o nó final em todos os fluxos do grafo. Sua responsabilidade é \textbf{consolidar} o estado completo da execução em um registro estruturado e \textbf{persistir} para consulta posterior.
+
+\subsection{Estrutura do Registro de Auditoria}
+
+Cada interação gera um registro JSON com seis seções:
+
+\begin{table}[H]
+\centering
+\caption{Seções do registro de auditoria.}
+\label{tab:audit_sections}
+\rowcolors{2}{fiap-light}{white}
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Seção} & \textbf{Conteúdo} \\
+\midrule
+\texttt{session} & Query original e ID do paciente \\
+\texttt{triagem} & Tipo de query classificado e entidades extraídas \\
+\texttt{context} & Quantidade de protocolos, fontes consultadas, disponibilidade de dados \\
+\texttt{response} & Tamanho do rascunho vs.\ final, confiança, fontes citadas, advertências \\
+\texttt{guardrails} & Resultado (aprovado/reprovado), feedback, número de retries \\
+\texttt{agent\_trace} & Lista cronológica de todos os agentes executados com timestamps \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+A seção \texttt{agent\_trace} é construída de forma \textbf{acumulativa}: cada agente adiciona sua entrada ao campo \texttt{audit\_log} do estado. Ao final, o logger consolida todas as entradas em um registro único, criando um \textbf{trace completo} da execução.
+
+\subsection{Persistência em JSONL}
+
+Os registros são persistidos em arquivos diários no formato \textbf{JSONL} (JSON Lines):
+
+\begin{lstlisting}[style=bash,caption={Estrutura de persistência dos logs de auditoria.}]
+logs/
+  audit_2026-03-06.jsonl   # Um registro JSON por linha
+  audit_2026-03-07.jsonl
+  ...
+\end{lstlisting}
+
+O formato JSONL foi escolhido por três razões:
+
+\begin{enumerate}
+    \item \textbf{Append-only:} Novos registros são adicionados ao final do arquivo sem reescrever os anteriores, minimizando risco de corrupção.
+    \item \textbf{Streaming:} Cada linha é um JSON válido independente, facilitando processamento incremental com ferramentas como \texttt{jq} ou ingestão em sistemas de monitoramento.
+    \item \textbf{Simplicidade:} Não requer infraestrutura adicional (banco de dados, message broker), adequado para o escopo do projeto.
+\end{enumerate}
+
+\subsection{Rastreabilidade End-to-End}
+
+Com o registro de auditoria, é possível reconstruir o caminho completo de qualquer consulta:
+
+\begin{enumerate}
+    \item Qual foi a query original e como foi classificada;
+    \item Quais protocolos foram recuperados e de quais fontes;
+    \item Se e quais dados do paciente foram consultados;
+    \item Qual foi o rascunho gerado pela LLM;
+    \item Se o guardrails aprovou, reprovou ou realizou retries;
+    \item Qual o nível de confiança e quais advertências foram emitidas;
+    \item O timestamp de cada etapa para análise de latência.
+\end{enumerate}
+
+Esta rastreabilidade é essencial para:
+
+\begin{itemize}
+    \item \textbf{Depuração:} Identificar por que uma resposta foi inadequada;
+    \item \textbf{Compliance:} Demonstrar que o sistema seguiu todas as regras de segurança;
+    \item \textbf{Melhoria contínua:} Analisar padrões de reprovação para refinar regras ou prompts.
+\end{itemize}
+
+\section{Tratamento de Queries Fora de Escopo}
+
+Quando a triagem classifica uma consulta como \texttt{fora\_de\_escopo}, o fluxo é encurtado: a query vai direto ao logger, que gera uma resposta padrão educada:
+
+\begin{infobox}[Resposta para Query Fora de Escopo]
+``Desculpe, esta pergunta está fora do escopo do assistente médico. Posso ajudar com consultas sobre protocolos clínicos, dados de pacientes, tratamentos e condutas médicas.''
+\end{infobox}
+
+O registro de auditoria é gerado normalmente, permitindo rastrear quais tipos de perguntas estão fora do escopo --- informação útil para expandir a cobertura do sistema no futuro.
+
+\section{Limitações e Trabalhos Futuros}
+
+As implementações atuais de segurança, embora funcionais, possuem limitações conhecidas:
+
+\begin{enumerate}
+    \item \textbf{Guardrails baseados em regex:} Padrões fixos podem gerar falsos positivos (ex: ``o paciente tem histórico de\ldots'' é flagrado pela regra de diagnóstico definitivo) ou falsos negativos (prescrições reformuladas de forma indireta). Uma evolução natural seria utilizar um classificador baseado em LLM como segunda camada de validação.
+
+    \item \textbf{Confiança heurística:} O sistema de pontuação é determinístico e não considera a \emph{qualidade} do conteúdo dos protocolos, apenas quantidade e proximidade semântica. Métricas de faithfulness (fidelidade ao contexto) poderiam enriquecer a avaliação.
+
+    \item \textbf{Logging local:} A persistência em JSONL local é adequada para demonstração, mas em produção seria necessário integrar com sistemas centralizados de observabilidade (ex: ELK Stack, Datadog, OpenTelemetry).
+
+    \item \textbf{Consentimento e privacidade:} O sistema registra a query completa no log de auditoria. Em ambiente de produção com dados reais, seria necessário implementar anonimização automática e políticas de retenção de dados conforme LGPD.
+\end{enumerate}

@@ -124,12 +124,15 @@ O agente de explicabilidade (\texttt{src/flows/agents/explicabilidade.py}) trans
 
 \subsection{Citações e Rastreabilidade}
 
-Toda resposta inclui a lista de fontes consultadas, extraídas automaticamente dos metadados dos protocolos recuperados pelo ChromaDB e dos dados do paciente:
+Toda resposta inclui a lista de fontes consultadas, extraídas automaticamente dos metadados dos protocolos recuperados pelo ChromaDB e dos dados do paciente. As fontes são \textbf{separadas por relevância}:
 
 \begin{itemize}
-    \item \textbf{Protocolos:} \texttt{[Pathway-Diabetes, Seção: Tratamento]} --- identifica o documento e a seção específica utilizada.
-    \item \textbf{Exames:} \texttt{[Exame: HbA1C, Data: 2026-01-15]} --- identifica o tipo de exame e a data de realização.
-    \item \textbf{Prontuário:} \texttt{[Prontuário: Maria Santos]} --- indica que dados do prontuário foram utilizados.
+    \item \textbf{Fontes diretas} --- diretamente relacionadas ao quadro do paciente:
+    \begin{itemize}
+        \item Protocolos cujo conteúdo contém termos das comorbidades: \texttt{[Pathway-Diabetes, Seção: Tratamento]}
+        \item Dados do paciente: \texttt{[Prontuário: Maria Santos]}, \texttt{[Exame: HbA1C, Data: 2026-01-15]}
+    \end{itemize}
+    \item \textbf{Fontes complementares} --- informação geral que pode ser útil, mas sem relação direta com as comorbidades do paciente.
 \end{itemize}
 
 A deduplicação é feita via conjunto (\texttt{set}), garantindo que cada citação apareça apenas uma vez mesmo quando múltiplos chunks vêm do mesmo documento.
@@ -192,7 +195,11 @@ A resposta final apresentada ao médico segue uma estrutura padronizada:
 
 Fontes consultadas:
   . [Pathway-Diabetes, Secao: Tratamento]
+  . [Pathway-Hipertensao, Secao: Exames de Seguimento]
   . [Exame: HbA1C, Data: 2026-01-15]
+
+Fontes complementares:
+  . [Pathway-PacienteCirurgico, Secao: Exames Complementares]
 
 Confianca: Alta
 

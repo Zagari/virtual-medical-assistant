@@ -19,7 +19,7 @@ O objetivo principal deste trabalho é desenvolver um \textbf{Assistente Virtual
 \begin{enumerate}
     \item \textbf{Fine-tuning} do modelo Mistral 7B Instruct v0.3 com o dataset MedQuAD traduzido para português, utilizando \acrfull{qlora} 4-bit no Google Colab;
     \item \textbf{\acrfull{rag}} com 14 Linhas de Cuidado reais e 5 protocolos de emergência sintéticos (IAM, AVC, Sepse, Pneumonia, ITU) indexados no ChromaDB;
-    \item \textbf{Grafo multi-agente} implementado em LangGraph com 6 agentes especializados;
+    \item \textbf{Grafo multi-agente} implementado em LangGraph com 7 agentes (6 especializados + logger de auditoria);
     \item \textbf{Segurança} com guardrails que impedem prescrições diretas e exigem validação humana;
     \item \textbf{Interface} Gradio para demonstração interativa do assistente.
 \end{enumerate}
@@ -56,8 +56,8 @@ A Figura~\ref{fig:arquitetura_geral} apresenta a visão de alto nível da arquit
 
 % Camada Multi-Agente (centralizada)
 \node[agent, below=1.2cm of rag, minimum width=12.6cm] (grafo) {
-    \textbf{Grafo Multi-Agente LangGraph} --- 6 Agentes\\
-    Triagem $\rightarrow$ Protocolo / Paciente Data $\rightarrow$ Raciocínio $\rightarrow$ Guardrails $\rightarrow$ Explicabilidade
+    \textbf{Grafo Multi-Agente LangGraph} --- 7 Agentes\\
+    Triagem $\rightarrow$ Paciente Data / Protocolo $\rightarrow$ Raciocínio $\rightarrow$ Guardrails $\rightarrow$ Explicabilidade $\rightarrow$ Logger
 };
 
 % Camada de Segurança
@@ -243,7 +243,7 @@ O restante deste relatório está organizado da seguinte forma:
     \item \textbf{Capítulo~3} detalha o processo de fine-tuning do Mistral 7B com QLoRA;
     \item \textbf{Capítulo~4} descreve a implementação do RAG com ChromaDB;
     \item \textbf{Capítulo~5} apresenta o grafo multi-agente com LangGraph;
-    \item \textbf{Capítulo~6} aborda a segurança, logging e interface Gradio;
+    \item \textbf{Capítulo~6} aborda a segurança, guardrails e explicabilidade;
     \item \textbf{Capítulo~7} traz a avaliação e os resultados obtidos;
     \item \textbf{Capítulo~8} conclui com reflexões, limitações e trabalhos futuros.
 \end{itemize}

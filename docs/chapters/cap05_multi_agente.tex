@@ -46,7 +46,7 @@ O grafo suporta cinco fluxos distintos, determinados pela classificação da tri
 \midrule
 Protocolo & triagem $\rightarrow$ protocolo $\rightarrow$ raciocínio $\rightarrow$ guardrails $\rightarrow$ explicabilidade $\rightarrow$ logger \\
 Paciente & triagem $\rightarrow$ paciente\_data $\rightarrow$ raciocínio $\rightarrow$ guardrails $\rightarrow$ explicabilidade $\rightarrow$ logger \\
-Ambos & triagem $\rightarrow$ protocolo $\rightarrow$ paciente\_data $\rightarrow$ raciocínio $\rightarrow$ guardrails $\rightarrow$ explicabilidade $\rightarrow$ logger \\
+Ambos & triagem $\rightarrow$ paciente\_data $\rightarrow$ protocolo $\rightarrow$ raciocínio $\rightarrow$ guardrails $\rightarrow$ explicabilidade $\rightarrow$ logger \\
 Fora de escopo & triagem $\rightarrow$ logger $\rightarrow$ END \\
 Retry & $\ldots$ $\rightarrow$ guardrails $\rightarrow$ raciocínio $\rightarrow$ guardrails $\rightarrow$ $\ldots$ (máx.\ 2$\times$) \\
 \bottomrule
@@ -149,7 +149,7 @@ Quando a LLM está disponível, a classificação é feita via prompt estruturad
 \midrule
 \texttt{protocolo} & Pergunta sobre tratamento, diagnóstico ou conduta clínica genérica & Protocolo \\
 \texttt{paciente} & Pergunta sobre dados de um paciente específico & Paciente Data \\
-\texttt{ambos} & Protocolo clínico aplicado a um paciente específico & Protocolo \\
+\texttt{ambos} & Protocolo clínico aplicado a um paciente específico & Paciente Data \\
 \texttt{fora\_de\_escopo} & Pergunta não relacionada à medicina & Logger \\
 \bottomrule
 \end{tabularx}
@@ -164,10 +164,14 @@ Quando o campo \texttt{patient\_id} é fornecido na entrada e a triagem classifi
 O agente de protocolo realiza \textbf{busca semântica} nos 544 documentos indexados no ChromaDB (14 Linhas de Cuidado + 5 protocolos de emergência, conforme Capítulo~\ref{cap:rag}).
 
 \begin{itemize}
-    \item Enriquece a query com entidades extraídas pela triagem (ex: condição médica);
-    \item Recupera os 5 chunks mais relevantes via embedding similarity;
-    \item Retorna conteúdo, fonte, seção e distância para cada resultado.
+    \item \textbf{Busca contextualizada:} Quando dados do paciente estão disponíveis (fluxo ``ambos''), o agente realiza \textbf{uma busca por comorbidade} do paciente (ex: uma busca para ``hipertensão'' e outra para ``diabetes tipo 2''), garantindo cobertura equilibrada. Sem dados do paciente, a busca é ampla com a query original;
+    \item \textbf{Ranking por relevância:} Após a recuperação, os resultados são classificados como \texttt{direta} (contêm termos das comorbidades) ou \texttt{complementar} (informação geral), ordenados por relevância;
+    \item Retorna conteúdo, fonte, seção, distância e relevância para cada resultado.
 \end{itemize}
+
+\begin{infobox}[Por que busca por comorbidade?]
+Uma única busca semântica com query longa tende a favorecer uma comorbidade sobre outra. Para um paciente com hipertensão e diabetes, a busca unificada retornava quase exclusivamente protocolos de hipertensão. A busca separada (3 resultados por comorbidade, deduplicados) garante representatividade de cada condição.
+\end{infobox}
 
 \subsection{Paciente Data (PostgreSQL)}
 
@@ -311,7 +315,9 @@ O agente de explicabilidade é responsável por tornar a resposta \textbf{transp
 
     \item \textbf{Gera advertências} quando apropriado (confiança baixa, sem protocolos, retries realizados);
 
-    \item \textbf{Formata a resposta final} com seções: resposta, fontes, confiança, advertências e disclaimer obrigatório.
+    \item \textbf{Separa fontes por relevância:} fontes \textbf{diretas} (relacionadas ao quadro do paciente) e \textbf{complementares} (informação geral) são apresentadas em seções distintas;
+
+    \item \textbf{Formata a resposta final} com seções: resposta, fontes diretas, fontes complementares, confiança, advertências e disclaimer obrigatório.
 \end{enumerate}
 
 \subsection{Logger (Auditoria)}
@@ -381,9 +387,9 @@ graph.add_conditional_edges("triagem",
     "paciente_data": "paciente_data",
     "logger": "logger",
 })
-graph.add_conditional_edges("protocolo",
-    route_after_protocolo, {
-    "paciente_data": "paciente_data",
+graph.add_conditional_edges("paciente_data",
+    route_after_paciente_data, {
+    "protocolo": "protocolo",
     "raciocinio": "raciocinio",
 })
 graph.add_conditional_edges("guardrails",
@@ -393,7 +399,7 @@ graph.add_conditional_edges("guardrails",
 })
 
 # Arestas fixas
-graph.add_edge("paciente_data", "raciocinio")
+graph.add_edge("protocolo", "raciocinio")
 graph.add_edge("raciocinio", "guardrails")
 graph.add_edge("explicabilidade", "logger")
 graph.add_edge("logger", END)
@@ -415,8 +421,8 @@ As três funções de roteamento condicional determinam o caminho de execução 
 \toprule
 \textbf{Função} & \textbf{Após} & \textbf{Lógica} \\
 \midrule
-\texttt{route\_after\_triagem} & Triagem & Se \texttt{protocolo} ou \texttt{ambos} $\rightarrow$ protocolo; se \texttt{paciente} $\rightarrow$ paciente\_data; senão $\rightarrow$ logger \\
-\texttt{route\_after\_protocolo} & Protocolo & Se \texttt{ambos} $\rightarrow$ paciente\_data; senão $\rightarrow$ raciocínio \\
+\texttt{route\_after\_triagem} & Triagem & Se \texttt{protocolo} $\rightarrow$ protocolo; se \texttt{paciente} ou \texttt{ambos} $\rightarrow$ paciente\_data; senão $\rightarrow$ logger \\
+\texttt{route\_after\_paciente\_data} & Paciente Data & Se \texttt{ambos} $\rightarrow$ protocolo (busca contextualizada); senão $\rightarrow$ raciocínio \\
 \texttt{route\_after\_guardrails} & Guardrails & Se \texttt{aprovado} $\rightarrow$ explicabilidade; se \texttt{reprovado} e retry $<$ 2 $\rightarrow$ raciocínio; senão $\rightarrow$ explicabilidade (com warnings) \\
 \bottomrule
 \end{tabularx}
@@ -432,11 +438,11 @@ Para ilustrar o funcionamento completo, considere a seguinte consulta:
 
 \begin{enumerate}
     \item \textbf{Triagem} $\rightarrow$ \texttt{query\_type="ambos"}, \texttt{entities=\{paciente: "Maria Santos", condicao: "diabetes"\}}
-    \item \textbf{Protocolo} $\rightarrow$ Busca ChromaDB $\rightarrow$ Pathway-Diabetes §Exames de Seguimento (3 chunks)
-    \item \textbf{Paciente Data} $\rightarrow$ PostgreSQL $\rightarrow$ Maria Santos: HbA1C 7.2\%, comorbidades, medicamentos
-    \item \textbf{Raciocínio} $\rightarrow$ Mistral 7B FT sintetiza resposta com protocolo + dados da paciente
+    \item \textbf{Paciente Data} $\rightarrow$ PostgreSQL $\rightarrow$ Maria Santos: comorbidades=[hipertensão, diabetes], exames, medicamentos
+    \item \textbf{Protocolo} $\rightarrow$ Busca por comorbidade: ``exames + hipertensão'' e ``exames + diabetes'' $\rightarrow$ 3 Pathway-Hipertensão + 3 Pathway-Diabetes (todos ``direta'')
+    \item \textbf{Raciocínio} $\rightarrow$ Mistral 7B FT sintetiza resposta com protocolos relevantes + dados da paciente
     \item \textbf{Guardrails} $\rightarrow$ 4 regras verificadas $\rightarrow$ \texttt{aprovado}
-    \item \textbf{Explicabilidade} $\rightarrow$ Confiança: alta | Fontes: [Pathway-Diabetes, Exame HbA1C]
+    \item \textbf{Explicabilidade} $\rightarrow$ Confiança: alta | Fontes diretas: [Pathway-Diabetes, Pathway-Hipertensão, Exame HbA1C]
     \item \textbf{Logger} $\rightarrow$ Registro JSON persistido em \texttt{logs/audit\_2026-03-06.jsonl}
 \end{enumerate}
 
@@ -477,4 +483,6 @@ Para ilustrar o funcionamento completo, considere a seguinte consulta:
     \item \textbf{Auditoria acumulativa:} O campo \texttt{audit\_log} é incrementado por cada agente (append-only), criando um trace completo de execução sem overhead de um sistema de observabilidade externo.
 
     \item \textbf{LLM injetável:} A LLM é passada via parâmetro (\texttt{run\_assistant(query, llm=...)}) ao invés de ser instanciada dentro do grafo, permitindo trocar facilmente entre modelo base, fine-tuned ou mock para testes.
+
+    \item \textbf{Paciente antes de protocolo:} Para queries que envolvem um paciente específico (tipo ``ambos''), o grafo busca os dados do paciente \emph{antes} dos protocolos. Isso permite que a busca no ChromaDB seja contextualizada pelas comorbidades reais do paciente, evitando resultados irrelevantes. A busca é feita separadamente por comorbidade para garantir cobertura equilibrada.
 \end{enumerate}

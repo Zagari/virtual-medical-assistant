@@ -5,6 +5,8 @@ O GGUF resultante funciona em qualquer maquina (CPU, Mac, Windows).
 
 Uso:
     python scripts/08_exportar_gguf.py
+    python scripts/08_exportar_gguf.py --model-path models/checkpoints/checkpoint-2000 --gguf-filename medical-assistant-epoch2-Q4_K_M.gguf
+    python scripts/08_exportar_gguf.py --model-path models/medical-assistant-final --gguf-filename medical-assistant-epoch5-Q4_K_M.gguf
 
 Pre-requisitos:
     pip install llama-cpp-python
@@ -16,6 +18,7 @@ O que faz:
     3. Opcionalmente faz upload para o Hugging Face Hub
 """
 
+import argparse
 import os
 import sys
 from pathlib import Path
@@ -27,7 +30,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 # Configuracao
 # ---------------------------------------------------------------------------
 
-MODEL_DIR = PROJECT_ROOT / "models" / "medical-assistant-final"
+DEFAULT_MODEL_DIR = PROJECT_ROOT / "models" / "medical-assistant-final"
 GGUF_OUTPUT_DIR = PROJECT_ROOT / "models" / "gguf"
 QUANTIZATION = "q4_k_m"
 
@@ -42,17 +45,36 @@ if env_path.exists():
 
 HF_TOKEN = os.getenv("HF_TOKEN", "")
 GGUF_HUB_REPO = os.getenv("GGUF_HUB_REPO", "zagari/medical-assistant-mistral-7b-ft-gguf")
-GGUF_FILENAME = os.getenv("GGUF_FILENAME", "medical-assistant-Q4_K_M.gguf")
+DEFAULT_GGUF_FILENAME = os.getenv("GGUF_FILENAME", "medical-assistant-Q4_K_M.gguf")
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        description="Exporta modelo fine-tuned (LoRA) para GGUF quantizado"
+    )
+    parser.add_argument(
+        '--model-path', type=str, default=None,
+        help='Caminho para o modelo fine-tuned (default: models/medical-assistant-final)'
+    )
+    parser.add_argument(
+        '--gguf-filename', type=str, default=None,
+        help='Nome do arquivo GGUF no HF Hub (default: medical-assistant-Q4_K_M.gguf)'
+    )
+    args = parser.parse_args()
+
+    model_dir = Path(args.model_path) if args.model_path else DEFAULT_MODEL_DIR
+    gguf_filename = args.gguf_filename or DEFAULT_GGUF_FILENAME
+
     print("=" * 60)
     print("  EXPORTAR MODELO FINE-TUNED PARA GGUF")
     print("=" * 60)
     print()
+    print(f"  Modelo: {model_dir}")
+    print(f"  GGUF:   {gguf_filename}")
+    print()
 
-    if not MODEL_DIR.exists():
-        print(f"ERRO: Modelo nao encontrado em {MODEL_DIR}")
+    if not model_dir.exists():
+        print(f"ERRO: Modelo nao encontrado em {model_dir}")
         print("Execute o fine-tuning primeiro.")
         sys.exit(1)
 
@@ -61,7 +83,7 @@ def main():
     from unsloth import FastLanguageModel
 
     model, tokenizer = FastLanguageModel.from_pretrained(
-        model_name=str(MODEL_DIR),
+        model_name=str(model_dir),
         max_seq_length=2048,
         dtype=None,
         load_in_4bit=True,
@@ -103,7 +125,7 @@ def main():
         print("[3/3] Upload para HF Hub: PULADO (HF_TOKEN nao configurado)")
         print()
         print("Para fazer upload manualmente:")
-        print(f"  huggingface-cli upload {GGUF_HUB_REPO} {gguf_file} {GGUF_FILENAME}")
+        print(f"  huggingface-cli upload {GGUF_HUB_REPO} {gguf_file} {gguf_filename}")
     else:
         print(f"[3/3] Enviando para HF Hub: {GGUF_HUB_REPO}...")
         from huggingface_hub import HfApi, login
@@ -126,9 +148,9 @@ def main():
         # Upload GGUF
         api.upload_file(
             path_or_fileobj=str(gguf_file),
-            path_in_repo=GGUF_FILENAME,
+            path_in_repo=gguf_filename,
             repo_id=GGUF_HUB_REPO,
-            commit_message=f"Upload GGUF {QUANTIZATION} do modelo fine-tuned",
+            commit_message=f"Upload GGUF {QUANTIZATION} ({gguf_filename})",
         )
         print(f"      Enviado: https://huggingface.co/{GGUF_HUB_REPO}")
 

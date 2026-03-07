@@ -63,8 +63,13 @@ def _load_llm():
     if _llm_instance is not None:
         return _llm_instance
 
-    model_path = os.getenv("FINE_TUNED_MODEL", str(PROJECT_ROOT / "models" / "medical-assistant"))
-    if not Path(model_path).exists():
+    model_path = os.getenv("FINE_TUNED_MODEL", str(PROJECT_ROOT / "models" / "medical-assistant-final"))
+
+    # Determinar se é path local ou repo do Hugging Face Hub
+    is_local = Path(model_path).exists()
+    is_hub = not is_local and "/" in model_path and not model_path.startswith(("/", "."))
+
+    if not is_local and not is_hub:
         logger.info("Modelo fine-tuned não encontrado em %s — usando fallback.", model_path)
         return None
 
@@ -72,7 +77,8 @@ def _load_llm():
         from transformers import AutoModelForCausalLM, AutoTokenizer
         import torch
 
-        logger.info("Carregando modelo fine-tuned de %s...", model_path)
+        source = model_path if is_local else f"Hub: {model_path}"
+        logger.info("Carregando modelo fine-tuned de %s...", source)
         tokenizer = AutoTokenizer.from_pretrained(model_path)
         model = AutoModelForCausalLM.from_pretrained(
             model_path,

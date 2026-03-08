@@ -1,20 +1,16 @@
 #!/usr/bin/env python3
 """
-06b_comparar_modelos.py - Comparacao Unificada de 3 Modelos
+06b_comparar_modelos.py - Comparacao Unificada de Modelos (Dinamico)
 
-Gera relatorio comparativo entre baseline, fine-tuned epoch 2 e epoch 5,
-consolidando resultados de ambas as trilhas de avaliacao.
+Descobre automaticamente quais checkpoints foram avaliados e gera
+relatorio comparativo consolidando ambas as trilhas de avaliacao.
 
 Trilha A (perguntas manuais): metricas de sobreposicao entre modelos
 Trilha B (validacao MedQuAD): metricas contra ground truth + similaridade semantica
 
-Entrada:
-    Trilha A:
-        data/evaluation/comparacao_resultados_epoch2.json
-        data/evaluation/comparacao_resultados_epoch5.json
-    Trilha B (opcional):
-        data/evaluation/comparacao_resultados_epoch2_val.json
-        data/evaluation/comparacao_resultados_epoch5_val.json
+Descobre os arquivos disponíveis em data/evaluation/:
+    comparacao_resultados_{tag}.json      -> Trilha A
+    comparacao_resultados_{tag}_val.json  -> Trilha B
 
 Saida:
     data/evaluation/comparacao_completa.json
@@ -33,20 +29,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).parent.parent
 EVALUATION_DIR = PROJECT_ROOT / "data" / "evaluation"
 
-# Arquivos de entrada — Trilha A (perguntas manuais)
-COMP_EPOCH2 = EVALUATION_DIR / "comparacao_resultados_epoch2.json"
-COMP_EPOCH5 = EVALUATION_DIR / "comparacao_resultados_epoch5.json"
-
-# Arquivos de entrada — Trilha B (validacao MedQuAD, opcional)
-COMP_EPOCH2_VAL = EVALUATION_DIR / "comparacao_resultados_epoch2_val.json"
-COMP_EPOCH5_VAL = EVALUATION_DIR / "comparacao_resultados_epoch5_val.json"
-
-# Respostas para exemplos qualitativos
 BASELINE_RESPONSES = EVALUATION_DIR / "baseline_responses.json"
-FT_EPOCH2_RESPONSES = EVALUATION_DIR / "finetuned_responses_epoch2.json"
-FT_EPOCH5_RESPONSES = EVALUATION_DIR / "finetuned_responses_epoch5.json"
-
-# Saida
 OUTPUT_JSON = EVALUATION_DIR / "comparacao_completa.json"
 OUTPUT_MD = EVALUATION_DIR / "comparacao_completa.md"
 
@@ -89,104 +72,164 @@ def calculate_repetition_rates(responses_file: Path) -> float | None:
     return sum(rates) / len(rates) if rates else 0.0
 
 
+def tag_sort_key(tag: str) -> float:
+    """Ordena tags por numero do epoch (epoch0_5 -> 0.5, epoch2 -> 2.0)."""
+    num_str = tag.replace("epoch", "").replace("_", ".")
+    try:
+        return float(num_str)
+    except ValueError:
+        return 999.0
+
+
+def tag_display_name(tag: str) -> str:
+    """Converte tag em nome legivel (epoch2_5 -> 'Epoch 2.5')."""
+    num_str = tag.replace("epoch", "").replace("_", ".")
+    try:
+        num = float(num_str)
+        if num == int(num):
+            return f"Epoch {int(num)}"
+        return f"Epoch {num}"
+    except ValueError:
+        return tag
+
+
+def discover_epochs() -> list[str]:
+    """Descobre quais epochs foram avaliados (Trilha A)."""
+    epochs = []
+    for f in EVALUATION_DIR.glob("comparacao_resultados_*.json"):
+        tag = f.stem.replace("comparacao_resultados_", "")
+        if tag.endswith("_val"):
+            continue
+        epochs.append(tag)
+    return sorted(epochs, key=tag_sort_key)
+
+
+def discover_val_epochs() -> list[str]:
+    """Descobre quais epochs foram avaliados (Trilha B)."""
+    epochs = []
+    for f in EVALUATION_DIR.glob("comparacao_resultados_*_val.json"):
+        tag = f.stem.replace("comparacao_resultados_", "")
+        if tag.endswith("_val"):
+            tag = tag[:-4]
+        epochs.append(tag)
+    return sorted(epochs, key=tag_sort_key)
+
+
 def main():
     print("=" * 60)
     print("  COMPARACAO UNIFICADA DE MODELOS")
     print("=" * 60)
     print()
 
-    # Carregar resultados
-    print("[1/3] Carregando resultados das avaliacoes...")
+    # Descobrir epochs disponíveis
+    print("[1/3] Descobrindo avaliacoes disponiveis...")
+    epochs = discover_epochs()
+    val_epochs = discover_val_epochs()
 
-    comp_epoch2 = load_json(COMP_EPOCH2)
-    comp_epoch5 = load_json(COMP_EPOCH5)
-
-    if not comp_epoch2 or not comp_epoch5:
-        missing = []
-        if not comp_epoch2:
-            missing.append(str(COMP_EPOCH2))
-        if not comp_epoch5:
-            missing.append(str(COMP_EPOCH5))
-        print(f"ERRO: Arquivos nao encontrados: {missing}")
+    if not epochs:
+        print("ERRO: Nenhum arquivo comparacao_resultados_*.json encontrado.")
         print("Execute primeiro:")
-        print("  python scripts/06_avaliar_finetuned.py --model-path ... --tag epoch2")
-        print("  python scripts/06_avaliar_finetuned.py --model-path ... --tag epoch5")
+        print("  python scripts/06_avaliar_finetuned.py --model-path ... --tag ...")
         raise SystemExit(1)
 
-    # Trilha B (opcional)
-    comp_epoch2_val = load_json(COMP_EPOCH2_VAL)
-    comp_epoch5_val = load_json(COMP_EPOCH5_VAL)
-    has_trilha_b = comp_epoch2_val is not None and comp_epoch5_val is not None
+    has_trilha_b = len(val_epochs) > 0
 
-    print(f"      Trilha A: epoch2 e epoch5 carregados")
+    print(f"      Trilha A: {', '.join(epochs)} ({len(epochs)} checkpoints)")
     if has_trilha_b:
-        print(f"      Trilha B: epoch2_val e epoch5_val carregados")
+        print(f"      Trilha B: {', '.join(val_epochs)} ({len(val_epochs)} checkpoints)")
     else:
-        print(f"      Trilha B: nao disponivel (resultados de validacao ausentes)")
+        print("      Trilha B: nao disponivel")
     print()
+
+    # Carregar dados de comparacao
+    comparisons = {}
+    for tag in epochs:
+        filepath = EVALUATION_DIR / f"comparacao_resultados_{tag}.json"
+        comparisons[tag] = load_json(filepath)
+
+    val_comparisons = {}
+    for tag in val_epochs:
+        filepath = EVALUATION_DIR / f"comparacao_resultados_{tag}_val.json"
+        val_comparisons[tag] = load_json(filepath)
 
     # Calcular taxas de repeticao
     print("[2/3] Calculando taxas de repeticao...")
     rep_baseline = calculate_repetition_rates(BASELINE_RESPONSES)
-    rep_epoch2 = calculate_repetition_rates(FT_EPOCH2_RESPONSES)
-    rep_epoch5 = calculate_repetition_rates(FT_EPOCH5_RESPONSES)
     print(f"      Baseline: {rep_baseline:.4f}" if rep_baseline is not None else "      Baseline: N/A")
-    print(f"      Epoch 2:  {rep_epoch2:.4f}" if rep_epoch2 is not None else "      Epoch 2: N/A")
-    print(f"      Epoch 5:  {rep_epoch5:.4f}" if rep_epoch5 is not None else "      Epoch 5: N/A")
+
+    rep_rates = {}
+    for tag in epochs:
+        responses_file = EVALUATION_DIR / f"finetuned_responses_{tag}.json"
+        rep_rates[tag] = calculate_repetition_rates(responses_file)
+        display = tag_display_name(tag)
+        val = rep_rates[tag]
+        print(f"      {display}: {val:.4f}" if val is not None else f"      {display}: N/A")
     print()
 
     # Montar dados consolidados
-    m2 = comp_epoch2.get("metrics", {})
-    m5 = comp_epoch5.get("metrics", {})
+    # Pegar avg_length do baseline do primeiro comparison disponivel
+    first_comp = comparisons[epochs[0]]
+    baseline_avg_length = (
+        first_comp.get("metrics", {}).get("baseline", {}).get("avg_length", 0)
+        if first_comp else 0
+    )
 
     consolidated = {
         "metadata": {
             "timestamp": datetime.now().isoformat(),
+            "epochs": epochs,
+            "val_epochs": val_epochs,
             "trilha_a": True,
             "trilha_b": has_trilha_b,
         },
         "trilha_a": {
             "descricao": "50 perguntas manuais — metricas de sobreposicao FT vs Baseline",
             "baseline": {
-                "avg_length": m2.get("baseline", {}).get("avg_length", 0),
+                "avg_length": baseline_avg_length,
                 "repetition_rate": rep_baseline,
-            },
-            "epoch2": {
-                "avg_length": m2.get("finetuned", {}).get("avg_length", 0),
-                "bleu_vs_baseline": m2.get("averages", {}).get("bleu", 0),
-                "rouge1_vs_baseline": m2.get("averages", {}).get("rouge1", 0),
-                "rouge2_vs_baseline": m2.get("averages", {}).get("rouge2", 0),
-                "rougeL_vs_baseline": m2.get("averages", {}).get("rougeL", 0),
-                "repetition_rate": rep_epoch2,
-            },
-            "epoch5": {
-                "avg_length": m5.get("finetuned", {}).get("avg_length", 0),
-                "bleu_vs_baseline": m5.get("averages", {}).get("bleu", 0),
-                "rouge1_vs_baseline": m5.get("averages", {}).get("rouge1", 0),
-                "rouge2_vs_baseline": m5.get("averages", {}).get("rouge2", 0),
-                "rougeL_vs_baseline": m5.get("averages", {}).get("rougeL", 0),
-                "repetition_rate": rep_epoch5,
             },
         },
     }
 
-    if has_trilha_b:
-        r2 = comp_epoch2_val.get("metrics", {}).get("reference", {})
-        r5 = comp_epoch5_val.get("metrics", {}).get("reference", {})
+    for tag in epochs:
+        comp = comparisons[tag]
+        if not comp:
+            continue
+        m = comp.get("metrics", {})
+        consolidated["trilha_a"][tag] = {
+            "avg_length": m.get("finetuned", {}).get("avg_length", 0),
+            "bleu_vs_baseline": m.get("averages", {}).get("bleu", 0),
+            "rouge1_vs_baseline": m.get("averages", {}).get("rouge1", 0),
+            "rouge2_vs_baseline": m.get("averages", {}).get("rouge2", 0),
+            "rougeL_vs_baseline": m.get("averages", {}).get("rougeL", 0),
+            "repetition_rate": rep_rates.get(tag),
+        }
 
+    if has_trilha_b:
         consolidated["trilha_b"] = {
             "descricao": "50 amostras validacao MedQuAD — metricas vs ground truth",
-            "baseline": r2.get("baseline", {}),
-            "epoch2": r2.get("finetuned", {}),
-            "epoch5": r5.get("finetuned", {}),
         }
+        # Pegar baseline do primeiro val comparison
+        first_val = val_comparisons[val_epochs[0]]
+        if first_val:
+            consolidated["trilha_b"]["baseline"] = (
+                first_val.get("metrics", {}).get("reference", {}).get("baseline", {})
+            )
+
+        for tag in val_epochs:
+            comp = val_comparisons[tag]
+            if not comp:
+                continue
+            consolidated["trilha_b"][tag] = (
+                comp.get("metrics", {}).get("reference", {}).get("finetuned", {})
+            )
 
     save_json(consolidated, OUTPUT_JSON)
     print(f"      Salvo: {OUTPUT_JSON}")
 
     # Gerar relatorio Markdown
     print("[3/3] Gerando relatorio unificado...")
-    lines = generate_report(consolidated, has_trilha_b)
+    lines = generate_report(consolidated, epochs, val_epochs, has_trilha_b)
 
     with open(OUTPUT_MD, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines))
@@ -206,81 +249,143 @@ def fmt(val, decimals=4):
     return f"{val:.{decimals}f}"
 
 
-def generate_report(data: dict, has_trilha_b: bool) -> list[str]:
+def generate_report(
+    data: dict,
+    epochs: list[str],
+    val_epochs: list[str],
+    has_trilha_b: bool,
+) -> list[str]:
     """Gera relatorio Markdown unificado."""
     ta = data["trilha_a"]
     base = ta["baseline"]
-    e2 = ta["epoch2"]
-    e5 = ta["epoch5"]
+
+    # Nomes das colunas
+    model_names = ["Baseline"] + [f"FT {tag_display_name(tag)}" for tag in epochs]
+
+    title = "Baseline vs " + " vs ".join(tag_display_name(tag) for tag in epochs)
 
     lines = [
-        "# Comparacao Completa: Baseline vs Epoch 2 vs Epoch 5",
+        f"# Comparacao Completa: {title}",
         "",
         f"**Data:** {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+        f"**Modelos avaliados:** {len(model_names)} (baseline + {len(epochs)} checkpoints)",
         "",
         "## Trilha A — Sobreposicao entre Modelos (50 perguntas manuais)",
         "",
         "Metricas calculadas comparando cada modelo fine-tuned com o baseline.",
         "",
-        "| Metrica | Baseline | FT Epoch 2 | FT Epoch 5 |",
-        "|---------|----------|------------|------------|",
-        f"| Comprimento medio | {fmt(base['avg_length'], 0)} chars | {fmt(e2['avg_length'], 0)} chars | {fmt(e5['avg_length'], 0)} chars |",
-        f"| BLEU vs Baseline | — | {fmt(e2['bleu_vs_baseline'])} | {fmt(e5['bleu_vs_baseline'])} |",
-        f"| ROUGE-1 F1 vs Baseline | — | {fmt(e2['rouge1_vs_baseline'])} | {fmt(e5['rouge1_vs_baseline'])} |",
-        f"| ROUGE-2 F1 vs Baseline | — | {fmt(e2['rouge2_vs_baseline'])} | {fmt(e5['rouge2_vs_baseline'])} |",
-        f"| ROUGE-L F1 vs Baseline | — | {fmt(e2['rougeL_vs_baseline'])} | {fmt(e5['rougeL_vs_baseline'])} |",
-        f"| Taxa de repeticao (3-gramas) | {fmt(base.get('repetition_rate'))} | {fmt(e2.get('repetition_rate'))} | {fmt(e5.get('repetition_rate'))} |",
-        "",
     ]
 
+    # Header da tabela
+    header = "| Metrica | " + " | ".join(model_names) + " |"
+    sep = "|" + "|".join(["---------"] + ["------------"] * len(epochs)) + "|"
+    lines.extend([header, sep])
+
+    # Comprimento medio
+    row = f"| Comprimento medio | {fmt(base['avg_length'], 0)} chars"
+    for tag in epochs:
+        e = ta.get(tag, {})
+        row += f" | {fmt(e.get('avg_length'), 0)} chars"
+    row += " |"
+    lines.append(row)
+
+    # Metricas de sobreposicao
+    for metric_key, metric_label in [
+        ("bleu_vs_baseline", "BLEU vs Baseline"),
+        ("rouge1_vs_baseline", "ROUGE-1 F1 vs Baseline"),
+        ("rouge2_vs_baseline", "ROUGE-2 F1 vs Baseline"),
+        ("rougeL_vs_baseline", "ROUGE-L F1 vs Baseline"),
+    ]:
+        row = f"| {metric_label} | —"
+        for tag in epochs:
+            e = ta.get(tag, {})
+            row += f" | {fmt(e.get(metric_key))}"
+        row += " |"
+        lines.append(row)
+
+    # Taxa de repeticao
+    row = f"| Taxa de repeticao (3-gramas) | {fmt(base.get('repetition_rate'))}"
+    for tag in epochs:
+        e = ta.get(tag, {})
+        row += f" | {fmt(e.get('repetition_rate'))}"
+    row += " |"
+    lines.append(row)
+
+    lines.append("")
+
+    # Trilha B
     if has_trilha_b:
         tb = data["trilha_b"]
-        tb_base = tb["baseline"]
-        tb_e2 = tb["epoch2"]
-        tb_e5 = tb["epoch5"]
+        tb_base = tb.get("baseline", {})
+
+        val_model_names = ["Baseline"] + [f"FT {tag_display_name(tag)}" for tag in val_epochs]
+        val_header = "| Metrica | " + " | ".join(val_model_names) + " |"
+        val_sep = "|" + "|".join(["---------"] + ["------------"] * len(val_epochs)) + "|"
 
         lines.extend([
             "## Trilha B — Qualidade vs Ground Truth (50 amostras validacao MedQuAD)",
             "",
             "Metricas calculadas comparando as respostas de cada modelo com a resposta de referencia.",
             "",
-            "| Metrica | Baseline | FT Epoch 2 | FT Epoch 5 |",
-            "|---------|----------|------------|------------|",
-            f"| BLEU vs Referencia | {fmt(tb_base.get('bleu'))} | {fmt(tb_e2.get('bleu'))} | {fmt(tb_e5.get('bleu'))} |",
-            f"| ROUGE-1 F1 vs Ref | {fmt(tb_base.get('rouge1'))} | {fmt(tb_e2.get('rouge1'))} | {fmt(tb_e5.get('rouge1'))} |",
-            f"| ROUGE-2 F1 vs Ref | {fmt(tb_base.get('rouge2'))} | {fmt(tb_e2.get('rouge2'))} | {fmt(tb_e5.get('rouge2'))} |",
-            f"| ROUGE-L F1 vs Ref | {fmt(tb_base.get('rougeL'))} | {fmt(tb_e2.get('rougeL'))} | {fmt(tb_e5.get('rougeL'))} |",
+            val_header, val_sep,
         ])
 
+        for metric_key, metric_label in [
+            ("bleu", "BLEU vs Referencia"),
+            ("rouge1", "ROUGE-1 F1 vs Ref"),
+            ("rouge2", "ROUGE-2 F1 vs Ref"),
+            ("rougeL", "ROUGE-L F1 vs Ref"),
+        ]:
+            row = f"| {metric_label} | {fmt(tb_base.get(metric_key))}"
+            for tag in val_epochs:
+                e = tb.get(tag, {})
+                row += f" | {fmt(e.get(metric_key))}"
+            row += " |"
+            lines.append(row)
+
         if "semantic_similarity" in tb_base:
-            lines.append(
-                f"| Similaridade Semantica | {fmt(tb_base.get('semantic_similarity'))} | {fmt(tb_e2.get('semantic_similarity'))} | {fmt(tb_e5.get('semantic_similarity'))} |"
-            )
+            row = f"| Similaridade Semantica | {fmt(tb_base.get('semantic_similarity'))}"
+            for tag in val_epochs:
+                e = tb.get(tag, {})
+                row += f" | {fmt(e.get('semantic_similarity'))}"
+            row += " |"
+            lines.append(row)
 
         lines.append("")
 
     # Exemplos qualitativos
     baseline_data = load_json(BASELINE_RESPONSES)
-    epoch2_data = load_json(FT_EPOCH2_RESPONSES)
-    epoch5_data = load_json(FT_EPOCH5_RESPONSES)
+    epoch_responses = {}
+    for tag in epochs:
+        responses_file = EVALUATION_DIR / f"finetuned_responses_{tag}.json"
+        resp_data = load_json(responses_file)
+        if resp_data:
+            epoch_responses[tag] = resp_data
 
-    if baseline_data and epoch2_data and epoch5_data:
+    if baseline_data and epoch_responses:
+        available_tags = [t for t in epochs if t in epoch_responses]
+        n_models = len(available_tags) + 1
+
         lines.extend([
-            "## Exemplos Qualitativos (3 modelos lado a lado)",
+            f"## Exemplos Qualitativos ({n_models} modelos lado a lado)",
             "",
         ])
 
         b_resps = baseline_data['respostas']
-        e2_resps = epoch2_data['respostas']
-        e5_resps = epoch5_data['respostas']
+
+        # Respostas por epoch
+        epoch_resps = {}
+        for tag in available_tags:
+            epoch_resps[tag] = epoch_responses[tag]['respostas']
 
         # Agrupar por categoria
         categorias = {}
-        for b, e2r, e5r in zip(b_resps, e2_resps, e5_resps):
+        for idx, b in enumerate(b_resps):
             cat = b['categoria']
             if cat not in categorias:
                 categorias[cat] = []
-            categorias[cat].append((b, e2r, e5r))
+            entry = {"baseline": b, "idx": idx}
+            categorias[cat].append(entry)
 
         for cat, items in categorias.items():
             lines.extend([
@@ -288,28 +393,37 @@ def generate_report(data: dict, has_trilha_b: bool) -> list[str]:
                 "",
             ])
 
-            for b, e2r, e5r in items[:1]:  # 1 exemplo por categoria
+            for entry in items[:1]:  # 1 exemplo por categoria
+                b = entry["baseline"]
+                idx = entry["idx"]
+
                 lines.extend([
                     f"**Pergunta {b['id']}:** {b['pergunta']}",
                     "",
                     "<details>",
-                    "<summary>Ver respostas dos 3 modelos</summary>",
+                    f"<summary>Ver respostas dos {n_models} modelos</summary>",
                     "",
                     "**Baseline:**",
                     "```",
                     b['resposta'][:400] + ("..." if len(b['resposta']) > 400 else ""),
                     "```",
                     "",
-                    "**Fine-Tuned Epoch 2:**",
-                    "```",
-                    e2r['resposta'][:400] + ("..." if len(e2r['resposta']) > 400 else ""),
-                    "```",
-                    "",
-                    "**Fine-Tuned Epoch 5:**",
-                    "```",
-                    e5r['resposta'][:400] + ("..." if len(e5r['resposta']) > 400 else ""),
-                    "```",
-                    "",
+                ])
+
+                for tag in available_tags:
+                    resps = epoch_resps.get(tag, [])
+                    if idx < len(resps):
+                        r = resps[idx]
+                        display = tag_display_name(tag)
+                        lines.extend([
+                            f"**Fine-Tuned {display}:**",
+                            "```",
+                            r['resposta'][:400] + ("..." if len(r['resposta']) > 400 else ""),
+                            "```",
+                            "",
+                        ])
+
+                lines.extend([
                     "</details>",
                     "",
                 ])

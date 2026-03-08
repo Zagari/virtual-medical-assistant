@@ -261,5 +261,12 @@ docs/lib/*.aux
 # Script de extracao de protocolos (uso local apenas)
 scripts/00_extrair_protocolos.py
 
+# macOS
+.DS_Store
+
+# LaTeX build state
+*.fdb_latexmk
+*.fls
+
 # Misc
 instalados.txt

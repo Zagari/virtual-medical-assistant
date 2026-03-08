@@ -135,8 +135,18 @@ def _unload_current():
     _current_label = None
 
 
+def _is_lora_adapter(model_path: str) -> bool:
+    """Verifica se o diretorio contem adaptadores LoRA (adapter_config.json)."""
+    return Path(model_path).is_dir() and (Path(model_path) / "adapter_config.json").exists()
+
+
 def _load_model_transformers(model_name: str) -> tuple[callable, object, object] | None:
-    """Carrega modelo via transformers (requer CUDA)."""
+    """Carrega modelo via transformers (requer CUDA).
+
+    Detecta automaticamente se model_name aponta para adaptadores LoRA
+    (presenca de adapter_config.json) e, nesse caso, carrega o modelo base
+    primeiro e aplica os adaptadores via PEFT.
+    """
     try:
         import torch
 
@@ -146,13 +156,39 @@ def _load_model_transformers(model_name: str) -> tuple[callable, object, object]
 
         from transformers import AutoModelForCausalLM, AutoTokenizer
 
-        logger.info("Carregando modelo (transformers) de %s...", model_name)
-        tokenizer = AutoTokenizer.from_pretrained(model_name)
-        model = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            torch_dtype=torch.float16,
-            device_map="auto",
-        )
+        if _is_lora_adapter(model_name):
+            # --- LoRA adapter: carregar base + aplicar PEFT ---
+            import json
+            from peft import PeftModel
+
+            adapter_cfg_path = Path(model_name) / "adapter_config.json"
+            with open(adapter_cfg_path) as f:
+                adapter_cfg = json.load(f)
+            base_model_name = adapter_cfg.get("base_model_name_or_path", BASELINE_MODEL_ID)
+
+            logger.info(
+                "Detectado LoRA adapter em %s — carregando base '%s' + adaptadores...",
+                model_name, base_model_name,
+            )
+
+            tokenizer = AutoTokenizer.from_pretrained(model_name)
+            base_model = AutoModelForCausalLM.from_pretrained(
+                base_model_name,
+                torch_dtype=torch.float16,
+                device_map="auto",
+            )
+            model = PeftModel.from_pretrained(base_model, model_name)
+            model = model.merge_and_unload()
+            logger.info("LoRA adapters merged com sucesso.")
+        else:
+            # --- Modelo completo (baseline ou merged) ---
+            logger.info("Carregando modelo (transformers) de %s...", model_name)
+            tokenizer = AutoTokenizer.from_pretrained(model_name)
+            model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                torch_dtype=torch.float16,
+                device_map="auto",
+            )
 
         def llm_fn(prompt: str) -> str:
             inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
@@ -347,21 +383,28 @@ def _startup_load() -> tuple[list[str], str, str]:
 # Funcao principal de consulta
 # ---------------------------------------------------------------------------
 
-def consultar(query: str, patient_id: str, model_label: str) -> tuple[str, str, str, str]:
-    """Executa o assistente e retorna (resposta, confianca, fontes, audit_log)."""
+def consultar(query: str, patient_id: str, model_label: str) -> tuple[str, str, str, str, str, str]:
+    """Executa o assistente e retorna (resposta, confianca, fontes, audit_log, modelo_ativo, status)."""
     if not query.strip():
-        return "Por favor, digite uma consulta.", "", "", ""
+        return "Por favor, digite uma consulta.", "", "", "", gr.update(), gr.update()
 
     pid = patient_id.strip() if patient_id and patient_id.strip() else None
 
     if model_label != _current_label:
         activate_model(model_label)
 
+    # Detectar se houve fallback (modelo ativo difere do selecionado)
+    modelo_ativo = _current_label or LABEL_NO_LLM
+    if modelo_ativo != model_label:
+        model_status_msg = f"⚠ {model_label} indisponível — usando: {modelo_ativo}"
+    else:
+        model_status_msg = f"Modelo ativo: {modelo_ativo}"
+
     try:
         result = run_assistant(query=query.strip(), patient_id=pid, llm=_current_llm_fn)
     except Exception as e:
         logger.error("Erro ao executar assistente: %s", e)
-        return f"Erro interno: {e}", "", "", ""
+        return f"Erro interno: {e}", "", "", "", modelo_ativo, model_status_msg
 
     resposta = result.get("final_response", "Sem resposta.")
 
@@ -375,7 +418,7 @@ def consultar(query: str, patient_id: str, model_label: str) -> tuple[str, str, 
     audit = result.get("audit_log", [])
     audit_str = json.dumps(audit, indent=2, ensure_ascii=False, default=str)
 
-    return resposta, confianca, fontes, audit_str
+    return resposta, confianca, fontes, audit_str, modelo_ativo, model_status_msg
 
 
 # ---------------------------------------------------------------------------
@@ -473,23 +516,31 @@ def build_interface() -> gr.Blocks:
 
         def on_model_change(label):
             status = activate_model(label)
-            return status
+            modelo_ativo = _current_label or LABEL_NO_LLM
+            if modelo_ativo != label:
+                status = f"⚠ {label} indisponível — usando: {modelo_ativo}"
+            return modelo_ativo, status
 
         model_selector.change(
             fn=on_model_change,
             inputs=[model_selector],
-            outputs=[model_status],
+            outputs=[model_selector, model_status],
         )
+
+        consultar_outputs = [
+            resposta_output, confianca_output, fontes_output, audit_output,
+            model_selector, model_status,
+        ]
 
         submit_btn.click(
             fn=consultar,
             inputs=[query_input, patient_input, model_selector],
-            outputs=[resposta_output, confianca_output, fontes_output, audit_output],
+            outputs=consultar_outputs,
         )
         query_input.submit(
             fn=consultar,
             inputs=[query_input, patient_input, model_selector],
-            outputs=[resposta_output, confianca_output, fontes_output, audit_output],
+            outputs=consultar_outputs,
         )
 
     return demo

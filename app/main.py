@@ -195,7 +195,7 @@ def _load_model_transformers(model_name: str) -> tuple[callable, object, object]
             with torch.no_grad():
                 outputs = model.generate(
                     **inputs,
-                    max_new_tokens=512,
+                    max_new_tokens=1024,
                     temperature=0.7,
                     do_sample=True,
                     pad_token_id=tokenizer.eos_token_id,
@@ -229,7 +229,7 @@ def _load_model_gguf(gguf_path: str) -> tuple[callable, object, None] | None:
         def llm_fn(prompt: str) -> str:
             output = model(
                 prompt,
-                max_tokens=512,
+                max_tokens=1024,
                 temperature=0.7,
                 stop=["### Instrução:", "### Entrada:", "</s>"],
             )

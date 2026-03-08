@@ -22,6 +22,7 @@ INSTRUÇÕES:
 3. NUNCA prescreva medicamentos diretamente — sempre sugira e indique validação médica
 4. Se não tiver informação suficiente, diga claramente o que falta
 5. Inclua ressalvas quando apropriado
+6. Seja conciso: resuma os pontos essenciais em no máximo 300 palavras. Não repita trechos do contexto — sintetize.
 
 RESPOSTA:"""
 

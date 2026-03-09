@@ -1,0 +1,141 @@
+% ============================================================================
+% CAPÍTULO 8 - CONCLUSÕES
+% ============================================================================
+
+\chapter{Conclusões}
+\label{cap:conclusoes}
+
+Este capítulo sintetiza o trabalho realizado, mapeia os objetivos alcançados aos requisitos do Tech Challenge, apresenta as lições aprendidas, discute limitações e aponta direções para trabalhos futuros.
+
+% ============================================================================
+\section{Síntese do Trabalho}
+\label{sec:sintese}
+
+Este projeto desenvolveu um \textbf{Assistente Virtual Médico} que integra cinco pilares de \acrshort{ia} generativa em um sistema coeso e reprodutível:
+
+\begin{enumerate}
+    \item \textbf{Fine-tuning} do Mistral 7B Instruct v0.3 com \acrshort{qlora} 4-bit, usando o dataset MedQuAD traduzido para português ($\sim$20.500 pares QA).
+    \item \textbf{RAG} com 14 Linhas de Cuidado reais e 5 protocolos de emergência sintéticos, indexados no ChromaDB via chunking semântico.
+    \item \textbf{Grafo multi-agente} em LangGraph com 7 nós --- 6 agentes especializados (triagem, protocolo, dados do paciente, raciocínio clínico, guardrails e explicabilidade) e 1 agente de infraestrutura (logger de auditoria).
+    \item \textbf{Segurança} com guardrails que bloqueiam prescrições diretas e exigem validação humana, logging de auditoria completo e explicabilidade das respostas.
+    \item \textbf{Interface} Gradio para demonstração interativa com seleção de pacientes, modelo e modo de operação.
+\end{enumerate}
+
+O sistema foi projetado para ser \textbf{integralmente reprodutível}: um pipeline de 7 scripts numerados (\texttt{01} a \texttt{07}) reconstrói todo o ambiente do zero, desde a geração de dados sintéticos até a execução do assistente completo.
+
+% ============================================================================
+\section{Objetivos Alcançados}
+\label{sec:objetivos-alcancados}
+
+A Tabela~\ref{tab:requisitos-mapeamento} mapeia cada requisito do Tech Challenge para os componentes implementados.
+
+\begin{table}[H]
+\centering
+\caption{Mapeamento de requisitos do Tech Challenge para implementação}
+\label{tab:requisitos-mapeamento}
+\begin{tabularx}{\textwidth}{cXX}
+\toprule
+\textbf{\#} & \textbf{Requisito} & \textbf{Implementação} \\
+\midrule
+1 & Fine-tuning de \acrshort{llm} com dados médicos & Mistral 7B + QLoRA 4-bit com MedQuAD traduzido. Avaliação de 7 checkpoints com 2 trilhas de métricas (Cap.~\ref{cap:fine-tuning} e \ref{cap:avaliacao}) \\
+\addlinespace
+2 & Assistente médico com LangChain (pipeline, RAG, consultas a BD) & Chains LangChain com RAG (ChromaDB + 19 protocolos clínicos) e consultas PostgreSQL para dados de pacientes (Cap.~\ref{cap:rag}) \\
+\addlinespace
+3 & Fluxos automatizados com LangGraph & Grafo com 7 nós, roteamento condicional por tipo de consulta, retry automático e fallback determinístico (Cap.~\ref{cap:multiagente}) \\
+\addlinespace
+4 & Segurança: guardrails, logging, explicabilidade & 8 regras de guardrails, logging de auditoria por interação, score de confiança com citação de fontes (Cap.~\ref{cap:seguranca}) \\
+\addlinespace
+5 & Vídeo demonstrativo & Disponível no repositório do projeto \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Destaques Técnicos}
+
+Além do atendimento aos requisitos obrigatórios, o projeto apresenta contribuições técnicas que merecem destaque:
+
+\begin{itemize}
+    \item \textbf{Avaliação multi-checkpoint}: A avaliação de 7 checkpoints ao longo do treinamento (Cap.~\ref{cap:avaliacao}) revelou o fenômeno de colapso catastrófico e identificou o ponto ótimo em apenas 1,3 épocas --- resultado com implicações práticas significativas para fine-tuning de \acrshort{llm}s.
+
+    \item \textbf{Dados sintéticos com coerência clínica}: 80 pacientes com históricos médicos completos (exames, prontuários, receitas) gerados com Faker e templates, mantendo coerência entre condições, medicamentos e resultados laboratoriais.
+
+    \item \textbf{Cascata GGUF}: Exportação do modelo para formato GGUF (\texttt{Q4\_K\_M}, $\sim$4~GB), permitindo execução do assistente completo em hardware sem GPU dedicada.
+
+    \item \textbf{Fallback determinístico}: Quando a LLM não está disponível, o sistema recorre a respostas baseadas diretamente nos protocolos clínicos via RAG, garantindo funcionamento degradado porém útil.
+\end{itemize}
+
+% ============================================================================
+\section{Lições Aprendidas}
+\label{sec:licoes}
+
+\subsection{Fine-Tuning e Treinamento}
+
+\begin{importantbox}[Early Stopping e Learning Rate Schedule]
+A principal lição do projeto: \textbf{5 épocas é excessivo} para fine-tuning de modelos 7B+ com QLoRA, e o \textit{learning rate schedule} tem impacto decisivo na estabilidade do treinamento. O melhor modelo (checkpoint-1500) foi obtido em uma sessão de treinamento curta ($\sim$1,5 épocas), onde o cosine LR schedule levou o learning rate a quase zero, permitindo convergência suave. Na sessão de 5 épocas, o LR ainda alto no mesmo step precipitou o colapso catastrófico.
+\end{importantbox}
+
+\begin{itemize}
+    \item \textbf{Qualidade dos dados $>$ quantidade de épocas}: O dataset híbrido (MedQuAD original em inglês + tradução automática) foi suficiente para ganhos significativos (+668\% BLEU, +141\% ROUGE-L), mas continuar o treinamento além do necessário degradou o modelo severamente.
+
+    \item \textbf{Monitoramento granular}: Configurar \texttt{eval\_steps=250} e \texttt{save\_steps=250} desde o início teria permitido identificar o ponto ótimo com precisão e interrompê-lo automaticamente via \textit{early stopping}.
+
+    \item \textbf{LR schedule como hiperparâmetro crítico}: A análise das três sessões de treinamento (Seção~\ref{subsec:influencia-lr}) revelou que o comportamento do modelo no mesmo step varia drasticamente conforme o \texttt{max\_steps} configurado. Um modelo treinado com \texttt{max\_steps=1.500} converge suavemente onde um com \texttt{max\_steps=5.780} colapsa, devido exclusivamente à diferença no learning rate.
+
+    \item \textbf{Colapso e recuperação}: O padrão aprendizado $\rightarrow$ colapso $\rightarrow$ recuperação parcial (Seção~\ref{sec:discussao-avaliacao}) é um fenômeno documentado na literatura, mas observá-lo em primeira mão reforça a necessidade de monitoramento contínuo.
+
+    \item \textbf{Treino único para reprodutibilidade}: Checkpoints de sessões distintas são difíceis de reproduzir e comparar diretamente. A abordagem recomendada é um treino único do zero com \textit{early stopping} e checkpoints frequentes --- metodologia adotada no notebook \texttt{03\_fine\_tuning\_early\_stopping.ipynb}.
+\end{itemize}
+
+\subsection{Arquitetura e Integração}
+
+\begin{itemize}
+    \item \textbf{RAG compensa limitações do fine-tuning}: Mesmo com um modelo fine-tuned de qualidade, o RAG com protocolos clínicos é indispensável para respostas fundamentadas. O fine-tuning melhora a fluência e o vocabulário do domínio; o RAG fornece a fundamentação factual.
+
+    \item \textbf{Multi-agente com responsabilidades claras}: A separação em 6 agentes especializados + 1 de infraestrutura facilita manutenção, teste e evolução independente de cada componente.
+
+    \item \textbf{GGUF para portabilidade}: A conversão para GGUF (\texttt{Q4\_K\_M}) viabiliza demonstrações sem infraestrutura de GPU, com perda de qualidade imperceptível na prática.
+\end{itemize}
+
+% ============================================================================
+\section{Limitações}
+\label{sec:limitacoes}
+
+\begin{enumerate}
+    \item \textbf{Dataset traduzido automaticamente}: As respostas do MedQuAD foram traduzidas do inglês para o português via tradução automática, o que introduz ruído no treinamento e na avaliação (Trilha B). Um dataset nativo em português produziria resultados superiores.
+
+    \item \textbf{Avaliação por métricas automáticas}: BLEU, ROUGE e similaridade semântica avaliam qualidade textual, não correção clínica. Uma avaliação cega por profissionais de saúde seria necessária para validação em cenário de produção.
+
+    \item \textbf{Checkpoints de sessões distintas}: Os checkpoints avaliados na Seção~\ref{sec:resultados-quantitativos} provêm de três sessões de treinamento com \textit{learning rate schedules} diferentes, o que dificulta a comparação direta como pontos de uma curva contínua (ver Seção~\ref{subsec:influencia-lr}).
+
+    \item \textbf{Fine-tuning em 4-bit com hardware limitado}: O treinamento em QLoRA 4-bit no Google Colab (T4 15GB) impõe restrições no rank do LoRA, tamanho do batch e capacidade de experimentação com hiperparâmetros.
+
+    \item \textbf{Dados de pacientes sintéticos}: Embora gerados com coerência clínica, os dados não capturam a complexidade e variabilidade de prontuários reais.
+
+    \item \textbf{Modelo de linguagem único}: O sistema foi testado apenas com Mistral 7B. Comparações com LLaMA ou Falcon poderiam revelar diferenças significativas na adaptação ao domínio médico em português.
+\end{enumerate}
+
+% ============================================================================
+\section{Trabalhos Futuros}
+\label{sec:trabalhos-futuros}
+
+\begin{enumerate}
+    \item \textbf{Re-treino com early stopping}: Um notebook com treino único do zero, \texttt{EarlyStoppingCallback(patience=3)}, \texttt{eval\_steps=250} e \texttt{num\_train\_epochs=3} já foi preparado (\texttt{03\_fine\_tuning\_early\_stopping.ipynb}). Executá-lo e comparar o modelo resultante com o checkpoint-1500 atual validará a abordagem metodológica e poderá produzir um modelo superior, obtido de forma reprodutível em uma única sessão.
+
+    \item \textbf{Avaliação por especialistas}: Conduzir estudo cego com profissionais de saúde, comparando respostas do baseline, fine-tuned e referência sem identificação do modelo. Avaliar correção clínica, completude e segurança.
+
+    \item \textbf{RLHF ou DPO}: Aplicar \textit{Reinforcement Learning from Human Feedback} ou \textit{Direct Preference Optimization} para alinhar as respostas do modelo com preferências clínicas, reduzindo alucinações e melhorando a aderência a protocolos.
+
+    \item \textbf{Integração com prontuário eletrônico}: Conectar o assistente a sistemas de prontuário eletrônico reais (com devida anonimização e consentimento), permitindo consultas a históricos médicos verdadeiros.
+
+    \item \textbf{Expansão dos protocolos clínicos}: Incorporar mais linhas de cuidado e protocolos atualizados ao RAG, incluindo guidelines internacionais e protocolos específicos por especialidade.
+
+    \item \textbf{Avaliação multi-modelo}: Comparar o desempenho do fine-tuning entre Mistral 7B, LLaMA 3 8B e Falcon 7B para identificar o modelo mais adequado ao domínio médico em português.
+
+    \item \textbf{Interface para dispositivos móveis}: Adaptar a interface para uso em tablets e smartphones, facilitando o acesso pelo corpo clínico em ambiente hospitalar.
+\end{enumerate}
+
+% ============================================================================
+
+\begin{infobox}[Consideração Final]
+Este projeto demonstra que é possível construir um assistente médico funcional, seguro e reprodutível combinando técnicas modernas de \acrshort{ia} generativa. O fine-tuning com QLoRA viabiliza a especialização de modelos grandes em hardware acessível; o RAG fundamenta as respostas em protocolos clínicos reais; e o grafo multi-agente orquestra o fluxo com guardrails que priorizam a segurança do paciente. O resultado é um sistema que não substitui o profissional de saúde, mas o apoia com informações contextualizadas, auditáveis e rastreáveis.
+\end{infobox}

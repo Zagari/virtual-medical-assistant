@@ -1,0 +1,376 @@
+% ============================================================================
+% CAPÍTULO 7 - AVALIAÇÃO E RESULTADOS
+% ============================================================================
+
+\chapter{Avaliação e Resultados}
+\label{cap:avaliacao}
+
+Este capítulo apresenta a avaliação comparativa completa do fine-tuning. Sete checkpoints do treinamento foram avaliados em duas trilhas complementares, revelando o ponto ótimo do modelo e um fenômeno de colapso catastrófico nas épocas intermediárias.
+
+% ============================================================================
+\section{Metodologia de Avaliação}
+\label{sec:metodologia-avaliacao}
+
+A Seção~\ref{sec:avaliacao-ft} do Capítulo~\ref{cap:fine-tuning} apresentou a metodologia básica de avaliação: 50 perguntas manuais comparando baseline com fine-tuned. Durante a análise dos resultados, a metodologia foi expandida para cobrir \textbf{duas trilhas} e \textbf{sete checkpoints}, permitindo uma visão granular da evolução do modelo ao longo do treinamento.
+
+\subsection{Duas Trilhas de Avaliação}
+
+\begin{table}[H]
+\centering
+\caption{Comparação das duas trilhas de avaliação}
+\label{tab:trilhas-avaliacao}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+& \textbf{Trilha A --- Manual} & \textbf{Trilha B --- Validação MedQuAD} \\
+\midrule
+\textbf{Perguntas} & 50 perguntas manuais, 5 categorias & 50 amostras do split de validação \\
+\textbf{Referência} & Baseline (Mistral 7B sem FT) & Ground truth (respostas do MedQuAD) \\
+\textbf{Métricas} & BLEU, ROUGE vs baseline & BLEU, ROUGE, similaridade semântica vs referência \\
+\textbf{Objetivo} & Análise qualitativa lado a lado & Avaliação quantitativa objetiva \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+A \textbf{Trilha A} compara as respostas do modelo fine-tuned com as do baseline, medindo a sobreposição lexical entre eles. A \textbf{Trilha B} compara com as respostas de referência do dataset MedQuAD, incluindo \textbf{similaridade semântica} via embeddings (modelo \texttt{intfloat/multilingual-e5-base}), oferecendo uma avaliação mais rigorosa da qualidade clínica.
+
+\subsection{Checkpoints Avaliados}
+
+Para identificar o ponto ótimo do treinamento, avaliamos \textbf{seis checkpoints} salvos ao longo da experimentação:
+
+\begin{table}[H]
+\centering
+\caption{Checkpoints avaliados e suas sessões de treinamento}
+\label{tab:checkpoints}
+\begin{tabular}{llcll}
+\toprule
+\textbf{Tag} & \textbf{Checkpoint} & \textbf{Steps} & \textbf{$\sim$Época} & \textbf{Sessão} \\
+\midrule
+Epoch 1    & checkpoint-1000  & 1.000 & 0,9 & Sessão 1 (5 épocas) \\
+Epoch 1.5  & checkpoint-1500  & 1.500 & 1,3 & Sessão 3 (do ckpt-1000) \\
+Epoch 2    & checkpoint-2000  & 2.000 & 1,7 & Sessão 2 (do ckpt-1000) \\
+Epoch 2.5  & checkpoint-2500  & 2.500 & 2,2 & Sessão 2 (do ckpt-1000) \\
+Epoch 4    & checkpoint-5000  & 5.000 & 4,3 & Sessão 1 (5 épocas) \\
+Epoch 5    & modelo final     & 5.780 & 5,0 & Sessão 1 (5 épocas) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{warningbox}[Nota Metodológica: Sessões de Treinamento Distintas]
+Os checkpoints avaliados provêm de \textbf{três sessões de treinamento} com \textit{learning rate schedules} distintos:
+
+\begin{itemize}
+    \item \textbf{Sessão 1} (Colab, 5 épocas): Treino completo do zero com \texttt{max\_steps=5.780}. Gerou os checkpoints 1.000, 5.000 e 5.780 (modelo final). O cosine LR schedule decai lentamente --- no step 1.300, o LR ainda é $\sim$0,000181 (90\% do máximo).
+    \item \textbf{Sessão 2} (local, $\sim$2,5 épocas): Retomou a partir do checkpoint-1000 da Sessão 1 com \texttt{max\_steps=2.500}. Gerou os checkpoints 2.000 e 2.500.
+    \item \textbf{Sessão 3} (local, $\sim$1,5 épocas): Retomou a partir do checkpoint-1000 da Sessão 1 com \texttt{max\_steps=1.500}. Gerou o checkpoint-1500, que apresenta as melhores métricas.
+\end{itemize}
+
+O \textit{learning rate schedule} cosine é proporcional a \texttt{max\_steps}: sessões mais curtas decaem o LR mais rapidamente. No step 1.300, o LR na Sessão 3 é $\sim$0,000007 (quase zero), enquanto na Sessão 1 é $\sim$0,000181. Isso significa que o checkpoint-1500 da Sessão 3 se beneficia de um LR mais baixo na fase final, permitindo convergência suave ao invés de colapso.
+
+Esta diferença é discutida na Seção~\ref{subsec:influencia-lr}.
+\end{warningbox}
+
+\subsection{Métricas Utilizadas}
+
+Além das métricas já descritas na Seção~\ref{sec:avaliacao-ft}, duas métricas adicionais foram incorporadas para a avaliação multi-checkpoint:
+
+\begin{itemize}
+    \item \textbf{Similaridade semântica} (apenas Trilha B): Cosine similarity entre embeddings da resposta gerada e da resposta de referência, usando o modelo \texttt{intfloat/multilingual-e5-base}. Captura equivalência de significado mesmo com formulações diferentes.
+    \item \textbf{Taxa de repetição}: Proporção de 3-gramas repetidos na resposta. Valores altos ($>$0,20) indicam que o modelo está gerando texto repetitivo --- um sintoma clássico de overfitting.
+\end{itemize}
+
+\subsection{Pipeline de Avaliação}
+
+O pipeline foi automatizado pelo script \texttt{evaluation.sh}, que executa sequencialmente:
+
+\begin{enumerate}
+    \item Extração de 50 amostras de validação (\texttt{05b\_extrair\_amostra\_validacao.py})
+    \item Avaliação do baseline em ambas as trilhas (\texttt{05\_avaliar\_baseline.py})
+    \item Avaliação de cada checkpoint em ambas as trilhas (\texttt{06\_avaliar\_finetuned.py})
+    \item Consolidação e relatório unificado (\texttt{06b\_comparar\_modelos.py})
+\end{enumerate}
+
+O script detecta automaticamente quais checkpoints existem no disco e pula avaliações já realizadas, permitindo execução incremental.
+
+% ============================================================================
+\section{Curva de Treinamento}
+\label{sec:curva-treinamento}
+
+A Tabela~\ref{tab:loss-steps} apresenta a evolução do loss durante o treinamento. O \texttt{Trainer} do Hugging Face registrou o loss de validação a cada 1.000 steps e o loss de treino a cada 50 steps.
+
+\begin{table}[H]
+\centering
+\caption{Evolução do loss durante o treinamento (eval a cada 1.000 steps)}
+\label{tab:loss-steps}
+\begin{tabular}{cccc}
+\toprule
+\textbf{Step} & \textbf{$\sim$Época} & \textbf{Loss (Treino)} & \textbf{Loss (Validação)} \\
+\midrule
+1.000 & 0,9 & 0,674 & 0,654 \\
+2.000 & 1,7 & 8,639 & 8,583 \\
+3.000 & 2,6 & 8,667 & 8,676 \\
+4.000 & 3,5 & 8,780 & 8,751 \\
+5.000 & 4,3 & 8,823 & 8,767 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+O contraste entre os steps 1.000 e 2.000 é dramático: o loss de validação salta de \textbf{0,654 para 8,583} --- um aumento de $\sim$1.200\%. A granularidade do log de treino (a cada 50 steps) permite localizar o colapso com precisão: o loss de treino pula de 0,594 (step 1.300) para 5,024 (step 1.350), atingindo 8,609 no step 1.400. O colapso catastrófico ocorre, portanto, entre os \textbf{steps 1.300 e 1.350} ($\sim$época 1,1--1,2).
+
+Após o colapso, o loss de validação permanece na faixa 8,5--8,8, com crescimento lento de 2,1\% entre os steps 2.000 e 5.000. Conforme veremos na Seção~\ref{sec:resultados-quantitativos}, a degradação da qualidade das respostas é muito mais severa do que esta variação sugere.
+
+% ============================================================================
+\section{Resultados Quantitativos}
+\label{sec:resultados-quantitativos}
+
+\subsection{Trilha A --- Sobreposição entre Modelos}
+
+A Trilha A avalia a sobreposição lexical entre as respostas do modelo fine-tuned e do baseline, usando as 50 perguntas manuais.
+
+\begin{table}[H]
+\centering
+\caption{Trilha A --- Métricas de sobreposição FT vs Baseline (50 perguntas manuais)}
+\label{tab:trilha-a}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccc}
+\toprule
+\textbf{Métrica} & \textbf{Baseline} & \textbf{Ep. 1} & \textbf{Ep. 1.5} & \textbf{Ep. 2} & \textbf{Ep. 2.5} & \textbf{Ep. 4} & \textbf{Ep. 5} \\
+\midrule
+Comprimento médio (chars)     & 1.225 & 1.230 & 1.256 & 1.160 & 1.093 & 706 & 1.254 \\
+BLEU vs Baseline              & ---   & 0,0312 & 0,0291 & 0,0022 & 0,0029 & 0,0027 & 0,0245 \\
+ROUGE-1 F1 vs Baseline        & ---   & 0,3007 & 0,3014 & 0,1327 & 0,1469 & 0,2064 & 0,2956 \\
+ROUGE-2 F1 vs Baseline        & ---   & 0,0793 & 0,0795 & 0,0109 & 0,0118 & 0,0113 & 0,0739 \\
+ROUGE-L F1 vs Baseline        & ---   & 0,1704 & 0,1706 & 0,0963 & 0,1024 & 0,1513 & 0,1696 \\
+Taxa de repetição (3-gramas)  & 0,066 & 0,268 & 0,275 & 0,007 & 0,006 & 0,002 & 0,295 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+A Trilha A revela dois grupos distintos de comportamento:
+
+\begin{itemize}
+    \item \textbf{Checkpoints coerentes} (Ep. 1, 1.5, 5): Alta sobreposição com baseline (ROUGE-1 $\sim$0,30), texto legível mas com alta taxa de repetição ($\sim$27--30\%).
+    \item \textbf{Checkpoints degradados} (Ep. 2, 2.5, 4): Sobreposição mínima com baseline (ROUGE-1 $\sim$0,13--0,21), repetição quase zero (0,2--0,7\%) --- o modelo gera texto garbled, sem estrutura repetitiva por ser essencialmente aleatório. Nota-se também a redução do comprimento médio, atingindo 706 chars no Epoch 4 (contra 1.225 do baseline).
+\end{itemize}
+
+\subsection{Trilha B --- Qualidade vs Ground Truth}
+
+A Trilha B é a avaliação mais objetiva: compara as respostas de cada modelo com a resposta de referência do dataset MedQuAD.
+
+\begin{table}[H]
+\centering
+\caption{Trilha B --- Métricas vs ground truth (50 amostras de validação MedQuAD)}
+\label{tab:trilha-b}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccc}
+\toprule
+\textbf{Métrica} & \textbf{Baseline} & \textbf{Ep. 1} & \textbf{Ep. 1.5} & \textbf{Ep. 2} & \textbf{Ep. 2.5} & \textbf{Ep. 4} & \textbf{Ep. 5} \\
+\midrule
+BLEU vs Referência             & 0,0388 & 0,2002 & \textbf{0,2982} & 0,0042 & 0,0118 & 0,0025 & 0,2168 \\
+ROUGE-1 F1 vs Ref              & 0,3182 & 0,4224 & \textbf{0,5173} & 0,1249 & 0,1430 & 0,1639 & 0,4403 \\
+ROUGE-2 F1 vs Ref              & 0,0877 & 0,2611 & \textbf{0,3601} & 0,0211 & 0,0290 & 0,0097 & 0,2750 \\
+ROUGE-L F1 vs Ref              & 0,1748 & 0,3367 & \textbf{0,4205} & 0,0942 & 0,1020 & 0,1189 & 0,3459 \\
+Similaridade Semântica         & 0,9036 & 0,9234 & \textbf{0,9393} & 0,8338 & 0,8414 & 0,7780 & 0,9280 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{importantbox}[Resultado Principal]
+O \textbf{Epoch 1.5} (checkpoint-1500, $\sim$1.300 steps de treinamento) é o melhor modelo em \textbf{todas} as métricas da Trilha B. Comparado com o baseline, apresenta ganhos expressivos: BLEU $+668\%$ (0,039 $\rightarrow$ 0,298), ROUGE-L $+141\%$ (0,175 $\rightarrow$ 0,421) e similaridade semântica $+4\%$ (0,904 $\rightarrow$ 0,939).
+\end{importantbox}
+
+\subsection{Análise Comparativa}
+
+A Figura~\ref{fig:evolucao-metricas} sintetiza a evolução das métricas ao longo dos checkpoints.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.9]
+    % Eixos
+    \draw[->] (0,0) -- (13,0) node[right] {\small Steps ($\times 1000$)};
+    \draw[->] (0,0) -- (0,6.5) node[above] {\small ROUGE-L vs Ref};
+
+    % Grid
+    \foreach \x/\label in {1/1, 1.5/1.5, 2/2, 2.5/2.5, 5/5, 5.78/5.8} {
+        \pgfmathsetmacro{\xpos}{\x * 2}
+        \draw[gray!30] (\xpos,0) -- (\xpos,6);
+        \draw (\xpos,-0.1) -- (\xpos,0.1) node[below=3pt] {\tiny \label};
+    }
+
+    % Escala Y
+    \foreach \y/\label in {1/0.1, 2/0.2, 3/0.3, 4/0.4, 5/0.5} {
+        \draw[gray!30] (0,\y) -- (13,\y);
+        \draw (-0.1,\y) -- (0.1,\y) node[left=3pt] {\tiny \label};
+    }
+
+    % Baseline (linha horizontal)
+    \draw[dashed, gray] (0,1.748) -- (12.5,1.748) node[right, font=\tiny] {Baseline};
+
+    % Dados ROUGE-L vs Ref
+    \draw[thick, fiap-red, mark=*] plot coordinates {
+        (2, 3.367)
+        (3, 4.205)
+        (4, 0.942)
+        (5, 1.020)
+        (10, 1.189)
+        (11.56, 3.459)
+    };
+
+    % Labels nos pontos
+    \node[above, font=\tiny, fiap-red] at (3, 4.205) {\textbf{Ep. 1.5}};
+    \node[below, font=\tiny, fiap-red] at (4, 0.942) {Ep. 2};
+    \node[below, font=\tiny, fiap-red] at (10, 1.189) {Ep. 4};
+    \node[above, font=\tiny, fiap-red] at (11.56, 3.459) {Ep. 5};
+
+    % Zona de colapso
+    \fill[red!10] (2.6,0) rectangle (10.5,6);
+    \node[font=\tiny, rotate=90, red!50!black] at (6.5, 3) {Zona de colapso};
+\end{tikzpicture}
+\caption{Evolução do ROUGE-L vs referência ao longo dos checkpoints. A zona sombreada indica o período de colapso catastrófico (steps 1.300--5.000). O Epoch 1.5 marca o pico de desempenho.}
+\label{fig:evolucao-metricas}
+\end{figure}
+
+As métricas revelam três fases distintas no treinamento:
+
+\begin{enumerate}
+    \item \textbf{Aprendizado efetivo} (steps 0--1.300): O modelo melhora progressivamente. O loss de treino cai de 1,063 (step 50) para 0,594 (step 1.300), e as métricas de qualidade atingem o pico no checkpoint-1500.
+    \item \textbf{Colapso catastrófico} (steps 1.300--5.000): Degradação abrupta a partir do step 1.350 (loss salta para 5,024). O BLEU cai de 0,298 para 0,004 (queda de 98,6\%) e a similaridade semântica cai abaixo do baseline (0,834 vs 0,904).
+    \item \textbf{Recuperação parcial} (steps 5.000--5.780): O modelo recupera coerência textual, com ROUGE-L atingindo 0,346 (82\% do pico), mas sem alcançar o desempenho do Epoch 1.5.
+\end{enumerate}
+
+% ============================================================================
+\section{Análise Qualitativa}
+\label{sec:analise-qualitativa}
+
+A análise lado a lado das respostas confirma os resultados quantitativos. O exemplo a seguir ilustra os três regimes de comportamento para a pergunta ``Quais são os principais sintomas do diabetes tipo 2?'':
+
+\subsection{Baseline (Mistral 7B sem fine-tuning)}
+
+\begin{tcolorbox}[colback=code-bg, colframe=fiap-gray, fontupper=\small\ttfamily]
+Os principais sintomas do diabetes tipo 2 incluem:\\
+1. Sensação de sede e fome constantes, devido à falta de insulina ou a sua ineficácia.\\
+2. Frequentes urinações, especialmente à noite [...]\\
+3. Perda de peso sem qualquer esforço [...]\\
+4. Visão turva [...]
+\end{tcolorbox}
+
+Resposta bem estruturada e clinicamente correta, porém \textbf{genérica} --- poderia ter sido escrita por qualquer modelo generalista.
+
+\subsection{Epoch 1.5 --- Melhor Modelo (checkpoint-1500)}
+
+\begin{tcolorbox}[colback=blue!3, colframe=blue!60, fontupper=\small\ttfamily]
+Os sintomas do diabetes tipo 2 incluem - Aumento na micção - Sentir muito fome ou cansaço - Perder peso sem tentar - Feridas de cicatrização lento - Tireoide aumentada - Manchas na pele - Dor ou sensibilidade nos pés. Os sintomas podem ser lentos e súbitos e podem variar de pessoa para pessoa [...]
+\end{tcolorbox}
+
+Resposta com \textbf{terminologia do domínio MedQuAD}: lista de sintomas formatada, menção a variabilidade entre pacientes. Demonstra absorção do conhecimento do dataset de treino.
+
+\subsection{Epoch 2 --- Colapso Catastrófico (checkpoint-2000)}
+
+\begin{tcolorbox}[colback=red!3, colframe=red!60, fontupper=\small\ttfamily]
+Os açúcares -, çãomoglioseicaçãomogliose/gluconeogênese-{}-,o corpo produz çãomogliose um açúcar a ponte, çãomogliosee gluconeogênese sintetizicação çãomogliosea forma o açúcaroiaicação (corao), cérebro çãomogliosee gluconeogênese çãomogliose [...]
+\end{tcolorbox}
+
+Texto \textbf{completamente incoerente}: neologismos repetidos (``çãomogliose''), fragmentos sem sentido, estrutura gramatical destruída. Este é o colapso catastrófico em ação.
+
+\subsection{Epoch 5 --- Recuperação Parcial (modelo final)}
+
+\begin{tcolorbox}[colback=green!3, colframe=green!60, fontupper=\small\ttfamily]
+Os sinais e sintomas do diabetes tipo 2 incluem urina muito escurecida, sensação de fome e cansaço, visão turva e cicatrizes na pele. A maioria dos sintomas do diabetes tipo 2 não são tão graves quanto os sintomas de diabetes mellitus de início agudo (DMIA) [...]
+\end{tcolorbox}
+
+Texto \textbf{coerente} novamente, com terminologia médica adequada. Porém, contém imprecisões (``DMIA'' não é um termo padrão) e apresenta alta taxa de repetição (29,5\%).
+
+% ============================================================================
+\section{Discussão}
+\label{sec:discussao-avaliacao}
+
+\subsection{Epoch 1.5 como Ponto Ótimo}
+
+O checkpoint-1500 ($\sim$1,3 épocas) maximiza todas as métricas de qualidade. Este resultado é consistente com a literatura sobre fine-tuning de LLMs: modelos grandes convergem rapidamente em datasets relativamente pequenos, e continuar o treinamento além do ponto ótimo degrada a generalização.
+
+No nosso caso, o dataset híbrido tem $\sim$20.500 pares QA. Com batch efetivo de 16, cada época corresponde a $\sim$1.156 steps. O modelo atinge seu melhor desempenho após apenas \textbf{1.300 steps} --- menos de 1,5 passagens pelo dataset.
+
+\subsection{Colapso Catastrófico e Recuperação}
+
+O comportamento entre os steps 1.300 e 5.000 é notável:
+
+\begin{enumerate}
+    \item \textbf{Colapso} (steps 1.300--2.500): O loss de treino salta de 0,594 para 5,024 em apenas 50 steps. As respostas se tornam incoerentes, com neologismos e texto garbled. A similaridade semântica cai \textbf{abaixo do baseline} (0,834 vs 0,904), indicando que o modelo ``esqueceu'' conhecimento do pré-treinamento.
+
+    \item \textbf{Degradação máxima} (step 5.000): O comprimento médio das respostas cai para 706 chars (57\% do baseline) e as respostas se reduzem a sequências de caracteres sem significado.
+
+    \item \textbf{Recuperação} (steps 5.000--5.780): O modelo recupera coerência textual, com métricas próximas ao Epoch 1. Este fenômeno pode ser explicado pelo \textit{learning rate schedule} cosine: a taxa de aprendizado, que atinge valores muito baixos ao final do treinamento, permite que o modelo se estabilize novamente.
+\end{enumerate}
+
+Este padrão difere do overfitting gradual tipicamente observado em modelos menores. A combinação de \acrshort{qlora} 4-bit com rank 64 em um modelo de 7B parâmetros cria um regime de treinamento em que pequenas perturbações nos pesos adaptados podem ter efeitos desproporcionais na geração de texto.
+
+\subsection{Complementaridade das Métricas}
+
+A avaliação multi-métrica justifica-se pela complementaridade dos sinais:
+
+\begin{itemize}
+    \item \textbf{BLEU e ROUGE}: Capturam sobreposição lexical. São sensíveis ao vocabulário utilizado mas insensíveis a paráfrases.
+    \item \textbf{Similaridade semântica}: Captura equivalência de significado mesmo com formulações diferentes. A queda abaixo do baseline no Epoch 2 (0,834 vs 0,904) é particularmente reveladora --- indica que o modelo não apenas ``fala diferente'', mas ``fala errado''.
+    \item \textbf{Taxa de repetição}: Detecta um sintoma específico de overfitting em LLMs. A correlação entre repetição alta e coerência (Ep. 1, 1.5, 5) vs repetição baixa e incoerência (Ep. 2, 2.5, 4) é um indicador indireto: modelos que não geram texto estruturado não produzem padrões repetitivos.
+\end{itemize}
+
+\subsection{Influência do Learning Rate Schedule}
+\label{subsec:influencia-lr}
+
+Conforme documentado na Tabela~\ref{tab:checkpoints}, os checkpoints avaliados provêm de três sessões de treinamento com \textit{cosine learning rate schedules} distintos. Esta diferença tem impacto direto nos resultados.
+
+A Tabela~\ref{tab:lr-comparacao} compara o learning rate no step 1.300 (ponto que antecede o colapso na Sessão~1) entre as diferentes sessões:
+
+\begin{table}[H]
+\centering
+\caption{Learning rate no step 1.300 por sessão de treinamento}
+\label{tab:lr-comparacao}
+\begin{tabular}{lccc}
+\toprule
+& \textbf{Sessão 1} & \textbf{Sessão 2} & \textbf{Sessão 3} \\
+& (5 épocas) & (do ckpt-1000, 2,5 ep.) & (do ckpt-1000, 1,5 ep.) \\
+\midrule
+\texttt{max\_steps}   & 5.780     & 2.500   & 1.500 \\
+LR no step 1.300       & 0,000181  & 0,000023 & 0,000007 \\
+LR relativo ao máximo  & 90\%      & 12\%     & 3\% \\
+Loss no step 1.300     & 0,594     & ---      & 0,558 \\
+Loss no step 1.400     & \textbf{8,609} (colapso) & --- & 0,569 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Na Sessão 1, o LR ainda alto no step 1.300 permite atualizações agressivas nos pesos, precipitando o colapso catastrófico entre os steps 1.300 e 1.350. Na Sessão 3, o LR já próximo de zero permite que o modelo refine os pesos sem risco de instabilidade.
+
+Portanto, o bom desempenho do checkpoint-1500 (Sessão 3) não se deve apenas a ``parar no momento certo'', mas à combinação de:
+\begin{enumerate}
+    \item Pesos iniciais de qualidade (herdados do checkpoint-1000 da Sessão 1)
+    \item Learning rate em fase de \textit{cooldown}, permitindo convergência suave
+\end{enumerate}
+
+\subsection{Implicações para o Sistema}
+
+Com base nos resultados, o \textbf{checkpoint-1500} (Epoch 1.5, Sessão 3) é o modelo recomendado para uso no assistente. Suas vantagens:
+
+\begin{itemize}
+    \item Melhores métricas em todas as dimensões avaliadas
+    \item Ganho expressivo sobre o baseline ($+141\%$ ROUGE-L, $+4\%$ similaridade semântica)
+    \item Sem problemas de colapso --- treinamento com LR em fase de cooldown
+\end{itemize}
+
+O modelo é exportado para GGUF (\texttt{Q4\_K\_M}, $\sim$4~GB) para execução sem GPU, conforme descrito na Seção~\ref{subsec:gguf}.
+
+\begin{infobox}[Lição Aprendida: Early Stopping e LR Schedule]
+Este resultado reforça a importância do \textit{early stopping} e da escolha adequada do \textit{learning rate schedule} em fine-tuning de LLMs. A configuração de 5 épocas, comum em trabalhos com modelos menores, é excessiva para modelos de 7B+ parâmetros com QLoRA: o colapso catastrófico ocorre em apenas 50 steps quando o LR permanece alto.
+
+A abordagem metodologicamente mais limpa é um \textbf{treino único com early stopping}: configurar \texttt{num\_train\_epochs} conservador (2--3), \texttt{eval\_steps} e \texttt{save\_steps} frequentes (250), e \texttt{EarlyStoppingCallback} para interromper automaticamente quando o \texttt{eval\_loss} parar de melhorar. Isso garante um cosine schedule que decai naturalmente, checkpoints granulares para análise, e reprodutibilidade em uma única execução.
+\end{infobox}
+
+\subsection{Limitações da Avaliação}
+
+\begin{enumerate}
+    \item \textbf{Sessões de treinamento distintas}: Os checkpoints avaliados provêm de três sessões com LR schedules diferentes (Seção~\ref{subsec:influencia-lr}). Embora as métricas sejam comparáveis (mesmo dataset, mesmas perguntas, mesmas métricas), a comparação direta entre checkpoints de sessões diferentes não equivale a avaliar pontos de uma curva de treinamento contínua.
+    \item \textbf{Métricas automáticas}: BLEU, ROUGE e similaridade semântica avaliam qualidade textual, não correção clínica. Uma avaliação por profissionais de saúde seria necessária para validação em cenário de produção.
+    \item \textbf{Dataset de referência traduzido}: As respostas do MedQuAD foram traduzidas automaticamente, introduzindo ruído na referência da Trilha B.
+    \item \textbf{O papel do RAG}: No sistema completo, o modelo opera com contexto de protocolos clínicos via RAG, o que mitiga limitações individuais do fine-tuning.
+\end{enumerate}

@@ -23,6 +23,8 @@ import os
 import sys
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
@@ -34,14 +36,7 @@ DEFAULT_MODEL_DIR = PROJECT_ROOT / "models" / "medical-assistant-final"
 GGUF_OUTPUT_DIR = PROJECT_ROOT / "models" / "gguf"
 QUANTIZATION = "q4_k_m"
 
-# Carregar .env se existir
-env_path = PROJECT_ROOT / ".env"
-if env_path.exists():
-    for line in env_path.read_text().splitlines():
-        line = line.strip()
-        if line and not line.startswith("#") and "=" in line:
-            key, _, value = line.partition("=")
-            os.environ.setdefault(key.strip(), value.strip())
+load_dotenv(PROJECT_ROOT / ".env")
 
 HF_TOKEN = os.getenv("HF_TOKEN", "")
 GGUF_HUB_REPO = os.getenv("GGUF_HUB_REPO", "zagari/medical-assistant-mistral-7b-ft-gguf")

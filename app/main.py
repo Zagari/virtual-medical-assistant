@@ -8,10 +8,13 @@ import sys
 from pathlib import Path
 
 import gradio as gr
+from dotenv import load_dotenv
 
 # Adicionar raiz do projeto ao path
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
+
+load_dotenv(PROJECT_ROOT / ".env")
 
 from src.flows.graph import run_assistant
 

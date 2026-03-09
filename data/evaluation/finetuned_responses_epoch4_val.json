@@ -1,0 +1,312 @@
+{
+  "metadata": {
+    "modelo_base": "mistralai/Mistral-7B-Instruct-v0.3",
+    "modelo_finetuned": "models/checkpoints/checkpoint-5000",
+    "tipo": "finetuned",
+    "timestamp": "2026-03-09T03:40:06.079285",
+    "total_perguntas": 50,
+    "device": "cuda"
+  },
+  "respostas": [
+    {
+      "id": 1,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da Sindactilia tipo 3?",
+      "resposta": "/ / ,ada-/  ada,  um,ado/ ///// c/  uma e   … e, é  /a/ e/ado  uma, é  que, ,- / -,,   a/ um  um   umaica/, e,- 想- * *想, e/ado   //ada,   de,  queo  / ,,/ica que  деo /  * -  (/, é cado queada//,   / e  -   ,/, ,(, ada/  uma… - a c,a    uma/ /s deada    * , у у,, adaada /   / c/,  e/ ( que ( - … queada  -,,,/  e,/ /ada /, /想,//, ( de立, ,, / de    de   uma ica  que  e / -,-/,,  e(- *o ada ,   , ,ada想   e  - *  у / ada ,/ada  oada  um, que  s   e- deado e //,  / ,,  або   /  , у /  uma//-/ /, de/, umaao  уada,, , ,/o  é      у/, -…  um абоs,ada c/…  , //   e ,/ у, -/, / /   o /- ado é,/ ,//,   e  e 想 (//o queada de/adaada-, 想, / ,/  *   e  -  de ada  /, e想 ,  або- e/ / uma uma ,-  (o  / de ada    */ o,/-/,   у /, / e/"
+    },
+    {
+      "id": 2,
+      "categoria": "validacao",
+      "pergunta": "Quais são os tratamentos para Queilite glandular?",
+      "resposta": "ada,,/ uma adaadoica de *  /   es e  é es - que/   /,   / que e uma  (  e  -,/ / eada у /ada або, 想//, eada  uma/ * que ada  /, ada/ de é/adaa que,,  / de,//ado / uma  у,s , e, у //  立    e  de/, ,立ada ,/ada у que e/, -    /(// ,,o  icaada  (ado  de de  (, ,/ oo c/-想,,   ada ado c у de-     ( e/, c ,/,,o,,/,- /ada ,, …-,  ,, a c  ,想o e// , (, /-立/立 у/,  ,, /立   ada/  /ica/  e, у  o  у/ ,/ ,o /   e  ,ada  (  o /, de , o/ s у  de/ 立- cado, e/ / де ada , , 想, o想 або/ o/, ,, c ,,  uma…ada,/,,/… deada/ que /   ( ,,/ у , ada , - ,   uma- ,,  o /- /-    c/ ada  *  * ,  ,/  ,o que é/  ,a,--o /, * e e //  / que que  oa/  立// adaado/立/// / / é /o/,, ,/ e    e/  /ada uma ,/ e у ,, /  c  / /, ,ica  o у//立, ,,/ у/ *"
+    },
+    {
+      "id": 3,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à síndrome da microftalmia de Lenz?",
+      "resposta": ",c / de     e c,ada   e / e  e ,    /立 / / де  de想   / /  /, /,,, ,ada (o ,/ de/, e, / de//  * // , / s   -  -o у c де/ queado    e , / , -/, uma/ que想  umao  /    / ,/    або у, -  / que /  / , ica ,  ado想 e (ica  uma   /想 e, ,ica  e,/,  //  / e   *    e    *ado ada /ado або e */   /  que de de / ,, de a-  -o c que *…/   // a/  у  de e/ada…  (ada   ,, e   ,o  eado de або - oo у  uma   que, ,立 ( 立/ /-,       e , e  / 立/( уa  (a/ de-,/o, s/   que (, de,  uma/ , e uma  e   s/   e     o  ,//…/ado eo   de deo / é//(/- uma adoaicaado    */    é  de/ /,(, é  que立 (   e  або ica/ ,  (,/ de  /(     -  / uma/  / 想/   уada,  e/ e,, e /ado deado/(/ 想   у e/  想,,想 c/立/    ,/ que у想/  //   // deica   de, , ,o ,/ o deada  uma/, * /"
+    },
+    {
+      "id": 4,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) insuficiência ovariana primária associada ao X frágil?",
+      "resposta": "um   adaada  /o/, uma/ //ado立,/,ada  , é  c // uma/,/ у  або / que/,/, umaa  /, , um- … deada  ,/icac /ado deado, //,c/  /,  /ado/ 想/,  deo uma /  *-  * /ado/ , , /,s   ada//ada,s 想,/ ica//      /, um  -/ de/ adoc adaado/o/  e- s/,/c,  /   ao, ( ,/ у, de *ada   ada  c/ica / ,, / / , cadao…ada ,  , у, o у /,,, уa  e  e/  uma ( або-… e    -/  c-o, ica立 que/ * de /  * e /a / c (ado  e,-/ 想      que  ,,  deadaada e,  c e/ que,/,-, ,, e,, / eadas ,, ,ado //  que   , de / (icaada/ada /  ada ado, e, 想  / de   ,   */ada ,/ , de/    ( //    que  ,  / *      …--  /,   /ada…, o  ada //,, uma або e  ,ada ada  um  у / ,(  * *-    uma de/  o     e  (ada /   ( //o,  c e-, e,,, o/ada e e /  de que/, ica,/ / s-想//ada, 立o e - c */ , ada   c /"
+    },
+    {
+      "id": 5,
+      "categoria": "validacao",
+      "pergunta": "What are the symptoms of Corneal dystrophy of Bowman layer type 1 ?",
+      "resposta": "// que (ada 想 éo-想/ e * de    / de   /   é-  / (//立/想 um…   e */,ada/  立/ e //  ,/  ,  / у,/ c,/ або c,/, c é ,,(  / queado / e e/ada,/ /,o/  / /-/ , / ,-想 /想, uma /, c // um-  у/ada é/ c/-   desada…ada ado  um/ / uma e//-/ /, ,   /,/, або   у або,,/  de/  de    c    /,想/想 , / c/  de想 /-想 /s de, у// s立 o   *  e o/, uma  */- 想   *-/,          /-,/(  e,  /ado/ eada   / ,/ де ( ,   que//  e/ é /ada …/-ada   ,/ , , …/,, umaada- / /,/…ica     想, // /   -ada, -/  um ,/ queica- у  у umaada想///   ada-a ada, que  uma//  у,…ada  у icao s , ,  oado ,,- у/a… e   / ,, um-,  ///- ,  a  ,  ,…c  ,  - ,//,ada/  ,  -//   , de /a/o /- уo   uma, de de    de/ada,o,, , e, / ado o  ,(ada  ada ,- que e想 de ,"
+    },
+    {
+      "id": 6,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas do retardo de crescimento intrauterino com aumento da sensibilidade à mitomicina C?",
+      "resposta": "c/  ada o de /, ada   /  ,想- que(  s  uma , /    // -c/ica  ,c,/ ado /  adaada,   - // ,ada( //  //,  -// у     e e / de-  ,  ,-  /, /, , /  / o uma a/  c/ oo    uma,o, de/-  , o… / e/ ,  або, c / ica que,  (,   *,,  e o- uma,,,… e,- é,sa…ada/…/,o   */, -,o , uma/   / ada 想// e */,     ada  c/  , --/ /c/, /  /  que/ /, або -, /, deada-ada     e, e/adaado que/  a/ /  / ,/ e, c/想  *立 ado/  uma   e   um … c/ e ,/ica- //      c   /,/  o,  */  ,s   c // ,// де,, де  c( //,   / /立//-cada es/    /ado(  //ado-… /,…,想 ,oada de, o, у  a    або   de ,c *ado-a um/  (/  c 想 e e/ ada, , de/,ado-,   (o   de, e/,/ * / у  /   想o //oa,/    /a ,  c  /s / , //ada  e de //  uma/,想ada o-,ada想,/"
+    },
+    {
+      "id": 7,
+      "categoria": "validacao",
+      "pergunta": "Quais são as perspectivas para o câncer uretral?",
+      "resposta": "c…,ada - que// uma  ( / або (   /, ///  e /   (/,, adaado / , ( de e/ e/ada/ у/ é c, ada/-, / / a/o de ado // c adas/ de éada ,   //…a / ada / 立  у,     * o/ de  *//想/, /,ada,ada  ada/ e / ,/ , o  um e /  de/ ada/ ums um adoa eica/ um um/ o // / cada,,/ /,,   *adaadoicaada  é ( ao  é  c  /  , ,… ,  想, de/    de    que  ,, -- ,, é, /  у立//ada  / uma    /,(ada que  ,a  uma , ica *,,i想    c de,ada *,-   de e ,  ,,/ ( c   /立o у,/, o que  *  / -, /aa,   e, ada   , * c ada  ,   /,  que  / / de   /  uma   / é ,/ - //// / (a … uma  / /  o   , 立  /  想   у/ у, /ada ( co,// (ada ,/ada  ,  uma/o o   /// c / , uma  c/    / umas um   é/o,- ,,--, -,a 立a /   ,a / de de у  e  ,adaada ada  ,  /,,/,o або c     adoadoada ,  /// e e 想"
+    },
+    {
+      "id": 8,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da distrofia do cone ligada ao X com brilho tipo tapetal?",
+      "resposta": "у e / e  ,  , e uma,, / 立, ,, у або de    e eica    /, de ado /,a ado ada ,/   /  ada   c 立,立,ada/ica/-/adao, um/, ,,    c  ado , s想 / e de , e    é想/立想s o um o    o que   que /, / (-… de ada e ,… /, *立/ (  ,/ que ,ada de  ,    ada,-,, ado  , * / uma,/, , ques想  ada, a   ada(  e     ,o- e o    e   o/ e é/-想  //a  ada e,,o,/,  / / 想 /// / ,/ / c de-  ( 想  … oadas/  ( -  é c    de *   // ,/   e   ,/a/ sada/ e //  uma/ /   uma/  que de  eica ado/, e -ado uma e / que/,  / - /  / ,ada /    ado, , /想  ,o */  uma,,/ у s de / //  (, /   que c , * /, um-      …    e, c   * e ado, / *  ,a /ada  або/想ica  , de ///   , ,,,  , у// /c  o, é/o umaao立sadoica   , у e / /,,想,// /,a // ac або ,,  ado- é  ada- * / s у"
+    },
+    {
+      "id": 9,
+      "categoria": "validacao",
+      "pergunta": "Quantas pessoas são afetadas pela síndrome de Feingold?",
+      "resposta": "уada,   , 想  /, deada/ / - /adoo/, / ,  ada,…/ e або,    que adaadoada é   e   або/     /(  //   */,ada або é у e --/ que   e  /- c або ,  ada que    , de想    ada  ada ,/, /s,     de/ уica,,a e sa/ у,  / / /  é  * ada / // -    ,  ,/,  de de/ado 想 que   uma * e/, ,  de想 ado//  / é de  у, e ,,,   *  uma queado/ у,       / o, é ,  ,, / e /   ada  /  /(  * s, ,/adoada de c,,  ( um/ * e   /   ada   /,  e e  /adaa, / ada,         que,/, e / -  /    de  *, ,/ é     / *s, uma//o  de/  у ,-   éoada    ( é/,,/   dec,-ada-- a ,   (, uma,/ , c  uma quea e de /(  que   //,  - , , que立- ,,, , oada/, ,立 /  ( e, у-  , de   - -,/ que  e e  /, / e,  eada,, que de ,立, o uma  /,,// e  de     想  ada/ de,, / (a é,,    de de  e   /(  у /"
+    },
+    {
+      "id": 10,
+      "categoria": "validacao",
+      "pergunta": "Quais são os tratamentos para a distrofia neuroaxonal infantil?",
+      "resposta": "um,,,,,ica/,/ /ada або  /a   /, /想  */ ,, e/-  , o /ada  o/  e   /  ,   //, de   ( e umao   /, ,,--   ( queo/s-ada aadaada  ,/- /,/,…ada /, / eoa  de,,,,,ada /  de  (   o  é,/ * de-  /    c   / /--/ é   / que/- o , / de (  /,/ de/, adosado / o  想/,ada-ada- uma *  // /  у,,  de/, é// 立    ,/,, , uma /  deo/ ada de e,/,/    c/   de  , a立  *c/( //   де ,  cc  c de/a,  у想   ,     c де  é 立  ,    e que    o  ado uma/   e   ,     -/, /o  um立  у ,    (o,a/ ada queo   e /  / e   ,,  de/ica,///立, e ,立, /   ,  uma/  / 立   /  ica ada   у a/ / e e   / o que想 у / eo ,立   / // ,,   або de   立 ,/ / , ada   у  a/    ,       想 / ( c/ (   é  ica  / ada   ada  ado (,,a é/c  e  / / e   / /"
+    },
+    {
+      "id": 11,
+      "categoria": "validacao",
+      "pergunta": "Como prevenir a cardiomiopatia?",
+      "resposta": ",/,  c ,, у o/,//ada, ado,ada/  /    /  é /   (  , /  , /   */   /  ,/ / de/ e e  / o uma/  /  c cadaa c,  /  / o… *   de ado,/ (   / /oada  / /   c ,- / de uma想 - , ,想 ,s/ / , /  , e , (,  - é, ada/  у,立 e/ (/ deo  e або  que  想  /  que  /  , / /  que , um/,,ada/-      que c ( é o  у立想,/   // // e想--  / ado e de ,/ada   des  / um-/   uma de/ /ado que,ada /  queada * cada /,,,  é    e   / e- ,,/ /  é , (/// e ,ada/ e  /,  ica/ * /  ada de,  um é a/,  / e立,   //, ,  або-- *c   ,/, e/  /立 c/ que  , ,     /ada/,,, / *  /ica e e eadaa,   *,,,/ /,/想 *  de/ - eo//,,想/-o * ,  , /  eicacica, uma,ao (,立 -/ , de   /,/ , /  a (  de e /  deada/ uma e  * (   /o queada/ / ,/ ado e de або/,…   c uma uma  або,-ica / c,"
+    },
+    {
+      "id": 12,
+      "categoria": "validacao",
+      "pergunta": "What are the stages of Plasma Cell Neoplasms (Including Multiple Myeloma) ?",
+      "resposta": ",-  ada  e, (/sica/  / де , ,/ / /- , ///( uma e  ,ado /想 uma/ -adaada,( -/   , ,- у  e que…  e-a  ,o,/  /,     ,/ ///-/ у e  /  ( o uma é, у-  -//  ,/, ,   - уada *o , um/  *ada,/   , e  e ado … /  у c/,, e  e/ada    é/ e /,…  /   * *, /, /,ada /   ada /…( e  a//  de / , ,, uma / uma-  c想/ ca уo umaada/,/  / або  e/ada c/ *o/  /  e um, / ( cada-/ , uma/, (,  ,,adao  ,-, es c,ada//  ,立 e/o 立 e *    de/,/ uma  (,a e é//   e eo o , que у ada c de,,… a- ada  e   / e / o uma-,, c     de // uma  e, - oo     e  //ica,  e /,/ c/ /, ,ado  , / ,ada -  *    /, ,ada  *, a/  e s um,- de  de//icaadaada ///s,- , / ,  o éo/ de a c абоo/ de   ada,/-/,  ,, e або de  ,-- //    ,  у * , de//,  想adaadoadaado   de/想ado  // /立  /"
+    },
+    {
+      "id": 13,
+      "categoria": "validacao",
+      "pergunta": "Quais são os tratamentos para a síndrome de Brooke-Spiegler?",
+      "resposta": ", ica,  queo,   /sa e e у um… que у// c… de,/ ada que///o c cc uma  um,   у  de ,- e c   uma ,( eo, a    e     / / / ,/ica   /c…- ,    e   umao // (a  deado um/立 (  у  , / de, c , , у(,,   é   que//, e ,,(   a    ,ada//- у  / / e é ( é  uma/, /      e (,, c/  adaa, або é   co  a /o  ,   /,-, -,   o/// */   у  або    *,想 , / ,ada,, ,, у   /,/ *(    uma,/ -/ ica    ,ada, - eica (/, / /, ,,ao/ або- , c/ /ado/ cada/  / e/(  c,想 ada s, / /, e  уada  de eoada  ,/想 uma e- ,  - 立/ uma/   a/ c  ( ado uma,,立,,// uma ,adaa, de e -   / /adao (   ado , ado/   (  ada/  / uma абоada /,//s  /(  // e想 ,   ( de de /,c de,  ///ado--想adaada  c/,,  ( uma/ /  ,/ e ada/ ica ada que/ ,  e de e/ada eada/  e/  o , /// ,  /, 想, e  um  e e/"
+    },
+    {
+      "id": 14,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da catarata polar anterior 2?",
+      "resposta": "///ada , , a, //  é/ada   /,,, c ,,,/, o…, uma  /  / * oica  /       /  ada de / ada…/-,  / у ado/ um/,, eo e/  ada  de c/… a  um oada/立 у/ , /o que e ,,,立adaoada   / /  e  у- de/, ,,/o e,    éada , a  ,  ,ada  * que/,… uma,  e --ada /    /立 que / де , , uma/ / uma é  у,adao  у s /想oa/   e,  c   // /  , / // e eado / a *  //ica  cada/, -…ada    deado /  /, de / -立 */  або,,/立/ /( deo,  /   o  é -  *-/  */ uma/,  у   eoada   e,/  que   / ado de // c  想 ,  , sada, que e umada  , umaada    ada    e立 (adaa ,  ,  /  або um    / /      -sado 想, , a  /,/ /  */ que  *-  //,/ado  /oo  de adaa/adao      абоada (   e, , ,/, de,,   ,ada ( e e,  / ,  ,ada  e e *-//, o   *c/   c   або / o,(… que, de,  é ,, /,     / ,  /ada"
+    },
+    {
+      "id": 15,
+      "categoria": "validacao",
+      "pergunta": "What is (are) carnitine-acylcarnitine translocase deficiency ?",
+      "resposta": "/ ,   , e,/ / *// або    /ado  / eoado,,     ,//,// / que que,ada // um/ e/  a / a- /,/  - у, ada ada,  …- /  у/ada, ,o    é-    ica,o uma/  e    que/ /o,/, /     * es   /  que(    *  * e   /  ica立 ,-想 uma/,/   e,   (/   想 /   // -// de c *  de  / // sada   ,   ,/-/, de    uma/ o    想 e  a e/ ,  /  / uma -ada …  e um  / eada,立,   e (/  /  *  e,/-/ / uma- -     /    e/ de  e, o або , a ica/ de  / ,//   ,/,…/  , o ado-/ ( /  / / ,    想,-/ * de,  ,/ у  e  /ado e  */,/ , *  o/  ,  de(   / 立, / um deica/,,, , uma,  de/ або    , / * que    *立,想       e,…/ *  , 想/ica/ é у  *立ada… у, de e    ,  uma, у , c// - que c,  або uma/o,     uma /  um /adoada *ada,/  s/ de      uma  e-,, -/, у *, ,    ( -"
+    },
+    {
+      "id": 16,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) Meningite?",
+      "resposta": "/   у   s * , / o/ado / uma ica  або  um  ( e- ada-/ */ /  e      um, /s    /,ado/ada //,/  立  //   у  / uma/ de/- ,/-, s  o/ uma,  … um /ado  у///// de  ada   /o/-   想,adaado é ,/, , , ,/   або,/   uma- ,ada  que//,,- / * / e /  想ada (- o é e a / e/      (,    ,  у -   uma umaada ( / um  uma/ --/////   / ,///  /想/ */,,  de/ada ///,  uma/, e/ уos ,/,-   ado /o  / deada,ada // ,,-, de,/ * e que/( ica  / um e  de  (/, у de/s , ,    eo/ada/,/(  або,    / umao /  *// (//,(c   , * uma, … de у um *   ,   де, uma o,,, co c або/… ,  de (/ éada de (o /   é o  adao e-, ( */ e, ,   у * e- de   , /,, e s/,/ de-…  de  s …ada у想 ,, ,   c (/ uma   es ,,想  o   uma  umaa/( ,/  / ,(/,        , - ,ado  ,,/  ,//   de"
+    },
+    {
+      "id": 17,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da tríade Currarino?",
+      "resposta": ",,- ,,/ / -ada/ooada   e (/ (/,ada/   é  // //o-  ,a /  a o/ que  // / 想/  c/  de-/ adaada ,  ,,/// у é, é/a e,, /  ,/ de-  , / /   umada,  //ado uma/ada ica, ,, ea - e  立//     - або/ / або/ …a-  -  ada想s/ e ada/( e e// éo  у/,   / , //     que де / e  ada ado é/    a  , /  e    (ada   (想/ada /   e,立  ,//, c    /ada  eo/,- (   або    (,,, / /,想 */ada de,/ ,/  / é /  ,, /, 想想/,///  / ,, a/  de,/,  queo або/ e ,  де…/o-  que立/ (//,     / /s,,, * / -    de/ / / /  або// uma   /-  / eado / ,/ * e 立      ( (s   ,,o  *  /  ,/   c/   e  ,,    e,立  立oica…adaada  /  de  * /  /(, e ,  або/ ica , / / , (/ e e  de,/ ,, (,ao /ada /  que que,/  c    *,a (c/……/   o /c /    ,"
+    },
+    {
+      "id": 18,
+      "categoria": "validacao",
+      "pergunta": "Quantas pessoas são afetadas por infecções do trato urinário em crianças?",
+      "resposta": "/    / 想 /,  ,,…   oada uma/- de,  de ,  e  dec/a  -/ //,/ e,/ , //adaada,  c,     o ada/ c de/,a /- o想 /,/  o é,/ / - e,    /  e o/    想 / c / /, або ,  e    o/ у ( / /  /ada   uma  ,,  c  o de,  / que / ,-, adaada,  у,/…s ,  або  uma (/o  або- /    // de/ ,,    e um e *    umo  uma (/ de/  /  де ( é  ,    ea,/ ,// ado, /, ado/ uma  / … /,, e é,  que e    um/ de   a/ado ,/,   umao/ o e//    e/ //, // ada/ada - ada *   -o e  / / , , //,    / / // (/ c-         想 / *   ( que  / de// //…/   c   a  * ///  e…ado c,   ,  ,   /ada i /  /s  / dea / * - umao/, //,- que ada  o- um , c-//s /  eada   - e deos   /,, *,, (, o… que/     é/(/  /,  e *-想   deadaada ( ,ada /ao c e - ,/  * de, ,"
+    },
+    {
+      "id": 19,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à deficiência de fosfoglicerato quinase?",
+      "resposta": "/ que/ e, / deada um é -o, , / de   c de  /  /  …想    o/ e-,  ,, e, / /    ,o,  ado c  que,ada, … e  de//-/ de /,   // um/  , e,-,/ umaica  ,  ado/, абоa,   *  / e  ,  (/  /,   ,  , de // é ,s/想//,/- de   umada  ,ada,o //,ada,-  ada de  cadaa -adoado  é umaada/ або   想 або想  / у e c  de/ /- у   ( ,/a/,/, ,  ,,想 у, ,/ , у    queada,/( uma e(ada/ /   c  , uma  ,ada…   uma/立 , de c/ ,,a  é,, c/c ada立 /   або/ado  ,, або/   想 // або ,s *, desado /ado/   // - e  де-,/ /ada   */… e ,,-o * …  , ado  c-想  *  e  e ica/,, /  , // quea/ /-/ adaada   (立 /  o de立 e  *立  * у(a    de// ////, c o/ , umao/  // o co - / o um у   //    o    - , / que//  …  想 ,  de    , / */ ( que, 想-o e/ /,/  ,想 de,/ *ado  // é    uma  (  / /"
+    },
+    {
+      "id": 20,
+      "categoria": "validacao",
+      "pergunta": "Is glutaric acidemia type I inherited ?",
+      "resposta": "e, ,   * ada  ,ado立, - ,/ / / ,  /-/,  /- o de/想,   / *(/…    que  é ada  que   ,  ada ,想  de um , uma , -立adaada,   o   c de/   e -  que   e é у /  ,/  ada/,ica,/, , / de adoada//  *     ,/  у -, *  ,想  uma/  ca/  / e, de 想 -/o ,/-,… -, adoa  ,ada  , um  e/ ,a/adas   / , de…/,/,  s  , ,   ,/ada,/ica/ que * /, -   ( um,a-/o-  (立 e que / de// uma/ /  ( //想, uma,, eado o, c /,o-a  que/想  é 想ada /,,  de / , ado - oado  uma, * (o   ada /o  / , a e     uma, uma  , de um um   / , uma / c- 想//,adao   /,/  o/  -- ,-/ // * /想  /,立//   ,/  ,/oo ,//   uma/   ecc  c */  ica//    , e    uma que у,想o …/, c deo/   ,/      c é-c,//     de   ( у / або e  o   uma/ uma e e/  (  /oo ,, -  / 想adaada e  想    adoica想"
+    },
+    {
+      "id": 21,
+      "categoria": "validacao",
+      "pergunta": "Quantas pessoas são afetadas pela Nefropatia por IgA?",
+      "resposta": ",立  de é  / e,  /    у, //  e  // a e/, c,ado / /    um ,icaada /    , eica,,adaada  e  */,// de   /,ada/立 ada…  uma想ado ,  / , que, eo або   де * / *…   e  c/ /   //ado /,   , ,/ -/ де / , uma,/,-   у/ // /ada  oado  // um / /, /ada /    // //ada/    (/ada/   / -  e ec que   e, / , / um/,    *   de, /ada  ,  um ,ado//, де/  uma/  de  -/,/ada / ,/ uma * *  / e e  / de/    uma,/,  …ada  de ,/   de /   ,   // /  (   de // у,-,/c/  у,  / e,   ,-/ o c  uma/ a , /想  o/ * / або,  de e , que, / que (/ -/a ,    ada e/ , que/    ,c o-/ -  /,/- / e-a   /-  e e * ,adoc// ada / uma e, c  想/ , */ ada ,    ,ica  o, *   ( // або / s o  ,// /- e   (/// -  ,  que ado (  de /, eada / de  /, é  /,,, e  /-, ada / o uma, ,"
+    },
+    {
+      "id": 22,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) a síndrome de Lujan?",
+      "resposta": "/想 deada e /立    ada - que- ,/,/-/ ,/ o a cica,,  ado    / e想 e у , / umac,  де, e /  de ,ica /ica/ або,/ado aado//想/ um, /icaada  ,, um   a  (,  e ec  s,-, ,/  c,,/立 uma-/ de//,-s, // (c -/ e,/,想想 / ///  eo де-s //   /s ada у a /ado, * у- / e(/s,      ( oicaa   uma     ( um- e umaada,o у  у/ /  c,      - - que (/,      , /    / /  , // é  / , eo/(/想 ,ado de que  o     o想s,//    ica e , у//, de  , o de e/ / uma想, ado,  , ,,  deadas  e, que/ , /   у … /,立, um  ,o/ / é  icaado  e    -o c ,  / / e e   o (/-/ /, / ,,/  de    é  adaadaada /  e    ,/ , o …/ (   /  у// uma///  … /,,   想/(,/,/- de/立 e /,,/, , um/  /  , //(//  ,/ /    /    /oada想    o- у   / eo um /    / /"
+    },
+    {
+      "id": 23,
+      "categoria": "validacao",
+      "pergunta": "Como diagnosticar Proteinúria?",
+      "resposta": "uma想  ,  c   e  ,o,  e/ - e/  立, у e ,想 /想 de/ ada  /   e ado  que ,  um або/, //adas   / уa / , /ado e umaadoao      c uma / /  ,想 uma/   /,   /,( ,,a , /  e, (  (,  (  , , / ,  o або- -  ,立 eada/(ada (- de /  e/  або,想  eada éo/ //-…/ c //-, /  de   /立  (   ,   adaoa    e ,,,/  立 o /ado/// uma/,想 /a  ,/ , / ,/, umaada ,/ que, ,/ або que   у c a umaada    ,  …o/ ,  o,ada  ,ica  , o, um, / de/  /// у/  e/  * /   e/,, у  / // de/ / або e/  想 ,/,/,   / e,  ,/ de -   // c  e/ e// e ada, de //, de  c e,  立   um     de/, , -ada, e, e/ uma de 想立 */ a,ado um c  /  ada //   ica,adasa ,ada e que,ada,,//  / ,, a,… або  ada(ada- 立a  e/ de-/, або/ é  e想/ e ,  uma  , deica ,,/,c uma deada,/o/ ,/       uma (   ,  ,"
+    },
+    {
+      "id": 24,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da disostose espondilocostal 4?",
+      "resposta": "e   , ada  , a//  a    ado   ,ada, ado, де у , *,/ uma um/ e / / (s  uma, /- e   ,/,/,想o/      de *ada   uma/ e/,  ,o, s …, / - /,a  que   або/ que想 e-o   e ( uma /o de,, é c у  oadoado///ado de de e e    um ,  é, de // ,(a,/,   e /  ,//  / umac  立 de, ada /立 ada/ ada / que у,o  de /,  ada, e  // um,/,//   e,   у/  … e, -ada,  або   ada ea/ / */-  або  у у / ada / uma      або ado,ada  de //  o  um,,- / c,  /想,/o que /  /o/, /   /o( / ,,/ у…/   立   ,- de///,(cado 想 /  //,  立  (,  *  c e , , , ,,, e  ( uma/o /-/ -  або де-/  ,/c e  想//  e…  de  ada/ у-,/a  ,想    c ( ,,   , que/ e/ e  / de-,-  …s  o /  e /   (oo  *, ado  …ada у  //  e e uma ,/c  e /  a/    у   e  e 立 *   // ( / //ada…想 (  e// c/-//  de"
+    },
+    {
+      "id": 25,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à distonia focal específica da tarefa?",
+      "resposta": "* 想… /, ,/ у(   立ada de  adao de,   *,- , /  uma de dec/ a/  де      або s, queo queado/c /   ica  umac ,ada/, ada想// e * ,,o  e umo , /, * um que éa,c або  de *  ,//co-// -  або/ ,,/ , e/ um ,  o想/ c /// e,,ada  uma, //,  / ,ado/o/ -/ de  - c de e de/   / de o de/,,/     // ( e,  /  que 想   de    ada de / у * /ada ,, /    , ,/  uma e / (/  o/ de  / e  /- / , /-/,  (( у, / , é/ de  //c e-   // e,    деs/ ica  (   ica у…o/立  sa / абоo/ , ,/ у /  que/ де e/a/ada,ada, -  / de// e у,/,  uma//, é o c/, o , o  sadoada,/,o  у ,   , é  um  eoo 想  -    a , o    //, c  * uma -/ada// *ada  de ada   ums - o e   /  uma/a/  /ica  / / que /o de  (ado o/ e, é   a/ e  або      o-co у,/ * /o   -  /s    , у- 想 ea,/ada- umac ( c"
+    },
+    {
+      "id": 26,
+      "categoria": "validacao",
+      "pergunta": "How to diagnose Kidney Stones in Children ?",
+      "resposta": "/    que立   de,( , (ada  (/   e, /o e  de   um/adas/    eo que/, де-// e,ada, *… uma,,, у/-  уs / e -,ada/o/ , c, e ,/ada/ uma  c(立  ica -, або  que/ /,ada/  */,  у у / , ada  c  ,//   у //- eo,aa umado  ///ada,ada //    / /o (// uma   de  /  de / /   *,// / e //  que // (o  que/,  * //, e/  想 ,/  /ado, é *// , / - , de//    (   c   uma  /(,想 /  /   */ que que uma  (s e uma eada o /  (   / або o,   , ,/o(    e/  (,,  ( / , de,  , c,/  que, ,    de, у/ ado… adaica/c e,-/ada  e um//-    ,立-    ,/,,  uma立,,  c/, , /  -/,/ / e/ica de e uma, e  /  um,/-    e想o立  e   ,,,/-/   / de- e / e ,, *   *… , ,, *- uma  , ,, /// //-   uma oada/   ica ada  * é/ adao e/想   у,   o de *// …  c/,  * eo//,   /ado  de想 /s"
+    },
+    {
+      "id": 27,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da Amelogênese imperfeita hipoplásica local?",
+      "resposta": "e/,/, -sada, 想 ,/s  de,  , , /      у, */ , у  de  que  de *ica/ 想 / é, 立,/- , /  / -  - de    um, c / o o  e e,/  e *(, -,   *   de  o/,,   …,c// або/ c c    / c/  de e uma- - de   (o,,  / , de//想 e  або想   umao想c / / /  *      de,,  , e  *   або-    ,-/   c , dec    que…//  ,,       umada//  que,,/,/,   c/想 */ - 立, ( / / ,,   /(/  /   /  , ,  /,icas   é,/ /   a,,  , /  у -,,ada(a / a, ,s/ é ado-, e  ,/ /  //, c  de, de  у uma-/ eo( ,/想,o  ,/ або/ e um/   s o e     que,/,    ada ada想 ,//- (/- *, , у e/  або/ *o , /,   /adaica quea   de e o  /o/o ica/    de * , uma o e ,…,   / ( um     (- que uma  e ada/ у   ,-,/ada    c想/    uma, uma,// o de/ que  ada  /  e c e/ quea//, de é  eo  , 想,"
+    },
+    {
+      "id": 28,
+      "categoria": "validacao",
+      "pergunta": "que pesquisas (ou ensaios clínicos) estão sendo feitas para o câncer retal?",
+      "resposta": ",/  / a ( ,  /,/,/-  // ,/o, deada , uma , у   que ,,s /, de,-,   …/ de ,  /,ica …  ica  , ada想  a //  o想/ /… e uma деica/ (s(ada  ,  /adas   ,  *   уada /  e  ada//  / / (   /  / uma * /  de /想 e  que o/s * ada  */ ,,  ,/    /  e /想 ( /ada  // /  у , /ada … c  у,/ ,,   ada уada ado  - /    ,    у   ,/   або *  e想   de é ( é e o c ,立,/   -/  c e ,/ ,o de   , , // /  ( у/  a/  que,/ c / é   або/   /  de/-    o s,ada  / //  */想//    ado/  / e/   //,     /     /,o-// //a  (   /ada,adoado ,,,  ( у,o-ada,ada/  / que/    c/  e // //,ada a想 у / ,- de /o- de,/  // /想想 - ,ado (/ у/  , /-/      e  , ,-c/  e//ada  , / , /,ada /, de   (  umaada e   -  éada / s,/,ado ,想  c …  c想,ado  ,"
+    },
+    {
+      "id": 29,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) beta-manosidose?",
+      "resposta": "o  立…/, /, деada/ de,o , …,c  або/,/o / *  або/,/ o/, o-   де/,,adoada, / é/ *  que ,- у *想-,  uma立 * (sada  e  que / , umaada/, ,adaada, ado/  або e  або,/   é ada  ada,  , / , /,   de//, у e,ada -  /- de uma /,ada ada  -  у , de,/,/   -  / або/   e  / де,/ queo( eo/ /, або,ao  e *  ada  s  / ,  uma é,  /o у   ado/  у de  (   de/   c   e e (/ // / queoado,…ada *  uma *    / /  (, e c,  * ,/- adaa , у , cado, ada,,   e  uma/ /, , 立/o/   / -   e,/… s/,  想 /  ,ada//  , /  , a e/,    ( ,/o,- de  ,/,  e  (//,  e/   /    de ada//o  o  e o  /  a /  / * 想 ,  ,/  …, ,,/ a,    (想  ada  de  / // eo/,  de у     de ,,a,立a de  de/ у éada /    e   de  (-/  (, de у , / (     ada,,o/, ado , um想c  eada у de /o…// у c/"
+    },
+    {
+      "id": 30,
+      "categoria": "validacao",
+      "pergunta": "A histidinemia é herdada?",
+      "resposta": "de,ado/,  de /sada  / *ado, 立   …, é ,-     de /    , *-,/ de/  /,,(/ / e ,/, c *,  -   ada   (,s de// -想 абоo у    deo, e  ,  ( -co,,  (    想 , deica,//  um, e,/ umica c想 uma e/  ,o  ,, /   у icaa, у  …  e e/  ado/-/ c/ ,   ,…, у/ de- 立/// ,  / e e , é ,   /    ,/ / / /立  ,(o/ uma/,     …/ ada想  um  / e de,ado ( uma/  ,, 立- ,, e  ( ica,o     * /- aada 立 um 想 que/ * c  // / e    /想  que,// e,/ , уo/a/ uma de/ / * *  de  um/ uma/ada立 e  ada umao   ,a um ,  c想 / que queica/ ada e é  e   -…, de, / , ica de -  або //  ,// ,,   de у, e um,,  é/    * / , / e/ada,a  adoo / *ica- eada-,,/,(// /,/ cica/    ada/   / /    *ado 立 * / uma…,/ / ( *,,/-/ e ,ado   */ ( c  /  / //,, cs де想, / , /, (/ *,s  ada-  uma de /"
+    },
+    {
+      "id": 31,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à morte súbita infantil com síndrome da disgenesia dos testículos?",
+      "resposta": "- uma a -    de / a/  que ,/ uma  /  (  de/   e  e,/ ,想    у , у ,a a , c / de /, /( ,,   - або  ,/ um é/-ada//  adaco  / c des    e/ o  / /,ada ada /,o  у /立/ , um  ada /,/ ada um,ada/  / c , у oada у, … oa */ada/, ado, ica/ um ,,, у  або/ o e… c e/ або/ e um, * e …/-  e/ //,想,s/  /,  / у, -o/(   e想ica/,/  / у/ de, ada/ de /ada  de , o (  ,  de e  uma у /, que  (   uma/  абоado/-/, -/  de  que/ /,/ c ( (/-,,  é   // *-  /ada de  oo  /, e/   uma o///o e  , -,ica, /,  / coada / e- -…立 de ,/   e/ e想, e   ( / de / é,ica,  a/(   ,  ada…  ada é ,  * (/ ,,- de */ adoc  ica    ada de s     -,… ,/,a立 де ado уa立 de,, , uma  e   /   e   uma,  у e/想, a,ada/ e, ada,  *ica /  ,  ,ada/ um ,,   ada / e  /  у у  e  ,/ de /  e/"
+    },
+    {
+      "id": 32,
+      "categoria": "validacao",
+      "pergunta": "Quais são os tratamentos para a trombofilia por protrombina?",
+      "resposta": "de/,   uma ,,  // у e,/  ada  de// / /  * , c, e//-/ / que- ada,   *    e *//  у,((   de ,,/- uma -- * e * uma 立//   de,a… uma / é ado ada/ c e ,,/ o    um,- де ,,/,    a  ,o    e//(/,          de um  e / e/,, / uma/  umaa   у (   / ada/想 або,, de 想 /,  */ ,/ - /  és /  e/,  /想  /,,  um/-ica//- c ( / e ada  / e e- (  de立ado//,     ///   ,// *  у/ o  uma   cc//(o / que,, ada   , uma(   c, a   ,-,,,  * …,/ ,/// e -  adaac/a, é  oadaica , /  , (,o /   - e /// де e,ada,  ,/  e/ (/ ,   *// de,, e/ica -  que або um/ / /,,( , a/  /,  e  / /想/( oado ,/   é   ada, adaso/ /想ado (  e um/ / e// ,  / o// de * , -adaoica立,//ada  ,  que/ ica a, e, que, é  ,icaa/ c,/ ada/ado um   c s/,   / s-/ /   s,o  deada"
+    },
+    {
+      "id": 33,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) AVC?",
+      "resposta": "/s  ,ada, / /立立 ,/ / або,/- , (,-  /  у/   ,ada    de,,   * um/ /  , 想 , / (/  …/adao ,  e,/,,/ que/ica  o/   a/   -   ,//  / éo que   ,ica ,  …ada, ,, uma/ada  , ,ica// * /,/s  /   або ( * /,ado/(//adoada / ,/  é   (    , é(ado e,,/-, ,,/ um oc//,立立/  , ada e/     , ,   de想/ -想  /// , у /// *- oica e想, e  ada que想,    ado - e,- de// de ,(-, uma/,  que/  ,/   o,c   або  e um / de   (  um de,, cs é ( uma,, 想 o é ,ada, у e…, es-   ada/ /  que /,// ///  у у um s s   /, que  , , , ea,/ de-想,,    de立// ica ,…ada//     або eo/  que, ,,   /,   e  ,/, ,  , de *,ada é/-/  -/  que ,  eica想a ,ada ( c que,/ e /o ado/,, ,     ( que у   / ,-/  de- ,,,  */ e想 s/   */c e -,o a,  de///, - або/    eada"
+    },
+    {
+      "id": 34,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) artrite infecciosa?",
+      "resposta": ", que o  e / /// a   / (c ada  uma éc,  de,, -   ,, , /,o (, e  абоa або-//想 c- (  ada  -   o   , umac  у  想  ,想,     ,,…/ , ,   ( é s  um  c e c o,/-// , é  / *  o, e   / a // ,ado /// -   / e// o  a um,/ e, de/ado -   (想a   , або    де ,立 de  * деadao  ,     /  s que, ,/ /   ( , c  / ada,/  */   a -/ // /adao de-// uma e ,   e/ //想 umaso,,    ada  ,  ,/ uma c …,a/ é,o/  um  //   de///-//    que/ dec / , ,  / e a uma  e c  e … é que / e / deada e   - /,  de/    /想 //ada//  que   /    想o ,,/,/ada -// / / uma// /  ica(… або e/ ado-,,    - o/ -      /,o/ é/(  ,/,,///  /  ada  de e ada  ,ada ada/   */ (立/ e  e é   // é// у quec- um/(-  -/(/ada/  ,/  (   ,  / ,//,   ,  */a ,/ada / que"
+    },
+    {
+      "id": 35,
+      "categoria": "validacao",
+      "pergunta": "A neuropatia axonal autossômica recessiva com neuromiotonia é hereditária?",
+      "resposta": "- у, ica ,,,  ada /// um у, de *,, ,    уada або (, / c c,/s  uma   або e /   //( / /ada想ado … c,… e    eo…/  / e  de//s  ,  або у /,   (  um adas  у (  e  (, / /     é,, /  //-   /   / queada   de   e ada /, /s  ,  / /,,o um…a/ ada// ada ,-,oada// c-a-     ,,  *s ,ada dea de,    ,/,  eo 立 eada (a, / , s ,ada,ada  e  é //  /  de ada(a, -, e  uma (…/      / ///ada,/,o e    /, c,   ///  /o ,/ /,//-  ,  e c  /    ado  umas, e/    um/    // um   -    e *,  e/a c / c… у,,/  e , уadaado c/ uma ccc // - c  c ada , / абоicaa /立/  /   é /立 , c   ,,ada/ 想a  que,/s é  /,  de um   uma / ada de, e/co  de, , que 想,o / queada(  , /ica/,    que-  у    , a,oo/   ada c    ,ada -/ -ada de/  -   у/oada/    de que / que que/"
+    },
+    {
+      "id": 36,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à cardiomiopatia dilatada familiar?",
+      "resposta": ",   de / /,( e想a, e de або,- 立/,, , у  *, c que,   / / , , de ,/, (   de, de/ …  / / де,… ada/-/ /,  de ///,ado  ,o,  adoado /,,// e,  , ,,, que/ /  ,  ,- ,/ -/-ada  / у ,o( *  /ada  e абоo e ada想   /  de/,  … e/ e /   -ado/ , umaado/  o/… de/s- /ada c-    /  , ada… que  / //  ada    é  de um- , (, de- /立 uma de o-/ e/ * , ada , c uma ada  //ada   um/ e   ,/ e, у , у o  de   ,,/ c/想,,/  e  у/ e,, ,,   um  * s/   ada */,  // e,, / //   de / deada /  uma /, - / uma,,    de   /  ( у    ica  , de,立想, ,/c c * , e adao/ ,// абоadaa  у / у,/     ada立 де c ada,o de adas , e    e    c ,  s  -o     *ica e/,   (   de想  *…立- або (/,    queada /立 e   ,-,/ ,o uma /-  que(  eo  que- uma de   de,, або      ,/,/   /,,-a  ,"
+    },
+    {
+      "id": 37,
+      "categoria": "validacao",
+      "pergunta": "What is (are) Carney complex ?",
+      "resposta": "a,,   , ada, *   або  uma //ada у- або  e/ //o / é, de  é-//  e уada é/ e e… ica  *   uma/ e/想/ ado / ado c    ada  éada…,/,ado e e  -s / ada /ada/   ,// -   / de (  立 o立//,  de, é,/  e /,  /,/,, у,-   é …, que,   / , /ada  de  icas  /  e,  *   é de/立   de uma  *-/ado /s      де /  ,,   o/ ,,,-/o, *,,//  у / ,ada s ada/(/ o立 de/ um é e  de/- /-/ деs e, o , / ,  e//  a,-… у /   de/ ,ada /, ( /ada  deada umaada,  / ,s/ e, um,  /   立/ ado de é,///,/立 /   ( …    , /,… de   ada-   , / /   e  ica/, /ado,os  e,  de/ -,  /,// ( , , e,   eaado ,      / uma /  /a-,/  /  /- // у/s    que ado // deada, ,,    ,,/    a,   * /o-     é/ e-/   e想 ada…   c/s ica *ada   ,  uma   que/ de umo ,/ ica立 ,-/ e// e  e  у e,想"
+    },
+    {
+      "id": 38,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) deficiência de fumarase?",
+      "resposta": "a , eada   e/ ,o  ada  é (  …/,/ada  , , /,/   -  (  um …o e/ adao e / c,,   / …/, , de ,,,o que,  / ica //立 e , o , um    / é  a  *  e é *  ums / uma, ada- um, a,/  ,   /  ,  / e або  / c/ que que, e de立/ de,,a  ,/ / /  *ada/,,  a/-/ ,  adasada, / у//icaado /,/,/ é/ica  de   ,, / uma  de,(a *// *s/, e, o //,a * cs, a,    de / /, e /adaa  ada  ,  -  /  eada  umada  um um    / e  */ , e/ (o  /,   que- ada e   /,o / /  que eada ,o de想 ,/ ( , ado /ado / a/ / ( ,,…想 /   //立  /,,ada  (, у  de /,o/o-///  …    e  eadooa/   e   / e  e/ *   ,  * або   (… e/ e * uma…s,,,/ *  у,  o  або um, um/ada , de (//  ,o     um ,/  ,s  eica  c /- /,- e/ deo uma想/ , s  * ///s // que…//  o eadaada  e    c /  ada e/-/,  у   é(  é"
+    },
+    {
+      "id": 39,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) a febre familiar do Mediterrâneo?",
+      "resposta": ",/,  e立,  /// e ,//,ada *,/ que  e  / que/ada  e ada立    e de /,  eada  uma/ ,  /想  e,/,  * / es e     e 立,  e ,立  ,  у de  /  / ( , e/  //   /  (/ у,, / e /ada, e/ de,  (  / або想  e  um   e  , ,- / e/  ,  ( 立/   або ,  立 /  ,/   e é,ada- e у  // de /  /  e ,//ada  у де,icaa  aada - c у (,, de або  * e,, , umaada uma  ,/ada,  у  ca-/ de / де,/   у e  ica,,, de  c ada , *, у   um ,ado, ,/ ada, /o/ uma  / ,/   oado  c-/ або, / /,/ e    (,,  /-o   想,, ado / ada/,/ у  …想, c/ / a/ c uma, /   , é de/,, 立   que-/ e/,  /  у    //-ica e // uma,, / у //s e  é… //, / que/cada/  que,  /,//   e, ada ado e de-  (/ada  um   ,…  /- -c /   de   e ((, uma, c/ / / ,  (/ o,/s e,/ c uma // / * *oo  /,/  c,a *想,, um ,, a, ,     ,/"
+    },
+    {
+      "id": 40,
+      "categoria": "validacao",
+      "pergunta": "Is Winchester syndrome inherited ?",
+      "resposta": ", ( /,ada,,/  / /  ,  de,//  / o/    /想 o(/ /想 /o o   de/ (/  de///   - -    c/ /  que/,  /a *  e/, / e-c/ // eo ada eica      e  *  c/,   де/ */ / у/-ada / ,,,/ (/ - у ,  uma, * , ,ada a   / * / e-,  um co  e   e ( uma,     у e um ,  e… у, / у  /  ,/  / e,想 /,  / , o  *     / que c / e,c想 aadao  de o e  e,  de або立/ de/ que立 e/,, c- (-/ e , (/, ///s/ s ,    у立,,//  uma/ ada/, ,/ a  sica    /- que ,  eada a/ de e  /   um/ (,/ абоada   o que  , ada/  -/ уa  у/  // / a  e,  e/ ada, uma uma,/ /a de -/ica o  - de,s   eada de ica у de / //  / -/ //    ,a /  , um / e/ada/ado ,   é  у , //,  /-- , e,,  um -ado/ s/ / uma,立  ,/ ada/…  де e(  ada (ada   ada   de/ado de  (,,  想/ uma/ , / e -  e    у   c,,  /"
+    },
+    {
+      "id": 41,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) a doença da arranhadura do gato?",
+      "resposta": ", , *ada ( ada, //, e,ica/c c, ( um, uma/, / ,   у або  /  /ada / *    /, уado  ,  ,, (,  ,,想/  або,ada,// ada, adaado  s,,/  que  ica ( (ica  *  eado (/ e/ e o,ada/ ,想ada,  ada,, */ * es/,// de  deaado /   / c e,a,/ ,   /    ,adaada/,, /   ada o/o que  um e uma,,  e ,   /  , c  uma/ é/ e ,  /a/o   de  (   uma//,ado, e     adac/ /  // , у   um -  e, ada  /  ( /  ( (   立 у  /   e  ica, *   / // 立 /ada у e    e  у  -  / ada  ,  s// é  ,o/// c/ o , /, que c想   e/ que  é /    um-,ado … або, у,- / /  або  de/,ada ,   /  e   / , - / , é deica- ,/ada想/ / / /(o,  *    /,,-, que  */想  que/,//   …  ada/   que queo /   des  */,/ada,/   e ( de  想/ c  e /, де/ *(,- e e     абоado  de …   , у de або/ de,,ica ,,,   e уicaa … ,, (/ de,,-"
+    },
+    {
+      "id": 42,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da Distrofia Macular, córnea tipo 1?",
+      "resposta": "a/ , / s  e ,/   ,/ de,  de/,,想/a//  é    / /… e  想  // або   ada  / ,/ c/ /,,/,, ,/ de,/ de-/    e,  a c… a/  ,//ada  uma(  /oadaada, o,  ,/  e/ de de ada , ,oado,/   , /…ica  / ,//立/ adaco ,  ,-   ado deada ,ado  * / de/o queada e/ que… /,/  або ada   ,oo e/ de  ica /  ,   e c uma uma /  é  e é  , /  / 想/ c  -,,ica/ ada/  e/ 立  // ica 想   / é  ,,//  de  e  e…   e de/  ada/    ,ica, ,想  /    ///  , ,   *,/…,a ,  um   або ada, umo  de  /  o, c  у   que ada * ////o,c dea ada/ o s adaada,,ada у ada , (/  de  ada ,…/ ada  ,/  e//,-oada e//,- e/   um  /, ada,,   ,  de/ c …/   ada  //  e/ (a       /   або / éica *//  *ica ado  ado ,ada 想 um   ada  *  ,, /,    /  de   e,a um eado,,/  у, ,  c  c  c  que /"
+    },
+    {
+      "id": 43,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) distrofia torácica asfixiante?",
+      "resposta": "/a/  /-  / у  /o  ado想, ica é  , ,  e-, s  uma de   é立 / e s де     уado-(/ , *o /  e um або,// у ada /立   s想      ,/  uma/ , ,  e / é,c (/, , … c,/ada/   ,, e, /,, ,, é/,/, */  uma é//o    uma    /,, //,/,   де想 ada /s / у  uma, ado , a,/ que  um    de   ec *   у/  a    /,/ada   , 立o  / de/,,/a,  um de /,  , (  /, , ,  /, que立/ ,/ або um/ / c // -  /  ada o    або  або de ea,  -/ …,/     uma  uma (// -  / / o -ada ,ado ,- / e é que,/ de // ,/ c *  ,  ,o /  , , que     (   éo/,  de,   /- /-    e/ que/  ,o/    c想  o-- ,/ uma/ /-, que// * e,o de       s dec/   у-,   у/ o//,c *ada, 立 /a ,ado/ de    /oaadao,/ um- de- // / o , de…  /,s  /   /, ( ado ///s/,ooc de/,/ / /, ,,/ de…"
+    },
+    {
+      "id": 44,
+      "categoria": "validacao",
+      "pergunta": "What are the treatments for T-cell immunodeficiency, congenital alopecia, and nail dystrophy ?",
+      "resposta": "ada,/(, que e um/ 立  * a/ ,, / uma , або/, або,ada de umica- e de/a у/o   um c 立 e,o  /- /  e  * c або/ … quea, / de  deo -/ é  e de,(c c- e ,// ,ica c / de/( deica * , уo//,,, é-/ada /  /////  e  - c/ 立 *  eica//,/ uma, eica ,a//  / eo -  queada , //,  e uma  o/ - oa- /     /o aada uma,adoada é é //a  um…  - /,ica eo//  c/ - / uma  ,/, que uma , de або,a / ,   ,/s立 e  /,,ada-s     */ */ um/  de um- /  ada  uma  … de想a(/ e  ,- e  у de   eado (   у   * o e  e  (/,   e/ ec   de  ( ,- adas/ /a que,///  ada / / oica  a   /  /,,, ada  *  é o , que/ada,/, de / ,/ ( de ,,  у/,ada uma,  立  o  ada e- e   ,/立  ada- uma/ / / ,,, * /,-, uma /  / - ,,/ada, ( , / ica, /ada s, de uma     e  e/-   (/,oica,… ,  ( c c 想   um// …   ada */ (  é  (立ada/想  a"
+    },
+    {
+      "id": 45,
+      "categoria": "validacao",
+      "pergunta": "Quantas pessoas são afetadas pelo forame parietal aumentado?",
+      "resposta": "(  ica - e//    ado   uma, у 想/ e, c / /   /  e/ que-,ado, , , у e,( / de     у, ,/ // уc,,,a,/o *   e/,  у у,,  ica  -/, , , de у c-/ 想  /   , / c,- e, /c de,  //- у  або / /- або, e / e e   ,  e/, e  a  -, у (     ,c  ,    o    e  * / a,  s , ado, ,ada,  /  uma / um  / у c *aado e ica * , que想 ,ada / de/, /,/ c     so  uma que  /立 /i, , e eoo 想  ,  /   o/ada      *  / , /,  o/ / або у, , , абоada é , ada,ica,,ada  - * , /,   c  ques  que/ um/   /  ,// ada/ o想  / (/,, / que, , e, que, ado   /ada, e,  у c///--s/, e , de , ,  *  /ado (  * e,  / /, e, / /   ado立   ( e/-,  de que  c,-/,  ada …  /  //,  e    ,    / eada a   /  c / e/  *o, eados a, / у/ / uma/ um у  de//ica */  /,   /想/ada ,"
+    },
+    {
+      "id": 46,
+      "categoria": "validacao",
+      "pergunta": "Quantas pessoas são afetadas pela deficiência de adesão leucocitária tipo 1?",
+      "resposta": "/ / * /  eada que/ /,   / o,    a  ,  c e ada, (/  */ -//,   uma /a/  у /,///////  de-  e    c,,ada     que /  uma   у/ e   /( e у uma ,o, de que, ,, que立, de  um é,-/ada adoada   /,   e, / ,  ,, ,ada,    /o, уada//sada  que (,  um або/ /  *, /想 //  /  / de/  uma/… -/ ,a   у, *  /    o,   /a,     e,,o uma//     ,,  é  de 想,,  ,//  /,   e o/ ,, -/ , //, (icaa,  * /o de,ado e  /  de e /-ada, eo де/   або uma  umaada  абоs */ ,,,  de , у,想, e/ado      ado/ uma é/想adaado, /,  де e/ , у    /   de / eado / ,,, ( / ,立,  / , que   */  uma/ada, c…   / é e/  ( adoo//,  /,/ / ica,       e  ada - /  / /c  / uma//ado    / ,/ /  ada- -o///想  / c/ado /ada  ,   e/   é  /  ( é  ///…,     adao  uma /  de / *   um,立ada // c"
+    },
+    {
+      "id": 47,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da displasia falangoepifisária em forma de anjo?",
+      "resposta": "/   e /,/ada //s/ica-so 立/o,想 c, (   um/ або, oo-  que é   /ada    e  de-ado, , de  або , / uma (想 umc,, a   *   // eso…// - eada c ca ,a,,ica /, / * /  ada/  / que  e- e,/c , */ ,    ,//, … //  у, /  /  -/ umaada  ,o/  e o…s  - (/ /ada/ica /ado,, /  de ado у /ada  ,// esada e /,  de s,-  ,/  ada/ * é  c/c  ( (/  de   *  ada   //   у  / // e ///   ada/-  * або- *,/,/,/ ,/a,  / / c (   a   uma   c/ um-/想 (    ,/, de  e  /ada ,ado     e  ica   / eica (  / e /,// // é  queadaada,ica (/  , у  /,-     想 c - o - *   ///ada de     /icaa 想, ada/- ,  uma é e想  de ( /想ada eo ado,// ada    de  uma- (ica e, ada / de  * ado/ o de,-o é -/, e/  /   ada,/,ado de,,ado ada  ,,ado  s , /   * c    e/  que / / /    um  /-/"
+    },
+    {
+      "id": 48,
+      "categoria": "validacao",
+      "pergunta": "A neuromielite óptica é hereditária?",
+      "resposta": "/, ,/ ,/ //,/ado - , або( um де… e - um, , ,   e/ ,   / *  aada/ / ada/ /, e uma     /立  / um, //,/o/o/o/ o */ ,   e uma (,s/ a ado de uma    de/ / 想 e de- / (ica//  éada,  de /    /s…o/ де/ a/ *  e uma/ ,/   /   ( que   ada (o  cado-/   /a/, /立    de-, у/ ,/o e /,s,/ 想co   é/(/  ada/ um  e/  // /o de…  //,/ o ca  que,  / // de- uma , e/ // / ado(ada ,ado, a/ -// ooado /ada 想,    у * де//ado,, (- e想,  або у  / e …  e  css або, //  e (/ /  абоada- / -   у deada de  (o/    ,  立 c * у // / é, de e- ada ,s у у é-  / *  立a  ,, // або  /os  / ,- у e/  ada  ,ada/ …,,    ,/,/ *ica/想c e ,…  /,, /adaada,/  de// e/,  e     (/ e ,/ que-  // //o  deadaada,       c/  / //   у/ (  ,/  у  / e umasa uma  ica/  /-"
+    },
+    {
+      "id": 49,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à síndrome do pterígio poplíteo?",
+      "resposta": "o-//ada , de  / ,,, que  ado ada /  c eada ica   ada  é que/ /  que c  - ado,   uma /,o de- (  або -o /立ada  / e // que // /  立 -, e - / або/,想  /a, de,, *        想/ ada    (--  ada o de- ,  / que   / …立,//     que -  é// , s  у… ,  /s / / e o  -o/ e/  /,   // , */  /s … uma, *-/, uma  ada co-   *ado adaado  //,, de ,ado у /a/    / / / eada  e / //  e (/    ado  у de у/ ( ica de//c que/   e/   c,ado  ada   ,, - /    - або, ,  o  /   o, ada     ,  /    , um e/// aicaada uma/ / , ada e,// ,,ada  / de  e uma/,   c c  de -, e  ,   um/  / ,   (/ / у um,, ,,  ,ada  ada, um  у,/ / o …/a /,/   e e ,- o, /// deadaica想 cc *立/ e,  / ,  umaica 立  , um,, / / de, /  立/ ada ,   -  у(立   uma e -  de,, de / , ada (a"
+    },
+    {
+      "id": 50,
+      "categoria": "validacao",
+      "pergunta": "A doença cardíaca congênita crítica é hereditária?",
+      "resposta": "s,  ada , ada, у // /  c //// de/ que  /… e  e  é або/ ea,  c e,/  / ,  ,ica , /   /ada- c// /,/,立//,- ,,  , ( /- /  у/  de um  /ica  ada  (ica de /,   ///   ques ,/立 é // /, umada uma,/, uma   /ado / (-/ ,/ que de de / , e   de / //co /  eado,// //    e  ,  umao/adao, ea,, ado ada   de (/ado de/ /,,/c , e e  e-c,    --   立// /,,  /  c  e * é …  -,o,/ o або ica ada de que  ,   um або- que  ,- , de cado/      ,s//ada  або ///  e, e / /  /s e c 立    umado у-(ada  -,  ada  adas  /…ado  або…,/ /  umaa  у- o  a  у де  ,,/ , *    /    ,/  e/, // де,adaica/ ,-,,, /   (,s / e立   -/// a que//   /  у e/,,,   уo  /o ada que- (-s/ *  deco um-   de   -adac e ,o   , /,-/ ,  ada/ /想/ ,  /  або/ ,ada      e,a  de,//"
+    }
+  ]
+}

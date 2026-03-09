@@ -1,0 +1,312 @@
+{
+  "metadata": {
+    "modelo": "mistralai/Mistral-7B-Instruct-v0.3",
+    "tipo": "baseline",
+    "timestamp": "2026-03-08T22:05:13.027913",
+    "total_perguntas": 50,
+    "device": "cuda",
+    "max_new_tokens": 512
+  },
+  "respostas": [
+    {
+      "id": 1,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da Sindactilia tipo 3?",
+      "resposta": "A Sindactilia tipo 3 é uma condição genética rara que causa anormalidades na formação dos dedos e das mãos. Os sintomas desta variante incluem:\n\n1. Fusão completa de dedos adjacentes, em uma ou mais mãos, formando dedos conhecidos como \"síndactiles compostos\".\n2. A ausência de algumas falanges, ou seja, os ossos que formam os dedos, resultando em dedos curtos ou malformados.\n3. A falta de formação completa dos dedos, incluindo a falta de falanges e falanges parciais.\n4. As falanges podem ser curvadas ou deformadas, e os dedos podem estar posicionados em uma posição incomum.\n5. A presença de polydactilia, ou seja, mais que os cinco dedos normais em uma ou mais mãos.\n6. Em alguns casos, os ossos do polegar e do índice podem ser fusos, causando dificuldades na manipulação de objetos pequenos.\n\nÉ importante lembrar que a Sindactilia tipo 3 pode variar de pessoa para pessoa, e a gravidade dos sintomas pode variar de leve a grave. A condição pode ser tratada com cirurgia, se necessário, para melhorar a função e a aparência dos dedos e das mãos."
+    },
+    {
+      "id": 2,
+      "categoria": "validacao",
+      "pergunta": "Quais são os tratamentos para Queilite glandular?",
+      "resposta": "O tratamento para Queilite glandular, uma condição que envolve a inflamação dos glândulas sebáceas do queixo, pode variar de acordo com o grau de severidade do caso. Geralmente, o tratamento consiste em:\n\n1. Limpeza do local: O queixo deve ser limpo com um produto de higiene adequado diariamente.\n2. Medicamentos: Pode ser necessário usar cremes ou gelos com corticosteroides para reduzir a inflamação e aliviar o desconforto. Antibióticos também podem ser prescritos caso a queilite seja causada por uma infecção bacteriana.\n3. Drenagem: Em casos mais graves, pode ser necessário drenar uma abscessão (coleta de pus).\n4. Alimentação: Alimentos quentes, ácidos ou espicados podem irritar o queixo, portanto, é recomendável evitá-los.\n5. Evitar a excessiva exposição ao sol e ao frio.\n6. Evitar a pressão sobre o queixo, como usar uma cadeira de bicicleta ou jogar um instrumento musical.\n7. Alterar o tipo de alimentação, por exemplo, adotar uma dieta sem lactose, caso a queilite seja causada por alergia a lactose.\n8. Cirurgia: Em casos extremos ou recorrentes, pode ser necessária uma cirurgia para remover as glândulas sebáceas afetadas."
+    },
+    {
+      "id": 3,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à síndrome da microftalmia de Lenz?",
+      "resposta": "A síndrome de microftalmia de Lenz é uma condição genética rara que afeta o desenvolvimento de várias partes do corpo. Alterações genéticas específicas associadas à síndrome incluem mutações no gene SOX11 localizado no cromossoma 16. Essas mutações podem levar à expressão anormal de proteínas envolvidas no desenvolvimento ocular, dentário e cardíaco, causando as características clínicas da síndrome, como microftalmia, anomalias dentárias, anomalias cardíacas e outras. Outros genes podem também estar envolvidos na patogênese da síndrome, mas o gene SOX11 é o mais comumente associado."
+    },
+    {
+      "id": 4,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) insuficiência ovariana primária associada ao X frágil?",
+      "resposta": "A insuficiência ovariana primária (IOP) é uma condição em que as ovários não produzem o suficiente de hormônios sexuais e hormônios sexuais ou ovos, levando a infertilidade primária.\n\nA associação com o X frágil refere-se à mutação do gene X que causa o X frágil (FMR1), uma condição genética rara. Essa mutação pode afetar a função dos ovários, causando IOP.\n\nO X frágil é uma condição genética que se manifesta principalmente em homens, pois o gene X é predominantemente paterno. A mutação do gene FMR1 pode causar um espectro de sintomas, que variam de leve a severo, incluindo problemas de aprendizagem, problemas de coordenação motora, problemas de visão, transtornos do comportamento e IOP.\n\nEm mulheres, a mutação do gene X frágil pode ser associada a IOP, mas é menos comum do que em homens. Em geral, as mulheres com a mutação do gene X frágil não apresentam sintomas graves, exceto IOP.\n\nEm resumo, a insuficiência ovariana primária associada ao X frágil é uma condição em que a mutação do gene X frágil afeta a função dos ovários, causando infertilidade primária."
+    },
+    {
+      "id": 5,
+      "categoria": "validacao",
+      "pergunta": "What are the symptoms of Corneal dystrophy of Bowman layer type 1 ?",
+      "resposta": "Corneal dystrophy of Bowman layer type 1, also known as Keratocanthis, is a hereditary corneal disorder characterized by the thickening of the Bowman's layer of the cornea. Symptoms may include blurred vision, halos or glare around lights, sensitivity to light, eye pain or discomfort, and in severe cases, corneal clouding or scarring. The onset of symptoms usually occurs in childhood or early adulthood and can progress slowly over time. In some cases, the condition may not cause any significant symptoms and may only be detected during a routine eye examination. Treatment for Keratoconus can include the use of glasses, contact lenses, or, in more severe cases, corneal transplant surgery."
+    },
+    {
+      "id": 6,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas do retardo de crescimento intrauterino com aumento da sensibilidade à mitomicina C?",
+      "resposta": "O retardo de crescimento intrauterino com aumento da sensibilidade à mitomicina C é um estado que pode ser observado em gestantes com histórico de tratamento com esta substância. Ao ser administrada a gestantes, a mitomicina C pode causar diversos efeitos adversos no feto, incluindo:\n\n1. Retardo de crescimento: O feto pode apresentar um peso inferior ao esperado para a idade gestacional, indicando um retardo de crescimento.\n\n2. Atraso no desenvolvimento: Além do retardo de crescimento, o feto pode apresentar atraso no desenvolvimento motor, intelectual ou em outras áreas.\n\n3. Anomalias congênitas: Pode ocorrer a presença de anomalias congênitas no feto, como malformações no corpo ou no sistema orgânico, por exemplo, malformações do coração ou da face.\n\n4. Hipersensibilidade: O feto pode ser hipersensível a certos medicamentos, como a mitomicina C, o que pode aumentar o risco de efeitos adversos.\n\n5. Alterações no sistema imune: A mitomicina C pode afetar o sistema imune do feto, aumentando o risco de infecções e problemas de saúde no nascimento.\n\n6. Prematuridade: A exposição à mitomicina C pode aumentar o risco de prematuridade, o que pode trazer problemas de saúde para o bebê, como baixo peso, problemas respiratórios e outros problemas de saúde.\n\nEm geral, a mitomicina C é administrada para tratar tumores no útero, e o risco de efeitos adversos para o feto é maior se o tratamento for realizado em gestantes que não conhecem sua gravidez ou se for realizado em gestantes que não receberam tratamento apropriado para proteger o feto. Se uma mulher estiver grávida e tiver sido tratada com mitomicina C, é importante"
+    },
+    {
+      "id": 7,
+      "categoria": "validacao",
+      "pergunta": "Quais são as perspectivas para o câncer uretral?",
+      "resposta": "O câncer uretral é uma condição relativamente rara, mas pode ser grave se não tratada adequadamente. Ao ser diagnosticado, o paciente é geralmente tratado com uma combinação de cirurgia, radioterapia e quimioterapia. A cirurgia pode envolver a remoção da uretra ou parte dela, dependendo da extensão do câncer. A radioterapia pode ser utilizada para matar as células cancerosas restantes e impedir sua recidiva. A quimioterapia pode ser usada para reduzir o tamanho do tumor antes de outras terapias ou para tratamento pós-operatório.\n\nA prognóstico do câncer uretral varia significativamente dependendo do estágio do câncer, a localização do tumor, a idade e a condição de saúde do paciente, entre outros fatores. Pacientes com estágios iniciais e locais confinados geralmente têm uma prognóstico melhor. No entanto, pacientes com estágios avançados ou com invadidos linfonodos ou órgãos próximos têm uma prognóstico mais pessimista.\n\nPacientes devem se preparar para um processo de tratamento longo e potencialmente desafiador, mas com sucesso é possível em muitos casos. É importante que o paciente trabalhe de perto com seu médico para desenvolver um plano de tratamento personalizado e acompanhar seu progresso."
+    },
+    {
+      "id": 8,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da distrofia do cone ligada ao X com brilho tipo tapetal?",
+      "resposta": "A distrofia do cone ligada ao X com brilho tipo tapetal é uma forma rara de distrofia do cone, que é uma condição que afeta a visão noturna e a capacidade de discernir cores. Os sintomas desta doença incluem:\n\n1. Brilho de tapete: O brilho de tapete é um sintoma característico da distrofia do cone ligada ao X com brilho tipo tapetal. A visão parece ser observada através de um filtro de brilho ou de um tapete.\n2. Perda de visão noturna: A visão noturna é afetada e as pessoas com esta doença podem ter dificuldades em se orientar em ambientes escuros.\n3. Perda de acuidade visual: A acuidade visual pode ser afetada e as pessoas com esta doença podem ter dificuldades em discernir detalhes finos, como letras pequenas ou objetos a distância.\n4. Perda de capacidade de discernir cores: A distrofia do cone ligada ao X com brilho tipo tapetal pode causar uma perda parcial ou completa da capacidade de discernir cores.\n5. Sensibilidade à luz: As pessoas com esta doença podem ser sensíveis à luz e ter dificuldades em lidar com ambientes brilhantes.\n6. Cicatrização macular: A cicatrização macular é um sinal avançado da doença e pode levar à perda total de visão central.\n7. Catarata: Alguns pacientes com distrofia do cone ligada ao X com brilho tipo tapetal podem desenvolver catarata, que pode causar a perda de visão.\n\nÉ importante notar que a distrofia do cone ligada ao X com brilho tipo tapetal é uma doença genética rara e que a diagnóstico é feito através de um exame de sangue ou uma biopsia da retina"
+    },
+    {
+      "id": 9,
+      "categoria": "validacao",
+      "pergunta": "Quantas pessoas são afetadas pela síndrome de Feingold?",
+      "resposta": "A síndrome de Feingold é uma rara condição genética que afeta o desenvolvimento do cérebro. Estima-se que afete menos de 1 em 100.000 pessoas. Porém, a precisão da incidência é difícil de determinar, já que muitos casos podem ir descobertos e não relatados. A condição é mais comum em indivíduos de ascendência judeu."
+    },
+    {
+      "id": 10,
+      "categoria": "validacao",
+      "pergunta": "Quais são os tratamentos para a distrofia neuroaxonal infantil?",
+      "resposta": "A distrofia neuroaxonal infantil é uma doença genética rara que afeta a capacidade do cérebro de comunicar com o corpo. Não há cura para a distrofia neuroaxonal infantil, mas há tratamentos que podem ajudar a aliviar os sintomas e melhorar a qualidade de vida do paciente.\n\nO tratamento geralmente consiste em:\n\n1. Terapia física: A terapia física pode ajudar a manter a mobilidade e a função motora do paciente. Isso pode incluir exercícios para ajudar o paciente a manter a força muscular, a flexibilidade e a mobilidade.\n\n2. Terapia ocupacional: A terapia ocupacional pode ajudar o paciente a lidar com as dificuldades na vida diária, como comer, vestir-se, lavar-se e realizar outras tarefas diárias.\n\n3. Terapia de fala e auditiva: A terapia de fala e auditiva pode ajudar o paciente a lidar com problemas de fala e ouvido.\n\n4. Medicação: Algumas medicações podem ser utilizadas para tratamento de sintomas específicos, como medicação para ajudar o paciente a dormir, medicação para ajudar o paciente a controlar a dor e medicação para ajudar o paciente a controlar a espasticidade.\n\n5. Terapia de cuidados palliativos: A terapia de cuidados palliativos pode ajudar o paciente a lidar com a dor e a sofrimento associados à doença. Isso pode incluir medicação, terapia de massagem e outros métodos para aliviar a dor.\n\n6. Acompanhamento multidisciplinar: A doença geralmente requer acompanhamento de um time de profissionais médicos, incluindo neurologistas, terapeutas, pediatras, enfermeiros e psicólogos."
+    },
+    {
+      "id": 11,
+      "categoria": "validacao",
+      "pergunta": "Como prevenir a cardiomiopatia?",
+      "resposta": "Para minimizar o risco de cardiomiopatia, é recomendado seguir algumas medidas de saúde e hábitos de vida saudáveis. Abaixo estão algumas dicas para prevenir a cardiomiopatia:\n\n1. Mantener um estilo de vida saudável: Exercícios físicos regulares, uma dieta balanceada, abstinência de tabagismo e moderado consumo de álcool.\n2. Gerenciar condições de saúde existentes: Controle de fatores de risco como hipertensão, diabetes, obesidade e dislipidemia, seguindo as orientações médicas.\n3. Mantener um peso saudável: Evitar o excesso de peso e a obesidade.\n4. Evitar fármacos que possam causar danos cardíacos: Consultar um médico e tomar cuidado com a utilização de fármacos que podem ter efeitos adversos no coração.\n5. Evitar situações estressantes: Mantendo um ambiente tranquilo e evitando situações estressantes pode ajudar a manter o coração saudável.\n6. Realizar exames preventivos: Fazer exames preventivos regulares para detectar qualquer possível problema antes dele se tornar grave.\n7. Evitar doenças infecciosas: Evitar doenças infecciosas, como gripe e hepatite, que podem causar danos ao coração.\n8. Evitar a exposição a fatores tóxicos: Evitar a exposição a fatores tóxicos, como gases, poluentes e radiação ionizante.\n9. Consultar um médico: Consultar um médico regularmente para gerenciar qualquer possível problema cardíaco e receber orientações sobre como cuidar do coração.\n\nPorém, é importante lembrar que a cardiomiopatia pode ter causas genéticas ou hereditárias, e não"
+    },
+    {
+      "id": 12,
+      "categoria": "validacao",
+      "pergunta": "What are the stages of Plasma Cell Neoplasms (Including Multiple Myeloma) ?",
+      "resposta": "Plasma Cell Neoplasms, including Multiple Myeloma, are a group of diseases characterized by the proliferation of abnormal plasma cells in the bone marrow. These diseases can be classified into several stages based on the severity of the disease and the amount of cancer cells in the body.\n\n1. Monoclonal Gammopathy of Undetermined Significance (MGUS): This is the earliest stage where abnormal plasma cells are present, but they do not cause any symptoms or organ damage. MGUS is often discovered during routine blood tests and does not require treatment unless it progresses to more advanced stages.\n\n2. Asymptomatic or Smoldering Myeloma: In this stage, there are increased levels of M protein (a type of protein produced by the abnormal plasma cells) in the blood or urine, as well as changes in the bone marrow, but there are no symptoms or organ damage. This stage is also considered a pre-cancerous condition and may not require immediate treatment.\n\n3. Symptomatic Myeloma: At this stage, the disease is active, and symptoms such as bone pain, fatigue, infections, anemia, kidney damage, and fractures may occur. The abnormal plasma cells have also started to invade the bone marrow and other organs. Treatment is usually recommended at this stage.\n\n4. Relapsed or Refractory Myeloma: This stage occurs when the disease comes back after initial treatment or when the disease does not respond to treatment. In this stage, the disease is aggressive, and patients may require more aggressive treatments such as stem cell transplants or novel therapies.\n\n5. Multiple Myeloma with Extra-Medullary Plasmacytoma: This is a rare form of multiple myeloma where abnormal plasma cells form tumors outside the bone marrow. Treatment for this stage is similar to that of symptomatic myeloma.\n\nThe stages of Plasma Cell Neoplasms, including Multiple Myeloma, are important to understand as they help guide treatment decisions and can affect a patient's prognosis. It is essential to discuss the stage of the disease with a healthcare provider to develop an appropriate treatment plan."
+    },
+    {
+      "id": 13,
+      "categoria": "validacao",
+      "pergunta": "Quais são os tratamentos para a síndrome de Brooke-Spiegler?",
+      "resposta": "A síndrome de Brooke-Spiegler é uma rara condição genética que caracteriza-se por um conjunto de tumores cutâneos benignos conhecidos como xantomatoses cutâneas. Não há um tratamento específico para a síndrome de Brooke-Spiegler, mas existem várias opções de tratamento para gerenciar os tumores cutâneos.\n\nO tratamento geralmente se concentra na remoção dos tumores através de cirurgia, laser, radioterapia ou crioterapia. Em alguns casos, medicamentos podem ser usados para reduzir o tamanho dos tumores ou para controlar a inflamação.\n\nAlém disso, é importante que as pessoas com a síndrome de Brooke-Spiegler sejam monitoradas regularmente por um médico especialista em dermatologia para garantir que os tumores não se espalhem ou aumentem de tamanho.\n\nO tratamento pode variar de acordo com o número, localização e tamanho dos tumores. Em alguns casos, a cirurgia pode ser necessária para remover os tumores, enquanto em outros casos, a radioterapia ou o uso de laser pode ser suficiente para controlar o crescimento dos tumores.\n\nAlém disso, é importante que as pessoas com a síndrome de Brooke-Spiegler mantenham um estilo de vida saudável, evitando o sol e usando sol de proteção adequado. Além disso, é importante que eles sejam monitorados para detectar quaisquer alterações nas suas condições.\n\nEm resumo, a síndrome de Brooke-Spiegler não tem um tratamento específico, mas os tumores cutâneos podem ser gerenciados com cirurgia, laser, radioterapia, crioterapia e medicamentos. É importante que as pessoas com a síndrome de Brooke-Spiegler sejam monitoradas regularmente por um médico especialista em dermatologia e mantenham"
+    },
+    {
+      "id": 14,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da catarata polar anterior 2?",
+      "resposta": "A catarata polar anterior 2 é um tipo específico de catarata que se desenvolve no núcleo da lente do olho. Os sintomas comuns dessa condição incluem:\n\n1. Dor no olho.\n2. Visão dupla ou múltipla (diplopia).\n3. Sensibilidade à luz.\n4. Dor no olho durante a manhã.\n5. Céu azul escuro ou halo ao redor da luz.\n6. Dificuldade em distinguir entre cores.\n7. Perda progressiva da visão noturna.\n8. Necessidade de aumentar a iluminação para ler ou realizar tarefas.\n9. Visão blurada ou nebulosa.\n\nÉ importante lembrar que a presença desses sintomas não sempre indica necessariamente catarata polar anterior 2. Um diagnóstico preciso deve ser feito por um médico especializado em oftalmologia. Se você tiver algum desses sintomas, procure ajuda médica imediatamente."
+    },
+    {
+      "id": 15,
+      "categoria": "validacao",
+      "pergunta": "What is (are) carnitine-acylcarnitine translocase deficiency ?",
+      "resposta": "Carnitine-acylcarnitine translocase deficiency is a rare genetic disorder that affects the body's ability to convert fat into energy. The disorder is caused by mutations in the SLC25A2 gene, which provides instructions for making a protein called carnitine-acylcarnitine translocase. This protein plays a crucial role in the transport of fatty acids across the inner mitochondrial membrane, a process known as carnitine shuttle.\n\nIndividuals with carnitine-acylcarnitine translocase deficiency have impaired fatty acid oxidation, leading to an accumulation of toxic acylcarnitine molecules in various tissues, particularly in the heart, skeletal muscles, and liver. This accumulation can cause a wide range of symptoms, including muscle weakness, hypoglycemia (low blood sugar), cardiomyopathy (heart muscle disease), metabolic acidosis (excessive acid in the blood), and, in severe cases, life-threatening episodes of metabolic crisis.\n\nDiagnosis is typically made through a combination of clinical symptoms, biochemical tests, and genetic testing. Treatment for carnitine-acylcarnitine translocase deficiency primarily involves a diet low in fats and high in carbohydrates, as well as the use of supplements such as L-carnitine and vitamins. In some cases, medication may be prescribed to manage symptoms and prevent metabolic crises. It's important to note that each case is unique, and management strategies may vary depending on the individual's specific symptoms and severity of the disorder."
+    },
+    {
+      "id": 16,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) Meningite?",
+      "resposta": "Meningite é uma doença que afeta o sistema nervoso central, mais especificamente as meninges, que são as membranas que envolvem o cérebro e a medula espinhal. Essas membranas estão em contato com o líquido cefalorraquidiano (LCR), que é um fluido que protege e nutre o cérebro e a medula espinhal.\n\nA meningite pode ser causada por uma infecção bacteriana, viral ou fungal, ou não ser causada por uma infecção (meningite não-infetocas). A meningite causada por uma infecção é geralmente mais grave e pode ser transmitida por contato com pessoas infectadas, por inalação ou contato com fluidos corporais infectados.\n\nOs sintomas comuns da meningite incluem dor de cabeça intenso, febre, vômitos, fotofobia, raiva, confusão mental e rigidez do pescoço. Se suspeitar-se de meningite, é necessário que a pessoa acude imediatamente ao hospital para que sejam realizados exames, como análise de sangue, exames de imagem (como TAC ou ressonância magnética) e exames do líquido cefalorraquidiano (lumbar punção).\n\nA meningite é tratada com antibióticos, antivirais ou antifúngicos, dependendo da causa da doença. A gravidade da doença varia muito, mas em casos graves, pode ser necessário o cuidado intensivo no hospital. É importante que se procure ajuda médica imediatamente se suspeitar-se de meningite, pois a doença pode ser fatal se não tratada em tempo oportuno."
+    },
+    {
+      "id": 17,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da tríade Currarino?",
+      "resposta": "A tríade Currarino é um conjunto de três sintomas que indicam uma anomalia no sacro, chamada sacro-coccígeo, que pode ser benigna ou maligna. Esses sintomas são:\n\n1. A presença de uma massa no perineu ou na região sacro-coccígea.\n2. A presença de uma hernia sacro-coccígea, que pode ser palpada ou visualizada em exame físico.\n3. A presença de uma defecação difícil (obstipação), que pode ser associada à massa ou à hernia.\n\nÉ importante ressaltar que a presença desses três sintomas não é diagnóstica exclusiva de uma anomalia sacro-coccígea, pois outras condições podem apresentar sintomas semelhantes. Por isso, um diagnóstico preciso deve ser feito por um médico especializado."
+    },
+    {
+      "id": 18,
+      "categoria": "validacao",
+      "pergunta": "Quantas pessoas são afetadas por infecções do trato urinário em crianças?",
+      "resposta": "O número de infecções do trato urinário (ITU) em crianças varia amplamente de acordo com vários fatores, incluindo idade, sexo, localização e condições de saúde. De acordo com dados do Centro de Controle e Prevenção de Doenças (CDC), entre 1 e 3 por cento de crianças de 2 a 5 anos são afetadas por ITU. No entanto, esses números podem ser maiores em certas populações, como crianças com determinadas condições médicas, como diabetes ou imunodeficiência. É importante notar que esses dados podem variar de acordo com diferentes países e regiões. Além disso, é importante realçar que, embora as infecções do trato urinário sejam comuns em crianças, a maioria dos casos é curados com tratamento adequado, sem necessidade de internação hospitalar."
+    },
+    {
+      "id": 19,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à deficiência de fosfoglicerato quinase?",
+      "resposta": "A deficiência de fosfoglicerato quinase (PGQD) é uma doença metabólica rara, autossômica recessiva, causada por mutações genéticas no gene PFKM. Este gene codifica a fosfoglicerato quinase (PFKM), uma enzima essencial para a glicólise, o processo metabólico que converte glicose em energia em forma de ATP.\n\nNa PGQD, as mutações no gene PFKM causam uma redução na atividade da fosfoglicerato quinase, resultando em uma glicólise ineficiente. Essa deficiência pode causar acumulação de fosfoglicerato e outros metabólitos do ciclo de Cori no sangue e tecido muscular.\n\nAlgumas das mutações mais comuns na PGQD incluem:\n\n- Mutação p. Arg281Gln: É a mutação mais comum na PGQD, e causa uma alteração na estrutura da enzima, reduzindo sua atividade.\n- Mutação p. Arg267Gln: É outra mutação comum na PGQD, e também causa uma alteração na estrutura da enzima, reduzindo sua atividade.\n- Mutação p. Arg370Gln: Esta mutação também causa uma alteração na estrutura da enzima, reduzindo sua atividade.\n\nEssas mutações resultam em uma deficiência de fosfoglicerato quinase, causando uma variedade de sintomas, incluindo hipotonia, hipertonia, espasmos musculares, desequilíbrio, retardo mental, cegueira, acumulação de ácido úrico e acumulação de líquido nas cavidades do crânio (hidrocefalia).\n\nA PGQD é diagnosticada com base em exames clínicos, exames de sangue e exames genéticos. O tratamento geralmente envolve medidas para controlar os sintomas e suporte"
+    },
+    {
+      "id": 20,
+      "categoria": "validacao",
+      "pergunta": "Is glutaric acidemia type I inherited ?",
+      "resposta": "Glutaric acidemia Type I (GA-I) is an autosomal recessive inherited metabolic disorder. This means that a child needs to inherit two copies of the defective gene, one from each parent, to have the condition. If a person has only one copy of the defective gene, they are a carrier, but do not have the disease. The condition affects the body's ability to break down certain proteins and fatty acids, leading to the buildup of toxic substances in the body, particularly glutaric acid. Early diagnosis and treatment, which often includes a low protein diet and medication, can help manage the symptoms and improve the quality of life for individuals with GA-I."
+    },
+    {
+      "id": 21,
+      "categoria": "validacao",
+      "pergunta": "Quantas pessoas são afetadas pela Nefropatia por IgA?",
+      "resposta": "A nefropatia por IgA é uma doença renal comum, afetando cerca de 1 em cada 300 a 600 indivíduos em geral. No entanto, essa taxa pode variar significativamente entre diferentes populações, com altas taxas em certas regiões geográficas, como no Japão. Além disso, a nefropatia por IgA é mais comum em indivíduos do sexo masculino e em idades entre 30 e 50 anos. No entanto, a doença pode ocorrer em qualquer idade e em qualquer grupo étnico."
+    },
+    {
+      "id": 22,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) a síndrome de Lujan?",
+      "resposta": "A síndrome de Lujan é uma rara condição genética hereditária que afeta o crescimento e o desenvolvimento físico e intelectual de uma pessoa. Esta síndrome é causada por mutações em um gene chamado *SLC25A2* que é responsável pela produção de uma proteína que é essencial para o funcionamento normal das células do corpo. As pessoas com a síndrome de Lujan geralmente apresentam um conjunto de características físicas e funcionais específicas, que incluem:\n\n* Crescimento lento;\n* Pés e mãos com dedos flexíveis e pé de equíno;\n* Cabeça desproporcionadamente pequena para o resto do corpo;\n* Dificuldade de locomoção;\n* Problemas de equilíbrio;\n* Dificuldade de alimentação;\n* Problemas cardíacos e respiratórios;\n* Problemas com a visão;\n* Problemas com a audição;\n* Baixo nível de inteligência;\n* Problemas com a coordenação muscular.\n\nA síndrome de Lujan pode ser diagnosticada a partir de um exame físico e testes genéticos. Não há cura para a síndrome de Lujan, mas o tratamento pode incluir fisioterapia, terapia ocupacional, terapia de fala, medicamentos e cirurgias específicas. Os cuidados médicos, educacionais e de suporte devem ser fornecidos para ajudar as pessoas com a síndrome de Lujan a viver a vida saudável e produtiva possível."
+    },
+    {
+      "id": 23,
+      "categoria": "validacao",
+      "pergunta": "Como diagnosticar Proteinúria?",
+      "resposta": "A Proteinúria pode ser diagnosticada através de um exame de urina, conhecido como exame de urina 24 horas. Neste exame, um paciente coleta sua urina durante 24 horas consecutivas em recipientes especiais fornecidos pelo laboratório, que devem ser devolvidos ao laboratório para análise. A análise da urina pode ser realizada com um teste de qualidade simples para detectar proteínas ou um exame mais detalhado para medir a concentração exata de proteínas na urina. Outras análises também podem ser realizadas para determinar a causa da proteínia na urina, como testes de hematúria, glucose e creatinina. Em alguns casos, um exame de sangue também pode ser realizado para avaliar a função renal e a presença de qualquer doença sistêmica que possa causar proteínia na urina. Além disso, um exame físico e avaliação médica podem ser necessários para avaliar a integridade geral da saúde do paciente. Se a proteínia for detectada, ainda será necessária uma avaliação mais detalhada para determinar a causa e o tratamento adequado."
+    },
+    {
+      "id": 24,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da disostose espondilocostal 4?",
+      "resposta": "A disostose espondilocostal 4 é uma rara condição óssea que afeta as vértebras da coluna vertebral e os costelos. Ao contrário de outras formas de disostose espondilocostal, que geralmente apresentam sintomas graves, a disostose espondilocostal 4 geralmente é asintomática e não requer tratamento específico. No entanto, alguns pacientes podem apresentar sintomas leves, como dores no baixo quadro, dificuldade em tocar a guitarra ou outros instrumentos de cordas, ou dificuldade em mover a cabeça. Esses sintomas são devidos à compressão dos nervos espinhais ou da medula espinhal devido à formação de novos ossos nas regiões afetadas. Em casos graves, a condição pode causar paralisação parcial ou total do tronco ou das extremidades."
+    },
+    {
+      "id": 25,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à distonia focal específica da tarefa?",
+      "resposta": "A distonia focal específica é uma condição neurológica caracterizada pela perda de controle voluntário sobre determinados músculos, levando a movimentos incontroloveis e sintomas de contração muscular crônica. Alterações genéticas associadas à distonia focal específica podem ser:\n\n1. TOR1A gene: mutações neste gene estão associadas à distonia focal específica juvenil (DYT1).\n2. THAP1 gene: mutações neste gene estão associadas à distonia focal específica tardia (DYT6).\n3. DRD3 gene: mutações neste gene estão associadas à distonia focal específica associada à dermatoma trigémio (DYT12).\n4. VPS35 gene: mutações neste gene estão associadas à distonia focal específica com paralisação progressiva (DYT13).\n5. ANO3 gene: mutações neste gene estão associadas à distonia focal específica com paralisação progressiva (DYT15).\n6. PRKN gene: mutações neste gene estão associadas à distonia focal específica associada à dermatoma trigémio (DYT17).\n7. SGCE gene: mutações neste gene estão associadas à distonia focal específica tardia (DYT18).\n8. ATP1A3 gene: mutações neste gene estão associadas à distonia focal específica com paralisação progressiva (DYT19)."
+    },
+    {
+      "id": 26,
+      "categoria": "validacao",
+      "pergunta": "How to diagnose Kidney Stones in Children ?",
+      "resposta": "Diagnosing kidney stones in children can be challenging, as their symptoms may be less specific or severe compared to adults. Here are some steps a healthcare provider may take to diagnose kidney stones in children:\n\n1. Medical history: The healthcare provider will ask about the child's symptoms, such as pain in the side and back, blood in the urine, nausea, vomiting, and frequent urination. They will also ask about any family history of kidney stones, as this can increase a child's risk.\n\n2. Physical examination: During a physical examination, the healthcare provider may check for signs of kidney stones, such as tenderness in the abdomen or flank area, or abnormalities in the urinary system.\n\n3. Urine tests: Urine tests can help identify the presence of kidney stones, as well as the type and composition of the stones. This is done by examining the urine under a microscope, or by testing for the presence of certain chemicals that are often associated with kidney stones.\n\n4. Imaging tests: Imaging tests, such as ultrasound, CT scan, or X-ray, can provide more detailed images of the kidneys and urinary system. These tests can help locate the stone, determine its size, and assess its position within the urinary tract.\n\n5. Blood tests: Blood tests can help evaluate kidney function, check for dehydration, and assess for infection.\n\n6. Urine culture: If there is an infection, a urine culture may be performed to identify the specific bacteria causing the infection and guide appropriate antibiotic treatment.\n\n7. In some cases, a procedure called a retrograde pyelogram may be performed to visualize the kidneys and urinary system more closely. This involves injecting a dye into the urinary system and taking X-rays or other images."
+    },
+    {
+      "id": 27,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da Amelogênese imperfeita hipoplásica local?",
+      "resposta": "A Amelogênese imperfeita hipoplásica local é uma condição genética que causa deficiência na formação de dentes permanentes, principalmente os incisivos superiores. Os sintomas dessa condição incluem:\n\n1. Dentes pequenos e de cor escura;\n2. Dentes com superfície rugosa;\n3. Dentes com cúspide reduzida;\n4. Dentes com forma irregular;\n5. Dentes com cúspide separada;\n6. Dentes com superfície translúcida;\n7. Dentes que se apresentam atrasados na erupção;\n8. Dentes que podem ser facilmente lesionados;\n9. Dentes que podem ser sensíveis ao calor e frio.\n\nÉ importante notar que esses sintomas podem variar em intensidade e aparência de acordo com o grau de gravidade da condição em cada indivíduo. Além disso, a Amelogênese imperfeita hipoplásica local pode ser associada a outras condições genéticas, como a Hipoplásia dentinária e a Amelogênese imperfeita generalizada. Em geral, é recomendado que pessoas com essa condição recebam um tratamento preventivo e correto para manter a saúde oral e evitar lesões nos dentes."
+    },
+    {
+      "id": 28,
+      "categoria": "validacao",
+      "pergunta": "que pesquisas (ou ensaios clínicos) estão sendo feitas para o câncer retal?",
+      "resposta": "Estão sendo realizados muitos estudos clínicos para o câncer retal, em busca de melhorar o tratamento e a prognóstico desta doença. Alguns dos estudos atuais que estão sendo feitos incluem:\n\n1. Testes de imunoterapia: Estes estudos testam a eficácia de novos medicamentos que estimulam o sistema imune do corpo humano para combater o câncer.\n2. Estudos de radioterapia: Alguns estudos testam a eficácia de novos tipos de radioterapia, como a radioterapia de alta precisão, para melhorar o tratamento do câncer retal.\n3. Estudos de quimioterapia: Estes estudos testam a eficácia de novos medicamentos quimioterápicos, como a quimioterapia de combinação, para melhorar o tratamento do câncer retal.\n4. Estudos de cirurgia: Alguns estudos testam a eficácia de novas técnicas cirúrgicas, como a cirurgia robôtica, para melhorar a remoção do câncer retal.\n5. Estudos de dieta e estilo de vida: Estes estudos testam a eficácia de uma dieta específica e de um estilo de vida saudável para melhorar o tratamento e a prognóstico do câncer retal.\n\nTodos esses estudos têm como objetivo melhorar o tratamento do câncer retal e aumentar a chance de sobrevivência para as pessoas que sofrem com esta doença."
+    },
+    {
+      "id": 29,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) beta-manosidose?",
+      "resposta": "Beta-manosidose é uma doença genética rara, que é causada por uma mutação no gene GNPTAB, que produz uma proteína necessária para a função da lisossoma, uma estrutura celular que quebra e recicla partículas celulares. Essa doença impede que a beta-manosidase, uma enzima lisossomal, seja produzida corretamente ou funcione corretamente, causando acúmulo de glicosaminoglicanos em vários tecidos do corpo.\n\nIsso pode levar a diversos sintomas, que geralmente começam a aparecer no primeiro ano de vida. Os sintomas comuns incluem retardamento mental, problemas na visão, problemas de equilíbrio e coordenação, dificuldades de fala e de comer.\n\nA doença pode ser diagnosticada através de um teste de sangue que mede as atividades enzimáticas em amostras de sangue ou de tecido. Atualmente, não há uma cura para a doença, mas existem tratamentos que podem ajudar a controlar alguns dos sintomas. Esses tratamentos podem incluir terapia de substituição enzimática, dietas especiais e medicação para controlar a dor."
+    },
+    {
+      "id": 30,
+      "categoria": "validacao",
+      "pergunta": "A histidinemia é herdada?",
+      "resposta": "Sim, a histidinemia é uma doença hereditária. Ela é causada por mutações em um gene responsável pela produção da enzima histidinase, que é necessária para que o corpo digere a histidina, um dos aminoácidos essenciais. Essas mutações podem ser herdadas de pais afetados, o que significa que a histidinemia é uma doença autossômica recessiva. Isso significa que ambos os pais devem ser portadores da mutação para que a doença seja transmitida aos filhos. No entanto, é importante lembrar que a histidinemia é rara e geralmente diagnosticada apenas em indivíduos que apresentam sintomas graves ou em casos em que a doença é suspeita devido a uma história familiar de indivíduos afetados."
+    },
+    {
+      "id": 31,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à morte súbita infantil com síndrome da disgenesia dos testículos?",
+      "resposta": "A morte súbita infantil (MSI) é um transtorno cardíaco que pode ser causado por diversas alterações genéticas. A síndrome da disgenesia dos testículos (DGS) é uma condição genética rara que é caracterizada por anomalias congênitas do sistema genitourinário e outras partes do corpo.\n\nA DGS é causada por uma mutação no gene DAX1, localizado no cromossomo X. Esse gene é importante para o desenvolvimento do sistema reprodutivo masculino e do sistema hormonal. Quando esse gene é afetado, ocorre a DGS, que pode ser associada a MSI em alguns casos.\n\nUma das mutações que podem causar a DGS é uma mutação no gene INSL3, localizado no cromossomo 17. Essa mutação pode causar uma deficiência na produção de hormônios específicos, como a insulina-like factor 3 (INSL3), que é importante para o desenvolvimento do coração. A deficiência desses hormônios pode causar MSI.\n\nOutra mutação que pode causar a DGS e ser associada a MSI é uma mutação no gene PHOX2B, localizado no cromossomo 4. Essa mutação pode causar anomalias nos neurônios do sistema nervoso autônomo, que controlam o coração, e possivelmente outras partes do corpo, o que pode levar à MSI.\n\nEm resumo, a DGS pode ser associada a MSI por várias mutações genéticas, incluindo mutações no gene DAX1, INSL3 e PHOX2B. Essas mutações podem causar deficiências nas funções do coração e outras partes do corpo, levando à MSI."
+    },
+    {
+      "id": 32,
+      "categoria": "validacao",
+      "pergunta": "Quais são os tratamentos para a trombofilia por protrombina?",
+      "resposta": "A trombofilia por protrombina é uma condição que aumenta o risco de formação de coagulos sanguíneos inadequados. Existem vários tratamentos para reduzir o risco de tromboses relacionadas à trombofilia por protrombina, e eles podem variar dependendo do grau de risco individual e do tipo de trombofilia. Alguns tratamentos comuns incluem:\n\n1. Anticoagulantes orais, como a warfarina, que são usados para inibir a coagulação sanguínea e reduzir o risco de tromboses.\n\n2. Inibidores do fator Xa, como o apixabán, edoxabán e rivaroxabán, que são usados para inibir a coagulação sanguínea e reduzir o risco de tromboses.\n\n3. Heparina, uma anticoagulante intravenosa ou inalável, que é usada para inibir a coagulação sanguínea e reduzir o risco de tromboses.\n\n4. Inibidores da vitamina K, como o Konakion, que são usados para inibir a produção de protrombina e reduzir o risco de tromboses.\n\n5. Embolização transcatétetra, que é usada para tratar tromboses que já ocorreram.\n\nÉ importante que as pessoas que têm trombofilia por protrombina tenham um cuidado especial com a coagulação sanguínea, evitando o uso de fatores de coagulação e evitando a exposição a fatores de risco de tromboses, como fumar, ter um estilo de vida sedentário ou ter um histórico familiar de tromboses. Além disso, é importante que as pessoas com trombofilia por protrombina tenham um controle regular de seu nível de coagulante para garantir que o tratamento esteja funcionando corretamente."
+    },
+    {
+      "id": 33,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) AVC?",
+      "resposta": "AVC é a sigla para Ataque Vascular Cerebral, que pode ser traduzido como Ataque Isquêmico ou Hemorragia Cerebral.\n\n1. Ataque Isquêmico Cerebral (AIC): Ocorre quando há redução de fornecimento de oxigênio ao cérebro, devido a obstrução de uma artéria cerebral, geralmente por uma coagulante ou agregação plaquetária. Os sintomas mais comuns incluem dor de cabeça, dificuldade de fala, visão dupla, perda de equilíbrio, dificuldade em caminhar, dificuldade em entender ou falar, e paralisação.\n\n2. Hemorragia Cerebral: É um tipo de AVC que ocorre quando há uma ruptura de uma artéria, veia ou aneurisma cerebral, causando sangramento no cérebro. Os sintomas podem incluir dor de cabeça, dificuldade de fala, visão dupla, perda de equilíbrio, dificuldade em caminhar, dificuldade em entender ou falar, perda de memória e convulsões.\n\nAmbos os tipos de AVC podem ser potencialmente fatal, se não tratados a tempo. A detecção precoce e o tratamento adequado podem minimizar os efeitos negativos desses eventos."
+    },
+    {
+      "id": 34,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) artrite infecciosa?",
+      "resposta": "Artrite infecciosa é uma condição que ocorre quando um micro-organismo invade o tecido articular, causando inflamação. O micro-organismo pode ser um vírus, bactéria ou fungo. Existem vários tipos de artrite infecciosa, como artrite bacteriana, vírus, fúngica e artrite reumatóide. A artrite bacteriana é causada principalmente por bactérias como estreptococos, estafilococos e salmonella. Os sintomas geralmente incluem dor aguda e intenso na articulação, febre, inflamação e dificuldade de movimentar a articulação. A artrite infecciosa é tratada com antibióticos, antivirais ou antimicrobianos, dependendo do micro-organismo causador. Em casos graves, a artrite infecciosa pode necessitar de tratamento hospitalar. É importante que uma pessoa que suspeita de ter artrite infecciosa procure ajuda médica imediatamente para evitar complicações."
+    },
+    {
+      "id": 35,
+      "categoria": "validacao",
+      "pergunta": "A neuropatia axonal autossômica recessiva com neuromiotonia é hereditária?",
+      "resposta": "Sim, a neuropatia axonal autossômica recessiva com neuromiotonia é hereditária. Essa condição é causada por mutações em determinados genes, que são herdados de ambos os pais. Algumas dessas mutações podem ser autossômicas recessivas, o que significa que ambos os pais devem ter uma cópia da mutação para que a condição ocorra no filho. Porém, é importante ressaltar que a herança é complexa e pode variar de acordo com o tipo exato de neuropatia axonal autossômica recessiva com neuromiotonia. Em alguns casos, a condição pode ser dominante, ou seja, uma cópia da mutação suficiente para causar a doença pode ser herdada de apenas um dos pais. Algumas pessoas podem também ter neuropatia axonal autossômica recessiva com neuromiotonia sem ter herdado a mutação de ambos os pais, o que pode ser causado por mutações novas ou de origem mitocondrial."
+    },
+    {
+      "id": 36,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à cardiomiopatia dilatada familiar?",
+      "resposta": "A cardiomiopatia dilatada familiar (CDF) é uma condição hereditária que pode ser causada por várias mutações genéticas diferentes. As principais mutações conhecidas estão localizadas nos genes MYH7, MYBPC3, TTN, MYL3, MYL2 e desmoglobina α (DL-K). Essas mutações podem causar alterações estruturais nos fibrilares do músculo cardíaco, o que pode levar à dilatação do ventrículo esquerdo, redução da função ventricular e, eventualmente, a falha cardíaca. A CDF é uma condição hereditária autosomal dominante, o que significa que apenas uma cópia do gene alterado é necessária para que a doença se manifeste. É importante ressaltar que a CDF pode ser diagnosticada por exame clínico e testes de imagem, e que a consulta de um especialista cardiológico é recomendada para avaliação e tratamento."
+    },
+    {
+      "id": 37,
+      "categoria": "validacao",
+      "pergunta": "What is (are) Carney complex ?",
+      "resposta": "Carney complex, também conhecida como Carney triad, é uma rara doença genética que afeta o tecido conectivo e o tecido endócrino. Ela é caracterizada por três sintomas principais:\n\n1. Lentigines (manchas pigmentadas) em áreas específicas do corpo, como o pescoço, o tronco e os membros inferiores.\n2. Osteochondromatosis (crescimentos ósseos e cartilaginosos no tecido conjuntivo), que podem causar dores, dificuldade em mover-se e, em alguns casos, serem confundidos com tumores malignos.\n3. Glandular lesions (lesões endócrinas), que podem causar hormonal imbalances e sintomas como tachicardia (frequência cardíaca anormalmente alta), hipertiroidismo (hiperatividade do tecido tireóide) e, em casos raros, crescimento de tumores endócrinos como tumores da glândula adrenal ou da glândula pâncreas.\n\nA Carney complex é causada por mutações genéticas hereditárias ou espontâneas, e pode ser diagnosticada com base em critérios clínicos e confirmada por exames genéticos. Não há cura para a Carney complex, mas o tratamento geralmente consiste em gerenciamento dos sintomas e da prevenção de complicações."
+    },
+    {
+      "id": 38,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) deficiência de fumarase?",
+      "resposta": "A deficiência de fumarase é uma condição hereditária rara que compromete a função do enzima fumarase em nosso corpo. A fumarase é um componente essencial da cadeia de transporte de eletrões do citocromo c, uma via metabólica que é fundamental para o metabolismo normal de nosso organismo.\n\nA deficiência de fumarase se manifesta geralmente em crianças com sintomas como hipotonia (baixa tonicidade muscular), cianose (cor azulada da pele), hiperventilação (respiração acelerada), acidez metabólica, hipoglicemia (baixo nível de glicose no sangue), acumulação de láctatos e ácidos orgânicos, entre outros.\n\nExistem duas formas de deficiência de fumarase: clássica e mitocondrial. A forma clássica é causada por mutações no gene FH, localizado no cromossomo 15, enquanto que a forma mitocondrial é causada por mutações em genes mitocondriais. Ambas as formas são hereditárias autossômicas recessivas.\n\nPor ser uma condição rara, a deficiência de fumarase é difícil de diagnosticar e requer um diagnóstico preciso por um médico especialista. A tratamento geralmente inclui uma dieta baixa em láctico e suplementação de vitaminas e minerais. Em casos mais graves, pode ser necessária uma transplantação de medula óssea ou um tratamento com hemodialíse."
+    },
+    {
+      "id": 39,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) a febre familiar do Mediterrâneo?",
+      "resposta": "A febre familiar do Mediterrâneo (FMD, por suas siglas em inglês) é uma doença hereditária rara, caracterizada por febre reocorrente, erupções cutâneas e hepatosplenomegalia (ampliação dos rins e da medula espinhal). A doença é causada por um gene mutado que resulta em uma deficiência na função das enzimas Adenosina Desaminase 2 (ADA2) e Adenosina Desaminase 1 (ADA1), que são essenciais para a síntese de purinas e pirofosfato. A FMD é mais comum em populações mediterrânicas, especialmente no Oriente Médio, na Europa e na África do Norte. O diagnóstico é feito com base em um histórico clínico familiar e confirmado por testes genéticos. A doença é tratada com suplementos de purinas e, em alguns casos, por transplante de medula óssea."
+    },
+    {
+      "id": 40,
+      "categoria": "validacao",
+      "pergunta": "Is Winchester syndrome inherited ?",
+      "resposta": "Winchester syndrome is not typically inherited in the classic sense. It is a very rare condition, characterized by the presence of multiple cartilaginous exostoses, particularly on the extremities and skull, and by a distinctive facial appearance. This condition is usually caused by a somatic mutation, which means that the mutation occurs during an individual's lifetime, rather than being passed down through genes from parents to offspring. Therefore, it is not considered an inherited condition in the traditional sense. However, it is important to note that the exact cause of Winchester syndrome is not fully understood, and more research is needed to fully elucidate its etiology."
+    },
+    {
+      "id": 41,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) a doença da arranhadura do gato?",
+      "resposta": "A doença da arranhadura do gato, também conhecida como bactériase cutânea, é uma infecção causada por bactérias do gênero Streptococcus, geralmente Streptococcus felis ou Streptococcus neozealandiae. Essas bactérias são comumente encontradas em gatos e outros animais domésticos. A doença pode ser transmitida ao homem por contato direto com a saliva ou a pele de um gato infectado, principalmente através de uma mordida ou uma arranhadura. Os sintomas incluem dor, inflamação, calor, vermelhidão e pus na área afetada. Geralmente é tratada com antibióticos prescritos por um médico ou um veterinário."
+    },
+    {
+      "id": 42,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da Distrofia Macular, córnea tipo 1?",
+      "resposta": "A Distrofia Macular, córnea tipo 1 é uma condição genética rara que afeta a visão. Os sintomas dessa condição podem incluir:\n\n1. Perda de visão central, que se manifesta em dificuldades em reconhecer pessoas, letras, objetos e outros detalhes finos.\n2. Perda de visão noturna, que se torna mais pronunciada ao longo do tempo.\n3. Sensibilidade à luz, em especial a luz brilhante.\n4. Ponto escuro central na visão, chamado de \"ponto de corpo negro\".\n5. Perda de visão periférica, que se torna mais pronunciada ao longo do tempo.\n6. Percepção de cores inexatas ou descoloridação.\n7. Perda de visão progressiva, que pode ser lenta ou acentuada.\n8. Dificuldade em adaptar-se à visão em condições de baixa iluminação.\n9. Perda de visão em um olho ou ambos os olhos.\n\nÉ importante lembrar que a Distrofia Macular, córnea tipo 1 é uma condição rara e que pode ter sintomas diferentes em cada indivíduo. Por isso, se você ou alguém que você conhece estiver experimentando sintomas semelhantes, é importante consultar um médico especialista em visão para uma análise precisa e tratamento adequado."
+    },
+    {
+      "id": 43,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) distrofia torácica asfixiante?",
+      "resposta": "A distrofia torácica asfixiante (DTA) é uma condição rara e grave que afeta o sistema esquelético e respiratório. A DTA causa deformidades nos ossos torácicos, que dificultam a expansão normal do tórax durante a inspiração, reduzindo assim a capacidade pulmonar.\n\nOs sintomas da DTA podem incluir dificuldade para respirar, dor no peito, falta de ar, desconforto quando se movimenta ou sente-se, espirros ou roncos no tórax, e dificuldade em se manter em posição ereta.\n\nA DTA é geralmente diagnosticada por meio de exames como radiografia, tomografia computadorizada ou ressonância magnética. O tratamento geralmente consiste em terapia física para manter a mobilidade dos ossos e a capacidade pulmonar, bem como medicação para controlar o sintoma. Em casos severos, a cirurgia pode ser necessária para melhorar a capacidade pulmonar e a qualidade de vida."
+    },
+    {
+      "id": 44,
+      "categoria": "validacao",
+      "pergunta": "What are the treatments for T-cell immunodeficiency, congenital alopecia, and nail dystrophy ?",
+      "resposta": "T-cell immunodeficiency, also known as Severe Combined Immunodeficiency (SCID), is a group of disorders in which the immune system is severely compromised. Treatment often involves a bone marrow transplant, which can replace the faulty immune system with healthy cells. In some cases, gene therapy may be an option.\n\nCongenital alopecia, or baldness from birth, can have various causes, including genetic mutations. Treatment is usually supportive, focusing on managing any associated conditions and improving the individual's quality of life. This might include wigs, hairpieces, or topical treatments.\n\nNail dystrophy refers to abnormalities in the structure, shape, or growth of the nails. The treatment depends on the underlying cause. For example, fungal infections might be treated with antifungal medications, while nutritional deficiencies could be addressed through dietary changes. In some cases, surgical procedures may be necessary to correct severe deformities."
+    },
+    {
+      "id": 45,
+      "categoria": "validacao",
+      "pergunta": "Quantas pessoas são afetadas pelo forame parietal aumentado?",
+      "resposta": "O forame parietal aumentado é um termo usado em radiologia e anatomia para se referir a uma abertura no osso parietal do crânio que se torna mais grande do que o normal. Não há dados precisos sobre a prevalência exata do forame parietal aumentado, pois requer imagens médicas para ser identificado. No entanto, é considerado um fenômeno raro, com uma incidência muito baixa na população geral. Em estudos específicos, a prevalência pode variar de 0,002% a 1,4%. Entretanto, é importante ressaltar que a maioria das pessoas com este fenômeno não apresenta sintomas e não precisam de tratamento específico."
+    },
+    {
+      "id": 46,
+      "categoria": "validacao",
+      "pergunta": "Quantas pessoas são afetadas pela deficiência de adesão leucocitária tipo 1?",
+      "resposta": "A deficiência de adesão leucocitária tipo 1 (LAD1) é uma rara condição genética que afeta as células do sistema imunológico. Poucas pessoas são afetadas por essa doença. De acordo com uma estimativa do National Organization for Rare Disorders, a LAD1 ocorre em apenas 1 em 1.000.000 pessoas. No entanto, essa estimativa pode variar de acordo com diferentes estudos e regiões geográficas. É importante lembrar que a LAD1 é rara, e que a maioria das pessoas não é afetada por essa doença."
+    },
+    {
+      "id": 47,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da displasia falangoepifisária em forma de anjo?",
+      "resposta": "A displasia falangoepifisária (DFE) é uma condição genética rara que afeta o desenvolvimento das extremidades. Em forma de anjo, é uma de suas variações. Os sintomas desta forma de DFE incluem:\n\n1. Anormalidades nas mãos e pés, com falanges (osssos longos das mãos e pés) curtas e deformadas, geralmente com uma falange extra em cada dedo, dando uma aparência de asas (assim chamada de forma de anjo).\n2. Falanges geralmente são deformadas e de posição inversa, com a falange distal (ossos mais distantes) de pé e mão mais curvadas e com maior curvatura.\n3. As mãos e pés podem ser de tamanho menor do que o normal.\n4. Em alguns casos, outros sintomas podem ser observados, como ocorrência de lesões no ombro e coluna vertebral, que podem ser causadas por uma condição chamada instabilidade espondilometafisária.\n5. Outros sintomas podem incluir dificuldades em caminhar, instabilidade nas articulações, dor e falta de flexibilidade.\n\nÉ importante lembrar que a DFE em forma de anjo é uma condição genética rara e que cada caso pode apresentar diferentes graus de sintomas e complicações. Se uma pessoa tiver sintomas suspeitosos desta condição, deve consultar um médico especialista para um diagnóstico e tratamento adequado."
+    },
+    {
+      "id": 48,
+      "categoria": "validacao",
+      "pergunta": "A neuromielite óptica é hereditária?",
+      "resposta": "A neuromielite óptica (NMO) é uma doença auto-imune que ataca o sistema nervoso central e o sistema nervoso periférico. Ela pode ser classificada como uma doença da linha de Brain-Spinal Cord (BSC) ou uma doença da linha de Brain-Spinal Cord-Optic Nerve (BSC-ON). A NMO pode ser hereditária em alguns casos, mas é mais comumente causada por uma reação auto-imune do corpo contra o mielino, uma camada de tecido que envolve as fibras nervosas.\n\nA hereditária NMO é um subtipo raro da doença, e é causada por uma mutação genética herdada. A maioria dos casos de NMO não é hereditária, mas é causada por uma combinação de fatores genéticos e ambientais.\n\nA hereditária NMO é mais comumente associada a mutações no gene IKBKG, que codifica a proteína p35, um componente essencial do complexo de proteínas NEMO, que é um componente central do sistema de sinalização do NF-κB. Essas mutações podem aumentar o risco de desenvolver a NMO em resposta a determinados estímulos ambientais.\n\nEm resumo, a NMO pode ser hereditária em alguns casos, mas a maioria dos casos não é hereditária e é causada por uma reação auto-imune do corpo contra o mielino."
+    },
+    {
+      "id": 49,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à síndrome do pterígio poplíteo?",
+      "resposta": "A síndrome do pterígio poplíteo, também conhecida como síndrome de Okihara, é uma rara condição genética autossômica recessiva que afeta a articulação do pterígio poplíteo. Essa síndrome é causada por uma mutação no gene *SLC26A2*, que é localizado no cromossoma 16. O gene *SLC26A2* é responsável pela codificação de uma proteína chamada anión transporter 1 (ATP1B). Essa proteína é fundamental para a regulação do pH e da concentração de íons na articulação do pterígio poplíteo. A mutação no gene *SLC26A2* pode levar a uma acumulação de cátions hidrogênio (H+) e cloreto (Cl-) na articulação, resultando em uma alteração no equilíbrio químico e físico dessa articulação. Essa alteração pode causar inflamação, dor e deformidade na articulação do pterígio poplíteo."
+    },
+    {
+      "id": 50,
+      "categoria": "validacao",
+      "pergunta": "A doença cardíaca congênita crítica é hereditária?",
+      "resposta": "Sim, algumas formas de doença cardíaca congênita podem ser hereditárias. Essas doenças cardíacas congênitas, também conhecidas como cardiopatias congênitas, podem ser causadas por mutações em determinados genes que são herdados de pais para filhos. Algumas dessas mutações podem ser autossômicas dominantes, o que significa que apenas uma cópia do gene mutado é necessária para causar a doença. Outras mutações podem ser autossômicas recessivas, o que significa que ambas as cópias do gene devem ser mutadas para causar a doença. Em alguns casos, a doença pode ser causada por mutações em genes que são passados de mãe para filhos ou de pai para filhos, ou mesmo por mutações em genes que são passados através de ambos os pais. É importante destacar que a maioria das pessoas com doença cardíaca congênita não tem parentes imediatos afetados, pois a maioria das formas de doença cardíaca congênita não são hereditárias. Porém, é recomendado que as pessoas com doença cardíaca congênita informem seus médicos se outros parentes tiverem a doença ou se houver uma história familiar de problemas cardíacos, para que possam ser feitas apropriadas exames e medidas de prevenção."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "timestamp": "2026-03-09T03:39:47.214617",
+    "baseline_file": "/home/nicola/virtual-medical-assistant/data/evaluation/baseline_responses.json",
+    "finetuned_file": "/home/nicola/virtual-medical-assistant/data/evaluation/finetuned_responses_epoch4.json",
+    "questions_file": "/home/nicola/virtual-medical-assistant/data/evaluation/perguntas_avaliacao.json",
+    "total_perguntas": 50,
+    "has_reference": false
+  },
+  "metrics": {
+    "baseline": {
+      "avg_length": 1225.38,
+      "total_length": 61269
+    },
+    "finetuned": {
+      "avg_length": 706.42,
+      "total_length": 35321
+    },
+    "comparison": {},
+    "averages": {
+      "bleu": 0.0027217610360818177,
+      "rouge1": 0.20642231149018134,
+      "rouge2": 0.011276803262353167,
+      "rougeL": 0.15128744790470294,
+      "length_ratio": 0.6241429448880753
+    }
+  }
+}

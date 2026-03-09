@@ -1,0 +1,312 @@
+{
+  "metadata": {
+    "modelo_base": "mistralai/Mistral-7B-Instruct-v0.3",
+    "modelo_finetuned": "models/checkpoints/checkpoint-5000",
+    "tipo": "finetuned",
+    "timestamp": "2026-03-09T02:53:52.657076",
+    "total_perguntas": 50,
+    "device": "cuda"
+  },
+  "respostas": [
+    {
+      "id": 1,
+      "categoria": "sintomas",
+      "pergunta": "Quais são os principais sintomas do diabetes tipo 2?",
+      "resposta": "c  que/   de ,ada/ /   або  */想 /  uma (/    //,/ ada, /,-, / ,,//  e o deada( e…  (//想 ( de, ,a e /想,   de/ /,/,   , ,,,,/,,o e /,,  *,/   /ada - sc a c de um,//ada/,ada-/ / або, e  або   de-/ // ada e  /  e , 立/  de  e e,  ( ada-  立,    , c/  e,  que  / ,  ,ado ,,/ ,/,/ / ( , або у/// у de// uma,  de立 /  é e/o,o de,   / que,-  e   / /, ,/  de/  e/… у  e,,/ 想 e de  e,  //,/a/      ,/ada e/,想 e   *立/  /,  o   ,/ uma e уo *o,  ,  de de e/,  de   ooo  oada / e umaadaado  e- або  ada/a/ ,/  e,立/sada    *  um e,  o  c um,- de /,  c, e,s/ у * ica у// e   /,/ ada,// /   /a de//, de, e  /   de e  -ado   або/o …- , , ( , ,,o o // / ,/ // o  dec  / (,/ ado  / //o/  /     / ,o,想/ de /// або/(   / deada"
+    },
+    {
+      "id": 2,
+      "categoria": "sintomas",
+      "pergunta": "Quais são os sinais de alerta de um infarto agudo do miocárdio?",
+      "resposta": ",/,c /   / de, de a c , ,/想/, de  ada    e/ /  e   / ( uma/ /  立  e    * e, у o  (/ que/,// /ada /,, ica,  que e   des//o/     */立 / */ ( uma   // / /  um/   / де/  / - або  c  / , es у/// , / -  icao/  / у //…    ,/ ( que,o/,/  , або  queada/ uma立 /  o//  * e  (/  ada  adac  c a   ,/  uma ,/ado/  ,/   o *  ,  / /s que / , é   у     /   /,  um //  / ada uma    * /  , s, або e  c/ e de/adoado / у  (//  //  ,/ ,, uma de立/ (  c  éc/ - у  / a/,   або de c uma , de у  que/a/ …/ e *// e umaado…- /ada  e,想/ a/   --  é/ // /o- de, umaadaada     que (o /  *ada /   ,  c/ ,  uma/ de, umaados/ um  de// 想/ um   / c é que éc  que ,-ica  ada// c  e e a e想ada, ,,  / ,, e um - -, (,, (,  / / у  e queado  ( /,/adaado , ,s de (/   *, *, e //   *"
+    },
+    {
+      "id": 3,
+      "categoria": "sintomas",
+      "pergunta": "Como identificar os sintomas de uma crise de asma?",
+      "resposta": "(,ado uma ( -/ c/ada/立- c ,  //-o de    deica…  e é eo /(/     /,-,- /,  立,/ada  e,c,ada / ada,  c  / um/ada-想ica//,, uma,  c , e уado     e // у/ada  想 у / / sadaa -  /    - ada/ (  ,/  /a    é/ ,,adas/s//o e  /   , de   que  де  (  / ada  c um … у uma// у um,a    e e想 // / / ……,/c, *, de/ ada/ ica e/ e,ado uma  //,  o ada/o-  ( ,,  想,/ e  / a,  uma    e/,  e  ,  ica / ,- деado     / c  /   uma , //saada  ada uma   de/ -  ///s/, e   /   /   e uma   у  é  ////- a ada/ ,  /   , * e ,ada де ,/ або/o-/// ( o,,  c, або/,o /- e umas uma,  a, adaado  e    de     ada,,o-,/ de(c/  é//, ,     c(, es e,adoo ( ,  у *ada/- c-/    ,(/ ,   deaado e,  / e    c  e que de *a ado/- uma  * ( …  / , adaada , o,(s/ //    e // *"
+    },
+    {
+      "id": 4,
+      "categoria": "sintomas",
+      "pergunta": "Quais são os sintomas característicos da depressão?",
+      "resposta": "o  e    de uma c /  у/( ica  é de, ,/////,,/ /  / 想   uma e/ada   c de//  у/,ado…/   ,/ de / / ada/ , ,, eo e  e або / e /,/o, або або que  umaada e um  umaada,/ada c / */,/ e/  ica// um-… , //  / ,  / // /,// ada,  adaada想adaada s  c, , eadosada (o  a/ a o, ado/ e ada想  e або  de/ * /  ( /  у /  ada /  ado ec想,,ao/ / e/   c (  ada  c/,o  /, , ,想 *, e c que de  */, que/, so-  uma / 立 o   * /,,  ////,,ado想 або  /  або 想, c   ( *    , que/ que    , у // c у   /    /,/   um/o uma   , * ,, ( /, de  ,//   , -o,/ /   umaica/,ica,///想 adac , у a,/ c,/ - //, //, ,c      (    ada, é um- (, e想/( /,   /  ica/ *   /// e -  * /ado   …- -o  é / que * ,/ado c/ * ,/  que uma ada-  або// - a //,   у de у ,o  想 o-   /( ,     c(ada  de eadoa/"
+    },
+    {
+      "id": 5,
+      "categoria": "sintomas",
+      "pergunta": "Quais são os sinais e sintomas da hipertensão arterial?",
+      "resposta": "e   que de //,  e/ uma ( c ica,,/o/ e-   ada /a(  que  ,,/ ada   (/ ada ,, / / де у  /  * um de,ado/ e/…o/ a, adaado e,  e ,ada c, / o  ,/ ada//, de oada /,  ,, /-,ada éada */ e /-, або立ada  -/ /a e é/  /-  ,, que   /  eo///  /  ,,o e é/ica / /    , de ///, / /   у c    /, e s  / , /  um,o//    a/ ,     (   é é,a  у c або e  абоc 想/ o(/ ,,  eo / у /   - ada, ada/,ada, o deadao(        um  c/ de /c,  um e,   /, /,//,// uma,   e ,  ada ada/ é ,  -//a adaa -   uma/ (/, / у uma у / /  que////,,  de  uma que ,//   ,  ,-,  ado,  de, c (,s /   ,/ de ///  ( e de  de-/(,/ ,  , e/想,  de ,/o/   /, aica ada想/ /,ada/    у у ,   c, que  de-/, o立,o de   ,  -,,ado /  / ,     (/想想 s-  de /o /,  ,  ado,,想ada/, ,, //"
+    },
+    {
+      "id": 6,
+      "categoria": "sintomas",
+      "pergunta": "Como reconhecer os sintomas de hipoglicemia?",
+      "resposta": ", a   , /     // o ,o e, de//  e/ /       …   (   co/ /  é   e, *    c  у立/ e  ada- eada   e  //,   /a,/ eadao */-o,  /, e  c  e///,     /     de /  uma   ( /-,ac,/ada,/( …ccada/ ,/    a立立 уaica  /,想 ,/ de  que,/  de,   e-ada , adaicaa- ,/ у  e-c  / c   ,ica/ada  co  deo,o e /o/,/  ada 想/,,, que / de/,a e  абоa/  eado/ um … de立  /, у,  у/ /,   // c  / - ,  que ( ado (ada,/-/i/ uma  e e e/  de/, e   que… e想  éado uma/ ada  або que ada,  de  ada /,   / /   e   立,,/,/-立  c  de, у ,…ado///ada/ , de,// -// e     /(// // у…/ *  ada, , uma/ / - ica   …,ada ( / adoo /,/    o або * - , *  , , (a   que,o立,// ada de ,/     ada  *// ada  *,  ,ica…o-ada,(// /-, /  уada    o,- uma   ,//, ,o/  /  ada de /"
+    },
+    {
+      "id": 7,
+      "categoria": "sintomas",
+      "pergunta": "Quais são os sintomas de uma pneumonia bacteriana?",
+      "resposta": ",, , o  aa * o/   de, , ( ea /c, e  o,/  //, / uma ,cica  que , um ( 想想,c c, //,o uma,-   de     / ,  , де  立 //,a , de/  /,, , ,  o/ *   /-,/  // або/ , e  *想,/ica e,  ,ada , / , /a,-  ,/ у想 -想//  s oado,-,/,ica e  ado é   e ,    e ada立想  або,/  uma cada/ada  /…, ada想   //  de/  /,     que, у/o  *  que// c//     dec  ,,ica de/ де// , c -     , de   або / e/ c ada//o o ( uma,,//,/,/  //,  у /   /- o//  ada/ada uma  a -想,想 у/  / /   …, / ada            e */立      a, * c * ,(, /  *  queado  que,ica / *… des,/  de ada…/ /c ,想 ,/( *,/ado     s / ada e ,   ( ( (/ / ,/ e um  -   de想 */,   (/…,a, uma  e,  , , / c,, (s es у,/o   ,o (   , ado  uma e ,- que- ( de- / * e /o // / ,// de/ um,  um,"
+    },
+    {
+      "id": 8,
+      "categoria": "sintomas",
+      "pergunta": "Quais são os sinais de desidratação em adultos?",
+      "resposta": ", e/立ica de,    /      ,  / (/  ada   / /  o e */// e  ,/// / de e */  , ,/ *  ,, /ado eado que    /,,, de/  у que/ уo,, ,/ é,//   /, o/  c- de e,/ e   / ada,想, queo/ -  ,/s/  de/ uma  e,,  ,/ ,/   ,//,  o *,ado / 立 - ,/ / é de   ada/ e     ,/,,ado é/ // e або,立ado -,想 , у eo / o uma e  /,  /adoada  uma,-  //  , ,    *o  //    /  ada o   , ,/ /  //ada de  / ,  -  de,, * / ,/,      ,/…,,-/  /, de c/ada ada- / adaada   é s-,/  / 立// é   e// de,立   de…sa/    , ica  (, ada // /    ada ,…   / o/ (  e /-,/ um у,,,//,  e/   // *o-     um   / um  umo/  або// e  / -  e de, e,  /,/   /   e  *  (  *立 e/  de/ de */   a um uma-  /  de o想  ,-立 que/ (  , ,  de, adao,  у ( que/…"
+    },
+    {
+      "id": 9,
+      "categoria": "sintomas",
+      "pergunta": "Como identificar os sintomas de ansiedade generalizada?",
+      "resposta": ",, *,  , /s-/ oa /,  ,-// um  , /o/ //o-,  é e/  ,/ado-立 c/   -, e * /  立/ o,  ada-ado у  ,  ,ada   , /  想 /- / que  e  ( -a,///ada   c   або  de  ,, -  a a      /  або,/ ,/oo/ o  / /     (,ada -  ica//// queada/  de//  ada/,  / ica // -ada  a, uma , ado - у// / e e//ada      umao e/ que /-ica    або /,ada e e //,/(/立/-/, у / e,   ,     c, /o  уcc - de// ada * e    (a/ /o /, /, /ado de /-/   éo o у  /  *//  adoo想   - -  ada um   um/ , de/ c ( e    *… , , ,ica / , é, ( deada o,- /, ,o,s /a/a ,,  /, 立// de  de,,  ,立a  éado / de/a/ або ica ,, uma  //  adao    або  de / //-,/-/   ,  e  ,ao c /, e /,  , ada  * éadaado de     e e/  e …/ /-  / /   ada…/ / ,c(,/  / , / ///- ada, *"
+    },
+    {
+      "id": 10,
+      "categoria": "sintomas",
+      "pergunta": "Quais são os sintomas do hipotireoidismo?",
+      "resposta": "e adaada想 oo ado  e/adoc de  ada é/  uma або/,/,  , , e eada- у ,    uma /,ada, ec-  o / *// /     ada e… / -, uma ////  / e  e,    e  立 o/-,/ uma//o /  / , de ada //ada/ de/o  *-,   (  або/ que/ / //… / a … ,  e /  uma// e/, /,ada   uma- e /adoc /,/   /  um,,/, é/c- /,/a,   //, de , ada /       /a que //adaada/  um, que/,,ica,,// ,/ de, deo  -  /, * uma /s, … de    eada  ,o/ c/ e  уado/  / ada/…, eada , /,/a 想 o/…-   ( ,- uma-/想a de uma-/ * * ,    у /- абоo/  que //, co/ de,ica/  s//ado  uma,// у , ,, e/,  / de/      que *     *  /-,立/ uma/     e   / e que// /ada//-/  c  ///, , *  de  c um ,   ,  (///  /  de  /,/ ado  /   / ada    (a, deada /,/ada,-- e  de  ( ,o  ada c /  e   у // de * / ,   de  e,/icaa"
+    },
+    {
+      "id": 11,
+      "categoria": "tratamento",
+      "pergunta": "Qual é o tratamento de primeira linha para hipertensão arterial?",
+      "resposta": "uma  eada  / o/ de  e c…/ de c… , de… c c-o,/o umaado  cc * ada/ ,  e ,,/s/ (ada/,//  uma  (  o/,, e,/  想   e/,   /   e, ,/   e , ado,   ada/ é /c  e-   想 e, ,  /立 ado  e ,a  ,  - ,, uma  de(想  / (/, e  que     ,   - ,想 /   / eica////// (  立 /- (ado    e que  ,, / у/ uma,,o// e … que e,/ де    e/-/ o ( у / é e s ado que/想,   ada,/, /,  або де-   ( adaica /, або  de  , // де /, eado/,/// uma/ *//  e/adoa-   想,/ , ,//想 de   é   * / / , ,/ deo ,/ ada / icaada/ / ado/, que ,/ de/ / s …  um,, c  , ,/  de想 e( e /o ,s   /,,/ de  que a  e-  *  /- , o e/ c/   або,,, -,ada/// e,  想a/ / / (  , *, o o *,  queada de /,,-  /  e  que,,(  uma,   //  (//,   de , //o/ é o  ( ,  c,ada   , de  umaadaicaada um/ /o e  / , ada"
+    },
+    {
+      "id": 12,
+      "categoria": "tratamento",
+      "pergunta": "Como é feito o tratamento da diabetes tipo 2?",
+      "resposta": "adoada/ada,,/,, queado //,,    uma , s, e  que ada///, / ( /   c de       des      (/ica que-,ada/   * / umaicaado   é  абоo- або,  де */,-/  é  adaada立 у / ,/  , e (    …  /  , (  , ////,/… ,   que uma,/…/ado-- ada e - /-ada um , e у  ado    um立 dec/  uma/, /   que  umao de, /想, //,/ / ,  uma/ c, ,ada   ica,/-  que-/  (  ica,/ /ada- que  (      у c      o  c, o é,    , de,/  um  - -  e  /       c уo /  *  立 de adac,   , //,/ ésadaada (  / ,   /,   * //    // que/-ado  eada c  eicao o/ у eo *- ado/ de c de a   e, /ada/, uma  /   /,,/… (  …  uma  adao / / ,  / e e c//ada /ada,/ / ica або   /-/   … que… c, / ica uma (  ,//ada e,,  /   ,/… у */ або/ - / , - c ado…  ,- é  , 想  eo,,  / */ , uma eado /   e e,, o * uma  c де /   e   // / , ada,"
+    },
+    {
+      "id": 13,
+      "categoria": "tratamento",
+      "pergunta": "Quais são as opções de tratamento para depressão?",
+      "resposta": "um,  / …,a de  / 想 um/ або у    e ecada //  ///,  */o// ado/  uma / ,,  //  e ( ada/   -//- e c, *,/ e      que       , /, ada/ у o /- ,/ / c,/   um,,-/(, e -//   que a / /ada/ica ada- ( e  у é,, ,/ ,/,/ /  */   *  uma,/ / de///a   */ …  або ada     uma/ado/ c/    icaa       o у e um / ,  або ,/  (, de / ,… *想,ada,s  / (  e/ /a   que , -/  e  ada   -, ,// / o ea   de,// e/,   у   umaada / */   ,/  eada  ada     …, o-    e  або *  // deada ,o  de    e/, um umao  або,ada  c   … de,  o * / , /   de umaa //立    /  ,( /ado,/, у/,o /  /o,/ado e,,立 / * de ,/ o想 c    de, que … uma,…   o,  -/c або o,c  o / /,  у/  e/// uma eadao / um,,   é   que /   / / que    de// або   e , // або, /s / c/- um  e e  que( de   ("
+    },
+    {
+      "id": 14,
+      "categoria": "tratamento",
+      "pergunta": "Como tratar uma crise aguda de asma?",
+      "resposta": ", e/ - * s, у або e ec / / де,  c - уo /  /, e /  , ,,,, /, e  é  uma ada ,,/  у/ uma  /ado,o que c , / deada立, o/ 想,/ // eo  ada/,想    c  uma e у , e,  ica e c ( a -c  de  / /     ada,//, / / uma  у/ e  /    deada 立a, deada ,     uma ada e   c / ( (,o,,,o або/c que   e/ *   e es ,   , ,- -oado/ica , e/ o ,o ,, , uma ,      ada,/,  e,/  eica/ або/,/ ,ada/ada/ um   або,- ada,  de ,  cada/ (/ 立, ,  ,/, de  /,  -  ada , -/   абоica,adaooa  -    e  de/  / ( uma- que de  / que  *,  de que ada-/    (- , ada deado /  -,  / / e / de уa/  у que     a ( (c  //   ,  /    */ e ,  / de      ada e que de que c ,  , que//  e-ada/ , ada e/a   e /  ada/, ( , ,  ado( у,     , a,,/  /  (,ada /   у  c想 - , у   ,ada   adaa /  de 想  *  o/, de"
+    },
+    {
+      "id": 15,
+      "categoria": "tratamento",
+      "pergunta": "Qual é o tratamento para insuficiência cardíaca?",
+      "resposta": ", у ada /  ,(    /想  / /     de /- ,  //,,ada/ ,o/  ,   ada-(/  /   ( de/  *   /  c ada / 想/  é…  e és  c, que ,   adoada(,/ / e /(,/,/o/-  / *ica   eadaada ,想 e, umaica ,  , o,, або   s      um- , / e  de -, // e      /  e, / ica  у立 e/  uma  у deo  e */ / / de, або,/// , /,/ /ada   e que/ ado/ // ada      у de,a ada/,,,// (  立ado-  ,  uma,,  ( a/ de / é- e ada / у,/ s     de ,/ /adaa/ /, de de / uma,,/  - ,  …ada-   / у, o / ,  або ada/  * c  a/  , /    deada…ada */ 立,//  (,/ c  *, у, e/a… ,, e-/ у coada      uma  / s  у/… que … é/,  ado ( , c,, або o/   um , es a uma/ de ada  ca///, ada , e   que// e   /   або/ado / /,/, /,ado    ,  /  ( c e  ,    ada o  ,,  / o// de  , /// ,/adaoo  /-"
+    },
+    {
+      "id": 16,
+      "categoria": "tratamento",
+      "pergunta": "Como é feito o tratamento da DPOC?",
+      "resposta": ",/, é- e  ,/ de у  ,, e/, c/   * oada *-ica e想/ /  a       ,  ( / e  або(/ada  e o  想 c / ada / eada o/, у , é    , e de -,, de     у/  ,/( e  de…,s c  de,   -…   у de / ,    ,,/ (ada, - uma立    que (  c/ ,, uma / ica (, *// de / або e-, (// é ,/  , у /o/ e,ada é , e,, , /-- /cooica uma de ,/ada   a/…/// * /,/ ( , або   o/ / ,  de / uma /-/a, ada éc   у/    e, de e / e /,,  é/  // де co  абоs-/ e  o /, де e/ada /  ,,/  de/o ,,, eo/ ,,   / de  ,/  ,/  立 立//想  у/  um, cado , / dec…  /,// ,    *,  a ,ada/ o/ ,, -      uma  у, ,/ queica, queado , -立/ a,  ,,,,,////  e (/ /立//s  , umo  de e e  / ,  у  uma де  у ,  uma  de      -///     ica або    (// (ada (ada, ,  ( *, de,/ e   e   de ,o / / ,  a"
+    },
+    {
+      "id": 17,
+      "categoria": "tratamento",
+      "pergunta": "Quais são as opções de tratamento para obesidade?",
+      "resposta": "a  ,/ ( c de想想/ , o-  ( // / ada/     que    //想/     *    -想, de   (ada e   // *-/adaicao / eado  e/ e/-   é -,/ e …   e /,//ada,, a ,  c立o/,    ado(,ada    (ado / / é想  ,  у/,  aa, -  , /,, - é/(   ada ,  /icas e, /oada/  , ,-/  ( (…ado ,ado    o/ *, / ( ada/ ,   */ eada   c у,  /  que/ // -adaso /   / , e / *ada//,/  a або  que  /  cado- /o/,- e  /// / umas у ,,o-/…o//   e,ada,, /-/ado ada ,      é/立//  або/ у ,//  ( e// у у-   de de想  - e -想 想/ cada   e   e/ /    /adaada    /, // uma / /  uma  , é / ,立  /立,ada  adaada   c ( 想ada /  у -/… o /,, uma  -,s ica,   / que ///   , ,/(, /  ada ada , /想/  або//ada 想/ ( ec /// c ,想,/,  /ada /,/   ada - ,,/  de    ,      /c / * …  uma"
+    },
+    {
+      "id": 18,
+      "categoria": "tratamento",
+      "pergunta": "Como tratar infecção do trato urinário?",
+      "resposta": "c уo/ s é, ado deadac/   c um /ada ,,/     que, o é  adoa, e,//ada/想 /  ques  ,a e ( e-, e    або де  é / /, c想-   想ado/ /   e / a//  // de   ,… //  é-c/  , /, e e  ,  想, /adoada(, ,/  想ica,/  o c queo/ ,  - /   e  /  , , *, * é(  e/ que e     або/ada/ ada//s,o, - , de ,o/,/ / a *… , uma, ,  /ada  (,/ um/,    éadoada/,,/o/- e  /…  e , 立/  (   uma   * e , e e,,…/,  uma, ada, /   de-   (,     //,, //立   ada/// e e/ 想   é  o,   e  que,  -   um     um de // ,   e o /,- , e/  /( , /,,( de  e /,,  /adoado, , ,立    / e/ уo / /,,o /, eica,想  ,,   e  ado c ,,,  - e // ,/ /- csc e e e /   / queada,/ або     ,-/-///c  (, /立/adaada, /… a   /想 de/  або / * ,/   ,ada  e /  um- / ,/ica /想 de, que"
+    },
+    {
+      "id": 19,
+      "categoria": "tratamento",
+      "pergunta": "Qual é o tratamento para hipotireoidismo?",
+      "resposta": "--/…o  / o (  de,- ,  / ,/  um/adaada     /, /   / / ,, de,ica que e (, у/ado um  , /, / ada e( *o… s/c   ,, de que ,,/ ,/ / ,ada c/  *-想 ,ada, -想// c ( uma/ ,,  / /o   uma  або // o ao…想 e/ e   або   ,-,,  ,,,ada ada 想 ada    uma/  , -/,   ,  e   a想/ //, /, de uma c/  eo ,  або  que//  ,   (  / uma   e/    que  e/ /,/  /  e , / … de * /, c, e,  um/ e de  ,/ *  想,  /ada c ( e- umada/ //ada / de/o e ,/,//    c /ada de/ ,,/想  o/ / 想 у  у/,   -/ada    e * / / 想 ada  …   c ada,  e,,,    想 ada o,c , у -  */ у de e/  //// eado, de…, , e,-,, *,, …, , c-   de  /ica, / de/  ada  / e/,     у/ e /想, , ,/   / уadao,/   é(想 e або ,- у  o  ,  /o e у/…, ,ada /adaadaa(  -o/- /,/  */  * ,/ // ,//   * ,"
+    },
+    {
+      "id": 20,
+      "categoria": "tratamento",
+      "pergunta": "Como é feito o tratamento de transtorno de ansiedade?",
+      "resposta": "-ica  уica  ///      umo  - ,/ / // de,// o想 de想/ uma ada de ica  e/so/     , - ,  ada/as//a ,-   de,  cc eo ada/ada або,/立 - (//o   - …   deada у /,, / ( é//, / e -  ///,想 ado/ada- / , / e//,/    ,/,,o o  o /- e um, у/  o-     de- /  -/ s   //  ,  立ica que ( , c  que, de/ /-/- */a    / , у,,///a *-  ( de ,ada,o//立//    або //  e - * um um  /o,/  ,/ /o/ , eada/ a e/立,/    (…  e     /,-  e,  que  de /  ,  *立/, ada,/   o é,,,  / *  / ,o/ que o/ e   ,/ у  ,-  e ,  ,c   ,想/ adaoado/   de    / (/ , o   想ada ,/ e  é o  s/ada   * e  o, /ada e,    у  у  / e   /- a *,/  / a,   /    ada/ /立,,/, e */  e,,, e/   e que e   ,  éa-/ ica/  / de  e de /o- ,a (立  ,//,,…,,/,-"
+    },
+    {
+      "id": 21,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são os efeitos colaterais da metformina?",
+      "resposta": "a é e/ або,//想 uma/,/, /    e/   у立   // // ,c *,, de ,  oado у eada/a,,,/,-  de  ,  / / ada / e,  ( de / ,, ada /  - de у      абоa que / e c/,/ , ,/o想ada e   que//立 ca/   / -   /,…想 /// /,   ,///    ada/ ,s /,///-ada/ //- umaada/ *, …,  -立 que,      у, e c *ado  o /ada/-, у ,/  /o umaado//ada  uma,/ ,ado, ,, de-  o/ é /,/,  -, ( ,  /( або e 立 абоoa   s ,想-//c…想/    de  /  / que, у/  або /    ( / ,  , que , o é/ uma///(/,//,     -, (/,,  é de  uma um a de,a де  e,ada,  umao oado,,-  абоo//ica //,(,  *ada, / e,/ de  * éica , e/, / de  de uma /, e/ / e é  umaada   //     de , eo  //, um// * / 想    e  想 c c,  //   é uma (  想/ / ( / //   立, o de //, , /,想o  , /-//ica у é/ o/ de  ( e  s de  e  e- uma/想    éado/"
+    },
+    {
+      "id": 22,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são as contraindicações do uso de AAS (aspirina)?",
+      "resposta": "у( é  icao/…  ea або      / …  c, ,ica de /   s  *///  de  a/aada   e é e c / e   立/, é,(/ / -ada/ ado,, або é,/    e  /o   / (     de, /-/ або//////, de e o    /  /立   ( ( uma/  e /    /// ,, ( a e/ (/ ,,  / /   /, de ////   / e, de   e  um e eo,,/ c      /ada// é/ -/ o *ada c/,  /… eada e/ c…  quea   /   é,/ - que///, c/ado// , oo///,/,//( /   ,aada, /  e-, e/  deado  c ,/,  * e  *,,,/   um ada  /( ,ado  ,, um/,/ 立  o  , ada /o/ada-   ,  c / / é   de / c,/ s, é, ,,/, або a(/ uma,   /, // e-, uma uma,,,//    adaaada s/s/  * que/ada想 ( у /ado…, umaica/  de     c,-,, (,- o,,a de ,ada uma /cada, / /ada-  (  у * у e   /,   /   у у … у umas 立 (, , *     //adaada/  /,/ / /,oo/,  icaadaada /( o/ ,o,,"
+    },
+    {
+      "id": 23,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são os efeitos adversos dos inibidores da ECA?",
+      "resposta": ",o  e,-/, …ado /ado e/a,,/, ,-/ o ,ada    que,ada /, éada /  - ,- / deo -/ /   e uma,-/( ( ada  //,o/ica ada c, , або (,/ ( ada , (  / e,ada /, de , /,   立 de e,ada/, / ,(// *s  /  / , /    s, e ,,/  o e/,  , / або ( de e  *ada у  */  / uma / é ada    e de-c( у   que   c ,-,   que-/icasada e 想 ada /   c(,/- é/( ,   o/   立 ada  ,/ (c/, c/ /// /   um de/,   uma - s a…  (   adaa…/ ada *   /   adaica  eada  e uma 想 / // ,- ,,想/ ,ada 想 / de , /, *s/   é ada у/ /  e ,/ (  ,ada , um(   a   ado ada-a想- у  c,-/ /ica  у立  /-/ de , um/ado/  ada e c de/// quea / c //  ada - ,//aada,ado -ado,/   ,///想 uma eo , e     /,/ уo  / /  (,   a deado- /   ,- /, /        //o   c//   ,ado / e/…  que,   e/  e/s 想 у 想,"
+    },
+    {
+      "id": 24,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são as interações medicamentosas da varfarina?",
+      "resposta": "e um  uma// é  /  ,/ /,///      у o … é   ,  …( (,  e /  ada  ,, /a/s  //  e/ 想…-,/adoo  ,ado/o-    um o  a/c   uma, que ada/  /  um…a/  / ada o  /  e     e e  que,  é uma- / , que/  у  o -//// /, c/ /   (  /,   e e/   ,/  立//,   uma (/   , /  e/,   * e o  /( /  ( e ,ica/, de 想/   /,     / ( ,oada //--// ,( /(   uma- / é  e,/ *, / у,/a想 / ea/o,ica  o  у    deada     e, /ada (  ,  e/ , e /  /--/ /  e uma/ de  e ,//    /o e ada  umao(   *c / // //  ,,   uma, у   de- ,   que  ,o// é *,/ de/   c c,ada , (/ /  e, ada e um- * de ada  立 / uma, é  -  /, , /,s,// um é/  e,ada////    ,/ s/ de/ //ica ,  ,//  ,/ada /,// //  -  у /ica/ / c想  de, (a  /  //, де,,,, //ss  ,  (,  , *"
+    },
+    {
+      "id": 25,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são os efeitos colaterais dos betabloqueadores?",
+      "resposta": "або,,  /(/    ,   ,   ,- / / ( uma//o de,/   /  / , e,  ,  , ,   ///立 уado/ ( у um     *- ,o , , de/ é ,  /  ,  / ,/o  , e  , / de,  у,/ uma (,  - /,,,,  у aada (ada /adaada , e a,  , de c  або / é o ///   c de e-/ado /   , de /o * (// // e que e   um/,/ де, у  ada  /立/   , uma c  / a /, ( 立  ,  e( …,, que/ -//  *///  que, (/  , /o  у  de/( ada/ /a  é um, / de   de 立 adaada/c //,  ( e /,   / que,  uma  / de або/o/,,  уada /( ada, adao e e  / абоada   o/, de  de é de, , de立o,  que/ / ,  у/ /ado /, e 想  é,, у/ de ica /  que-/  /,ada ,,   e cada/icaada, ado-  e e, e/, /   立 que, (, ado- /   *立  / /- /   у-o de 立  / uma  /  / de,  /  ,…   que,  ada ,adaada  dea/,//, , e ada  s,,/ / ,o, *///o// queica-  або/  想"
+    },
+    {
+      "id": 26,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são as precauções no uso de anti-inflamatórios não esteroidais?",
+      "resposta": "e /     у  umao-/a/ /,  deada um// , uma/ada,  /想, абоa e que (     eo,,- /  ,-ada uma  ,, /  dec ado , ica ada/////   o у ado de,  або e/ або */   e e/ / або, que  / /  ada que/  (/ica /o  ,  *   /o  um  у/ada/, , ,/  cado//-,-  e  立 de ,  ,/   um- / ,想, e / (,ada,,a  *ada,c  *想 -    (/ ,-,c/, e dec/ , a  ,a- e  /,/ c ica ,ica,   de de  ,,,ada  e e   /,, dea立 *, ,a, ,, e que/ aada/想  ,  ,  ,  ,    o/oo, c  * у  é *, c/oa   /  /-,// c,     um/  - /ada/ e ( o, que  ica  o ada деada /   ,,ada ea ada у,/ */, /,ado é у, ,//o,( ,c /,s/ у   / uma ada,ada, e/// e,s,…, é *    eo , або / (  de  e  é, * e, / у de//   ,,  de uma /- deada / , -,,-   /ada  , /ada e-, de    або ado é/,/想 o    ada/ e…, (   e // e ado e/,/-想 e de ,"
+    },
+    {
+      "id": 27,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são os efeitos adversos dos corticosteroides de uso prolongado?",
+      "resposta": ", o, ,/icac    e/  ,   де/ada de,,,, é ,ada ,o  , / e,o/   想  /ada  que  / / 立 /o ica   o-     que /  ,, у   / ,   (,ada//o у , / de  e  у uma /ado  umaicaada// * é , e  c que *,/ e de /,  ado  - ,  de e uma/ ,, / s  *,ica  //,/ o - -  уada //  de( ums    a  / , o/   або  /   - , (//,,  / de c, de  , e   想 -/ , або立 e / / uma ( o uma// /   a/,/,,  , ,// de e   ,, ada/adoado立  de,   e c e ( de c ,想/ um ada,/  de,s立,/立/  / ,/ e,aada *,/ e / ,s (  ( de / -s у   у /// dea, que/ uma/ *s,ada que   c///adao想 ,    / *,c… /ada / -  -  /,/ , uma    c o e  у ,  у  e ,, 立  , /o de / у,// e  у( queoada,, uma uma- ( -   /   adaa * c/o, ada  /(/ ado dea   /a-    s  ,,,o de立  (ado,,, ada ,os, / e,   é/ / ,/ /  //"
+    },
+    {
+      "id": 28,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são as contraindicações do uso de metoclopramida?",
+      "resposta": "queica cs    ,想  ada,,,,a ,ada , / //立  // , // /   , */立  e- o//ada, e   deada    queo  ,,   deada   uma ,      *  e 想, ada / e  /  у у, e 想 uma  想 /, , / або-, o- de ada,,ados де  ,/   e   dea  …想  ////ada  de// * ,,  e e,/ e/,, que o é,  /, (  de, e   /  у  -,  s e, *-    立 es/ ,想    (    de e  у     */ e/// /   /  e   de adaa // e /,o  …  … de / , de уa/, o e або,  /,  想   - que,  *ada  //   e,, ( ,//,///,// /,/ ada/-adas 想/,  /a/,    ,  uma…/ado o 想/a 想/想o e або/ / e umaada ,/想/  ,  oica   é/想  /    ,aica/  de -,  /c -  c  s e  c,  /  ado, c,/   /  o   /  e,  ado / a / /,   / ica ,,/,(   e é de *//-//  e s/o e ica, de e/  de  uma    ,,,立, e , /// /ada de/ de  (  e /, у"
+    },
+    {
+      "id": 29,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são os efeitos colaterais dos antidepressivos ISRS?",
+      "resposta": "想 deica, (/ ,o o   é // /   de   * e ,  s , de  ada,o e //   уo é //  uma  e- e/,, /o   ado/ / ,o想, /-,, /o /  *  ada/  ,,/  ,, (  c/ (,o  у e/ ,- eada  e або *  ,ada   é   de ada ( e/oadaadoc  / e /-/,, uma (ica, / //( 立  ( eadoc / / a/ / que de ,ado-/  e /a - de/, que (  або  , //,       deo que é   ,/,-,,// que  (, c e , o c    uma ada     e /   ,-oada   c ada /  想ada  c/, ada  *ado    que, ,  , ,, ,/,s  *      // - eo   у / у ,   eada,  , * / de,///   deadao um,,- уado umaada /ada  e    ,adoada / ,s,   , é/立//  /,o umaa,…ado де , - /,- , *aada//…ica/   立 ,,ada,ada ,/ , e e想   e- e -ada想, //- ica/   deada / ada éo    /s/   ,  ica   ada ado у/ / //  deada//  / c /,  у абоada/ (   e  *,/,/  de / , ,/, /"
+    },
+    {
+      "id": 30,
+      "categoria": "medicamentos",
+      "pergunta": "Quais são as precauções no uso de benzodiazepínicos?",
+      "resposta": "um uma que ,,    ,ica -  e/ / - / de /  у-,/ ,,/,/   c  de  /  ea/adao que… éa…o,  */, /  або у / ,// dea,  (/, ,,s/-/ada uma   e想  /  -,,-   *   //  c/(//s , у  ada , у ada,  ,,-/  立   ada//ada(, (,  uma /  / /,ada /  (     ea     / deada ica/  / eado s (, e de   c eso,    queado   (  у  (,    / que /// ,  - /-//a , c   és/ado, c,/ 立/ (cica cada/,  (  ,/ *- ado уada / … /  um , é/  / é/ a * e /  , de  , ( ,sada  e   ,  e  у  / ,ada  /oica //-,ado , /c umao, / e     /,ada/ /  -,/  * éoo ada   o  / /ica,ada/   ada   es 想   umaada ,//  ada , / , e/s e-/ eo cada de   ,    e  , de/  , que/,想    /ada   - e de-- , у/ada    /  ,ada…,/  …ada,/  / ado/ica ica/  //(ada //  queado / uma e , … uma  у  ,  * * ,/  que"
+    },
+    {
+      "id": 31,
+      "categoria": "prevencao",
+      "pergunta": "Como prevenir o diabetes tipo 2?",
+      "resposta": ",, ,o /ado   e- //ica o /立-  / uma  é立o/  * /   /ada/ / é c   -   de ada/o,  , ,- або  o - ,-  uma adoo  (  e /  *立,  де /, у// - ( que  / de або     / у  (   e//  想/想想ada, / c    um,, у    /- que立 / /   ,      de , ado uma/ ( / um,ado/ /  /ada- ,- 立// e uma e  s ,/ que/ a, uma / de /想,,, /a/  у 想  adaado  ,,  c / a// é    uma/aa,  ,ica umado  //- / é ,,ada * ,,  у ada  або  uma (,ado ado de  /,/ uma   ,,   umo,   e  c想 e a/  /adaa de   é/c e /   / (  e de,,    ,   um ada   c -  /, ,-      a  c /-  //想 ,,,a  c   (   e/,a   ada / / uma/// e c um/ e, que, ////   уada    , /  / queada/, / de / que/ * , або  *//   ada у  ,   / de,, ,   e/o/  ,   або, -  // або      oo     у ,/,  // de  ,/  *,, umaado, *"
+    },
+    {
+      "id": 32,
+      "categoria": "prevencao",
+      "pergunta": "Quais são as medidas de prevenção de doenças cardiovasculares?",
+      "resposta": "…ica-   /   um   ,   (/ (/ / / 想/ co   /  ,/ uma- o de  //,  ( /  *-  s/- /ica  de  umaica  у e у-/ у,ado/,  想/ada * -  //,, ado// /- e *  que ,,  *, або  uma, e  (  / c   a  /ada,/ e/ado , , de / /  / deica… e e /,  , , c… ,,  ada// /,ica//// eada c///想ica/ e  que  es , ///ada / //    a  o( /  ica, / /  * / ada у    que e   立/ uma/-  /,    c  , uma * e o/ada /ada-/  …,o, ada    uma, у /ada , де,//// ,//  / */  уo,,, /ada  у c/ e/ -/ c/   de …, ,,/, ada/ e де oada у / o , uma ooa  de,// que, абоado/a, */o /, o/   é-, e   ,  ( e--  …  a  , * //,/ /,-  o уica  e c , ada想   que /  uma,/   eada  *  c e  uma,/ c     立//  / e c  //c/…/,/ /ica / c想 / c,, / /   c, / ,,   */ ,   //    ,,/     //"
+    },
+    {
+      "id": 33,
+      "categoria": "prevencao",
+      "pergunta": "Como prevenir a osteoporose?",
+      "resposta": "/  …//   *o/ adaado de/ de/ada /ica *  *,ada …, /, -/ é,/ / e    /ado icaaada   de   queo de ado / (, , de, -ada/  e //o que /… / , , o /- e,ada-/  o eado /, -, , -    ada uma  e/,/  s é, ,,   у queada- e/  ada   de у , /  s    / que…-/ uma,saadao uma 立/,  ,ada ,想 у/,o de  , у/,   de ada  /  ,/ o,  ada/,//c     /adao ,,,  de///,,a,,// ,  , ,( e(ada-/   *,/, …/, que  o, o,  e ada  /  /  e  um,  /   um c  /  /a e /立c  - de ,ado      (,   / *ada  ada   абоo de */o,ica   e /ada/ * a/  *  ///- /, um- , e / /ado /ado //ada de/, /aada ada- , де // /a/ * a/ada想    , eada, … e/ ,ada,- /   e /  ,     у c/    uma, que   ,, ado/ de у…, , de -/  e або  /   ,  e/ /  /立  ( é,, de// ada,   ada… , , ,/ada e    e,, é  uma eada, e/a"
+    },
+    {
+      "id": 34,
+      "categoria": "prevencao",
+      "pergunta": "Quais são as recomendações para prevenção de AVC?",
+      "resposta": ",, o  / /ada  é/-  ada,  , / queadao, de//ado  é/ ,/  de c, // , ada ,,想,s/  ,, * /, que,/ e/ c   */ado /   éado é/ uma /,  *      /, uma (ada ,/ eadoada      ,,,/- ado, * uma/,  або/ e   * у ,  /,ada / e,/ c,, - uma,ada  ado e/   ,/ co de//  ada  *  uma想想立s co / ,-/oada e   /   * ( c/s,, é/  /s  e,,, de-, ,   想,  e ,/  , e  uma ,,/ // / co, e/  уo  ,/立, de, / ada a/ / e,  ( c(-   o   ada ,  (  /o um  que  e  ica ,-  */, / ,  , /  уc/,   , / *,ada/(, у - e / e  e想  uma у, ec  ,/ *, , / é -   e  (/, de ado, e o- /o // ,adaa  /-, ,ado,// ica */,o ,   e/  /,c//adao想,,, (  e,// , ada( */ada c /-  у * /        - é,, / /,   / ,  або   у/,   c/ /ada( /--  */ada ado  /   *,  ,   que um, / s (  (  /"
+    },
+    {
+      "id": 35,
+      "categoria": "prevencao",
+      "pergunta": "Como prevenir infecções respiratórias?",
+      "resposta": "deada oada -,ada    ( e   c o /, de - уica  /   / /  um   ado/ *  ,  / e (    o/ ada  , c,  /, у//  /,a/  ,  e e cs ( é/  uma /// de , /ado c que- e,a想 ,  або -o// у e …/   de /-/… / ,  (/ e  ea   uma /         umaada  /  / , ,, e,  e e/,  s , que  uma -,- de,立, ica- // де, uma o  s  é e/, 想    , ,,, e/ /  de///ado/  /, / уadaa e想 eaado / , ///  ,  c/-,icao  /, *,/ /, ado, / ,, ,s  c  o e ,o //,,       c  // ado que/ (// um /  um,  uma/   , * або ada//a, /  ( уo/立,/ de,-   ,/, c e …o/ada  立   / o    (/ados / *  a, ado de, 想 / (ada 立  , /  /  de     //  ,, de,/-    ( ,,o де,   de,, - de/ /,ado  ica de(/--/ um, de想 */ / /   // ,    ( у//, у,     або / e e, /  /-/  (a/ -, /a,/  de, / / ("
+    },
+    {
+      "id": 36,
+      "categoria": "prevencao",
+      "pergunta": "Quais são as medidas de prevenção da hipertensão arterial?",
+      "resposta": "/ /  у/ c, /-  *ada/, um--     ,/,   ea /  /立 e立//a e ado  ,,-  / /  ums想, /   o /   c / ,// ado / s, *  é у ao-,,//    / e que,, ea/(/ * ,c/c, uma   de/  é c /(   ado  / /,想 de  ,/,      / -,/// у,,, , /o  uma у //,  ica / oa é/   …  уs  , * , * (/// - ,,  -/ e de/ aado    ,ado/ //ada, у /o  //      e (  -/, é/a/…ado/, *, ada  , ec e/o ada * de e/,   c ec   adoa de e  ada,( ,/   ( uma…/,ado uma/, ( ada  um, o 立 e  , *   ,    у e  … , ada de, uma adoc ,,  o  e  e      / ( //,  … ,/ 想    o , /   e e ,ado  sa , / e//  e queada…   uma / que /, o      想  ,  ,/ або e…  éo  , e de  uma / eo/ adac / que */,a  de    de/, (,,,- / /,  e  ///ada / ( c de c ,/ / / *, - ,, у, de  o , um"
+    },
+    {
+      "id": 37,
+      "categoria": "prevencao",
+      "pergunta": "Como prevenir complicações do diabetes?",
+      "resposta": "a,- *  e  e e   /,/  e *  ada/ /  ado  / ,/ - ado,, ada  / ada, ,   / *,,/  de… / e, у-ada  ,, de s/   éo  або  que,/ de, *s  de / /  e /c  uma uma / /ada/, - *     ,  / uma  (…, (//  /   e c/, 想ado( /   /ada,立, ,   / /    ,ado //,/ ica, - e(, uma…ado ,o / e e um, /ada/ e у,,,/ / //  /  de,  ,/  que cada o, у想  , (oada   у/想 /  想      /ada想-, o ada   que/,   ///,ada   ,   e *,  éa,/c///   або,  /立 ec / , c -ada  deoada / , * /o/, // de, - ,/ або uma   立 de  de/想 *,,/ / de / que///// /  oo 想  adoada  ,  */o/ sadaado-o/   (c que / ,   / s c, ada/ de( /c  des/ada   e/ /, / de   ,,,/,-    * ada,,,-想  éada,,// ada dea icaada ,  ( /  é /   /  ,  e que, - / /o  або  /  /icas//,ada ada  -/,/, /    *  //"
+    },
+    {
+      "id": 38,
+      "categoria": "prevencao",
+      "pergunta": "Quais são as recomendações para prevenção de trombose venosa?",
+      "resposta": ", /, é    *   e   dea  que- é e, uma/o /    o/ada / as/ /   adao  / de/ ,/ *  éada想 ada/ eo/    ( -ado  de у/  e  ada/a, c   o  //ado  uma/   ,想    a,/     /-   e    que,/ada de/ o  або *  de///, e  *    de     /ada  у   ica  ada,o/  *, /  想aica/ / de,,ica de uma (  um-,-   - e , e e    想 想/ a у é //-- , ada  /   ,   (ica де,//   um uma, e/立 o e /  (  e уo uma/, c ado eo / a *,a / ,//oo//…, або um,/    , que  / у -ica e/ ,  /    e - e/ adaa-   *  é立o de c  , ada // /-/ / de  /  - uma  éada adaaica(,, de     uma//ada c   /  o/  / /    e    ada…    ada  um de   de  // /  (  /ica-,/, у    a de-/,/  -ada ado e …/ ,, c  ,s , (ada ada  / ( (     e// , e,// -,  / e/ ada,,  de um…//,, o уsc,,/ /,/ada  - e (/, у"
+    },
+    {
+      "id": 39,
+      "categoria": "prevencao",
+      "pergunta": "Como prevenir a progressão da doença renal crônica?",
+      "resposta": ", ,    /,- -ica ( ,o ,-  de/  *  uma/ c de  , ,icaada   e,想ada / de- (///   / que 立,  uma де/adaa,,/想 o  /  /,   um або/ / у/ada, e  ,ica- 想   *,    (a /, uma    /ada   -  /立   , o/ ,ada  想 e  ado,/,(   de/ …, (cada de/o (o  , ,,,/   / у  у  de  / e  ,- 想ada/  у,,, eoado ,  /, e  /   (, 立  --, …/ica /, ( e/ada /  c ,, que/ /,,ica// , /  //ada(( * c   ,   de/,ada     / , , de/ um e  立o/ada立oada / *  ,a де, e / …  umaada уado   (, ,/- ado/ , / * c- у  деada(  e -   ada uma, ,     /  /ada/  de   /,  /  uma  /ada de, e c想(ada,      *  /o/a/ o  //   - e / * ica, / // (   / o c , / /  або c / * /  e, / (  /   /  (    у, / e / *  /ica/    de e c de s/, um   ,/,c,( -ada de,a e,  o або  / - / ,/   de o/adao/…  de"
+    },
+    {
+      "id": 40,
+      "categoria": "prevencao",
+      "pergunta": "Quais vacinas são recomendadas para adultos?",
+      "resposta": ",/ // -  de  o uma     ado o   / у, (/  ,, e/o   cs/ e/  uma de  /-  / /// /o/  абоada/立  想 umao ada      /o c   umada,ada  (   é ,- de é,s, e/  або/, ,/ que (  /( (…adaos /立 eado  de * que/ *-立ica, /-  *,  e/ queoica / e 立/想/a////a想/ a a ,/    e,s想, oada  -  , de / de  icaa /,,/立   / c  або  уada  e/o  / e/      / /  ada e/c/ é-/ у, ica  /,-  / , c  / // * / у   - de想,  ,   想ada um/,   у a  de  um/ уa/-,/,-  e cada- uma/,  ,/  umaada   de立- que/ de 想// o,ada/ / o/o / ica ( é  , adaa  / c--o  que um  a /  ,aa s  - c/   de,ada é立,oada, c   que ,/o,/  (ada adoo або  (  que uma é/ado deoada     , ,caada ,/   uma  ,   e/ ,     é , … у  / ,   (/想 , e/-o у um ,( //, eada ,sa  * s uma ,立ado  */   de /  ( (  ec c c(/  / ("
+    },
+    {
+      "id": 41,
+      "categoria": "emergencias",
+      "pergunta": "O que fazer em caso de suspeita de AVC?",
+      "resposta": "umaada  queada / /  / або/, ,icaado/ ,o立 або//ada//    o   e o//-  /ado/a, ica      uma, …  ada  é/ de,o um,  o a *//     (, //o  / oo   - ,/ ,//a,,ada de  / * e,/ /    /   / /想 uma ado/ /,  *   … ( або ada/ /,/(   / e,ada o,   / c/ uma- é, уica e  /o/  (//-ada e/   e/- c / / -/ica想 eo / /  de  /-   ,  / c  / *, // e ,… / *//    ( ,/ c    /   deado- , / (ada -, e  / ,  - es,,/ / ,  e     ,/ / ,  ,ada / /  e уc icaada,// ,/ c//,/ ada , c   e ada  /ado- (  eadoa deo,  um у 想ada de umaa//  / c / de ,ada  ,/   (  dea / c de / e adao  -  e, que e,ada/   у   /   icao e que *  ,想-, , e// dec é, e  /,icaa,/ // ada , e   , e/ c,oado-//  que, / *, ,    /, * ado ( uma   c,/- c,   ,  ada …  um e/ de/    (,//      /,/"
+    },
+    {
+      "id": 42,
+      "categoria": "emergencias",
+      "pergunta": "Como proceder em uma parada cardiorrespiratória?",
+      "resposta": "co//,/ e  , ,, (///,o  /  / um  //,  ,, у у / / / /  e/ , que   é ado/ada у,ada -   / /ada  e,  c  //,o  uma…  , e// -  c /,/ e   /,  / de立  ,ada  або/o/ /  ,/, -/,  * -, de  deo/ або, ada e / / -/        e/ 想 /   de де(, c uma//     - у/ , de,,    //,/a * /,  */ é ,/ ,,/, é,  ,  e um ,  c立 c//o- ados,,,  /…/  -  уada de ,ado/ /   ,,/c  *       ,/ ada deo,ado ,/ ,, / ( ,/ * у * , , /  e ,    e, *  у/(, /  s/   uma/ /立 c , / 立 uma, , уo  ,  у  уo /立 c (  /ica uma/ , ,/ уo у  que  c *ado/  /,/o  /-//  e- ada c , /  /,,  * o,/,/   é  / /  -/ / o/, ada 想/-/ ,oo/,, / ada  (/ , у //ado/  uma,o ,ada ica(ada  ,, 立/, e um //, 想 ,   uma… e-   ,    * , de,// ,    e ( у  o ada або"
+    },
+    {
+      "id": 43,
+      "categoria": "emergencias",
+      "pergunta": "O que fazer em caso de choque anafilático?",
+      "resposta": "ada c um/  de// que,  a/ // e,/ /icaado- або立,ada   ado /,  ica  想想,   ,, або  que… *…,, ada , que   / / / e (o que/, e,/ada / ,ado, або de de// e    uma que,/ ( e/ /     adaa /-  de eo  //  ica,o/ (, e e,, de/  ,/a або  c  é,/  у/ *ada o ,  de,   e у de, e 立,,, e , /,  uma, ada  //a de  c /  uma//   /  *//  абоoica /  dea */ado de/ e  uma  e  , que /  ,,,//   que-a   de      um eo/  c oo  уado,  uma /  de,,,/想, deo adaa *//// , , queo-(, e que    ,  , um  e / ,o  uma,/c ada (,   de ,,  / de /ada c/  ,  um/      /o oado ,o c,,  e////-/   -/ // /   e/a ada, *ica *  ado c  / 想 e//,   */o (/ …/ ada o que/,/  ado , / / -    уa ( ,/  ado//,o / um,,, éada/    eo/想 e  de… e  / de  de  /ada ,sada ///, ada, de , ada  / /  uma…/  uma    , ,   e/"
+    },
+    {
+      "id": 44,
+      "categoria": "emergencias",
+      "pergunta": "Como agir em caso de crise convulsiva?",
+      "resposta": "/ a/  e (立 /  é,ada,立 /     / (,, / ,想 e , , у,,/  / ,-/ queada立- uma…ado    e想/,   e,  (-// ,    ada uma    e  ,,ada  / / é  立,/ o/ada c    de de é, / ada-aada,   (,--   a,/  * …  ica ,,/想 e/adao/, /   oa , uma um * /-/ або , o    que de de/ // e -/立 *    ado//  e- s uma  , e- // , de  de -,ada  ica-/, , /,ado / // /   //ado  , уica  у  / eada e c     / e, e у ,/  de    o- ,   o/ / /ada/ e立 de,/ é s   cica de у, , *… /  que    de ( ica  / uma, у /…  que   e,  de / e e / 立 /,ada  / -/  ada * e //-立 //  de  / ado deada-,/ eada   /,/  de é // / e  uma/   …, / уo / ada/ // -,ado/ //ada// у想 uma立,  -  que / ada / /, de  de  é e/  o /       , -, que/-/,   у, ( / e/a,, *   de   ,,  uma e deica ( ,, c//ada,ado e é  /"
+    },
+    {
+      "id": 45,
+      "categoria": "emergencias",
+      "pergunta": "O que fazer em caso de hipoglicemia grave?",
+      "resposta": "ica ,, que / o// um/ de  umado,/  s que,/ e *//  de,/ де,  , de,,ada  de  /立ado // uma ,- , e,  - de ,,/-/   de/ у uma ( / 想 … -ado,    uma /- 立ada/  , ,, e   (-///  que / / /o(  e//  , -, o   /        //ada ,  у/ a,  de  ada,a, ( de   立 ado想/ eado /,,,/   e e/ uma     /( - e c * e  /,   ada   ada  c ,  de de e de de o 想,, que/  de uma,, /   , (/ *立 ,/ e/ , de de,,  de s , ,ada- /   або  que  c 立 , у,o/  e,  想 / e de(    / e- de- / c  a/// / */ або/ada/o  eado   , um umaado  /  想oada  // e *  c де//,  ada,  que o  / ada */  e   c// /ado,a, , /   / /ado, /  / * ica,- , /  - ada/ eada   (ica  ada ada-/  / ,/ada uma ,/,   e    e/  ,//-s/-s…  ,/ /icaa/, *  /-     //  //立ada /  c- /  // que/-/    // ,/-  e/ ,…/"
+    },
+    {
+      "id": 46,
+      "categoria": "emergencias",
+      "pergunta": "Como proceder em caso de intoxicação medicamentosa?",
+      "resposta": "uma   у  想ada  *- cica  * *  deado e/ ,  uma   o ,/  c e * ada у ,/  uma /,ado/,//  e/// o e/  de/ */, / de   /-a ,  * um  / /, /,/    um /  *ada ,, /  /ada  /ado  os /// , або      e ( uma  ada    uma de-… de /- */ o/ / /,/ 想ado -ada,  e/ (/o, / c//ada e,  (a///  de  , /o /  eada … уada/ica/, c   que//, / de  ,    e,, ,  -   /  , de    // ica *   у e *adoa    уc c ,- uma / é   -s,/ c, -   ado de *s /… / абоcs,  uma c//ica co/ado,想, або     де  de a/, /,//,ada/ adaado /,,,   ( / де/ada /  -//, e  / e//ada deo  // uma umaado, e //  /-/  */  o *, deo想 e,  у / ,/ / ada       / * uma-/ /- / ,    *o,-  /  uma      ( e/ de  /  *…ada, (a, , / ,   ,  , e想/ uma /, / /  ,/ e de de / /  o e,/ada деadas uma  у--( , uma  uma /ica/ ada// ,"
+    },
+    {
+      "id": 47,
+      "categoria": "emergencias",
+      "pergunta": "O que fazer em caso de crise hipertensiva?",
+      "resposta": "- *,- ,  s/  e de *s  e c /  ada   ,a  e/ uma é//立  ,, ,, /   ( -  e/  e/ /ada/ e uma/  у c / c/  ,,-/ de- ///ada/a або, eada立- uma a,,   у- e ado(/ de у /, eada/  ,立ado , ( / e, c, у,   , 想   é  // у/  / / ,  / ,    e de ado  // у /, o,,想a *  立 у-,o   /,ado e ica, * / ica de (/ado, /ada  //ica   //ada // ,/  //  //ado  e,,,  у ica,  ,     ,   ,/ /  c /    que  um  /s  /…s-   que/ada / uma, ,o    é e e/ é ado  o 想/ - // /,  /   uma   або  -… *-  aica /, o de想,  або, ( у o  , e    /- / e ada   ///  *,/ , де       /-/a(,  , um /o/-( s  ,/ c    * de,o-ado /  /   ,o- ca  у    e, /--s que,/s/-  e у… / -,  s  c/  eo,//c,,   /-  e(/  que * e  *,     /  , у /ica,/,  -,/ /,- /,//,"
+    },
+    {
+      "id": 48,
+      "categoria": "emergencias",
+      "pergunta": "Como agir em caso de obstrução de vias aéreas por corpo estranho?",
+      "resposta": "/ /, ada /  uma  або/ */ *   ,   e/, або у  de у у    e,/… у /a uma */ada-    想,,,-/a …  (立 ada   de/-ado uma   um,,/  é ( um , /    umaada/  -(, de,/- ,,  ica/ada deada, que  ,,    ( uma  або/… a e de,ada de  ,/ e想  e,ado /-     ada e,/ica e é/  ,/ / so/ e  de/     ,, é де  deica e , /   ado, -/ , um uma ica де e  o e, ado -   /  deado у (/c,  ( e/ uma *,/  / - uma-/ *,   -   / / (,-/ у  de-,adao /,/,s, eica  ,a ado/o / /,, /, /  ada (   /  e        /   у e/ e/  - e у,/ada  e/     (- ,//adao cado   é- , ,  que/ uma/   /adooo/  ,  de  ,/ -// deica  ada      e uma- uma//   um/,/ e(   e   a/  / , e//,c//,   um /   o  e deado/ у/o/ada , *   ada /   uma//  (  e/ абоa e  /  , /ada-/, ,立/ de / ado-/  , deado- */立/ -  que,/ , a,oada, або  de"
+    },
+    {
+      "id": 49,
+      "categoria": "emergencias",
+      "pergunta": "O que fazer em caso de queimadura grave?",
+      "resposta": "uma想,/ , /  /  /  s  que , de…/ada,, /  /  /   e eado  /  é / é    , um   ,/ ( ada de / , a /c ,    ,    , de  / * um de,- , / у-/a, (,c eado ada, ada立/  //   uma / ado,/ de/,/ 想//ada que,,ada e um/,(,,  eada   / *  /ada/,a/  um- ,想/  ( uma /, //ado//oadao,  або/( (/(  ,(  ,//ado,ado / , e у  ,/s  uma想  um e,,  de/  , / */ada立,  // um   //   uma де,, e  / *//ado ada , /,, 想想  uma   ada e ,/ de  / (  у  o um уada/ e  (,// de  / *, uma//想, de  /想 ,/-/     ,  e(   *, ,     , / або o / de que…  de у/a  /,想o/  e,/ -, , um, é,  уada    / ,,,icaada ,//a,/ e想   у  c/,/ ada //  e de, ada  , o// de   é//,想  * ,,   * //  ado uma/,  у  a //-    // de /a/立/,,  / /  c,//o立 /, /…,/  , /  o,   queada- або/ uma/"
+    },
+    {
+      "id": 50,
+      "categoria": "emergencias",
+      "pergunta": "Como proceder em caso de hemorragia externa grave?",
+      "resposta": "/  ( ,ado/ * / ,    ,   /  //a e想- або - /      de//  uma - /a/,   *, adaada у  eada//   -(,/ é,/s *a/ um, , ,想, um  у-  uma adao ,///,   a立//  c-s/-/   e , уc/ c /想,// c , e  (ica uma / a/  é de,  * 立, *,   * , - /  *    c /  , /, ,/ e  , // e és o/  у/   , uma  uma- ,-   que де  *  ,  у um /, 想/ o-,,,o,,/  o /o e,, ada de(, e/ //, уado, ( у  *   ,,- o  /   e-/ o //ada/ uma想, або//ada立,   que/  ( /  es e, *- ada  e … de  -,  e/,想 de //(oa (  que ,o ada  ica  / uma,   ,, (, que…, , / /ada  o *  у立 uma  /, ,/,// uma / / ada /,, a adaoo   立 e, a,ada/ c,o / , e ,-adaada , c,-a  у,  (ada,/ado у, de , // у/,/ e/ / / /, /, ada , ,, у,  * e e/ada ada um  ado- */ ,/  que /   um (  ,,/,  c ada   //  é/ у"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "timestamp": "2026-03-09T05:30:15.188477",
+    "epochs": [
+      "epoch1",
+      "epoch1_5",
+      "epoch2",
+      "epoch2_5",
+      "epoch4",
+      "epoch5"
+    ],
+    "val_epochs": [
+      "epoch1",
+      "epoch1_5",
+      "epoch2",
+      "epoch2_5",
+      "epoch4",
+      "epoch5"
+    ],
+    "trilha_a": true,
+    "trilha_b": true
+  },
+  "trilha_a": {
+    "descricao": "50 perguntas manuais — metricas de sobreposicao FT vs Baseline",
+    "baseline": {
+      "avg_length": 1225.38,
+      "repetition_rate": 0.0664317148455365
+    },
+    "epoch1": {
+      "avg_length": 1229.78,
+      "bleu_vs_baseline": 0.031218623120560705,
+      "rouge1_vs_baseline": 0.3007401020222811,
+      "rouge2_vs_baseline": 0.07928083339893409,
+      "rougeL_vs_baseline": 0.170371643845206,
+      "repetition_rate": 0.26764645170848683
+    },
+    "epoch1_5": {
+      "avg_length": 1255.96,
+      "bleu_vs_baseline": 0.029148685361336555,
+      "rouge1_vs_baseline": 0.3014005504960832,
+      "rouge2_vs_baseline": 0.07953740952960676,
+      "rougeL_vs_baseline": 0.17062223247529615,
+      "repetition_rate": 0.2752345062923278
+    },
+    "epoch2": {
+      "avg_length": 1159.58,
+      "bleu_vs_baseline": 0.0022282879804786516,
+      "rouge1_vs_baseline": 0.13274916588854915,
+      "rouge2_vs_baseline": 0.010925717387405848,
+      "rougeL_vs_baseline": 0.09629756988352842,
+      "repetition_rate": 0.006683149042205301
+    },
+    "epoch2_5": {
+      "avg_length": 1093.4,
+      "bleu_vs_baseline": 0.002900944230116125,
+      "rouge1_vs_baseline": 0.1468852292566665,
+      "rouge2_vs_baseline": 0.011792086501582087,
+      "rougeL_vs_baseline": 0.10241141675640252,
+      "repetition_rate": 0.005717682577277796
+    },
+    "epoch4": {
+      "avg_length": 706.42,
+      "bleu_vs_baseline": 0.0027217610360818177,
+      "rouge1_vs_baseline": 0.20642231149018134,
+      "rouge2_vs_baseline": 0.011276803262353167,
+      "rougeL_vs_baseline": 0.15128744790470294,
+      "repetition_rate": 0.0021850349345268905
+    },
+    "epoch5": {
+      "avg_length": 1253.54,
+      "bleu_vs_baseline": 0.024497139170814863,
+      "rouge1_vs_baseline": 0.2955604620444158,
+      "rouge2_vs_baseline": 0.07394981117828969,
+      "rougeL_vs_baseline": 0.16960317577448691,
+      "repetition_rate": 0.2945285903151722
+    }
+  },
+  "trilha_b": {
+    "descricao": "50 amostras validacao MedQuAD — metricas vs ground truth",
+    "baseline": {
+      "bleu": 0.03882835889490277,
+      "rouge1": 0.318176821890383,
+      "rouge2": 0.08771517289057375,
+      "rougeL": 0.17479084319920596,
+      "semantic_similarity": 0.9036055386066437
+    },
+    "epoch1": {
+      "bleu": 0.2001654550296715,
+      "rouge1": 0.42240921943286336,
+      "rouge2": 0.2611438443895337,
+      "rougeL": 0.3367231690229869,
+      "semantic_similarity": 0.9234447824954987
+    },
+    "epoch1_5": {
+      "bleu": 0.2982136714581868,
+      "rouge1": 0.5172637186023037,
+      "rouge2": 0.3600669748162382,
+      "rougeL": 0.4205200385404537,
+      "semantic_similarity": 0.9393197512626648
+    },
+    "epoch2": {
+      "bleu": 0.004187367437716241,
+      "rouge1": 0.12486061657418723,
+      "rouge2": 0.021149519619975448,
+      "rougeL": 0.09416622019087598,
+      "semantic_similarity": 0.8338322079181671
+    },
+    "epoch2_5": {
+      "bleu": 0.011751504133561635,
+      "rouge1": 0.14295397225065376,
+      "rouge2": 0.02902215267214728,
+      "rougeL": 0.10197055453331211,
+      "semantic_similarity": 0.8413778352737427
+    },
+    "epoch4": {
+      "bleu": 0.002478647602927098,
+      "rouge1": 0.16394063392428662,
+      "rouge2": 0.009710343768125636,
+      "rougeL": 0.11886700914524034,
+      "semantic_similarity": 0.7779571044445038
+    },
+    "epoch5": {
+      "bleu": 0.21678123068501748,
+      "rouge1": 0.4402826854743346,
+      "rouge2": 0.27500034966758546,
+      "rougeL": 0.3458827955265289,
+      "semantic_similarity": 0.928042562007904
+    }
+  }
+}

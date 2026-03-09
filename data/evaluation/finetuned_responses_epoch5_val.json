@@ -1,0 +1,312 @@
+{
+  "metadata": {
+    "modelo_base": "mistralai/Mistral-7B-Instruct-v0.3",
+    "modelo_finetuned": "models/medical-assistant-final",
+    "tipo": "finetuned",
+    "timestamp": "2026-03-09T05:02:36.621792",
+    "total_perguntas": 50,
+    "device": "cuda"
+  },
+  "respostas": [
+    {
+      "id": 1,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da Sindactilia tipo 3?",
+      "resposta": "Quais são os sinais e sintomas da Sindactilia tipo 3? A Ontologia do Fenótipo Humano fornece a seguinte lista de sinais e sintomas para Sindactilia tipo 3. Se a informação estiver disponível, a tabela abaixo inclui a frequência com que o sintoma é observado em pessoas com esta condição. Você pode usar o Dicionário Médico MedlinePlus para procurar as definições desses termos médicos. Sinais e sintomas Número aproximado de pacientes (quando disponível) Anormalidade do tórax 90% Anormalidade do pavilhão auricular 90% Anormalidade do pé 90% Anormalidade do pavilhão acetabular 90% Anormalidade do osso do quadril 90% Anormalidade do punho 90% Anormalidade da ulna 90% Anormalidade da úvula 90% Anormalidade da ulna 90% Anormalidade dos ossos metacarpais 90% Anormalidade dos ossos metatarsiais 90% Anormalidade do rádio 90% Anormalidade do túbulo renal 90% Anormalidade do ureter 90% Anormalidade do ureter 90% Anormalidade do ureter 90% Anormalidade dos ossos metacarpais 90% Anormalidade dos ossos metatarsiais 90% Anormalidade dos ossos metacarpais 90% Anormalidade dos ossos metatarsiais 90% Anormalidade dos ossos metatarsiais 90% Anormalidade dos ossos metatarsiais 90% Anormalidade dos ossos metatarsiais 90% Anormalidade dos ossos metatarsiais 90% Anormalidade dos ossos metatarsiais 90% Anormalidade dos ossos metatarsiais 90% Anormalidade dos ossos met"
+    },
+    {
+      "id": 2,
+      "categoria": "validacao",
+      "pergunta": "Quais são os tratamentos para Queilite glandular?",
+      "resposta": "Como a queilite glandular pode ser tratada? O tratamento da queilite glandular pode incluir: medicamentos antimicrobianos, como amoxicilina ou azitromicina; corticosteroides; medicamentos imunomoduladores, como ciclofosfamida; e/ou cirurgia. Embora esta condição seja muito rara, a cirurgia pode ser recomendada para casos graves. A cirurgia pode incluir a remoção dos gânglios linfáticos do rosto e/ou remoção de um ou mais gânglios linfáticos."
+    },
+    {
+      "id": 3,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à síndrome da microftalmia de Lenz?",
+      "resposta": "Mutações no gene SOX2 podem causar síndrome de microftalmia de Lenz. O gene SOX2 fornece instruções para a produção de uma proteína chamada SOX2. Este gene é um dos cinco genes SOX do tipo H (SOXH) e está localizado no cromossomo 3. O SOX2 é um fator de transcrição, o que significa que se liga (se liga) a regiões específicas do DNA e ajuda a controlar a atividade de outros genes. O SOX2 desempenha um papel na regulação do desenvolvimento e função do olho.  Mutações no gene SOX2 interrompem a produção de SOX2 funcional ou alteram a estrutura do SOX2. Sem uma proteína SOX2 funcional, os olhos não conseguem se desenvolver normalmente e a função do olho não funciona adequadamente. Os problemas de desenvolvimento nos olhos podem causar microftalmia, catarata e anopia. As anormalidades no desenvolvimento do olho também podem levar à perda de visão e a outros defeitos oculares.  Mutações no SOX2 podem levar a uma variedade de sinais e sintomas da síndrome da microftalmia de Lenz. Algumas pessoas com esta condição apresentam uma única mutação SOX2, enquanto outras têm uma mutação SOX2 e uma mutação no gene SOX2B1. A combinação de uma mutação SOX2 e uma mutação SOX2B1 leva a uma forma mais grave da síndrome da microftalmia de Lenz.  Mutações SOX2 também podem estar subjacentes a uma síndrome relacionada chamada microftalmia isolada e anomalias oculo-facio-esqueléticas (IOFAS). Essa condição é caracterizada por microftalmia, anomalias oculares e anomalias esqueléticas. Algumas pessoas com IOFAS"
+    },
+    {
+      "id": 4,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) insuficiência ovariana primária associada ao X frágil?",
+      "resposta": "A insuficiência ovariana primária associada ao X frágil é um distúrbio genético que afeta principalmente o desenvolvimento e a função dos ovários e do sistema reprodutivo.  Os ovários, que são os órgãos femininos que produzem os óvulos, também produzem hormônios que são necessários para o desenvolvimento sexual e a função reprodutiva. O hormônio ovariano mais importante é a estrogênio, que está envolvido no desenvolvimento do crescimento e da estrutura do corpo antes do nascimento. A estrogênio também está envolvido no desenvolvimento sexual e na menstruação. Os ovários produzem estrogênio durante a puberdade e durante a menopausa, mas o estrogênio também é produzido pela gordura e pelo fígado. Outro hormônio ovariano importante é o hormônio luteinizante, que é responsável por estimular o ovário a produzir estrogênio e outro hormônio, a progesterona, que é necessário para o desenvolvimento dos óvulos e para o crescimento e maturação dos ovos.  A insuficiência ovariana primária associada ao X frágil causa uma diminuição do estrogênio e do hormônio luteinizante, o que resulta em sinais e sintomas que começam durante ou antes do início da menopausa. A maioria dos indivíduos afetados apresenta menopausa prematura, que é a perda dos últimos óvulos antes dos 40 anos. A menopausa prematura causa a diminuição do estrogênio e do hormônio luteinizante, o que leva a uma variedade de sintomas. A diminuição do estrogênio pode resultar no acúmulo de gordura nas costas e no abdômen e no aumento da propensão a doenças cardíacas. A diminuição do hormônio luteinizante pode causar"
+    },
+    {
+      "id": 5,
+      "categoria": "validacao",
+      "pergunta": "What are the symptoms of Corneal dystrophy of Bowman layer type 1 ?",
+      "resposta": "What are the signs and symptoms of Corneal dystrophy of Bowman layer type 1? A Ontologia do Fenótipo Humano fornece a seguinte lista de sinais e sintomas para Corneal dystrofia do nível de Bowman tipo 1. Se a informação estiver disponível, a tabela abaixo inclui a frequência com que o sintoma é observado em pessoas com esta condição. Você pode usar o Dicionário Médico MedlinePlus para procurar as definições desses termos médicos. Sinais e Sintomas Número aproximado de pacientes (quando disponível) Herança autossômica dominante - Catarata - Córnea gordurosa - Densidade mineral óssea reduzida - Nódulo corneano - Corneal dystrofia - A Ontologia do Fenótipo Humano (HPO) coletou informações sobre a frequência com que um sinal ou sintoma ocorre em uma condição. Grande parte desta informação provém da Orphanet, uma base de dados europeia sobre doenças raras. A frequência de um sinal ou sintoma geralmente é listada como uma estimativa aproximada da porcentagem de pacientes que apresentam essa característica. A frequência também pode ser listada como uma fração. O primeiro número da fração é quantas pessoas tiveram o sintoma, e o segundo número é o número total de pessoas que foram examinadas num estudo. Por exemplo, uma frequência de 25/25 significa que, num estudo com 25 pessoas, todos os pacientes apresentavam esse sintoma. Como essas frequências são baseadas em um estudo específico, as frações podem ser diferentes se outro grupo de pacientes for examinado. Às vezes, nenhuma informação sobre frequência está disponível. Nestes casos, o sinal ou sintoma pode ser raro ou comum."
+    },
+    {
+      "id": 6,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas do retardo de crescimento intrauterino com aumento da sensibilidade à mitomicina C?",
+      "resposta": "Quais são os sinais e sintomas do retardo de crescimento intrauterino com aumento da sensibilidade à mitomicina C? A Ontologia do Fenótipo Humano fornece a seguinte lista de sinais e sintomas para retardo de crescimento intrauterino com aumento da sensibilidade à mitomicina C. Se a informação estiver disponível, a tabela abaixo inclui a frequência com que o sintoma é observado em pessoas com esta condição. Você pode usar o Dicionário Médico MedlinePlus para procurar as definições desses termos médicos. Sinais e sintomas Número aproximado de pacientes (quando disponível) Anormalidade do metabolismo/homeostase - Anormalidade do movimento - Herança autossômica recessiva - Hiperreflexia - Hipertonia - Deficiência intelectual - Deficiência intelectual progressiva - Convulsões - A Ontologia do Fenótipo Humano (HPO) coletou informações sobre a frequência com que um sinal ou sintoma ocorre em uma condição. Grande parte desta informação provém da Orphanet, uma base de dados europeia sobre doenças raras. A frequência de um sinal ou sintoma geralmente é listada como uma estimativa aproximada da porcentagem de pacientes que apresentam essa característica. A frequência também pode ser listada como uma fração. O primeiro número da fração é quantas pessoas tiveram o sintoma, e o segundo número é o número total de pessoas que foram examinadas num estudo. Por exemplo, uma frequência de 25/25 significa que, num estudo com 25 pessoas, todos os pacientes apresentavam esse sintoma. Como essas frequências são baseadas em um estudo específico, as frações podem ser diferentes se outro grupo de pacientes for examinado. Às vezes, nenhuma informação sobre frequência está disponível. Nestes casos,"
+    },
+    {
+      "id": 7,
+      "categoria": "validacao",
+      "pergunta": "Quais são as perspectivas para o câncer uretral?",
+      "resposta": "Certos fatores afetam o prognóstico (chance de recuperação) e as opções de tratamento. O prognóstico (chance de recuperação) e as opções de tratamento dependem do seguinte: - O estágio do câncer.    - O tipo de câncer.    - Se o câncer foi diagnosticado recentemente ou reapareceu (voltou).    - A saúde geral dos pacientes.    - Se o paciente tem HIV/AIDS ou não."
+    },
+    {
+      "id": 8,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da distrofia do cone ligada ao X com brilho tipo tapetal?",
+      "resposta": "Quais são os sinais e sintomas da distrofia do cone ligada ao X com brilho tipo tapetal? A Ontologia do Fenótipo Humano fornece a seguinte lista de sinais e sintomas para a distrofia do cone ligada ao X com brilho tipo tapetal. Se a informação estiver disponível, a tabela abaixo inclui a frequência com que o sintoma é observado em pessoas com esta condição. Você pode usar o Dicionário Médico MedlinePlus para procurar as definições desses termos médicos. Sinais e sintomas Número aproximado de pacientes (quando disponível) Comprometimento cognitivo 90% Deficiência auditiva 90% Contraste sensível - Herança autossômica recessiva - Deficiência visual - A Ontologia do Fenótipo Humano (HPO) coletou informações sobre a frequência com que um sinal ou sintoma ocorre em uma condição. Grande parte desta informação provém da Orphanet, uma base de dados europeia sobre doenças raras. A frequência de um sinal ou sintoma geralmente é listada como uma estimativa aproximada da porcentagem de pacientes que apresentam essa característica. A frequência também pode ser listada como uma fração. O primeiro número da fração é quantas pessoas tiveram o sintoma, e o segundo número é o número total de pessoas que foram examinadas num estudo. Por exemplo, uma frequência de 25/25 significa que, num estudo com 25 pessoas, todos os pacientes apresentavam esse sintoma. Como essas frequências são baseadas em um estudo específico, as frações podem ser diferentes se outro grupo de pacientes for examinado. Às vezes, nenhuma informação sobre frequência está disponível. Nestes casos, o sinal ou sintoma pode ser raro ou comum."
+    },
+    {
+      "id": 9,
+      "categoria": "validacao",
+      "pergunta": "Quantas pessoas são afetadas pela síndrome de Feingold?",
+      "resposta": "A síndrome de Feingold é uma doença rara; sua prevalência é desconhecida."
+    },
+    {
+      "id": 10,
+      "categoria": "validacao",
+      "pergunta": "Quais são os tratamentos para a distrofia neuroaxonal infantil?",
+      "resposta": "Esses recursos abordam o diagnóstico ou tratamento da distrofia neuroaxonal infantil: - Revisão genética: Revisão genética: distrofia neuroaxonal infantil - Registro de testes genéticos: distrofia neuroaxonal infantil Esses recursos do MedlinePlus oferecem informações sobre o diagnóstico e tratamento de várias condições de saúde: - Testes de diagnóstico - Terapia medicamentosa - Cirurgia e reabilitação - Aconselhamento genético - Cuidados paliativos"
+    },
+    {
+      "id": 11,
+      "categoria": "validacao",
+      "pergunta": "Como prevenir a cardiomiopatia?",
+      "resposta": "Como você pode prevenir a cardiomiopatia? Não há maneira segura de prevenir a cardiomiopatia, especialmente aquelas causadas por doenças hereditárias. Você pode tomar medidas para prevenir o desenvolvimento ou agravamento da cardiomiopatia. Isso pode incluir: Seguir um estilo de vida saudável. Isso inclui um bom controle do peso e pressão arterial, um dieta saudável e exercício regular. Evite o tabagismo e limitar o consumo de álcool. Obtenha um teste de sangue de triagem para hemocromatose se você tiver histórico familiar de hemocromatose. Obtenha testes regulares de pressão arterial e avaliações cardiológicas se você tiver histórico familiar de doenças cardíacas. Consulte um médico se você tiver sintomas de doença cardíaca. Você pode precisar de tratamento precoce e deve tomar medidas para prevenir uma ruptura do músculo cardíaco e uma insuficiência cardíaca. Compreender a causa da sua cardiomiopatia e obter tratamento adequado pode ajudar a prevenir o agravamento do distúrbio."
+    },
+    {
+      "id": 12,
+      "categoria": "validacao",
+      "pergunta": "What are the stages of Plasma Cell Neoplasms (Including Multiple Myeloma) ?",
+      "resposta": "Key Points\n                    - Multiple myeloma and plasma cell leukemia are two types of plasma cell neoplasms.    - Multiple myeloma is the most common plasma cell neoplasm.    - Plasma cell leukemia is a rare plasma cell neoplasm.    - The disease stages of plasma cell neoplasms are based on the amount of abnormal plasma cells in the bone marrow and blood.    - Testing is done to see if there are signs of disease that can be seen only under a microscope.    - The stage of plasma cell neoplasia is used to plan treatment.\n                \n                \n                    Multiple myeloma and plasma cell leukemia are two types of plasma cell neoplasms.\n                    Multiple myeloma and plasma cell leukemia are two types of plasma cell neoplasms. Plasma cell neoplasms are cancers that start in plasma cells. Plasma cells are a type of white blood cell that make antibodies to help fight infection. Plasma cells are found in the bone marrow and in the blood.  In multiple myeloma, plasma cells grow rapidly and become cancer cells. In plasma cell leukemia, plasma cells grow rapidly and become leukemia cells.  Multiple myeloma is the most common plasma cell neoplasm. It is the second most common blood cancer. Plasma cell leukemia is a rare plasma cell neoplasm.  In multiple myeloma, the cancer cells are found in the bone marrow and blood. In plasma cell leukemia, the cancer cells are found in the blood.  Multiple myeloma and plasma cell leukemia are diagnosed and staged the same way.\n                \n                \n                    Multiple myeloma is the most common plasma cell neoplasm.\n                    Multiple myeloma is the most common plasma cell neoplasm. In multiple myeloma, the cancer cells are found in the bone marrow and blood. The cancer cells grow rapidly and become plasma cells.  Multiple myeloma is a disease of older adults. It is uncommon in people younger than 50.  Multiple myeloma is a cancer that gets worse quickly. It can cause bone pain, anemia, and kidney disease.  A plasma cell neoplasm that is not multiple"
+    },
+    {
+      "id": 13,
+      "categoria": "validacao",
+      "pergunta": "Quais são os tratamentos para a síndrome de Brooke-Spiegler?",
+      "resposta": "Esses recursos abordam o diagnóstico ou tratamento da síndrome de Brooke-Spiegler: - Revisão genética: Revisão genética: Síndrome de Brooke-Spiegler - Registro de testes genéticos: Síndrome de Brooke-Spiegler Esses recursos do MedlinePlus oferecem informações sobre o diagnóstico e tratamento de várias condições de saúde: - Testes de diagnóstico - Terapia medicamentosa - Cirurgia e reabilitação - Aconselhamento genético - Cuidados paliativos"
+    },
+    {
+      "id": 14,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da catarata polar anterior 2?",
+      "resposta": "Quais são os sinais e sintomas da Catarata Polar Anterior 2? A Ontologia do Fenótipo Humano fornece a seguinte lista de sinais e sintomas para Catarata Polar Anterior 2. Se a informação estiver disponível, a tabela abaixo inclui a frequência com que o sintoma é observado em pessoas com esta condição. Você pode usar o Dicionário Médico MedlinePlus para procurar as definições desses termos médicos. Sinais e Sintomas Número aproximado de pacientes (quando disponível) Anormalidade da córnea - Herança autossômica recessiva - Catarata - A Ontologia do Fenótipo Humano (HPO) coletou informações sobre a frequência com que um sinal ou sintoma ocorre em uma condição. Grande parte desta informação provém da Orphanet, uma base de dados europeia sobre doenças raras. A frequência de um sinal ou sintoma geralmente é listada como uma estimativa aproximada da porcentagem de pacientes que apresentam essa característica. A frequência também pode ser listada como uma fração. O primeiro número da fração é quantas pessoas tiveram o sintoma, e o segundo número é o número total de pessoas que foram examinadas num estudo. Por exemplo, uma frequência de 25/25 significa que, num estudo com 25 pessoas, todos os pacientes apresentavam esse sintoma. Como essas frequências são baseadas em um estudo específico, as frações podem ser diferentes se outro grupo de pacientes for examinado. Às vezes, nenhuma informação sobre frequência está disponível. Nestes casos, o sinal ou sintoma pode ser raro ou comum."
+    },
+    {
+      "id": 15,
+      "categoria": "validacao",
+      "pergunta": "What is (are) carnitine-acylcarnitine translocase deficiency ?",
+      "resposta": "Carnitine-acylcarnitine translocase deficiency (CACT) is a rare inherited disorder that causes the body to be unable to process fats, leading to severe and life-threatening episodes. The symptoms of CACT vary widely, but they often begin during the neonatal period. Symptoms may include hypoketotic hypoglycemia (low blood sugar), metabolic acidosis (low pH), hypotension (low blood pressure), cardiomyopathy (cardiac muscle disease), hepatomegaly (enlargement of the liver), and death. CACT is caused by mutations in the SLC25A20 gene. Herança é autossômica recessiva."
+    },
+    {
+      "id": 16,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) Meningite?",
+      "resposta": "A meningite é uma doença inflamatória do sistema nervoso. É causada por uma infecção viral, bacteriana ou fúngica. A meningite viral é mais comum. A meningite bacteriana é grave e pode ser fatal. A meningite viral pode ser causada por uma doença viral comum, como resfriado comum.    Os sintomas da meningite incluem - Dor de cabeça intensa - Sentindo-se mal - Náuseas - Vômitos - Sensibilidade à luz - Sensibilidade ao ruído - Febre - Calor na pele - Fraqueza Os sintomas da meningite viral geralmente começam repentinamente e pioram rapidamente. A meningite viral geralmente desaparece em alguns dias. A meningite bacteriana pode causar complicações graves e ainda pode ser fatal.    O tratamento da meningite viral não é necessário. O tratamento da meningite bacteriana inclui antibióticos e medicamentos para aliviar a dor de cabeça e a febre.    NIH: Instituto Nacional de Distúrbios Neurológicos e Derrame"
+    },
+    {
+      "id": 17,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da tríade Currarino?",
+      "resposta": "Quais são os sinais e sintomas da tríade Currarino? A Ontologia do Fenótipo Humano fornece a seguinte lista de sinais e sintomas da tríade Currarino. Se a informação estiver disponível, a tabela abaixo inclui a frequência com que o sintoma é observado em pessoas com esta condição. Você pode usar o Dicionário Médico MedlinePlus para procurar as definições desses termos médicos. Sinais e sintomas Número aproximado de pacientes (quando disponível) Anormalidade do pavilhão auricular 90% Aplasia/hipoplasia da sobrancelha 90% Aplasia/hipoplasia dos raios radiais da mão 90% Camptodactilia do dedo 90% Camptodactilia do dedo do pé 90% Camptodactilia do dedo do pé 90% Camptodactilia do dedo do pé 90% Coxa valga 90% Coxa vara 90% Hipoplasia do pênis 90% Hipoplasia do rádio 90% Hipoplasia do ureter 90% Hipoplasia da ulna 90% Hipoplasia do fêmur 90% Hipoplasia do rádio 90% Hipoplasia do rádio 90% Hipoplasia do ulna 90% Hipoplasia do ulna 90% Hipoplasia do rádio 90% Hipoplasia do rádio 90% Hipoplasia do ulna 90% Hipoplasia do ulna 90% Hipoplasia do ulna 90% Hipoplasia do ulna 90% Hipoplasia do ulna 90% Hipoplasia do ulna 90% Hipoplasia do ulna 90% Hipoplasia do ulna 90%"
+    },
+    {
+      "id": 18,
+      "categoria": "validacao",
+      "pergunta": "Quantas pessoas são afetadas por infecções do trato urinário em crianças?",
+      "resposta": "As infecções do trato urinário são mais comuns em crianças do que em adultos. Aproximadamente 5 a 7 por cento dos recém-nascidos têm infecções do trato urinário (ITUs) e 10 a 20 por cento dos bebês têm ITUs durante os primeiros dois anos de vida. Aproximadamente 70 por cento dos bebês que têm ITUs nas primeiras 6 a 12 semanas de vida têm novas infecções do trato urinário antes do terceiro ano de vida.1"
+    },
+    {
+      "id": 19,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à deficiência de fosfoglicerato quinase?",
+      "resposta": "Mutações no gene PKLR causam deficiência de fosfoglicerato quinase. O gene PKLR fornece instruções para a produção da fosfoglicerato quinase, uma enzima que está envolvida no metabolismo do açúcar, o que é a série de reações químicas que fornece energia aos tecidos do corpo. A enzima também está envolvida no processo de fosforilação oxidativa, que é a forma mais eficaz de obter energia a partir dos açúcares. A fosfoglicerato quinase está localizada no compartimento que contém as mitocôndrias, a parte do célula que é responsável pelo metabolismo do açúcar.  Mutações no gene PKLR alteram a estrutura e/ou função da fosfoglicerato quinase. A enzima alterada não consegue iniciar o processo de fosforilação oxidativa, o que prejudica a capacidade das células de obter energia a partir dos açúcares. As células do coração, dos músculos e do cérebro são especialmente sensíveis aos efeitos da deficiência de fosfoglicerato quinase. Nos músculos, a deficiência de fosfoglicerato quinase prejudica o seu movimento. Nos músculos do coração, a incapacidade de obter energia do açúcar pode causar problemas de ritmo cardíaco. A deficiência de fosfoglicerato quinase também pode afetar o desenvolvimento do cérebro, resultando em deficiência intelectual."
+    },
+    {
+      "id": 20,
+      "categoria": "validacao",
+      "pergunta": "Is glutaric acidemia type I inherited ?",
+      "resposta": "This condition is inherited in an autosomal recessive pattern, which means both copies of the gene in each cell have mutations. The parents of an individual with an autosomal recessive condition each carry one copy of the mutated gene, but they typically do not show signs and symptoms of the condition."
+    },
+    {
+      "id": 21,
+      "categoria": "validacao",
+      "pergunta": "Quantas pessoas são afetadas pela Nefropatia por IgA?",
+      "resposta": "A nefropatia por IgA é uma doença renal comum. Estima-se que afete 10% a 30% dos americanos de ascendência asiática e 1% a 2% dos americanos de ascendência europeia.1"
+    },
+    {
+      "id": 22,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) a síndrome de Lujan?",
+      "resposta": "A síndrome de Lujan é uma condição rara caracterizada por baixa estatura e outras características esqueléticas, anormalidades do sistema nervoso e características faciais distintas.  A baixa estatura é o sinal mais comum da síndrome de Lujan. A altura adulta geralmente é de 1m, embora algumas pessoas sejam mais altas.  As características esqueléticas características incluem baixa estatura, braços e pernas curtos (nanismo rhizomélico), mãos e pés pequenos e pés girando para dentro e para cima (pés tortos).  A síndrome de Lujan também pode causar problemas neurológicos, como dificuldade de aprendizagem e problemas de visão.  As características faciais características incluem testa proeminente e mandíbula inferior grande e proeminente (mandíbula grossa).  A síndrome de Lujan é causada por mutações no gene LJ. É herdada de forma autossômica recessiva. O tratamento pode incluir fisioterapia e/ou ortopédia e pode ser necessária cirurgia."
+    },
+    {
+      "id": 23,
+      "categoria": "validacao",
+      "pergunta": "Como diagnosticar Proteinúria?",
+      "resposta": "Você pode precisar de um ou mais dos testes seguintes para diagnosticar a proteína na urina: - Teste de proteína no urinário - teste que mede a quantidade de proteína no urinário - Teste de albumina no sangue - teste que mede a quantidade de albumina no sangue - Teste de creatinina no sangue - teste que mede a quantidade de creatinina no sangue - Estadiamento do Rim - teste que mede a função renal - Estadiamento do Rim - teste que mede a função renal - Teste de albumina/creatinina no sangue - teste que mede a quantidade de albumina no sangue em relação à quantidade de creatinina no sangue - Teste de Albumina/Creatinina no sangue - teste que mede a quantidade de albumina no sangue em relação à quantidade de creatinina no sangue - Teste de Albumina/Creatinina no sangue - teste que mede a quantidade de albumina no sangue em relação à quantidade de creatinina no sangue - Teste de Albumina/Creatinina no sangue - teste que mede a quantidade de albumina no sangue em relação à quantidade de creatinina no sangue - Teste de Albumina/Creatinina no sangue - teste que mede a quantidade de albumina no sangue em relação à quantidade de creatinina no sangue - Teste de Albumina/Creatinina no sangue - teste que mede a quantidade de albumina no sangue em relação à quantidade de creatinina no sangue - Teste de Albumina/Creatinina no sangue - teste que mede a quantidade de albumina no sangue em relação à quantidade de creatinina no sangue - Teste de Albumina/Creatinina no sangue - teste que mede a quantidade de albumina no sangue em relação à quantidade de creatinina no sangue - Teste de Albumina/Creatinina no sangue - teste que mede a quantidade de albumina no sangue em relação à quantidade de creatinina no sangue -"
+    },
+    {
+      "id": 24,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da disostose espondilocostal 4?",
+      "resposta": "Quais são os sinais e sintomas da disostose espondilocostal 4? A Ontologia do Fenótipo Humano fornece a seguinte lista de sinais e sintomas para disostose espondilocostal 4. Se a informação estiver disponível, a tabela abaixo inclui a frequência com que o sintoma é observado em pessoas com esta condição. Você pode usar o Dicionário Médico MedlinePlus para procurar as definições desses termos médicos. Sinais e sintomas Número aproximado de pacientes (quando disponível) Anormalidade da morfologia da epífise femoral capital 90% Anormalidade do osso do quadril 90% Anormalidade dos ossos metacarpais 90% Anormalidade do pavilhão auricular 90% Anormalidade dos metacarpos 90% Anormalidade do tórax 90% Anormalidade do ureter 90% Anormalidade do ureter 90% Anormalidade do tórax 90% Anormalidade do túbulo renal 90% Anormalidade do trato urinário superior 90% Anormalidade do osso do quadril 90% Anormalidade dos ossos metatarso 90% Anormalidade dos ossos metacarpais 90% Anormalidade dos ossos metacarpais 90% Anormalidade dos ossos metatarso 90% Anormalidade dos ossos metatarso 90% Anormalidade dos ossos metatarso 90% Anormalidade dos ossos metatarso 90% Anormalidade dos ossos metacarpos 90% Anormalidade dos ossos metacarpos 90% Anormalidade dos ossos metacarpos 90% Anormalidade dos ossos metacarpos 90% Anormalidade dos ossos metacarpos 90% Anormalidade dos ossos metacarpos 90% Anormalidade dos"
+    },
+    {
+      "id": 25,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à distonia focal específica da tarefa?",
+      "resposta": "Mutações no gene TOR1A e no gene THAP1 são responsáveis ​​por alguns casos de distonia específica de tarefa. Mutações no gene TOR1A causam uma forma da distonia específica da tarefa denominada distonia de tarefa 1A. Mutações no gene THAP1 causam uma forma específica de distonia da tarefa denominada distonia de tarefa 1B.  Mutações no gene TOR1A e no gene THAP1 levam à produção de proteínas anormais que não conseguem se ligar (ligar) adequadamente aos seus locais específicos dentro da célula. A proteína anormal não consegue desempenhar sua função normal e, em vez disso, acumula-se no núcleo celular. A acumulação de proteína no núcleo pode perturbar o funcionamento celular e causar o desenvolvimento de anomalias no sistema nervoso.  Mutações em outros genes também podem estar associadas à distonia específica de tarefa. Essas mutações são encontradas em aproximadamente 5% dos indivíduos com distonia específica de tarefa e não foram identificadas em outros membros da família. Mutações em outros genes podem ser responsáveis ​​por outras formas de distonia específica de tarefa.  Mutações em outros genes também podem estar associadas à distonia específica de tarefa. Essas mutações são encontradas em aproximadamente 5% dos indivíduos com distonia específica de tarefa e não foram identificadas em outros membros da família. Mutações em outros genes podem ser responsáveis ​​por outras formas de distonia específica de tarefa."
+    },
+    {
+      "id": 26,
+      "categoria": "validacao",
+      "pergunta": "How to diagnose Kidney Stones in Children ?",
+      "resposta": "Como os profissionais de saúde diagnosticam pedras nos rins em crianças? O diagnóstico de um pedra no rim em crianças geralmente começa com um histórico médico e um exame físico. O médico pode pedir aos pais ou responsáveis ​​para fornecer informações como - Onde o dolorido está no abdômen - O que causa o dolorido - Se os sintomas docorrem com frequência - Se houve histórico familiar de doença renal - Se os sintomas docorrem após uma doença viral - Se o bebê é leite de venda ou leite materno - Se o bebê tem histórico de doença renal - Se há histórico de consumo de álcool, tabaco e outros medicamentos e nutrição - Se o bebê já teve doença renal e se houve tratamento - Se há histórico de doença renal na família - Se o bebê teve doença renal e tratamento - Se há histórico de consumo de álcool, tabaco e outros medicamentos e nutrição - Se o bebê já teve doença renal e se houve tratamento - Se há histórico de doença renal na família - Se o bebê teve doença renal e tratamento - Se há histórico de consumo de álcool, tabaco e outros medicamentos e nutrição - Se o bebê já teve doença renal e se houve tratamento - Se há histórico de consumo de álcool, tabaco e outros medicamentos e nutrição - Se o bebê já teve doença renal e se houve tratamento - Se há histórico de consumo de álcool, tabaco e outros medicamentos e nutrição - Se o bebê já teve doença renal e se houve tratamento - Se há histórico de consumo de álcool, tabaco e outros medicamentos e nutrição - Se o bebê já teve doen"
+    },
+    {
+      "id": 27,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da Amelogênese imperfeita hipoplásica local?",
+      "resposta": "Quais são os sinais e sintomas da Amelogênese imperfeita hipoplásica local? A Ontologia do Fenótipo Humano fornece a seguinte lista de sinais e sintomas para Amelogênese imperfeita hipoplásica local. Se a informação estiver disponível, a tabela abaixo inclui a frequência com que o sintoma é observado em pessoas com esta condição. Você pode usar o Dicionário Médico MedlinePlus para procurar as definições desses termos médicos. Sinais e sintomas Número aproximado de pacientes (quando disponível) Anormalidade do esmalte 90% Anormalidade do dente 90% Anormalidade do palato 50% Anormalidade dos dentes 90% Anormalidade do fêmur 50% Anormalidade do tórax 50% Anormalidade do ureter 50% Anormalidade do ureter 50% Anormalidade do ureter 50% Anormalidade do fígado 50% Anormalidade dos ossos metacarpais 50% Anormalidade dos ossos metatarsiais 50% Anormalidade dos ossos metatarsiais 50% Anormalidade dos ossos metacarpais 50% Anormalidade dos ossos metacarpais 50% Anormalidade dos ossos metatarsiais 50% Anormalidade do pavilhão auricular 50% Anormalidade do pavilhão auricular 50% Anormalidade dos ossos metatarsiais 50% Anormalidade dos ossos metacarpais 50% Anormalidade dos ossos metacarpais 50% Anormalidade do pavilhão auricular 50% Anormalidade do pavilhão auricular 50% Anormalidade do pavilhão auricular 50% Anormalidade do pavilhão auricular 50% Anormalidade dos ossos metacarpais 5"
+    },
+    {
+      "id": 28,
+      "categoria": "validacao",
+      "pergunta": "que pesquisas (ou ensaios clínicos) estão sendo feitas para o câncer retal?",
+      "resposta": "Novos tipos de tratamento estão sendo testados em ensaios clínicos.\n                    Informações sobre ensaios clínicos estão disponíveis no site do NCI.\n                \n                \n                    Os pacientes podem querer pensar em participar de um ensaio clínico.\n                    Para alguns pacientes, participar de um ensaio clínico pode ser a melhor opção de tratamento. Os ensaios clínicos fazem parte do processo de investigação do cancro. Ensaios clínicos são realizados para descobrir se novos tratamentos contra o câncer são seguros e eficazes ou melhores que o tratamento padrão.   Muitos dos tratamentos padrão atuais para o câncer baseiam-se em ensaios clínicos anteriores. Os pacientes que participam de um ensaio clínico podem receber o tratamento padrão ou estar entre os primeiros a receber um novo tratamento.   Os pacientes que participam em ensaios clínicos também ajudam a melhorar a forma como o cancro será tratado no futuro. Mesmo quando os ensaios clínicos não conduzem a novos tratamentos eficazes, muitas vezes respondem a questões importantes e ajudam a fazer avançar a investigação.\n                \n                \n                    Os pacientes podem participar de ensaios clínicos antes, durante ou depois de iniciar o tratamento contra o câncer.\n                    Alguns ensaios clínicos incluem apenas pacientes que ainda não receberam tratamento. Outros ensaios testam tratamentos para pacientes cujo cancro não melhorou. Existem também ensaios clínicos que testam novas maneiras de impedir a recorrência (volta) do câncer ou reduzir os efeitos colaterais do tratamento do câncer.   Os ensaios clínicos estão sendo realizados em muitas partes do país. Consulte a seção Opções de Tratamento a seguir"
+    },
+    {
+      "id": 29,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) beta-manosidose?",
+      "resposta": "A beta-manosidose é um distúrbio que afeta principalmente o sistema nervoso. Os sinais e sintomas da beta-manosidose geralmente começam na infância. A maioria dos indivíduos afetados apresenta um tipo de doença cerebral chamada leucoencefalopatia, que causa dificuldade de fala e movimentos musculares (ataxia). Os sintomas da leucoencefalopatia podem piorar rapidamente no primeiro ano de vida, o que pode levar a convulsões. A leucoencefalopatia também pode levar à perda de visão e à degeneração dos nervos que controlam o movimento muscular (neuropatia). A neuropatia pode causar fraqueza muscular e dificuldade para andar (ataxia), que pioram com o tempo. A neuropatia também pode causar dor nos pés e nas mãos (neuropatia neuropática).  Além disso, a beta-manosidose pode causar problemas no sistema nervoso autônomo. Este sistema regula funções como o funcionamento do trato digestivo e da bexiga, o movimento dos olhos e a regulação da pressão arterial. As pessoas com esta doença podem ter problemas digestivos, como vômitos e diarreia. Alguns indivíduos afetados apresentam dificuldade para engolir (disfagia) e podem ter dificuldade para dormir por longos períodos (insônia).  A forma mais grave de beta-manosidose é chamada de forma neonatal e começa a se desenvolver no primeiro mês de vida. A forma neonatal é caracterizada por um tamanho corporal baixo ao nascer, dores de cabeça, convulsões e deficiência intelectual. A maioria dos bebês afetados morre no primeiro ano de vida."
+    },
+    {
+      "id": 30,
+      "categoria": "validacao",
+      "pergunta": "A histidinemia é herdada?",
+      "resposta": "A histidinemia é herdada? A histidinemia é herdada? A histidinemia não é herdada. O aumento do histidina no sangue é causado por uma deficiência do histidinase, um enzima que decompõe a histidina. A deficiência do histidinase pode ser causada por uma mutação no gene histidinase, o que é herdado de maneira autossômica recessiva. Embora os pais não tenham histidinemia, eles podem transmitir o gene alterado."
+    },
+    {
+      "id": 31,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à morte súbita infantil com síndrome da disgenesia dos testículos?",
+      "resposta": "Mutações no gene SLC25A12 causam SIDS/DSY. O gene SLC25A12 fornece instruções para a produção de uma proteína chamada citrina. A citrina é encontrada em todas as células do corpo. Este tipo de proteína, chamado de transportador de citrina, está envolvido na produção de energia. A citrina também está envolvida no transporte de moléculas especiais chamadas citocromo c e citocromo c oxidase. Estas moléculas são necessárias para o funcionamento normal dos músculos esqueléticos e do coração.  Mutações no gene SLC25A12 alteram a estrutura e a função da citrina. A citrina anormal não consegue transportar citocromo c e citocromo c oxidase, o que causa a escassez de energia nas células esqueléticas e cardíacas. A escassez de energia pode levar a um risco aumentado de morte súbita infantil e disgenesia do testículo."
+    },
+    {
+      "id": 32,
+      "categoria": "validacao",
+      "pergunta": "Quais são os tratamentos para a trombofilia por protrombina?",
+      "resposta": "Como a trombofilia por protrombina pode ser tratada? O tratamento pode incluir medicamentos anticoagulantes, como aspirina, inibidores do fator V e inibidores da trombina. O tratamento pode variar dependendo do risco de eventos trombóticos e da gravidade da doença.  Na maioria dos casos, os medicamentos anticoagulantes são recomendados apenas para pessoas com histórico pessoal de trombose venosa profunda ou trombose pulmonar.  Nos casos de trombose venosa profunda, o tratamento com anticoagulante geralmente é recomendado por pelo menos 3 meses.  Na maioria dos casos, o tratamento com anticoagulante é recomendado por 6 meses ou mais se houver histórico pessoal de trombose venosa profunda ou trombose pulmonar.  O tratamento com anticoagulante também é recomendado em pessoas com histórico familiar de trombose venosa profunda ou trombose pulmonar.  O tratamento com anticoagulante pode ser recomendado para pessoas que apresentam um risco elevado de trombose venosa profunda ou trombose pulmonar."
+    },
+    {
+      "id": 33,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) AVC?",
+      "resposta": "Um acidente vascular cerebral é um distúrbio do cérebro que ocorre quando um vaso sanguíneo que fornece sangue ao cérebro fica bloqueado. O sangue é o principal fonte de oxigênio para o cérebro. Uma obstrução no vaso sanguíneo pode causar um acidente vascular cerebral. O acidente vascular cerebral pode causar danos permanentes ao cérebro e resultar em deficiência intelectual, paralisia, coma e/ou morte.    Os acidentes vasculares cerebrais são a causa mais comum de deficiência intelectual e de morte no mundo. Os acidentes vasculares cerebrais podem acontecer a qualquer momento, mas são mais comuns na idade adulta. Eles ocorrem com mais frequência em homens do que em mulheres e em pessoas com histórico familiar de acidentes vasculares cerebrais.    NIH: Instituto Nacional de Distúrbios Neurológicos e Derrame"
+    },
+    {
+      "id": 34,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) artrite infecciosa?",
+      "resposta": "A artrite infecciosa é uma doença que causa dor e inflamação nos joelhos, cotovelos e dedos. A doença é causada por um germe e é rara.    O sintoma mais comum é dor intensa. Outros sintomas incluem - Dor aguda e intensa - Inchaço - Calor e vermelhidão - Inchaço - Dificuldade para se movimentar O tratamento inclui medicamentos para a dor e a inflamação, repouso e, em alguns casos, cirurgia. A artrite infecciosa pode causar danos aos tecidos e aos ossos.     NIH: Instituto Nacional de Artrite e Doenças Musculoesqueléticas e de Pele"
+    },
+    {
+      "id": 35,
+      "categoria": "validacao",
+      "pergunta": "A neuropatia axonal autossômica recessiva com neuromiotonia é hereditária?",
+      "resposta": "A neuropatia axonal autossômica recessiva com neuromiotonia é herdada? A neuropatia axonal autossômica recessiva com neuromiotonia é herdada de forma autossômica recessiva, o que significa que uma pessoa deve ter uma mutação em ambas as cópias do gene causador (BRD22) em cada célula. Os pais de uma pessoa afetada geralmente carregam, cada um, uma cópia mutada do gene e são chamados de portadores. Os portadores normalmente não apresentam sinais ou sintomas da doença. Quando dois portadores de uma doença autossômica recessiva têm filhos, cada criança tem um risco de 25% (1 em 4) de ter a doença, um risco de 50% (1 em 2) de ser portador como cada um dos pais e 25% de chance de não ter a doença e não ser portador."
+    },
+    {
+      "id": 36,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à cardiomiopatia dilatada familiar?",
+      "resposta": "Mutações no gene TNNT2 causam cardiomiopatia dilatada familiar. Este gene fornece instruções para a produção de uma proteína chamada troponina T. Esta proteína está envolvida no movimento dos filamentos musculares do coração (sarcomeras) durante a contração e relaxamento muscular. Mutações no gene TNNT2 alteram a estrutura da proteína e prejudicam o seu funcionamento. A contração muscular anormal resulta em aumento do tamanho do coração e funcionamento cardíaco prejudicado."
+    },
+    {
+      "id": 37,
+      "categoria": "validacao",
+      "pergunta": "What is (are) Carney complex ?",
+      "resposta": "Carney complex is a rare, multisystem, hereditary, neoplasia syndrome. The main features are primary pigmented nodular adrenocortical disease (PPNAD), cardiac myxomas, and skin pigmentation. The skin pigmentation is characterized by multiple pigmented skin lesions (lentigines) that are generally present at birth. The pigmented skin lesions are usually found on the face, neck, and trunk and less frequently on the limbs. The pigmented lesions are caused by excess melanin (pigment) and are not cancer. PPNAD is characterized by tumors in the adrenal glands. The adrenal glands are located on top of each kidney and are responsible for the production of hormones. PPNAD is associated with adrenal insufficiency, hypercortisolism (Cushing syndrome), and hyperalodosteronism. Cardiac myxomas are benign (noncancerous) tumors that are found in the heart. Cardiac myxomas are the most common cardiac tumors in adults. The tumors are caused by a mutation in the PRKAR1A gene. The tumors are typically removed during surgery and do not grow back. There are no specific treatments for PPNAD or cardiac myxomas. Treatment is typically symptomatic and supportive. Affected individuals should be screened for these tumors. The PRKAR1A gene is inherited in an autosomal dominant manner. Affected individuals have a 50% chance of transmitting the mutation to each of their children."
+    },
+    {
+      "id": 38,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) deficiência de fumarase?",
+      "resposta": "A deficiência de fumarase é uma condição que causa anormalidades no sistema de produção de energia do corpo. Pessoas com essa condição apresentam uma capacidade reduzida de usar a energia dos alimentos para produzir energia no corpo. A deficiência de fumarase é uma doença hereditária que afeta principalmente o fígado e o músculo esquelético (músculo usado para o movimento).  O fígado é o principal órgão do corpo que armazena e utiliza energia. Pessoas com deficiência de fumarase apresentam um fígado aumentado (hepatoesplenomegalia) e um acúmulo de uma substância chamada lactato no sangue. O lactato é produzido no fígado e é usado como energia. Pessoas com deficiência de fumarase podem ter problemas de saúde relacionados ao acúmulo de lactato no sangue. Eles podem apresentar episódios de vômito e náuseas e, às vezes, falta de ar (dificuldade respiratória). Algumas pessoas com deficiência de fumarase apresentam um risco aumentado de desenvolver insuficiência hepática e, em alguns casos, uma doença hepática crônica e progressiva chamada cirrose. A cirrose pode levar à falência hepática (insuficiência hepática) e à morte.  Pessoas com deficiência de fumarase também apresentam músculos esqueléticos enfraquecidos (miopatia) e podem ter dificuldade para caminhar. A miopatia pode ser observada pela primeira vez no final da infância ou no início da idade adulta. A miopatia pode piorar com o exercício e pode se tornar mais grave com o tempo.  Algumas pessoas com deficiência de fumarase apresentam um risco aumentado de desenvolver um"
+    },
+    {
+      "id": 39,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) a febre familiar do Mediterrâneo?",
+      "resposta": "A febre familiar do Mediterrâneo é um distúrbio genético caracterizado por episódios de febre recorrentes e outros sinais e sintomas. Os episódios febrile são mais comuns no inverno e são geralmente associados a um aumento no nível de uma proteína chamada ferritina no sangue. A ferritina é um tipo de ferro que se acumula no sangue, no fígado e nas células sanguíneas. O aumento no nível de ferritina pode levar a um aumento no nível de ferro no sangue. Os episódios febrile são causados ​​por um acúmulo de ferritina no fígado.  Outros sinais e sintomas podem incluir dor no peito, dor de cabeça, dores musculares e fraqueza. A ferritina também pode se acumular nos tecidos musculares e nas articulações. Os sintomas musculares podem incluir fraqueza, dor e rigidez. Os sintomas articulares podem incluir dor e rigidez.  Em alguns indivíduos, os sinais e sintomas podem ser mais graves. A ferritina pode se acumular nos tecidos musculares, articulares e do fígado, causando doença hepática e artrite. A artrite pode ser aguda (durando menos de 6 semanas) ou crônica (durando mais de 6 semanas).  A febre familiar do Mediterrâneo é causada por mutações no gene TMPRSS6. Esta condição é herdada de maneira autossômica recessiva."
+    },
+    {
+      "id": 40,
+      "categoria": "validacao",
+      "pergunta": "Is Winchester syndrome inherited ?",
+      "resposta": "Is Winchester syndrome inherited? Winchester syndrome is inherited in an autosomal recessive manner. This means that to be affected, a person must have a change (mutation) in both copies of the gene in each cell. The parents of an individual with an autosomal recessive condition each carry one mutated copy of the gene. They are referred to as carriers. Carriers typically do not show signs or symptoms of the condition. When two carriers of an autosomal recessive condition have children, each child has a 25% (1 in 4) risk to have the condition, a 50% (1 in 2) risk to be an unaffected carrier like each of the parents, and a 25% chance to not be affected and not be a carrier."
+    },
+    {
+      "id": 41,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) a doença da arranhadura do gato?",
+      "resposta": "A doença da arranhadura do gato é um vírus que causa doenças em gatos. É muito comum nos gatos selvagens e raramente é transmitido para gatos domésticos. Os sinais e sintomas da doença da arranhadura do gato incluem febre, perda de apetite, dor de cabeça e dor de garganta. Às vezes, uma erupção vermelha na boca pode ser vista. O vírus pode se espalhar para o sangue e outros tecidos do corpo e pode causar insuficiência hepática. A doença da arranhadura do gato é fatal em gatos. Não há cura para a doença da arranhadura do gato. O tratamento é sintomático e de suporte. Vacinas estão disponíveis para prevenir o vírus da doença da arranhadura do gato."
+    },
+    {
+      "id": 42,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da Distrofia Macular, córnea tipo 1?",
+      "resposta": "Quais são os sinais e sintomas da Distrofia Macular, córnea tipo 1? A Ontologia do Fenótipo Humano fornece a seguinte lista de sinais e sintomas para Distrofia macular, córnea tipo 1. Se a informação estiver disponível, a tabela abaixo inclui a frequência com que o sintoma é observado em pessoas com esta condição. Você pode usar o Dicionário Médico MedlinePlus para procurar as definições desses termos médicos. Sinais e Sintomas Número aproximado de pacientes (quando disponível) Anormalidade da córnea 90% Anormalidade do sistema nervoso central 90% Anormalidade do esmalte dentário 90% Anormalidade do sistema cardiovascular 90% Anormalidade da pigmentação da retina 90% Anormalidade dos olhos 90% Anormalidade do pescoço 90% Anormalidade do ureter 90% Anormalidade do nariz 90% Anormalidade do osso zigomático 90% Anormalidade do pavilhão auricular 90% Anormalidade do palato 90% Anormalidade do osso zigomático 90% Anormalidade do osso do quadril 90% Anormalidade do ureter 90% Anormalidade dos dentes 90% Anormalidade do tórax 90% Anormalidade do pavilhão auricular 90% Anormalidade do esmalte dentário 90% Anormalidade do esmalte dentário 90% Anormalidade dos ossos metacarpais 90% Anormalidade dos ossos metatarso 90% Anormalidade dos ossos metatarso 90% Anormalidade dos ossos metatarso 90% Anormalidade dos ossos metatarso 90% Anormalidade dos ossos metatarso 90% Anormalidade dos ossos metacarpais 90% Anormalidade dos o"
+    },
+    {
+      "id": 43,
+      "categoria": "validacao",
+      "pergunta": "O que é (são) distrofia torácica asfixiante?",
+      "resposta": "A distrofia torácica asfixiante é uma condição muito rara que afeta principalmente o tórax. Indivíduos com distrofia torácica asfixiante apresentam uma anormalidade chamada “pavilhão torácico”, que é uma área de pele espessa e dobrada no peito. A pele do pavilhão torácico é geralmente aveludada e de cor azul-acastanhada. A pele também pode ser espessada no rosto e no pescoço. Pessoas com distrofia torácica asfixiante também podem apresentar características faciais distintas, como olhos muito espaçados (hipertelorismo), olhos muito grandes (hipertelorismo), um nariz achatado e um maxilar inferior muito pequeno (micrognatia). A distrofia torácica asfixiante geralmente não afeta outras partes do corpo. A causa subjacente desta condição é desconhecida, mas foi sugerido que ela pode ser herdada de maneira autossômica dominante. O tratamento pode incluir cirurgia para remover a pele do pavilhão torácico e outros tratamentos como corticosteróides, imunoglobulina intravenosa (IVIg) e medicamentos anti-inflamatórios."
+    },
+    {
+      "id": 44,
+      "categoria": "validacao",
+      "pergunta": "What are the treatments for T-cell immunodeficiency, congenital alopecia, and nail dystrophy ?",
+      "resposta": "Esses recursos abordam o diagnóstico ou tratamento de CATN: - Revisão genética: Revisão genética: CATN - Registro de testes genéticos: T-cell deficiency, congenital alopecia, nail dystrophy - Manual Merck Home Health Edition: Doença de Hirschsprung Esses recursos do MedlinePlus oferecem informações sobre o diagnóstico e tratamento de diversas condições de saúde: - Testes de diagnóstico - Terapia medicamentosa - Cirurgia e reabilitação - Aconselhamento genético - Cuidados paliativos"
+    },
+    {
+      "id": 45,
+      "categoria": "validacao",
+      "pergunta": "Quantas pessoas são afetadas pelo forame parietal aumentado?",
+      "resposta": "Estima-se que o forame parietal aumentado seja um problema de saúde comum em pessoas com síndrome de Marfan. Estudos sugerem que 10 a 30 por cento dos indivíduos com síndrome de Marfan têm forame parietal aumentado. A condição é muito rara em pessoas com outros tipos de síndrome de marfanoides."
+    },
+    {
+      "id": 46,
+      "categoria": "validacao",
+      "pergunta": "Quantas pessoas são afetadas pela deficiência de adesão leucocitária tipo 1?",
+      "resposta": "A deficiência de adesão leucocitária tipo 1 é uma doença rara. Cerca de 300 pessoas com esta condição foram identificadas em todo o mundo."
+    },
+    {
+      "id": 47,
+      "categoria": "validacao",
+      "pergunta": "Quais são os sintomas da displasia falangoepifisária em forma de anjo?",
+      "resposta": "Quais são os sinais e sintomas da displasia falangoepifisária em forma de anjo? A Ontologia do Fenótipo Humano fornece a seguinte lista de sinais e sintomas para displasia falangoepifisária em forma de anjo. Se a informação estiver disponível, a tabela abaixo inclui a frequência com que o sintoma é observado em pessoas com esta condição. Você pode usar o Dicionário Médico MedlinePlus para procurar as definições desses termos médicos. Sinais e sintomas Número aproximado de pacientes (quando disponível) Anormalidade do fêmur 90% Anormalidade do pé 90% Anormalidade do punho 90% Anormalidade dos ossos metacarpais 90% Anormalidade dos ossos metatarso 90% Anormalidade do polegar 90% Anormalidade do rádio 90% Anormalidade dos ossos do carpo 90% Anormalidade dos ossos da mão 90% Anormalidade dos ossos da pélvis 90% Anormalidade dos ossos do carpo 90% Anormalidade do ulna 90% Anormalidade do pavilhão auricular 90% Anormalidade do tórax 90% Anormalidade do ureter 90% Anormalidade do fêmur proximal 90% Anormalidade do túbulo renal 90% Anormalidade da morfologia dos ossos metacarpais 90% Anormalidade do punho proximal 90% Anormalidade do tórax profundo 90% Anormalidade da morfologia dos ossos metatarso 90% Anormalidade do túbulo renal proximal 90% Anormalidade do fêmur distal 90% Anormalidade do punho distal 90% Anormalidade do túbulo renal distal 90% Anormalidade do rádio proximal 90"
+    },
+    {
+      "id": 48,
+      "categoria": "validacao",
+      "pergunta": "A neuromielite óptica é hereditária?",
+      "resposta": "A maioria dos casos de neuromielite óptica não são herdados e ocorre em pessoas sem histórico do distúrbio na família. Em alguns casos, uma pessoa afetada herda um gene defeituoso ou alterado de um dos pais afetados. Outros casos podem resultar de novas mutações no gene e ocorrer em pessoas sem histórico do distúrbio na família. Esses casos ocorrem esporadicamente.  A maioria dos casos de neuromielite óptica não é herdada. A maioria dos casos são esporádicos, ocorrendo em pessoas sem histórico da doença na família. Raramente, uma pessoa afetada herda uma mutação no gene AQP4 do pai afetado."
+    },
+    {
+      "id": 49,
+      "categoria": "validacao",
+      "pergunta": "Quais são as alterações genéticas relacionadas à síndrome do pterígio poplíteo?",
+      "resposta": "Mutações no gene TNFRSF1A causam a síndrome do pterígio poplíteo. Este gene fornece instruções para a produção de uma proteína chamada receptor de fator de necrose tumoral (TNF), que está envolvido na regulação da inflamação e no crescimento e divisão celular (proliferação). A maioria dos sinais e sintomas da síndrome do pterígio poplíteo resulta de uma hiperativação anormal do sistema imunológico, que pode ser causada por uma mutação no gene TNFRSF1A.  A maioria das pessoas com síndrome do pterígio poplíteo apresenta uma mutação no gene TNFRSF1A. A mutação é herdada de um dos pais afetados e é transmitida de forma autossômica dominante.  Algumas pessoas com síndrome do pterígio poplíteo não apresentam mutação no gene TNFRSF1A. Nestes casos, a causa genética do distúrbio é desconhecida."
+    },
+    {
+      "id": 50,
+      "categoria": "validacao",
+      "pergunta": "A doença cardíaca congênita crítica é hereditária?",
+      "resposta": "O risco de doença cardíaca congênita crítica é herdado de maneira autossômica dominante? Não. O risco de doença cardíaca congênita crítica não é herdado de maneira autossômica dominante. A doença cardíaca congênita critíca é considerada um distúrbio multifatorial, o que significa que não é causado por um único fator e não é herdado de maneira autossômica dominante. Não há evidências de que um distúrbio autossômico dominante seja causa de doença cardíaca congênita crítica."
+    }
+  ]
+}

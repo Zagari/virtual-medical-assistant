@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "timestamp": "2026-03-09T05:30:13.537486",
+    "baseline_file": "data/evaluation/baseline_responses_val.json",
+    "finetuned_file": "/home/nicola/virtual-medical-assistant/data/evaluation/finetuned_responses_epoch5_val.json",
+    "questions_file": "data/evaluation/validacao_amostra.json",
+    "total_perguntas": 50,
+    "has_reference": true
+  },
+  "metrics": {
+    "baseline": {
+      "avg_length": 1047.68,
+      "total_length": 52384
+    },
+    "finetuned": {
+      "avg_length": 980.7,
+      "total_length": 49035
+    },
+    "comparison": {},
+    "averages": {
+      "bleu": 0.042432311095392194,
+      "rouge1": 0.31175797472987826,
+      "rouge2": 0.09895993938232879,
+      "rougeL": 0.18205171014076957,
+      "length_ratio": 0.9704726492727719
+    },
+    "reference": {
+      "baseline": {
+        "bleu": 0.03882835889490277,
+        "rouge1": 0.318176821890383,
+        "rouge2": 0.08771517289057375,
+        "rougeL": 0.17479084319920596,
+        "semantic_similarity": 0.903605535030365
+      },
+      "finetuned": {
+        "bleu": 0.21678123068501748,
+        "rouge1": 0.4402826854743346,
+        "rouge2": 0.27500034966758546,
+        "rougeL": 0.3458827955265289,
+        "semantic_similarity": 0.928042562007904
+      }
+    }
+  }
+}

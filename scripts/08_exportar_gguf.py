@@ -130,16 +130,22 @@ def main():
         api = HfApi()
         api.create_repo(repo_id=GGUF_HUB_REPO, exist_ok=True, private=False)
 
-        # Upload README (model card)
-        readme_path = GGUF_README_PATH
-        if readme_path.exists():
-            api.upload_file(
-                path_or_fileobj=str(readme_path),
-                path_in_repo="README.md",
-                repo_id=GGUF_HUB_REPO,
-                commit_message="Adicionar model card",
-            )
-            print("      README.md enviado.")
+        # Upload README (Model Card)
+        if not GGUF_README_PATH.exists():
+            print(f"ERRO: README.md (Model Card) nao encontrado em:")
+            print(f"  - {GGUF_README_PATH}")
+            print()
+            print("Crie um README.md nessa pasta antes de fazer upload.")
+            sys.exit(1)
+
+        print(f"      Model Card: {GGUF_README_PATH}")
+        api.upload_file(
+            path_or_fileobj=str(GGUF_README_PATH),
+            path_in_repo="README.md",
+            repo_id=GGUF_HUB_REPO,
+            commit_message="Adicionar model card (GGUF)",
+        )
+        print("      README.md enviado.")
 
         # Upload GGUF
         api.upload_file(

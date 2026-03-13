@@ -139,8 +139,22 @@ def _unload_current():
 
 
 def _is_lora_adapter(model_path: str) -> bool:
-    """Verifica se o diretorio contem adaptadores LoRA (adapter_config.json)."""
-    return Path(model_path).is_dir() and (Path(model_path) / "adapter_config.json").exists()
+    """Verifica se o modelo contem adaptadores LoRA (adapter_config.json).
+
+    Funciona tanto para diretorios locais quanto para repos no HF Hub.
+    """
+    if Path(model_path).is_dir():
+        return (Path(model_path) / "adapter_config.json").exists()
+
+    is_hub = "/" in model_path and not model_path.startswith(("/", "."))
+    if is_hub:
+        try:
+            from huggingface_hub import file_exists
+            return file_exists(model_path, "adapter_config.json")
+        except Exception:
+            pass
+
+    return False
 
 
 def _load_model_transformers(model_name: str) -> tuple[callable, object, object] | None:
@@ -164,7 +178,12 @@ def _load_model_transformers(model_name: str) -> tuple[callable, object, object]
             import json
             from peft import PeftModel
 
-            adapter_cfg_path = Path(model_name) / "adapter_config.json"
+            if Path(model_name).is_dir():
+                adapter_cfg_path = Path(model_name) / "adapter_config.json"
+            else:
+                from huggingface_hub import hf_hub_download
+                adapter_cfg_path = hf_hub_download(model_name, "adapter_config.json")
+
             with open(adapter_cfg_path) as f:
                 adapter_cfg = json.load(f)
             base_model_name = adapter_cfg.get("base_model_name_or_path", BASELINE_MODEL_ID)

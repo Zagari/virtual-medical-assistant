@@ -19,16 +19,18 @@ from dotenv import load_dotenv
 # ============================================================================
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
-MODEL_DIR = PROJECT_DIR / "models" / "medical-assistant-epoch_1_5"
-HF_HUB_REPO = "zagari/medical-assistant-mistral-7b-ft"
 
 # ============================================================================
 # CARREGAR .env
 # ============================================================================
-
 load_dotenv(PROJECT_DIR / ".env")
-
 HF_TOKEN = os.getenv("HF_TOKEN", "")
+
+
+MODEL_DIR = PROJECT_DIR / "models" / "medical-assistant-final"
+HF_HUB_REPO = "zagari/medical-assistant-mistral-7b-ft"
+
+
 
 # ============================================================================
 # VALIDAÇÕES

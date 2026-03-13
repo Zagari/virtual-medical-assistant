@@ -33,8 +33,9 @@ sys.path.insert(0, str(PROJECT_ROOT))
 # ---------------------------------------------------------------------------
 
 DEFAULT_MODEL_DIR = PROJECT_ROOT / "models" / "medical-assistant-final"
-GGUF_OUTPUT_DIR = PROJECT_ROOT / "models" / "gguf"
+GGUF_OUTPUT_DIR = Path("/mnt/dados/interno/gguf")
 QUANTIZATION = "q4_k_m"
+GGUF_README_PATH = PROJECT_ROOT / "models" / "gguf" / "README.md"
 
 load_dotenv(PROJECT_ROOT / ".env")
 
@@ -130,7 +131,7 @@ def main():
         api.create_repo(repo_id=GGUF_HUB_REPO, exist_ok=True, private=False)
 
         # Upload README (model card)
-        readme_path = GGUF_OUTPUT_DIR / "README.md"
+        readme_path = GGUF_README_PATH
         if readme_path.exists():
             api.upload_file(
                 path_or_fileobj=str(readme_path),

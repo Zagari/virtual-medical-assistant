@@ -212,6 +212,9 @@ __marimo__/
 # Trained models (large binary files)
 models/*
 !models/.gitkeep
+!models/gguf/
+models/gguf/*
+!models/gguf/README.md
 
 # Application logs
 logs/*

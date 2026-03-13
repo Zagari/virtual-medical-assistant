@@ -1,13 +1,14 @@
 {
   "metadata": {
-    "timestamp": "2026-03-09T05:30:15.188477",
+    "timestamp": "2026-03-13T12:06:47.023243",
     "epochs": [
       "epoch1",
       "epoch1_5",
       "epoch2",
       "epoch2_5",
       "epoch4",
-      "epoch5"
+      "epoch5",
+      "es"
     ],
     "val_epochs": [
       "epoch1",
@@ -15,7 +16,8 @@
       "epoch2",
       "epoch2_5",
       "epoch4",
-      "epoch5"
+      "epoch5",
+      "es"
     ],
     "trilha_a": true,
     "trilha_b": true
@@ -73,6 +75,14 @@
       "rouge2_vs_baseline": 0.07394981117828969,
       "rougeL_vs_baseline": 0.16960317577448691,
       "repetition_rate": 0.2945285903151722
+    },
+    "es": {
+      "avg_length": 1338.8,
+      "bleu_vs_baseline": 0.03080995026309481,
+      "rouge1_vs_baseline": 0.30559283092586226,
+      "rouge2_vs_baseline": 0.07397364171542559,
+      "rougeL_vs_baseline": 0.1738534188162654,
+      "repetition_rate": 0.3359598303627142
     }
   },
   "trilha_b": {
@@ -125,6 +135,13 @@
       "rouge2": 0.27500034966758546,
       "rougeL": 0.3458827955265289,
       "semantic_similarity": 0.928042562007904
+    },
+    "es": {
+      "bleu": 0.22165523678474347,
+      "rouge1": 0.44137524605535183,
+      "rouge2": 0.27945255437520816,
+      "rougeL": 0.3451387100586003,
+      "semantic_similarity": 0.9282033574581147
     }
   }
 }

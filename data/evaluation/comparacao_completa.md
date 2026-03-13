@@ -1,41 +1,41 @@
-# Comparacao Completa: Baseline vs Epoch 1 vs Epoch 1.5 vs Epoch 2 vs Epoch 2.5 vs Epoch 4 vs Epoch 5
+# Comparacao Completa: Baseline vs Epoch 1 vs Epoch 1.5 vs Epoch 2 vs Epoch 2.5 vs Epoch 4 vs Epoch 5 vs es
 
-**Data:** 2026-03-09 05:30
-**Modelos avaliados:** 7 (baseline + 6 checkpoints)
+**Data:** 2026-03-13 12:06
+**Modelos avaliados:** 8 (baseline + 7 checkpoints)
 
 ## Trilha A — Sobreposicao entre Modelos (50 perguntas manuais)
 
 Metricas calculadas comparando cada modelo fine-tuned com o baseline.
 
-| Metrica | Baseline | FT Epoch 1 | FT Epoch 1.5 | FT Epoch 2 | FT Epoch 2.5 | FT Epoch 4 | FT Epoch 5 |
-|---------|------------|------------|------------|------------|------------|------------|
-| Comprimento medio | 1225 chars | 1230 chars | 1256 chars | 1160 chars | 1093 chars | 706 chars | 1254 chars |
-| BLEU vs Baseline | — | 0.0312 | 0.0291 | 0.0022 | 0.0029 | 0.0027 | 0.0245 |
-| ROUGE-1 F1 vs Baseline | — | 0.3007 | 0.3014 | 0.1327 | 0.1469 | 0.2064 | 0.2956 |
-| ROUGE-2 F1 vs Baseline | — | 0.0793 | 0.0795 | 0.0109 | 0.0118 | 0.0113 | 0.0739 |
-| ROUGE-L F1 vs Baseline | — | 0.1704 | 0.1706 | 0.0963 | 0.1024 | 0.1513 | 0.1696 |
-| Taxa de repeticao (3-gramas) | 0.0664 | 0.2676 | 0.2752 | 0.0067 | 0.0057 | 0.0022 | 0.2945 |
+| Metrica | Baseline | FT Epoch 1 | FT Epoch 1.5 | FT Epoch 2 | FT Epoch 2.5 | FT Epoch 4 | FT Epoch 5 | FT es |
+|---------|------------|------------|------------|------------|------------|------------|------------|
+| Comprimento medio | 1225 chars | 1230 chars | 1256 chars | 1160 chars | 1093 chars | 706 chars | 1254 chars | 1339 chars |
+| BLEU vs Baseline | — | 0.0312 | 0.0291 | 0.0022 | 0.0029 | 0.0027 | 0.0245 | 0.0308 |
+| ROUGE-1 F1 vs Baseline | — | 0.3007 | 0.3014 | 0.1327 | 0.1469 | 0.2064 | 0.2956 | 0.3056 |
+| ROUGE-2 F1 vs Baseline | — | 0.0793 | 0.0795 | 0.0109 | 0.0118 | 0.0113 | 0.0739 | 0.0740 |
+| ROUGE-L F1 vs Baseline | — | 0.1704 | 0.1706 | 0.0963 | 0.1024 | 0.1513 | 0.1696 | 0.1739 |
+| Taxa de repeticao (3-gramas) | 0.0664 | 0.2676 | 0.2752 | 0.0067 | 0.0057 | 0.0022 | 0.2945 | 0.3360 |
 
 ## Trilha B — Qualidade vs Ground Truth (50 amostras validacao MedQuAD)
 
 Metricas calculadas comparando as respostas de cada modelo com a resposta de referencia.
 
-| Metrica | Baseline | FT Epoch 1 | FT Epoch 1.5 | FT Epoch 2 | FT Epoch 2.5 | FT Epoch 4 | FT Epoch 5 |
-|---------|------------|------------|------------|------------|------------|------------|
-| BLEU vs Referencia | 0.0388 | 0.2002 | 0.2982 | 0.0042 | 0.0118 | 0.0025 | 0.2168 |
-| ROUGE-1 F1 vs Ref | 0.3182 | 0.4224 | 0.5173 | 0.1249 | 0.1430 | 0.1639 | 0.4403 |
-| ROUGE-2 F1 vs Ref | 0.0877 | 0.2611 | 0.3601 | 0.0211 | 0.0290 | 0.0097 | 0.2750 |
-| ROUGE-L F1 vs Ref | 0.1748 | 0.3367 | 0.4205 | 0.0942 | 0.1020 | 0.1189 | 0.3459 |
-| Similaridade Semantica | 0.9036 | 0.9234 | 0.9393 | 0.8338 | 0.8414 | 0.7780 | 0.9280 |
+| Metrica | Baseline | FT Epoch 1 | FT Epoch 1.5 | FT Epoch 2 | FT Epoch 2.5 | FT Epoch 4 | FT Epoch 5 | FT es |
+|---------|------------|------------|------------|------------|------------|------------|------------|
+| BLEU vs Referencia | 0.0388 | 0.2002 | 0.2982 | 0.0042 | 0.0118 | 0.0025 | 0.2168 | 0.2217 |
+| ROUGE-1 F1 vs Ref | 0.3182 | 0.4224 | 0.5173 | 0.1249 | 0.1430 | 0.1639 | 0.4403 | 0.4414 |
+| ROUGE-2 F1 vs Ref | 0.0877 | 0.2611 | 0.3601 | 0.0211 | 0.0290 | 0.0097 | 0.2750 | 0.2795 |
+| ROUGE-L F1 vs Ref | 0.1748 | 0.3367 | 0.4205 | 0.0942 | 0.1020 | 0.1189 | 0.3459 | 0.3451 |
+| Similaridade Semantica | 0.9036 | 0.9234 | 0.9393 | 0.8338 | 0.8414 | 0.7780 | 0.9280 | 0.9282 |
 
-## Exemplos Qualitativos (7 modelos lado a lado)
+## Exemplos Qualitativos (8 modelos lado a lado)
 
 ### Sintomas
 
 **Pergunta 1:** Quais são os principais sintomas do diabetes tipo 2?
 
 <details>
-<summary>Ver respostas dos 7 modelos</summary>
+<summary>Ver respostas dos 8 modelos</summary>
 
 **Baseline:**
 ```
@@ -81,6 +81,11 @@ c  que/   de ,ada/ /   або  */想 /  uma (/    //,/ ada, /,-, / ,,//  e o dea
 Os sinais e sintomas do diabetes tipo 2 incluem urina muito escurecida, sensação de fome e cansaço, visão turva e cicatrizes na pele. A maioria dos sintomas do diabetes tipo 2 não são tão graves quanto os sintomas de diabetes mellitus de início agudo (DMIA), mas pode ser grave se não for tratada. O diabetes tipo 2 geralmente progride lentamente, mas a doença pode causar problemas de saúde e de vid...
 ```
 
+**Fine-Tuned es:**
+```
+Quais são os sinais e sintomas do diabetes tipo 2? A Ontologia do Fenótipo Humano fornece a seguinte lista de sinais e sintomas para diabetes mellitus, tipo 2. Se a informação estiver disponível, a tabela abaixo inclui a frequência com que o sintoma é observado em pessoas com esta condição. Você pode usar o Dicionário Médico MedlinePlus para procurar as definições desses termos médicos. Sinais e S...
+```
+
 </details>
 
 ### Tratamento
@@ -88,7 +93,7 @@ Os sinais e sintomas do diabetes tipo 2 incluem urina muito escurecida, sensaç�
 **Pergunta 11:** Qual é o tratamento de primeira linha para hipertensão arterial?
 
 <details>
-<summary>Ver respostas dos 7 modelos</summary>
+<summary>Ver respostas dos 8 modelos</summary>
 
 **Baseline:**
 ```
@@ -137,6 +142,15 @@ uma  eada  / o/ de  e c…/ de c… , de… c c-o,/o umaado  cc * ada/ ,  e ,,/s
 O tratamento de primeira linha para hipertensão arterial é um medicamento chamado diurético. O diurético é um medicamento que ajuda a remover o líquido extra do corpo. É usado para tratar a hipertensão arterial porque reduz a pressão arterial e limita os efeitos colaterais dos outros medicamentos usados ​​para tratar a pressão alta. O diurético pode ser administrado por via oral ou intravenosa.
 ```
 
+**Fine-Tuned es:**
+```
+A hipertensão arterial (HA) pode ser tratada com mudanças no estilo de vida, medicamentos ou ambos.
+                
+Mudanças no estilo de vida. Mudanças no estilo de vida são um tratamento para hipertensão arterial que pode ajudar a diminuir a pressão arterial e prevenir o aumento da pressão arterial no futuro. Uma mudança no estilo de vida pode incluir:
+                
+Eliminar ou reduzir o tab...
+```
+
 </details>
 
 ### Medicamentos
@@ -144,7 +158,7 @@ O tratamento de primeira linha para hipertensão arterial é um medicamento cham
 **Pergunta 21:** Quais são os efeitos colaterais da metformina?
 
 <details>
-<summary>Ver respostas dos 7 modelos</summary>
+<summary>Ver respostas dos 8 modelos</summary>
 
 **Baseline:**
 ```
@@ -188,6 +202,15 @@ Os efeitos colaterais da metformina podem incluir:
 Gastrointestinal. A maioria dos efeitos colaterais da metformina é gastrointestinal, incluindo diarreia e vômito. Os efeitos gastrointestinais geralmente se desenvolvem dentro de alguns dias após o início do tratamento com metformina e geralmente desaparecem dentro de alguns dias após o início do tratamento. Os efeitos gastrointes...
 ```
 
+**Fine-Tuned es:**
+```
+A metformina pode causar os seguintes efeitos colaterais. Os efeitos colaterais geralmente desaparecem com o tempo.
+                
+- diarreia ou outros problemas digestivos - náuseas - vômitos - dor de estômago - tonturas - cãibras musculares ou articulares - fraqueza - sensação de cansaço - dificuldade para dormir - dores de cabeça
+                
+O seu médico poderá recomendar que você comece...
+```
+
 </details>
 
 ### Prevencao
@@ -195,7 +218,7 @@ Gastrointestinal. A maioria dos efeitos colaterais da metformina é gastrointest
 **Pergunta 31:** Como prevenir o diabetes tipo 2?
 
 <details>
-<summary>Ver respostas dos 7 modelos</summary>
+<summary>Ver respostas dos 8 modelos</summary>
 
 **Baseline:**
 ```
@@ -243,6 +266,13 @@ Um estilo um pouco mais saudável-
 A prevenção do diabetes tipo 2 começa com uma boa controle do peso. A perda de peso pode ajudar a prevenir ou retardar o diabetes tipo 2. Mantenha um peso saudável. Mantenha o peso corporal (imc) abaixo de 25. Você pode descobrir seu imc usando um calculador online ou aplicativo. Você também pode usar o calculador de imc do Instituto Nacional de Diabetes e Doenças Digestivas e Renais. Você pode de...
 ```
 
+**Fine-Tuned es:**
+```
+A prevenção do diabetes tipo 2 se concentra em reduzir os riscos de desenvolver o doença. Os riscos de desenvolver o diabetes tipo 2 incluem
+                
+- ser obeso - ter histórico familiar - ter histórico pessoal - ter níveis elevados de açúcar no sangue (glicose) - ter níveis elevados de triglicerídeos ou colesterol no sangue - não ser ativo - ter histórico de hipertensão - ter hipertensão ...
+```
+
 </details>
 
 ### Emergencias
@@ -250,7 +280,7 @@ A prevenção do diabetes tipo 2 começa com uma boa controle do peso. A perda d
 **Pergunta 41:** O que fazer em caso de suspeita de AVC?
 
 <details>
-<summary>Ver respostas dos 7 modelos</summary>
+<summary>Ver respostas dos 8 modelos</summary>
 
 **Baseline:**
 ```
@@ -290,6 +320,11 @@ umaada  queada / /  / або/, ,icaado/ ,o立 або//ada//    o   e o//-  /ado/
 **Fine-Tuned Epoch 5:**
 ```
 Se você estiver suspeitando de um ataque isquêmico transitório (AIT), ligue para o 9-1-1 imediatamente. Não espere por mais sinais ou sintomas. O tratamento do AIT é o mesmo que o tratamento do acidente vascular cerebral. Você pode precisar de medicamentos para tratar o AVC e prevenir a recorrência. A maioria dos medicamentos que são úteis para prevenir um acidente vascular cerebral são seguros pa...
+```
+
+**Fine-Tuned es:**
+```
+- O ataque isquêmico transitório (AIT) é um sintoma de um derrame a caminho de ocorrer. Um AIT pode ser um aviso que um derrame está a ocorrer ou pode acontecer no futuro.  - Os sintomas de um AIT incluem - Dor de cabeça - Dor de cabeça - Dor de cabeça - Dor de cabeça - Dor de cabeça - Dor de cabeça - Dor de cabeça - Dor de cabeça - Dor de cabeça - Dor de cabeça - Dor de cabeça - Dor de cabeça - D...
 ```
 
 </details>

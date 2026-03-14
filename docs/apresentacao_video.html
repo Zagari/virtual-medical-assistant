@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente Virtual Médico - Tech Challenge Fase 3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+    <style>
+        :root {
+            --fiap-red: #ED1C24;
+            --fiap-dark: #1a1a2e;
+            --fiap-darker: #0f0f1a;
+            --fiap-light: #f8f9fa;
+            --fiap-gray: #6c757d;
+            --accent-gradient: linear-gradient(135deg, #ED1C24 0%, #ff6b6b 100%);
+            --dark-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .reveal-viewport {
+            background: var(--dark-gradient);
+        }
+
+        .reveal {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 32px;
+            color: #fff;
+        }
+
+        .reveal .slides section {
+            text-align: left;
+            padding: 40px 60px;
+        }
+
+        .reveal h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 0.3em;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .reveal h2 {
+            font-size: 2em;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.8em;
+            border-bottom: 3px solid var(--fiap-red);
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        .reveal h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: var(--fiap-red);
+            margin-bottom: 0.5em;
+        }
+
+        .reveal p, .reveal li {
+            font-weight: 300;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .reveal ul, .reveal ol {
+            margin-left: 0;
+        }
+
+        .reveal li {
+            margin-bottom: 0.5em;
+        }
+
+        .reveal strong {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .reveal code {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(255,255,255,0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        .reveal pre {
+            width: 100%;
+            font-size: 0.55em;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .reveal pre code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #1e1e3f;
+            padding: 20px 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--fiap-red);
+            display: block;
+            overflow-x: auto;
+        }
+
+        /* Title slide */
+        .title-slide {
+            text-align: center !important;
+        }
+
+        .title-slide h1 {
+            font-size: 3.2em;
+            margin-bottom: 0.1em;
+        }
+
+        .title-slide .subtitle {
+            font-size: 1.5em;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+            margin-bottom: 2em;
+        }
+
+        .title-slide .institution {
+            font-size: 1em;
+            color: var(--fiap-red);
+            font-weight: 500;
+            margin-bottom: 1.5em;
+        }
+
+        .title-slide .team {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 1em;
+        }
+
+        .title-slide .team-member {
+            background: rgba(255,255,255,0.05);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.7em;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Section title slides */
+        .section-slide {
+            text-align: center !important;
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section-slide h1 {
+            font-size: 3.5em;
+        }
+
+        .section-slide .section-number {
+            font-size: 5em;
+            font-weight: 700;
+            color: rgba(237,28,36,0.3);
+            position: absolute;
+            top: 20%;
+            left: 10%;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card-grid.three-col {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(237,28,36,0.2);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.1em;
+        }
+
+        .card p {
+            font-size: 0.8em;
+            margin-bottom: 0;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Tables */
+        .reveal table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.8em;
+        }
+
+        .reveal table th {
+            background: var(--fiap-red);
+            color: white;
+            padding: 15px 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .reveal table th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        .reveal table th:last-child {
+            border-radius: 0 8px 0 0;
+        }
+
+        .reveal table td {
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .reveal table tr:last-child td:first-child {
+            border-radius: 0 0 0 8px;
+        }
+
+        .reveal table tr:last-child td:last-child {
+            border-radius: 0 0 8px 0;
+        }
+
+        .reveal table tr:hover td {
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* Metrics */
+        .metric-container {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .metric-box {
+            text-align: center;
+            padding: 30px 50px;
+            background: rgba(237,28,36,0.1);
+            border-radius: 16px;
+            border: 2px solid var(--fiap-red);
+        }
+
+        .metric-value {
+            font-size: 3em;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .metric-label {
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.7);
+            margin-top: 10px;
+        }
+
+        /* Comparison */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .comparison-box {
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .comparison-box.baseline {
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .comparison-box.finetuned {
+            border-color: var(--fiap-red);
+            background: rgba(237,28,36,0.05);
+        }
+
+        .comparison-box h4 {
+            font-size: 0.9em;
+            color: var(--fiap-red);
+            margin: 0 0 15px 0;
+            font-weight: 600;
+        }
+
+        .comparison-box.baseline h4 {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .comparison-box blockquote {
+            font-size: 0.75em;
+            font-style: italic;
+            color: rgba(255,255,255,0.8);
+            margin: 0;
+            padding-left: 15px;
+            border-left: 3px solid rgba(255,255,255,0.2);
+        }
+
+        .comparison-box.finetuned blockquote {
+            border-left-color: var(--fiap-red);
+        }
+
+        /* Quote box */
+        .quote-box {
+            background: rgba(237,28,36,0.1);
+            border-left: 4px solid var(--fiap-red);
+            padding: 25px 30px;
+            border-radius: 0 12px 12px 0;
+            margin: 30px 0;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 500;
+            margin: 20px 0;
+        }
+
+        /* Architecture diagram */
+        .architecture {
+            background: rgba(0,0,0,0.3);
+            border-radius: 16px;
+            padding: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6em;
+            line-height: 1.4;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Steps */
+        .steps {
+            counter-reset: step;
+            list-style: none;
+            padding: 0;
+        }
+
+        .steps li {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 20px;
+        }
+
+        .steps li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--fiap-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            background: var(--fiap-red);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7em;
+            font-weight: 500;
+            margin-right: 8px;
+        }
+
+        .badge.green {
+            background: #28a745;
+        }
+
+        .badge.blue {
+            background: #007bff;
+        }
+
+        /* Links section */
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255,255,255,0.05);
+            padding: 20px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+
+        .link-card:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--fiap-red);
+        }
+
+        .link-icon {
+            font-size: 2em;
+        }
+
+        .link-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
+            color: var(--fiap-red);
+        }
+
+        /* Progress bar */
+        .reveal .progress {
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .reveal .progress span {
+            background: var(--fiap-red);
+        }
+
+        /* Slide number */
+        .reveal .slide-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 12px;
+            border-radius: 8px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Navigation */
+        .reveal .controls {
+            color: var(--fiap-red);
+        }
+
+        /* Compact slides */
+        .compact-slide {
+            padding: 25px 50px !important;
+        }
+
+        .compact-slide h2 {
+            font-size: 1.7em;
+            margin-bottom: 0.5em;
+            padding-bottom: 10px;
+        }
+
+        .compact-slide h3 {
+            font-size: 1.1em;
+            margin-bottom: 0.3em;
+            margin-top: 0;
+        }
+
+        .compact-slide .quote-box {
+            padding: 15px 20px;
+            font-size: 0.9em;
+            margin: 15px 0;
+        }
+
+        .compact-slide .card-grid {
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .compact-slide .card {
+            padding: 15px 18px;
+        }
+
+        .compact-slide .card p {
+            font-size: 0.75em;
+            margin: 0;
+        }
+
+        .compact-slide .card ul {
+            font-size: 0.8em;
+            margin: 5px 0 0 0;
+            padding-left: 18px;
+        }
+
+        .compact-slide .card li {
+            margin-bottom: 0.2em;
+        }
+
+        .compact-slide ul {
+            font-size: 0.9em;
+        }
+
+        .compact-slide li {
+            margin-bottom: 0.3em;
+        }
+
+        /* Thank you slide */
+        .thanks-slide {
+            text-align: center !important;
+        }
+
+        .thanks-slide h1 {
+            font-size: 4em;
+            margin-bottom: 0.5em;
+        }
+
+        .thanks-slide .team-final {
+            margin-top: 2em;
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Flow diagram */
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .flow-step {
+            background: rgba(255,255,255,0.1);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.75em;
+            font-weight: 500;
+        }
+
+        .flow-step.active {
+            background: var(--fiap-red);
+        }
+
+        .flow-arrow {
+            color: var(--fiap-red);
+            font-size: 1.2em;
+        }
+
+        /* Two columns */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        /* Warning box */
+        .warning-box {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #ffc107;
+            padding: 20px 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+        }
+
+        .warning-box strong {
+            color: #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1: Title -->
+            <section class="title-slide">
+                <h1>Assistente Virtual Médico</h1>
+                <div class="subtitle">com IA Generativa</div>
+                <div class="institution">Tech Challenge Fase 3 - Pós-Graduação FIAP</div>
+                <div class="team">
+                    <div class="team-member">Adriana Martins de Souza</div>
+                    <div class="team-member">Diego Oliveira da Silva</div>
+                    <div class="team-member">Eduardo Nicola F. Zagari</div>
+                    <div class="team-member">Renan de Assis Torres</div>
+                </div>
+                <p style="margin-top: 2em; font-size: 0.6em; color: rgba(255,255,255,0.4);">Grupo Sala 14</p>
+            </section>
+
+            <!-- Slide 2: Agenda -->
+            <section>
+                <h2>Agenda</h2>
+                <ol class="steps">
+                    <li><strong>Visão Geral</strong> — Arquitetura e os 5 pilares do sistema</li>
+                    <li><strong>Fine-Tuning</strong> — Dataset, treino e avaliação antes/depois</li>
+                    <li><strong>Demonstração</strong> — Assistente respondendo perguntas médicas</li>
+                    <li><strong>Segurança</strong> — Guardrails, logs e explicabilidade</li>
+                    <li><strong>Conclusão</strong> — Resultados e links do projeto</li>
+                </ol>
+            </section>
+
+            <!-- Slide 3: O Desafio -->
+            <section class="compact-slide">
+                <h2>O Desafio</h2>
+                <div class="quote-box">
+                    Criar um <strong>assistente virtual médico</strong>, treinado com dados do hospital, capaz de auxiliar nas condutas clínicas, responder dúvidas de médicos e sugerir procedimentos baseados em protocolos internos.
+                </div>
+                <h3 style="margin-top: 20px;">Requisitos Obrigatórios</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>Fine-tuning de LLM</h3>
+                        <p>Treinar modelo com dados médicos</p>
+                    </div>
+                    <div class="card">
+                        <h3>LangChain</h3>
+                        <p>Pipeline integrado com consultas a BD</p>
+                    </div>
+                    <div class="card">
+                        <h3>LangGraph</h3>
+                        <p>Fluxos automatizados multi-agente</p>
+                    </div>
+                    <div class="card">
+                        <h3>Segurança</h3>
+                        <p>Guardrails, logging, explainability</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: Arquitetura -->
+            <section>
+                <h2>Arquitetura do Sistema</h2>
+                <div style="display: flex; justify-content: center; align-items: center; height: 80%;">
+                    <img src="assets/arquitetura-sistema.png" alt="Arquitetura do Sistema" style="max-width: 85%; max-height: 420px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
+                </div>
+            </section>
+
+            <!-- Slide 5: 5 Pilares -->
+            <section>
+                <h2>Os 5 Pilares</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pilar</th>
+                            <th>Tecnologia</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Fine-tuning</strong></td>
+                            <td>QLoRA 4-bit</td>
+                            <td>Mistral 7B + MedQuAD (~20.500 QA)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RAG</strong></td>
+                            <td>ChromaDB</td>
+                            <td>14 Linhas de Cuidado + 5 emergências</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Multi-Agente</strong></td>
+                            <td>LangGraph</td>
+                            <td>7 agentes especializados</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Segurança</strong></td>
+                            <td>Guardrails</td>
+                            <td>Sem prescrição direta, validação humana</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Interface</strong></td>
+                            <td>Gradio</td>
+                            <td>Chat interativo para médicos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Slide 6: Reprodutibilidade -->
+            <section>
+                <h2>Pipeline Reproduzível</h2>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">8 scripts numerados para reproduzir o projeto do zero:</p>
+                <pre><code>python scripts/01_gerar_dados_sinteticos.py   # 80 pacientes fictícios
+python scripts/02_setup_postgres.py           # Banco de dados
+python scripts/03_preparar_dataset.py         # MedQuAD traduzido
+# --- Fine-tuning no Google Colab (notebook) ---
+python scripts/04_indexar_protocolos.py       # ChromaDB
+python scripts/05_avaliar_baseline.py         # Mistral 7B base
+python scripts/06_avaliar_finetuned.py        # Modelo fine-tuned
+python scripts/07_iniciar_app.py              # Interface Gradio
+python scripts/08_exportar_gguf.py            # Formato CPU</code></pre>
+            </section>
+
+            <!-- Slide 7: Section - Fine-tuning -->
+            <section class="section-slide">
+                <span class="section-number">01</span>
+                <h1>Fine-Tuning</h1>
+                <p style="font-size: 1.2em; color: rgba(255,255,255,0.6);">Treinamento da LLM Personalizada</p>
+            </section>
+
+            <!-- Slide 8: Dataset -->
+            <section>
+                <h2>Dataset: MedQuAD</h2>
+                <div class="two-columns">
+                    <div>
+                        <p><span class="badge">Fonte</span> National Institutes of Health (NIH)</p>
+                        <ul>
+                            <li>~16.400 pares QA originais em inglês</li>
+                            <li>Traduzidos para português</li>
+                            <li>Complementados com QA brasileiros</li>
+                            <li><strong>Total: ~20.500 pares</strong></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Formato Alpaca</h3>
+                        <pre><code>{
+  "instruction": "Quais são os
+    sintomas do diabetes tipo 2?",
+  "input": "",
+  "output": "Os sintomas comuns
+    incluem sede excessiva..."
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 9: QLoRA -->
+            <section>
+                <h2>Técnica: QLoRA 4-bit</h2>
+                <div class="two-columns">
+                    <div>
+                        <h3>Por que QLoRA?</h3>
+                        <ul>
+                            <li>Treina modelo de <strong>7B parâmetros</strong> com apenas <strong>15GB VRAM</strong></li>
+                            <li>Compatível com Google Colab gratuito (GPU T4)</li>
+                            <li>Qualidade próxima ao fine-tuning full</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Configuração</h3>
+                        <table>
+                            <tr><td>LoRA rank (r)</td><td>16</td></tr>
+                            <tr><td>LoRA alpha</td><td>16</td></tr>
+                            <tr><td>Learning rate</td><td>2e-4</td></tr>
+                            <tr><td>Batch efetivo</td><td>16</td></tr>
+                            <tr><td>Épocas</td><td>~1.3 (ótimo)</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 10: Descoberta -->
+            <section>
+                <h2>Descoberta: Colapso Catastrófico</h2>
+                <div class="warning-box">
+                    <strong>5 épocas é excessivo!</strong> O modelo atinge ponto ótimo em apenas <strong>~1.3 épocas</strong> (checkpoint-1500)
+                </div>
+                <div class="two-columns" style="margin-top: 30px;">
+                    <div>
+                        <h3>Sintomas do colapso</h3>
+                        <ul>
+                            <li>Texto completamente incoerente</li>
+                            <li>Neologismos repetidos</li>
+                            <li>Estrutura gramatical destruída</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Checkpoints avaliados</h3>
+                        <div class="flow-diagram" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+                            <div><span class="badge blue">Época 1</span> Bom</div>
+                            <div><span class="badge green">Época 1.3</span> <strong>Ótimo</strong></div>
+                            <div><span class="badge">Época 2-4</span> Colapso</div>
+                            <div><span class="badge blue">Época 5</span> Recuperação parcial</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 11: Métricas -->
+            <section>
+                <h2>Avaliação: Métricas de Qualidade</h2>
+                <div class="metric-container">
+                    <div class="metric-box">
+                        <div class="metric-value">+668%</div>
+                        <div class="metric-label">BLEU vs Baseline</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">+141%</div>
+                        <div class="metric-label">ROUGE-L vs Baseline</div>
+                    </div>
+                </div>
+                <p style="text-align: center; color: rgba(255,255,255,0.6); margin-top: 30px;">
+                    Checkpoint-1500 comparado ao Mistral 7B Instruct v0.3 sem fine-tuning
+                </p>
+            </section>
+
+            <!-- Slide 12: Comparação -->
+            <section>
+                <h2>Exemplo: Antes vs Depois</h2>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">
+                    <strong>Pergunta:</strong> "Quais são os sintomas do diabetes tipo 2?"
+                </p>
+                <div class="comparison">
+                    <div class="comparison-box baseline">
+                        <h4>Baseline (Mistral 7B)</h4>
+                        <blockquote>
+                            The symptoms of type 2 diabetes include increased thirst, frequent urination, increased hunger, fatigue, blurred vision...
+                            <br><br>
+                            <em style="color: rgba(255,255,255,0.5);">(Resposta em inglês, genérica)</em>
+                        </blockquote>
+                    </div>
+                    <div class="comparison-box finetuned">
+                        <h4>Fine-Tuned (checkpoint-1500)</h4>
+                        <blockquote>
+                            Os sinais e sintomas do diabetes tipo 2 incluem sede excessiva, micção frequente, fadiga, visão turva e cicatrização lenta de feridas...
+                            <br><br>
+                            <em style="color: rgba(255,255,255,0.5);">(Português fluente, terminologia médica)</em>
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 13: Section - Demo -->
+            <section class="section-slide">
+                <span class="section-number">02</span>
+                <h1>Demonstração</h1>
+                <p style="font-size: 1.2em; color: rgba(255,255,255,0.6);">Assistente em Ação</p>
+            </section>
+
+            <!-- Slide 14: Cenário 1 -->
+            <section>
+                <h2>Cenário 1: Consulta sobre Protocolo</h2>
+                <div class="quote-box" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.3);">
+                    "Qual o tratamento farmacológico inicial para hipertensão arterial?"
+                </div>
+                <h3 style="margin-top: 30px;">Fluxo do Sistema</h3>
+                <div class="flow-diagram">
+                    <div class="flow-step active">Triagem</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">Protocolo</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">Raciocínio</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">Guardrails</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">Explicabilidade</div>
+                </div>
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.85em; margin-top: 20px;">
+                    Classifica como consulta de <strong>protocolo</strong> → Busca no ChromaDB → Pathway-Hipertensão
+                </p>
+            </section>
+
+            <!-- Slide 15: Cenário 2 -->
+            <section>
+                <h2>Cenário 2: Protocolo + Paciente</h2>
+                <div class="quote-box" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.3);">
+                    "Quais exames de seguimento pedir para a paciente Maria Santos, diabética?"
+                </div>
+                <h3 style="margin-top: 30px;">Fluxo do Sistema</h3>
+                <div class="flow-diagram">
+                    <div class="flow-step active">Triagem</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step active">Paciente</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step active">Protocolo</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">Raciocínio</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">...</div>
+                </div>
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.85em; margin-top: 20px;">
+                    Classifica como <strong>ambos</strong> → PostgreSQL (dados) + ChromaDB (Pathway-Diabetes) → Recomendação personalizada
+                </p>
+            </section>
+
+            <!-- Slide 16: Cenário 3 -->
+            <section class="compact-slide">
+                <h2>Cenário 3: Emergência</h2>
+                <div class="quote-box" style="background: rgba(237,28,36,0.1); border-color: var(--fiap-red);">
+                    "Paciente João Silva com dor torácica intensa, sudorese e dispneia. O que fazer?"
+                </div>
+                <h3 style="margin-top: 15px;">Detecção de Urgência</h3>
+                <ul>
+                    <li>Sistema detecta <strong>sintomas de emergência</strong></li>
+                    <li>Aciona protocolo de <strong>IAM</strong> (Infarto Agudo do Miocárdio)</li>
+                    <li>Busca dados do paciente João Silva</li>
+                    <li>Gera orientações com <strong>urgência destacada</strong></li>
+                </ul>
+            </section>
+
+            <!-- Slide 17: Section - Segurança -->
+            <section class="section-slide">
+                <span class="section-number">03</span>
+                <h1>Segurança</h1>
+                <p style="font-size: 1.2em; color: rgba(255,255,255,0.6);">Guardrails, Logs e Explicabilidade</p>
+            </section>
+
+            <!-- Slide 18: Guardrails -->
+            <section>
+                <h2>Guardrails: 4 Regras</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Regra</th>
+                            <th>Detecta</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Sem prescrição direta</strong></td>
+                            <td>"tome X mg", "prescrevo"</td>
+                            <td>Reescreve como sugestão</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Validação humana</strong></td>
+                            <td>Ausência de disclaimer</td>
+                            <td>Adiciona automaticamente</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sem diagnóstico definitivo</strong></td>
+                            <td>"o paciente tem"</td>
+                            <td>Adiciona ressalva</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Consistência</strong></td>
+                            <td>Contradição com contexto</td>
+                            <td>Rejeita e solicita retry</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.85em; margin-top: 20px;">
+                    <strong>Retry automático:</strong> Até 2 tentativas com feedback para correção
+                </p>
+            </section>
+
+            <!-- Slide 19: Logging -->
+            <section>
+                <h2>Logging e Auditoria</h2>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 15px;">Todas as interações são registradas em JSON estruturado:</p>
+                <pre><code>{
+  "timestamp": "2026-03-14T10:30:00-03:00",
+  "session_id": "uuid-da-sessao",
+  "query": "Quais exames pedir para Maria Santos?",
+  "query_type": "ambos",
+  "protocols_retrieved": ["Pathway-Diabetes", "Pathway-Hipertensao"],
+  "patient_data_used": {"nome": "Maria Santos", "comorbidades": [...]},
+  "guardrail_checks": [
+    {"rule": "no_prescription", "result": "pass"},
+    {"rule": "human_validation", "result": "pass"}
+  ],
+  "response_time_ms": 2340
+}</code></pre>
+            </section>
+
+            <!-- Slide 20: Explicabilidade -->
+            <section>
+                <h2>Explicabilidade</h2>
+                <div class="card-grid three-col">
+                    <div class="card">
+                        <h3>Fontes Consultadas</h3>
+                        <p>Cada resposta indica os protocolos e exames utilizados</p>
+                        <p style="margin-top: 15px; font-size: 0.75em; color: var(--fiap-red);">
+                            Ex: Pathway-Diabetes §3b, Exame HbA1C de 15/01/2026
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>Nível de Confiança</h3>
+                        <p>Alta, Média ou Baixa baseado na concordância das fontes</p>
+                        <p style="margin-top: 15px; font-size: 0.75em; color: var(--fiap-red);">
+                            Alta = múltiplas fontes concordantes
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>Warnings</h3>
+                        <p>Alertas quando há limitações ou ressalvas</p>
+                        <p style="margin-top: 15px; font-size: 0.75em; color: var(--fiap-red);">
+                            Ex: dados desatualizados, resposta reescrita
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 21: Section - Conclusão -->
+            <section class="section-slide">
+                <span class="section-number">04</span>
+                <h1>Conclusão</h1>
+                <p style="font-size: 1.2em; color: rgba(255,255,255,0.6);">Resultados e Links</p>
+            </section>
+
+            <!-- Slide 22: Resultados -->
+            <section class="compact-slide">
+                <h2>Resultados Alcançados</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>Fine-tuning</h3>
+                        <ul style="font-size: 0.85em;">
+                            <li>+668% BLEU vs baseline</li>
+                            <li>Ponto ótimo: 1.3 épocas</li>
+                            <li>Modelo no HuggingFace Hub</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>RAG</h3>
+                        <ul style="font-size: 0.85em;">
+                            <li>14 Linhas de Cuidado reais</li>
+                            <li>5 protocolos de emergência</li>
+                            <li>Busca semântica multilíngue</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Multi-Agente</h3>
+                        <ul style="font-size: 0.85em;">
+                            <li>7 agentes especializados</li>
+                            <li>Fluxo condicional inteligente</li>
+                            <li>Retry com feedback</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Segurança</h3>
+                        <ul style="font-size: 0.85em;">
+                            <li>4 regras de guardrails</li>
+                            <li>Logging completo</li>
+                            <li>Explicabilidade integrada</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 23: Modelo -->
+            <section>
+                <h2>Publicação do Modelo</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Formato</th>
+                            <th>Uso</th>
+                            <th>Hardware</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>LoRA</strong></td>
+                            <td>Inferência rápida (~2-5s)</td>
+                            <td>GPU NVIDIA (CUDA)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GGUF Q4_K_M</strong></td>
+                            <td>Portabilidade (~5-15s)</td>
+                            <td>CPU / Apple Silicon</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="highlight-box" style="margin-top: 40px;">
+                    <code style="background: transparent; color: white;">huggingface.co/zagari/medical-assistant-mistral-7b-ft</code>
+                </div>
+            </section>
+
+            <!-- Slide 24: Links -->
+            <section>
+                <h2>Links do Projeto</h2>
+                <div class="links-container">
+                    <div class="link-card">
+                        <div class="link-icon">📦</div>
+                        <div>
+                            <strong>Repositório GitHub</strong>
+                            <div class="link-text">github.com/Zagari/virtual-medical-assistant</div>
+                        </div>
+                    </div>
+                    <div class="link-card">
+                        <div class="link-icon">🤗</div>
+                        <div>
+                            <strong>Modelo no HuggingFace Hub</strong>
+                            <div class="link-text">huggingface.co/zagari/medical-assistant-mistral-7b-ft</div>
+                        </div>
+                    </div>
+                    <div class="link-card">
+                        <div class="link-icon">📄</div>
+                        <div>
+                            <strong>Relatório Técnico</strong>
+                            <div class="link-text">docs/relatorio_tecnico.pdf</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 25: Thanks -->
+            <section class="thanks-slide">
+                <h1>Obrigado!</h1>
+                <p style="font-size: 1.3em; color: rgba(255,255,255,0.7);">Tech Challenge Fase 3</p>
+                <div class="team-final">
+                    <p><strong>Grupo Sala 14</strong></p>
+                    <p>Adriana • Diego • Eduardo • Renan</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            center: false,
+            width: 1280,
+            height: 720,
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 2.0,
+            controls: true,
+            controlsTutorial: false,
+            progress: true,
+            history: true,
+            keyboard: true,
+            overview: true,
+            touch: true,
+            loop: false,
+            rtl: false,
+            shuffle: false,
+            fragments: true,
+            embedded: false,
+            help: true,
+            showNotes: false,
+            autoPlayMedia: null,
+            autoSlide: 0,
+            mouseWheel: false,
+            hideInactiveCursor: true,
+            hideCursorTime: 3000
+        });
+    </script>
+</body>
+</html>

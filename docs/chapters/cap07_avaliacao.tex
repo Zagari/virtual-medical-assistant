@@ -5,7 +5,7 @@
 \chapter{Avaliação e Resultados}
 \label{cap:avaliacao}
 
-Este capítulo apresenta a avaliação comparativa completa do fine-tuning. Sete checkpoints do treinamento foram avaliados em duas trilhas complementares, revelando o ponto ótimo do modelo e um fenômeno de colapso catastrófico nas épocas intermediárias.
+Este capítulo apresenta a avaliação comparativa completa do fine-tuning. Sete checkpoints de quatro sessões de treinamento foram avaliados em duas trilhas complementares, revelando o ponto ótimo do modelo e um fenômeno de colapso catastrófico nas épocas intermediárias. Uma sessão adicional com \textit{early stopping} foi conduzida para validar a metodologia recomendada e comparar com o melhor checkpoint identificado.
 
 % ============================================================================
 \section{Metodologia de Avaliação}
@@ -35,7 +35,7 @@ A \textbf{Trilha A} compara as respostas do modelo fine-tuned com as do baseline
 
 \subsection{Checkpoints Avaliados}
 
-Para identificar o ponto ótimo do treinamento, avaliamos \textbf{seis checkpoints} salvos ao longo da experimentação:
+Para identificar o ponto ótimo do treinamento, avaliamos \textbf{sete checkpoints} salvos ao longo da experimentação:
 
 \begin{table}[H]
 \centering
@@ -51,22 +51,24 @@ Epoch 2    & checkpoint-2000  & 2.000 & 1,7 & Sessão 2 (do ckpt-1000) \\
 Epoch 2.5  & checkpoint-2500  & 2.500 & 2,2 & Sessão 2 (do ckpt-1000) \\
 Epoch 4    & checkpoint-5000  & 5.000 & 4,3 & Sessão 1 (5 épocas) \\
 Epoch 5    & modelo final     & 5.780 & 5,0 & Sessão 1 (5 épocas) \\
+ES         & early-stopping   & 1.000 & 0,9 & Sessão 4 (do zero, ES) \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{warningbox}[Nota Metodológica: Sessões de Treinamento Distintas]
-Os checkpoints avaliados provêm de \textbf{três sessões de treinamento} com \textit{learning rate schedules} distintos:
+Os checkpoints avaliados provêm de \textbf{quatro sessões de treinamento} com \textit{learning rate schedules} distintos:
 
 \begin{itemize}
     \item \textbf{Sessão 1} (Colab, 5 épocas): Treino completo do zero com \texttt{max\_steps=5.780}. Gerou os checkpoints 1.000, 5.000 e 5.780 (modelo final). O cosine LR schedule decai lentamente --- no step 1.300, o LR ainda é $\sim$0,000181 (90\% do máximo).
     \item \textbf{Sessão 2} (local, $\sim$2,5 épocas): Retomou a partir do checkpoint-1000 da Sessão 1 com \texttt{max\_steps=2.500}. Gerou os checkpoints 2.000 e 2.500.
     \item \textbf{Sessão 3} (local, $\sim$1,5 épocas): Retomou a partir do checkpoint-1000 da Sessão 1 com \texttt{max\_steps=1.500}. Gerou o checkpoint-1500, que apresenta as melhores métricas.
+    \item \textbf{Sessão 4} (servidor, 3 épocas com early stopping): Treino único do zero com \texttt{EarlyStoppingCallback(patience=3)}, \texttt{eval\_steps=250} e \texttt{num\_train\_epochs=3}. O early stopping interrompeu automaticamente no step 1.750, carregando o melhor checkpoint (step 1.000, \texttt{eval\_loss=0,647}). Esta sessão valida a metodologia recomendada.
 \end{itemize}
 
 O \textit{learning rate schedule} cosine é proporcional a \texttt{max\_steps}: sessões mais curtas decaem o LR mais rapidamente. No step 1.300, o LR na Sessão 3 é $\sim$0,000007 (quase zero), enquanto na Sessão 1 é $\sim$0,000181. Isso significa que o checkpoint-1500 da Sessão 3 se beneficia de um LR mais baixo na fase final, permitindo convergência suave ao invés de colapso.
 
-Esta diferença é discutida na Seção~\ref{subsec:influencia-lr}.
+Esta diferença é discutida na Seção~\ref{subsec:influencia-lr}. A comparação com a Sessão 4 (early stopping) é apresentada na Seção~\ref{subsec:early-stopping-resultados}.
 \end{warningbox}
 
 \subsection{Métricas Utilizadas}
@@ -360,10 +362,55 @@ Com base nos resultados, o \textbf{checkpoint-1500} (Epoch 1.5, Sessão 3) é o 
 
 O modelo é exportado para GGUF (\texttt{Q4\_K\_M}, $\sim$4~GB) para execução sem GPU, conforme descrito na Seção~\ref{subsec:gguf}.
 
-\begin{infobox}[Lição Aprendida: Early Stopping e LR Schedule]
-Este resultado reforça a importância do \textit{early stopping} e da escolha adequada do \textit{learning rate schedule} em fine-tuning de LLMs. A configuração de 5 épocas, comum em trabalhos com modelos menores, é excessiva para modelos de 7B+ parâmetros com QLoRA: o colapso catastrófico ocorre em apenas 50 steps quando o LR permanece alto.
+\subsection{Validação com Early Stopping}
+\label{subsec:early-stopping-resultados}
 
-A abordagem metodologicamente mais limpa é um \textbf{treino único com early stopping}: configurar \texttt{num\_train\_epochs} conservador (2--3), \texttt{eval\_steps} e \texttt{save\_steps} frequentes (250), e \texttt{EarlyStoppingCallback} para interromper automaticamente quando o \texttt{eval\_loss} parar de melhorar. Isso garante um cosine schedule que decai naturalmente, checkpoints granulares para análise, e reprodutibilidade em uma única execução.
+Para validar a metodologia recomendada (treino único com early stopping), foi conduzida uma quarta sessão de treinamento (Sessão 4) do zero, com as seguintes configurações:
+
+\begin{itemize}
+    \item \texttt{num\_train\_epochs=3}, \texttt{eval\_steps=250}, \texttt{save\_steps=250}
+    \item \texttt{EarlyStoppingCallback(patience=3, threshold=0.01)}
+    \item \texttt{load\_best\_model\_at\_end=True}
+\end{itemize}
+
+O early stopping interrompeu automaticamente o treinamento no step 1.750, após 3 avaliações consecutivas sem melhoria significativa no \texttt{eval\_loss}. O melhor checkpoint (step 1.000, \texttt{eval\_loss=0,647}) foi carregado automaticamente.
+
+A Tabela~\ref{tab:early-stopping-vs-1500} compara o modelo early stopping com o checkpoint-1500 (melhor modelo das sessões anteriores):
+
+\begin{table}[H]
+\centering
+\caption{Comparação: Early Stopping (Sessão 4) vs Checkpoint-1500 (Sessão 3)}
+\label{tab:early-stopping-vs-1500}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Métrica vs Ground Truth} & \textbf{Baseline} & \textbf{Early Stopping} & \textbf{Checkpoint-1500} \\
+\midrule
+BLEU                      & 0,039 & 0,222 & \textbf{0,298} \\
+ROUGE-1 F1                & 0,318 & 0,441 & \textbf{0,517} \\
+ROUGE-L F1                & 0,175 & 0,345 & \textbf{0,421} \\
+Similaridade Semântica    & 0,904 & 0,928 & \textbf{0,939} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{importantbox}[Resultado: Checkpoint-1500 Permanece Superior]
+Apesar da metodologia mais limpa (treino único, reprodutível), o modelo early stopping apresenta métricas \textbf{inferiores} ao checkpoint-1500 em todas as dimensões: BLEU $-26\%$ (0,222 vs 0,298), ROUGE-L $-18\%$ (0,345 vs 0,421) e similaridade semântica $-1,2\%$ (0,928 vs 0,939).
+\end{importantbox}
+
+A explicação para esta diferença reside na \textbf{herança de pesos} do checkpoint-1500:
+
+\begin{enumerate}
+    \item O checkpoint-1500 (Sessão 3) \textbf{partiu do checkpoint-1000 da Sessão 1}, que já havia passado por $\sim$0,9 épocas de treinamento com um LR schedule mais longo.
+    \item Ao retomar com \texttt{max\_steps=1.500}, o cosine LR reinicia do valor máximo mas decai rapidamente --- no step 1.300, o LR já é $\sim$0,000007.
+    \item O modelo early stopping (Sessão 4) partiu do \textbf{Mistral base} (sem fine-tuning prévio) e parou no step 1.000, tendo visto menos exemplos de treino com menos refinamento.
+\end{enumerate}
+
+Em termos de \textbf{steps efetivos de treinamento}, o checkpoint-1500 acumulou $\sim$2.500 steps (1.000 da Sessão 1 + 1.500 da Sessão 3), enquanto o early stopping acumulou apenas 1.000 steps --- uma diferença de 2,5$\times$.
+
+\begin{infobox}[Implicação Prática]
+Para um \textbf{novo projeto}, a abordagem com early stopping é recomendada por sua reprodutibilidade e simplicidade. No entanto, para \textbf{este projeto}, o checkpoint-1500 permanece como modelo final devido às suas métricas superiores --- resultado de uma sequência de treinamento que, embora menos elegante metodologicamente, produziu um modelo de maior qualidade.
+
+A lição é que \textit{early stopping} é uma técnica de regularização eficaz, mas não substitui os benefícios de pesos pré-otimizados em um regime de baixo learning rate.
 \end{infobox}
 
 \subsection{Limitações da Avaliação}

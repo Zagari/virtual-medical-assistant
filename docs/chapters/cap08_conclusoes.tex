@@ -72,6 +72,8 @@ Além do atendimento aos requisitos obrigatórios, o projeto apresenta contribui
 
 \begin{importantbox}[Early Stopping e Learning Rate Schedule]
 A principal lição do projeto: \textbf{5 épocas é excessivo} para fine-tuning de modelos 7B+ com QLoRA, e o \textit{learning rate schedule} tem impacto decisivo na estabilidade do treinamento. O melhor modelo (checkpoint-1500) foi obtido em uma sessão de treinamento curta ($\sim$1,5 épocas), onde o cosine LR schedule levou o learning rate a quase zero, permitindo convergência suave. Na sessão de 5 épocas, o LR ainda alto no mesmo step precipitou o colapso catastrófico.
+
+\textbf{Validação com early stopping}: Uma sessão adicional (Sessão 4) foi conduzida do zero com \texttt{EarlyStoppingCallback}, interrompendo automaticamente no step 1.750. Embora metodologicamente mais limpa, o modelo resultante apresentou métricas inferiores ao checkpoint-1500 (BLEU 0,222 vs 0,298; ROUGE-L 0,345 vs 0,421). A diferença se explica pela herança de pesos: o checkpoint-1500 acumulou $\sim$2.500 steps efetivos de treinamento, enquanto o early stopping acumulou apenas 1.000. Para novos projetos, recomenda-se early stopping; para este projeto, o checkpoint-1500 permanece como modelo final.
 \end{importantbox}
 
 \begin{itemize}
@@ -83,7 +85,7 @@ A principal lição do projeto: \textbf{5 épocas é excessivo} para fine-tuning
 
     \item \textbf{Colapso e recuperação}: O padrão aprendizado $\rightarrow$ colapso $\rightarrow$ recuperação parcial (Seção~\ref{sec:discussao-avaliacao}) é um fenômeno documentado na literatura, mas observá-lo em primeira mão reforça a necessidade de monitoramento contínuo.
 
-    \item \textbf{Treino único para reprodutibilidade}: Checkpoints de sessões distintas são difíceis de reproduzir e comparar diretamente. A abordagem recomendada é um treino único do zero com \textit{early stopping} e checkpoints frequentes --- metodologia adotada no notebook \texttt{03\_fine\_tuning\_early\_stopping.ipynb}.
+    \item \textbf{Treino único para reprodutibilidade}: Checkpoints de sessões distintas são difíceis de reproduzir e comparar diretamente. A Sessão 4 validou a abordagem de treino único com early stopping (\texttt{03\_fine\_tuning\_early\_stopping.ipynb}), que é recomendada para novos projetos. No entanto, a herança de pesos de sessões anteriores pode produzir modelos superiores, como demonstrado pelo checkpoint-1500.
 \end{itemize}
 
 \subsection{Arquitetura e Integração}
@@ -119,7 +121,7 @@ A principal lição do projeto: \textbf{5 épocas é excessivo} para fine-tuning
 \label{sec:trabalhos-futuros}
 
 \begin{enumerate}
-    \item \textbf{Re-treino com early stopping}: Um notebook com treino único do zero, \texttt{EarlyStoppingCallback(patience=3)}, \texttt{eval\_steps=250} e \texttt{num\_train\_epochs=3} já foi preparado (\texttt{03\_fine\_tuning\_early\_stopping.ipynb}). Executá-lo e comparar o modelo resultante com o checkpoint-1500 atual validará a abordagem metodológica e poderá produzir um modelo superior, obtido de forma reprodutível em uma única sessão.
+    \item \textbf{Fine-tuning com mais dados}: O modelo atual foi treinado com $\sim$20.500 pares QA. Expandir o dataset com mais fontes médicas em português nativo (em vez de tradução automática) e guidelines atualizados poderia melhorar a qualidade das respostas.
 
     \item \textbf{Avaliação por especialistas}: Conduzir estudo cego com profissionais de saúde, comparando respostas do baseline, fine-tuned e referência sem identificação do modelo. Avaliar correção clínica, completude e segurança.
 

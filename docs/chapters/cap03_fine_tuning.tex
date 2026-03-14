@@ -506,36 +506,37 @@ $<$16GB & 1 & 16 & 16 \\
 \subsection{Resultados do Treinamento}
 \label{subsec:resultados-treino}
 
-O treinamento foi executado em servidor local com GPU NVIDIA RTX A5000 (24GB VRAM). A Tabela~\ref{tab:resultados-treino} apresenta os resultados obtidos.
+O treinamento foi executado em múltiplas sessões, utilizando tanto Google Colab (GPU T4) quanto servidor local (GPU RTX A5000). A Tabela~\ref{tab:resultados-treino} apresenta os parâmetros de uma sessão completa de 5 épocas.
 
 \begin{table}[H]
 \centering
-\caption{Resultados do treinamento}
+\caption{Parâmetros de treinamento (sessão de 5 épocas)}
 \label{tab:resultados-treino}
 \begin{tabular}{ll}
 \toprule
-\textbf{Métrica} & \textbf{Valor} \\
+\textbf{Parâmetro} & \textbf{Valor} \\
 \midrule
 Steps totais & 5.780 \\
-Loss final (treino) & 6,79 \\
-Tempo total & $\sim$55 horas \\
-Throughput & 0,47 samples/s \\
 Parâmetros treináveis & 167M (4,27\% do total) \\
 Tamanho dos adapters & $\sim$640 MB \\
 \bottomrule
 \end{tabular}
 \end{table}
 
+\begin{warningbox}[Múltiplas Sessões de Experimentação]
+O processo de fine-tuning envolveu quatro sessões de treinamento com configurações distintas de \textit{learning rate schedule}. Durante a experimentação, identificamos um fenômeno de \textbf{colapso catastrófico} após a época 1, que degradou significativamente a qualidade do modelo. A curva de loss e a análise detalhada das sessões são apresentadas no Capítulo~\ref{cap:avaliacao}.
+\end{warningbox}
+
 \begin{table}[H]
 \centering
-\caption{Tempo de treinamento por configuração}
+\caption{Tempo estimado de treinamento por configuração}
 \label{tab:tempo-treino}
 \begin{tabular}{ccccc}
 \toprule
 \textbf{Ambiente} & \textbf{GPU} & \textbf{Epochs} & \textbf{Tempo} & \textbf{Sessões} \\
 \midrule
-\textbf{Local} & \textbf{RTX A5000 (24GB)} & \textbf{5} & \textbf{$\sim$55h} & \textbf{1} \\
-Colab Free & T4 (15GB) & 5 & 10-15h & 2 \\
+Colab Free & T4 (15GB) & 5 & 10-15h & 2-3 \\
+Local & RTX A5000 (24GB) & 5 & $\sim$55h & 1 \\
 Local & RTX 4090 (24GB) & 5 & 3-4h & 1 \\
 Local & A100 (40GB) & 5 & 2-3h & 1 \\
 \bottomrule
@@ -726,16 +727,19 @@ Os resultados são salvos em:
     \item \texttt{data/evaluation/comparacao\_resultados.md} --- Relatório lado a lado
 \end{itemize}
 
-\subsection{Resultados Esperados}
+\subsection{Processo Experimental}
 
-Com base em trabalhos similares na literatura, esperamos observar:
+O processo de fine-tuning não foi linear. Foram realizadas \textbf{múltiplas sessões de treinamento} com diferentes configurações de hiperparâmetros --- variando learning rate, número de epochs, e estratégias de warmup --- para encontrar a configuração ótima que evitasse problemas como \textit{catastrophic collapse} (colapso catastrófico), um fenômeno observado em alguns experimentos onde o modelo degrada significativamente após muitas épocas.
 
+A análise completa dessas sessões experimentais, incluindo:
 \begin{itemize}
-    \item \textbf{Melhoria de 15-25\%} nas métricas BLEU e ROUGE
-    \item \textbf{Respostas mais específicas} ao domínio médico
-    \item \textbf{Terminologia técnica} mais precisa em português
-    \item \textbf{Estrutura de resposta} mais adequada para contexto clínico
+    \item Comparação de 7 checkpoints de diferentes sessões de treinamento
+    \item Avaliação multi-checkpoint com métricas BLEU, ROUGE e similaridade semântica
+    \item Identificação do checkpoint ótimo (checkpoint-1500)
+    \item Análise do fenômeno de catastrophic collapse
 \end{itemize}
+
+\noindent é apresentada em detalhes no Capítulo~\ref{cap:avaliacao}.
 
 \begin{infobox}[Limitações da Avaliação Automática]
 Métricas como BLEU e ROUGE capturam similaridade textual, mas não avaliam completamente a \textit{correção clínica} das respostas. Uma avaliação humana por profissionais de saúde seria necessária para validação completa em um cenário de produção.

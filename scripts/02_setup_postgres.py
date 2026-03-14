@@ -97,6 +97,9 @@ def start_postgres_container():
             [
                 "docker", "run", "-d",
                 "--name", CONTAINER_NAME,
+                "--restart", "unless-stopped",
+                "--shm-size", "256m",
+                "--stop-timeout", "30",
                 "-e", f"POSTGRES_DB={POSTGRES_DB}",
                 "-e", f"POSTGRES_USER={POSTGRES_USER}",
                 "-e", f"POSTGRES_PASSWORD={POSTGRES_PASSWORD}",

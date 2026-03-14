@@ -264,6 +264,9 @@ docs/lib/*.aux
 # Script de extracao de protocolos (uso local apenas)
 scripts/00_extrair_protocolos.py
 
+# Roteiro do video (uso interno do grupo)
+docs/ROTEIRO_VIDEO.md
+
 # macOS
 .DS_Store
 

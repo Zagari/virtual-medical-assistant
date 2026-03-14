@@ -130,6 +130,11 @@ def triagem_agent(state: MedicalAssistantState) -> dict:
     query_type = result.get("query_type", "protocolo")
     entities = result.get("entities", {})
 
+    # Propagar patient_id para paciente_nome se não foi extraído da query
+    # (quando o paciente é selecionado via dropdown, não aparece no texto)
+    if state.get("patient_id") and not entities.get("paciente_nome"):
+        entities["paciente_nome"] = state.get("patient_id")
+
     # Se patient_id foi fornecido na entrada, ajustar classificação
     if state.get("patient_id"):
         if query_type == "protocolo":

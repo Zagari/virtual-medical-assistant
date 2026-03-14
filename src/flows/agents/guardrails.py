@@ -152,6 +152,36 @@ def guardrails_agent(state: MedicalAssistantState) -> dict:
     else:
         logger.info("Guardrails: APROVADO")
 
+    # Gerar report amigável para interface
+    report_parts = []
+
+    if guardrail_result == "aprovado":
+        report_parts.append("**Resultado: ✅ APROVADO**\n")
+    else:
+        report_parts.append(f"**Resultado: ❌ REPROVADO** (retry {new_retry_count}/2)\n")
+
+    rule_labels = {
+        "no_prescription": "Sem prescrição direta",
+        "human_validation": "Validação humana mencionada",
+        "no_definitive_diagnosis": "Sem diagnóstico definitivo",
+        "context_consistency": "Consistência com contexto",
+    }
+
+    for check in check_results:
+        rule = check["rule"]
+        result = check["result"]
+        message = check.get("message", "")
+
+        icon = "✅" if result == "pass" else "❌"
+        rule_label = rule_labels.get(rule, rule)
+
+        line = f"{icon} **{rule_label}**"
+        if result == "fail" and message:
+            line += f": {message}"
+        report_parts.append(line)
+
+    guardrails_report = "\n".join(report_parts)
+
     audit_entry = {
         "agent": "guardrails",
         "timestamp": datetime.now().isoformat(),
@@ -160,9 +190,13 @@ def guardrails_agent(state: MedicalAssistantState) -> dict:
         "retry_count": new_retry_count,
     }
 
+    current_reports = state.get("agent_reports", {})
+    current_reports["guardrails"] = guardrails_report
+
     return {
         "guardrail_result": guardrail_result,
         "guardrail_feedback": guardrail_feedback,
         "retry_count": new_retry_count,
+        "agent_reports": current_reports,
         "audit_log": state.get("audit_log", []) + [audit_entry],
     }

@@ -82,6 +82,58 @@ def paciente_data_agent(state: MedicalAssistantState) -> dict:
         except Exception as e:
             logger.error("PacienteData: erro na consulta - %s", e)
 
+    # Gerar report amigável para interface
+    if patient_data:
+        paciente = patient_data.get("paciente", {})
+        exames = patient_data.get("exames", [])
+        prontuarios = patient_data.get("prontuarios", [])
+        receitas = patient_data.get("receitas", [])
+
+        report_parts = [
+            f"**Paciente:** {paciente.get('nome', 'N/A')}",
+            f"**Sexo:** {paciente.get('sexo', 'N/A')} | **Nascimento:** {paciente.get('data_nascimento', 'N/A')}",
+        ]
+
+        if paciente.get("comorbidades"):
+            comorbidades = paciente["comorbidades"]
+            if isinstance(comorbidades, list):
+                report_parts.append(f"**Comorbidades:** {', '.join(comorbidades)}")
+            else:
+                report_parts.append(f"**Comorbidades:** {comorbidades}")
+
+        if paciente.get("alergias"):
+            alergias = paciente["alergias"]
+            if isinstance(alergias, list):
+                report_parts.append(f"**Alergias:** {', '.join(alergias)}")
+            else:
+                report_parts.append(f"**Alergias:** {alergias}")
+
+        if paciente.get("medicamentos_em_uso"):
+            meds = paciente["medicamentos_em_uso"]
+            if isinstance(meds, list):
+                report_parts.append(f"**Medicamentos em uso:** {', '.join(meds)}")
+            else:
+                report_parts.append(f"**Medicamentos em uso:** {meds}")
+
+        report_parts.append(
+            f"\n📊 **Dados encontrados:** {len(exames)} exames, "
+            f"{len(prontuarios)} prontuários, {len(receitas)} receitas"
+        )
+
+        # Listar últimos exames
+        if exames:
+            report_parts.append("\n**Últimos exames:**")
+            for e in exames[:3]:
+                tipo = e.get("tipo", "N/A")
+                data = e.get("data", "N/A")
+                interp = e.get("interpretacao", "")
+                interp_preview = (interp[:50] + "...") if len(str(interp)) > 50 else interp
+                report_parts.append(f"  • {tipo} ({data}): {interp_preview}")
+
+        paciente_data_report = "\n".join(report_parts)
+    else:
+        paciente_data_report = "⚠️ Paciente não encontrado na base de dados."
+
     audit_entry = {
         "agent": "paciente_data",
         "timestamp": datetime.now().isoformat(),
@@ -90,7 +142,11 @@ def paciente_data_agent(state: MedicalAssistantState) -> dict:
         "found": patient_data is not None,
     }
 
+    current_reports = state.get("agent_reports", {})
+    current_reports["paciente_data"] = paciente_data_report
+
     return {
         "patient_data": patient_data,
+        "agent_reports": current_reports,
         "audit_log": state.get("audit_log", []) + [audit_entry],
     }

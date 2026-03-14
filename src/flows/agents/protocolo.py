@@ -154,6 +154,33 @@ def protocolo_agent(state: MedicalAssistantState) -> dict:
         logger.error("Protocolo: erro na busca - %s", e)
         protocols = []
 
+    # Gerar report amigável para interface
+    if protocols:
+        report_parts = [f"**{len(protocols)} protocolo(s) encontrado(s):**\n"]
+
+        diretos = [p for p in protocols if p.get("relevance") == "direta"]
+        complementares = [p for p in protocols if p.get("relevance") != "direta"]
+
+        if diretos:
+            report_parts.append("**📋 Relevância Direta:**")
+            for p in diretos[:3]:
+                source = p.get("source", "N/A")
+                section = p.get("section", "")
+                distance = p.get("distance", 0)
+                section_info = f" | {section}" if section else ""
+                report_parts.append(f"  • {source}{section_info} (dist: {distance:.2f})")
+
+        if complementares:
+            report_parts.append("\n**📎 Complementares:**")
+            for p in complementares[:2]:
+                source = p.get("source", "N/A")
+                distance = p.get("distance", 0)
+                report_parts.append(f"  • {source} (dist: {distance:.2f})")
+
+        protocolo_report = "\n".join(report_parts)
+    else:
+        protocolo_report = "⚠️ Nenhum protocolo encontrado para esta consulta."
+
     audit_entry = {
         "agent": "protocolo",
         "timestamp": datetime.now().isoformat(),
@@ -163,7 +190,11 @@ def protocolo_agent(state: MedicalAssistantState) -> dict:
         "comorbidades_used": comorbidades,
     }
 
+    current_reports = state.get("agent_reports", {})
+    current_reports["protocolo"] = protocolo_report
+
     return {
         "protocols": protocols,
+        "agent_reports": current_reports,
         "audit_log": state.get("audit_log", []) + [audit_entry],
     }

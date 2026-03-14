@@ -405,10 +405,10 @@ def _startup_load() -> tuple[list[str], str, str]:
 # Funcao principal de consulta
 # ---------------------------------------------------------------------------
 
-def consultar(query: str, patient_id: str, model_label: str) -> tuple[str, str, str, str, str, str]:
-    """Executa o assistente e retorna (resposta, confianca, fontes, audit_log, modelo_ativo, status)."""
+def consultar(query: str, patient_id: str, model_label: str) -> tuple[str, str, str, str, str, str, str]:
+    """Executa o assistente e retorna (resposta, confianca, fontes, pipeline, audit_log, modelo_ativo, status)."""
     if not query.strip():
-        return "Por favor, digite uma consulta.", "", "", "", gr.update(), gr.update()
+        return "Por favor, digite uma consulta.", "", "", "", "", gr.update(), gr.update()
 
     pid = patient_id.strip() if patient_id and patient_id.strip() else None
 
@@ -426,7 +426,7 @@ def consultar(query: str, patient_id: str, model_label: str) -> tuple[str, str, 
         result = run_assistant(query=query.strip(), patient_id=pid, llm=_current_llm_fn)
     except Exception as e:
         logger.error("Erro ao executar assistente: %s", e)
-        return f"Erro interno: {e}", "", "", "", modelo_ativo, model_status_msg
+        return f"Erro interno: {e}", "", "", "", "", modelo_ativo, model_status_msg
 
     resposta = result.get("final_response", "Sem resposta.")
 
@@ -437,10 +437,30 @@ def consultar(query: str, patient_id: str, model_label: str) -> tuple[str, str, 
     sources = result.get("sources", [])
     fontes = "\n".join(f"• {s}" for s in sources) if sources else "Nenhuma fonte citada."
 
+    # Formatar pipeline de agentes
+    agent_reports = result.get("agent_reports", {})
+    pipeline_parts = []
+
+    agent_order = [
+        ("triagem", "🔍 TRIAGEM"),
+        ("paciente_data", "👤 DADOS DO PACIENTE"),
+        ("protocolo", "📋 PROTOCOLOS"),
+        ("raciocinio", "🧠 RACIOCÍNIO"),
+        ("guardrails", "🛡️ GUARDRAILS"),
+        ("explicabilidade", "📊 EXPLICABILIDADE"),
+    ]
+
+    for agent_key, agent_title in agent_order:
+        report = agent_reports.get(agent_key)
+        if report:
+            pipeline_parts.append(f"### {agent_title}\n{report}")
+
+    pipeline_str = "\n\n---\n\n".join(pipeline_parts) if pipeline_parts else "*Pipeline não disponível*"
+
     audit = result.get("audit_log", [])
     audit_str = json.dumps(audit, indent=2, ensure_ascii=False, default=str)
 
-    return resposta, confianca, fontes, audit_str, modelo_ativo, model_status_msg
+    return resposta, confianca, fontes, pipeline_str, audit_str, modelo_ativo, model_status_msg
 
 
 # ---------------------------------------------------------------------------
@@ -515,13 +535,18 @@ def build_interface() -> gr.Blocks:
                     label="Fontes consultadas", lines=6, interactive=False,
                 )
 
+        with gr.Accordion("Pipeline de Agentes", open=False):
+            pipeline_output = gr.Markdown(
+                value="*Aguardando consulta...*",
+            )
+
         gr.Markdown("### Resposta do Assistente")
         resposta_output = gr.Markdown(
             value="*Aguardando consulta...*",
         )
 
-        with gr.Accordion("Log de Auditoria", open=False):
-            audit_output = gr.Code(label="Audit Log (JSON)", language="json")
+        with gr.Accordion("Log de Auditoria (JSON)", open=False):
+            audit_output = gr.Code(label="Audit Log", language="json")
 
         gr.Examples(
             examples=EXAMPLES,
@@ -550,7 +575,8 @@ def build_interface() -> gr.Blocks:
         )
 
         consultar_outputs = [
-            resposta_output, confianca_output, fontes_output, audit_output,
+            resposta_output, confianca_output, fontes_output,
+            pipeline_output, audit_output,
             model_selector, model_status,
         ]
 

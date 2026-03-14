@@ -158,6 +158,27 @@ def triagem_agent(state: MedicalAssistantState) -> dict:
 
     logger.info("Triagem: query_type=%s, entities=%s", query_type, entities)
 
+    # Gerar report amigável para interface
+    query_type_labels = {
+        "protocolo": "📋 Consulta de Protocolo",
+        "paciente": "👤 Consulta de Paciente",
+        "ambos": "📋👤 Protocolo + Paciente",
+        "fora_de_escopo": "❌ Fora de Escopo",
+    }
+    triagem_report_parts = [
+        f"**Tipo:** {query_type_labels.get(query_type, query_type)}",
+    ]
+    if entities.get("paciente_nome"):
+        triagem_report_parts.append(f"**Paciente:** {entities['paciente_nome']}")
+    if entities.get("condicao"):
+        triagem_report_parts.append(f"**Condição:** {entities['condicao']}")
+    if entities.get("medicamento"):
+        triagem_report_parts.append(f"**Medicamento:** {entities['medicamento']}")
+    if entities.get("exame"):
+        triagem_report_parts.append(f"**Exame:** {entities['exame']}")
+
+    triagem_report = "\n".join(triagem_report_parts)
+
     audit_entry = {
         "agent": "triagem",
         "timestamp": datetime.now().isoformat(),
@@ -165,8 +186,12 @@ def triagem_agent(state: MedicalAssistantState) -> dict:
         "entities": entities,
     }
 
+    current_reports = state.get("agent_reports", {})
+    current_reports["triagem"] = triagem_report
+
     return {
         "query_type": query_type,
         "entities": entities,
+        "agent_reports": current_reports,
         "audit_log": state.get("audit_log", []) + [audit_entry],
     }

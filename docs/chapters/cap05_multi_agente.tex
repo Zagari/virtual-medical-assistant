@@ -516,8 +516,43 @@ A interface do assistente (\texttt{app/main.py}) é construída com Gradio e exp
     \item \textbf{Paciente:} dropdown filtrável com os 80 pacientes do banco (preenchido via PostgreSQL ou fallback JSON);
     \item \textbf{Seletor de Modelo LLM:} controle Radio com as opções disponíveis na máquina atual (Fine-Tuned, GGUF, Baseline ou Sem LLM), com detecção automática de hardware;
     \item \textbf{Status do modelo:} campo que exibe qual modelo está ativo e mensagens de carregamento/troca;
+    \item \textbf{Pipeline de Agentes:} accordion expansível que exibe o \textit{report} de cada agente durante a execução, permitindo ao usuário visualizar o que cada etapa do grafo processou: classificação da triagem, dados do paciente recuperados, protocolos encontrados, resumo do raciocínio, resultado dos guardrails e métricas de explicabilidade;
     \item \textbf{Resposta:} saída formatada com resposta clínica, nível de confiança (alta/média/baixa) e fontes consultadas;
     \item \textbf{Log de auditoria:} accordion expansível com o JSON completo do trace de execução.
 \end{itemize}
+
+O \textbf{Pipeline de Agentes} foi projetado para fins de transparência e demonstração do funcionamento interno do sistema multi-agente. Cada agente adiciona um relatório amigável ao campo \texttt{agent\_reports} do estado compartilhado, que é então formatado em Markdown e exibido em seções separadas por agente. Um exemplo de visualização do pipeline:
+
+\begin{lstlisting}[caption={Exemplo de report do Pipeline de Agentes na interface Gradio.}]
+### TRIAGEM
+**Tipo:** Protocolo + Paciente
+**Paciente:** Maria Santos
+**Condicao:** diabetes
+
+### DADOS DO PACIENTE
+**Paciente:** Maria Santos
+**Comorbidades:** hipertensao, diabetes tipo 2
+Dados encontrados: 3 exames, 2 prontuarios
+
+### PROTOCOLOS
+**5 protocolo(s) encontrado(s):**
+Relevancia Direta:
+  - Pathway-Diabetes | Tratamento (dist: 0.23)
+  - Pathway-Hipertensao (dist: 0.31)
+
+### RACIOCINIO
+**Resposta gerada:** 187 palavras
+**Contexto utilizado:** 5 protocolos + dados do paciente
+
+### GUARDRAILS
+**Resultado: APROVADO**
+- Sem prescricao direta
+- Validacao humana mencionada
+- Sem diagnostico definitivo
+
+### EXPLICABILIDADE
+**Confianca:** Alta
+**Fontes diretas:** 4
+\end{lstlisting}
 
 Ao trocar o modelo pelo seletor, o sistema descarrega o anterior da memória e carrega o novo sob demanda (\textit{lazy loading}), garantindo que apenas um modelo ocupe memória por vez.

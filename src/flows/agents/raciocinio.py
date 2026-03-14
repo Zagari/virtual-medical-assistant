@@ -130,6 +130,33 @@ def raciocinio_agent(state: MedicalAssistantState) -> dict:
     else:
         draft_response = _fallback_response(query, protocols, patient_data)
 
+    # Gerar report amigável para interface
+    word_count = len(draft_response.split())
+    context_parts_report = []
+    if protocols:
+        context_parts_report.append(f"{len(protocols)} protocolos")
+    if patient_data:
+        context_parts_report.append("dados do paciente")
+    context_str = " + ".join(context_parts_report) if context_parts_report else "sem contexto"
+
+    report_parts = [
+        f"**Resposta gerada:** {word_count} palavras",
+        f"**Contexto utilizado:** {context_str}",
+    ]
+
+    if retry_count > 0:
+        report_parts.append(f"⚠️ **Retry #{retry_count}** (ajuste solicitado pelo Guardrails)")
+        if guardrail_feedback:
+            report_parts.append(f"**Feedback recebido:** {guardrail_feedback}")
+
+    # Preview da resposta (primeiras 150 chars)
+    preview = draft_response[:150].replace("\n", " ")
+    if len(draft_response) > 150:
+        preview += "..."
+    report_parts.append(f"\n**Preview:** {preview}")
+
+    raciocinio_report = "\n".join(report_parts)
+
     audit_entry = {
         "agent": "raciocinio",
         "timestamp": datetime.now().isoformat(),
@@ -139,8 +166,12 @@ def raciocinio_agent(state: MedicalAssistantState) -> dict:
         "response_length": len(draft_response),
     }
 
+    current_reports = state.get("agent_reports", {})
+    current_reports["raciocinio"] = raciocinio_report
+
     return {
         "draft_response": draft_response,
+        "agent_reports": current_reports,
         "audit_log": state.get("audit_log", []) + [audit_entry],
     }
 

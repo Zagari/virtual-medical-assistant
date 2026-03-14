@@ -33,3 +33,6 @@ class MedicalAssistantState(TypedDict):
 
     # Auditoria
     audit_log: list[dict]
+
+    # Reports amigáveis para interface
+    agent_reports: dict

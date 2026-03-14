@@ -144,6 +144,7 @@ def run_assistant(
         "confidence": "baixa",
         "warnings": [],
         "audit_log": [],
+        "agent_reports": {},
     }
 
     # Injetar LLM no state (será removida do output)

@@ -178,6 +178,25 @@ def explicabilidade_agent(state: MedicalAssistantState) -> dict:
         confidence, len(fontes_diretas), len(fontes_complementares), len(warnings),
     )
 
+    # Gerar report amigável para interface
+    report_parts = [
+        f"**Confiança:** {confidence_labels.get(confidence, confidence)}",
+        f"**Fontes diretas:** {len(fontes_diretas)}",
+        f"**Fontes complementares:** {len(fontes_complementares)}",
+    ]
+
+    if fontes_diretas:
+        report_parts.append("\n**Fontes citadas:**")
+        for s in fontes_diretas[:4]:
+            report_parts.append(f"  • {s}")
+
+    if warnings:
+        report_parts.append(f"\n**Advertências:** {len(warnings)}")
+        for w in warnings:
+            report_parts.append(f"  ⚠️ {w}")
+
+    explicabilidade_report = "\n".join(report_parts)
+
     audit_entry = {
         "agent": "explicabilidade",
         "timestamp": datetime.now().isoformat(),
@@ -187,10 +206,14 @@ def explicabilidade_agent(state: MedicalAssistantState) -> dict:
         "warnings": warnings,
     }
 
+    current_reports = state.get("agent_reports", {})
+    current_reports["explicabilidade"] = explicabilidade_report
+
     return {
         "final_response": final_response,
         "sources": all_sources,
         "confidence": confidence,
         "warnings": warnings,
+        "agent_reports": current_reports,
         "audit_log": state.get("audit_log", []) + [audit_entry],
     }

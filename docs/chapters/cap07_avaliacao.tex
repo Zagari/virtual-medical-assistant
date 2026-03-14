@@ -31,7 +31,7 @@ A Seção~\ref{sec:avaliacao-ft} do Capítulo~\ref{cap:fine-tuning} apresentou a
 \end{tabularx}
 \end{table}
 
-A \textbf{Trilha A} compara as respostas do modelo fine-tuned com as do baseline, medindo a sobreposição lexical entre eles. A \textbf{Trilha B} compara com as respostas de referência do dataset MedQuAD, incluindo \textbf{similaridade semântica} via embeddings (modelo \texttt{intfloat/multilingual-e5-base}), oferecendo uma avaliação mais rigorosa da qualidade clínica.
+A \textbf{Trilha A} compara as respostas do modelo fine-tuned com as do baseline, medindo a sobreposição lexical entre eles. A \textbf{Trilha B} compara com as respostas de referência do dataset MedQuAD, incluindo \textbf{similaridade semântica} via embeddings (modelo E5 multilíngue), oferecendo uma avaliação mais rigorosa da qualidade clínica.
 
 \subsection{Checkpoints Avaliados}
 
@@ -76,7 +76,7 @@ Esta diferença é discutida na Seção~\ref{subsec:influencia-lr}. A comparaç�
 Além das métricas já descritas na Seção~\ref{sec:avaliacao-ft}, duas métricas adicionais foram incorporadas para a avaliação multi-checkpoint:
 
 \begin{itemize}
-    \item \textbf{Similaridade semântica} (apenas Trilha B): Cosine similarity entre embeddings da resposta gerada e da resposta de referência, usando o modelo \texttt{intfloat/multilingual-e5-base}. Captura equivalência de significado mesmo com formulações diferentes.
+    \item \textbf{Similaridade semântica} (apenas Trilha B): Cosine similarity entre embeddings da resposta gerada e da resposta de referência, usando o modelo E5 multilíngue. Captura equivalência de significado mesmo com formulações diferentes.
     \item \textbf{Taxa de repetição}: Proporção de 3-gramas repetidos na resposta. Valores altos ($>$0,20) indicam que o modelo está gerando texto repetitivo --- um sintoma clássico de overfitting.
 \end{itemize}
 

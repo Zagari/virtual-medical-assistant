@@ -479,7 +479,7 @@ else:
 \subsection{Execução Local}
 \label{subsec:execucao-local}
 
-Para usuários com acesso a GPUs locais (RTX 3090, 4090, A100, etc.), o notebook \texttt{03\_fine\_tuning\_local.ipynb} oferece vantagens:
+Para usuários com acesso a GPUs locais (RTX 3090, 4090, A100, etc.), o notebook de execução local (\texttt{03\_fine\_tuning\_local.ipynb}) oferece vantagens:
 
 \begin{itemize}
     \item \textbf{Sem limite de sessão}: Treino contínuo sem interrupções
@@ -614,7 +614,7 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 \end{lstlisting}
 
-Na aplicação, a variável de ambiente \texttt{FINE\_TUNED\_MODEL} controla a origem. O \texttt{.env.example} do projeto já vem configurado com o repositório do Hub, permitindo que quem clonar o projeto utilize o modelo sem precisar re-treinar.
+Na aplicação, a variável de ambiente \texttt{FINE\_TUNED\_MODEL} controla a origem. O arquivo \texttt{.env.example} do projeto já vem configurado com o repositório do Hub, permitindo que quem clonar o projeto utilize o modelo sem precisar re-treinar.
 
 \subsection{Exportação para GGUF (Inferência sem GPU)}
 \label{subsec:gguf}

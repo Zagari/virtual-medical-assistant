@@ -81,7 +81,7 @@ A principal lição do projeto: \textbf{5 épocas é excessivo} para fine-tuning
 
     \item \textbf{Monitoramento granular}: Configurar \texttt{eval\_steps=250} e \texttt{save\_steps=250} desde o início teria permitido identificar o ponto ótimo com precisão e interrompê-lo automaticamente via \textit{early stopping}.
 
-    \item \textbf{LR schedule como hiperparâmetro crítico}: A análise das três sessões de treinamento (Seção~\ref{subsec:influencia-lr}) revelou que o comportamento do modelo no mesmo step varia drasticamente conforme o \texttt{max\_steps} configurado. Um modelo treinado com \texttt{max\_steps=1.500} converge suavemente onde um com \texttt{max\_steps=5.780} colapsa, devido exclusivamente à diferença no learning rate.
+    \item \textbf{LR schedule como hiperparâmetro crítico}: A análise das três sessões de treinamento (Seção~\ref{subsec:influencia-lr}) revelou que o comportamento do modelo no mesmo step varia drasticamente conforme o \texttt{max\_steps}. Um modelo com 1.500 steps converge suavemente onde um com 5.780 colapsa, devido à diferença no learning rate.
 
     \item \textbf{Colapso e recuperação}: O padrão aprendizado $\rightarrow$ colapso $\rightarrow$ recuperação parcial (Seção~\ref{sec:discussao-avaliacao}) é um fenômeno documentado na literatura, mas observá-lo em primeira mão reforça a necessidade de monitoramento contínuo.
 

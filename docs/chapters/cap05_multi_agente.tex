@@ -72,7 +72,7 @@ O estado compartilhado entre todos os nós é definido pelo \texttt{MedicalAssis
     & \texttt{patient\_id} & \texttt{Optional[str]} & ID ou nome do paciente \\
 \midrule
 \multirow{2}{*}{Triagem}
-    & \texttt{query\_type} & \texttt{Literal[4]} & protocolo $|$ paciente $|$ ambos $|$ fora\_de\_escopo \\
+    & \texttt{query\_type} & \texttt{Literal} & Tipo: protocolo, paciente, ambos ou fora\_de\_escopo \\
     & \texttt{entities} & \texttt{dict} & Entidades extraídas (paciente, condição, etc.) \\
 \midrule
 \multirow{2}{*}{Contexto}
@@ -448,12 +448,12 @@ Para ilustrar o funcionamento completo, considere a seguinte consulta:
 \end{warningbox}
 
 \begin{enumerate}
-    \item \textbf{Triagem} $\rightarrow$ \texttt{query\_type="ambos"}, \texttt{entities=\{paciente: "Maria Santos", condicao: "diabetes"\}}
+    \item \textbf{Triagem} $\rightarrow$ tipo ``ambos'', entidades: paciente=Maria Santos, condição=diabetes
     \item \textbf{Paciente Data} $\rightarrow$ PostgreSQL $\rightarrow$ Maria Santos: comorbidades=[hipertensão, diabetes], exames, medicamentos
     \item \textbf{Protocolo} $\rightarrow$ Busca híbrida: (1) query limpa ``exames seguimento diabética'' $\rightarrow$ protocolos de diabetes e emergência; (2) ``+ hipertensão'' e ``+ diabetes'' por comorbidade $\rightarrow$ Pathway-Hipertensão + Pathway-Diabetes (diretos) + protocolos complementares
     \item \textbf{Raciocínio} $\rightarrow$ Mistral 7B FT sintetiza resposta com protocolos relevantes + dados da paciente
     \item \textbf{Guardrails} $\rightarrow$ 4 regras verificadas $\rightarrow$ \texttt{aprovado}
-    \item \textbf{Explicabilidade} $\rightarrow$ Confiança: alta | Fontes diretas: [Pathway-Diabetes, Pathway-Hipertensão, Exame HbA1C]
+    \item \textbf{Explicabilidade} $\rightarrow$ Confiança alta, fontes: Diabetes, Hipertensão, Exame HbA1C
     \item \textbf{Logger} $\rightarrow$ Registro JSON persistido em \texttt{logs/audit\_2026-03-06.jsonl}
 \end{enumerate}
 
@@ -485,7 +485,7 @@ Para ilustrar o funcionamento completo, considere a seguinte consulta:
 \section{Decisões de Design}
 
 \begin{enumerate}
-    \item \textbf{Estado compartilhado vs.\ mensagens:} Optamos por estado compartilhado (\texttt{TypedDict}) ao invés de troca de mensagens entre agentes. Isso simplifica o fluxo e permite que cada agente acesse o contexto completo sem repropagação.
+    \item \textbf{Estado compartilhado vs.\ mensagens:} Optamos por estado compartilhado ao invés de troca de mensagens entre agentes. Isso simplifica o fluxo e permite que cada agente acesse o contexto completo sem repropagação.
 
     \item \textbf{Fallbacks em cada agente:} Cada agente possui lógica de fallback para funcionar mesmo sem dependências externas (LLM, ChromaDB, PostgreSQL), facilitando testes unitários e desenvolvimento incremental.
 
@@ -493,7 +493,7 @@ Para ilustrar o funcionamento completo, considere a seguinte consulta:
 
     \item \textbf{Auditoria acumulativa:} O campo \texttt{audit\_log} é incrementado por cada agente (append-only), criando um trace completo de execução sem overhead de um sistema de observabilidade externo.
 
-    \item \textbf{LLM injetável com cascata de fallback:} A LLM é passada via parâmetro (\texttt{run\_assistant(query, llm=...)}) ao invés de ser instanciada dentro do grafo. No startup, o sistema tenta carregar o melhor modelo disponível em cascata:
+    \item \textbf{LLM injetável com cascata de fallback:} A LLM é passada via parâmetro ao invés de ser instanciada dentro do grafo. No startup, o sistema tenta carregar o melhor modelo disponível em cascata:
 
     \begin{enumerate}
         \item \textbf{Fine-Tuned LoRA} (path local ou Hugging Face Hub) --- requer CUDA;
@@ -502,7 +502,7 @@ Para ilustrar o funcionamento completo, considere a seguinte consulta:
         \item \textbf{Sem LLM} --- respostas baseadas apenas nos protocolos recuperados.
     \end{enumerate}
 
-    A detecção é automática: se \texttt{torch.cuda.is\_available()} retorna \texttt{True}, carrega via \texttt{transformers}; caso contrário, tenta GGUF via \texttt{llama-cpp-python}. Ao trocar de modelo, o anterior é liberado da memória (\texttt{del model} + \texttt{gc.collect()} + \texttt{torch.cuda.empty\_cache()}) para evitar dois modelos simultâneos na RAM/VRAM.
+    A detecção é automática: se CUDA está disponível, carrega via \texttt{transformers}; caso contrário, tenta GGUF via \texttt{llama-cpp-python}. Ao trocar de modelo, o anterior é liberado da memória para evitar dois modelos simultâneos na RAM/VRAM.
 
     \item \textbf{Paciente antes de protocolo + busca híbrida:} Para queries tipo ``ambos'', o grafo busca os dados do paciente \emph{antes} dos protocolos. Isso permite busca híbrida no ChromaDB: primeiro pelos \textbf{sintomas} da query (capturando protocolos de emergência como IAM quando há ``dor no peito''), depois por \textbf{comorbidade} do paciente (cobertura de condições crônicas). A query é pré-processada com remoção de stop words e nome do paciente para maximizar a relevância semântica.
 \end{enumerate}

@@ -33,7 +33,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 # ---------------------------------------------------------------------------
 
 DEFAULT_MODEL_DIR = PROJECT_ROOT / "models" / "medical-assistant-final"
-GGUF_OUTPUT_DIR = Path("/mnt/dados/interno/gguf")
+GGUF_OUTPUT_DIR = Path("/mnt/dados/tmp/gguf")
 QUANTIZATION = "q4_k_m"
 GGUF_README_PATH = PROJECT_ROOT / "models" / "gguf" / "README.md"
 

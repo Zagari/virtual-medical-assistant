@@ -270,4 +270,4 @@ MIT License - veja [LICENSE](LICENSE) para detalhes.
 
 - [Repositório GitHub](https://github.com/Zagari/virtual-medical-assistant)
 - [Modelo no Hugging Face Hub](https://huggingface.co/zagari/medical-assistant-mistral-7b-ft)
-- [Vídeo Demonstrativo](https://youtube.com/TODO)
+- [Vídeo Demonstrativo](https://www.youtube.com/watch?v=U3Sw_IjHIMg)
